@@ -1,0 +1,1050 @@
+/* ============================================================ 
+   PROYECTO: ECOSISTEMA DE PAGOS POS (SISTEMA DE DISEÑO) 
+   ============================================================ */
+
+
+/* VARIABLE LOCAL PARA EL SEPARADOR */
+
+:root {
+    --line-separator: rgba(0, 0, 0, 0.08);
+    /* Fallbacks de seguridad por si index.css no carga */
+    --accent: #ea580c;
+    --text: #212121;
+    --text-soft: #424242;
+    --text-main: #1a1a1a;
+    --surface: #ffffff;
+    --surface-2: #F8FAFC;
+    --card-radius: 18px;
+    --line: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode {
+    --line-separator: rgba(255, 255, 255, 0.1);
+}
+
+.header-container,
+.navbar {
+    position: sticky;
+    /* O fixed si quieres que flote sobre todo siempre */
+    top: 0;
+    width: 100%;
+    z-index: 9999 !important;
+    /* Fuerza la prioridad sobre el stepper */
+    /* Prioridad alta para que nada lo cubra al hacer scroll */
+    background: rgba(255, 255, 255, 0.88);
+    /* El blur solo funciona con transparencia */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+}
+
+body.dark-mode .navbar {
+    background: rgba(11, 18, 32, 0.82);
+}
+
+.menu-toggle,
+#hamburger-menu {
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 10001 !important;
+}
+
+
+/* 1. LAYOUT & ESTRUCTURA DE CAPAS (SISTEMA IRROMPIBLE) */
+
+.project-detail {
+    background: var(--bg, #fff);
+}
+
+
+/* CAPA 1: Wrapper (Fondo y Línea) */
+
+.section-wrapper {
+    width: 100%;
+    display: block;
+    padding: 100px 0px 100px;
+}
+
+.section-wrapper.border-top {
+    border-top: 1px solid var(--line-separator);
+}
+
+
+/* CAPA 2: Content (Aire sagrado de 100px) */
+
+.section-content {
+    padding: 60px 0;
+}
+
+.section-content h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+
+/* CAPA 3: Container (Ancho máximo) */
+
+.container {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0px 32px;
+}
+
+.container.narrow {
+    max-width: 800px;
+}
+
+.breadcrumb-nav {
+    padding: 20px 0;
+    background: var(--bg);
+}
+
+.breadcrumb-list {
+    display: flex;
+    list-style: none;
+    gap: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-soft);
+}
+
+.breadcrumb-list li:not(:last-child)::after {
+    content: "/";
+    margin-left: 12px;
+    color: var(--line);
+    font-weight: 400;
+}
+
+.breadcrumb-list a {
+    transition: color 0.2s ease;
+}
+
+.breadcrumb-list a:hover {
+    color: var(--accent);
+}
+
+.breadcrumb-list li[aria-current="page"] {
+    color: var(--text);
+    font-weight: 600;
+    pointer-events: none;
+}
+
+
+/* Ajuste para Dark Mode sutil */
+
+body.dark-mode .breadcrumb-list li:not(:last-child)::after {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* ============================================================ 
+   AJUSTE: STEPPER FLOTANTE CENTRAL Y DINÁMICO
+   ============================================================ */
+
+
+/* 1. Reajuste del Layout para que el contenido vuelva al centro */
+
+.case-study-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+    /* Espacio entre el stepper y el contenido */
+    position: relative;
+    width: 100%;
+}
+
+.case-study-content {
+    flex: 1;
+    /* Esto obliga al contenido a ocupar todo el ancho restante */
+    min-width: 0;
+    /* Evita que elementos anchos (imágenes) rompan el flex */
+}
+
+
+/* 2. Stepper Fixed y Centrado Verticalmente a la izquierda */
+
+
+/* Lo situamos a 40px del borde para no tapar texto, pero fijo en pantalla */
+
+.project-stepper {
+    position: fixed;
+    top: 50%;
+    right: 32px;
+    transform: translateY(-50%);
+    z-index: 100;
+    /* Estado inicial: Oculto y un poco desplazado a la derecha */
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 20px 12px;
+    border-radius: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    pointer-events: none;
+    /* Agrega esto */
+    visibility: hidden;
+    /* Agrega esto */
+}
+
+
+/* El ajuste que mencionabas para no tapar el inicio */
+
+article[id] {
+    scroll-margin-top: 100px;
+}
+
+
+/* Clase que activará el JavaScript */
+
+.project-stepper.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    right: 40px;
+    /* Se desliza suavemente hacia adentro */
+}
+
+.stepper-item {
+    display: flex;
+    flex-direction: row;
+    /* Alineación horizontal */
+    align-items: center;
+    justify-content: flex-end;
+    /* Empuja todo hacia el punto */
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-soft);
+    opacity: 0.3;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.stepper-item::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: var(--text-soft);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+
+/* El puntito indicador del stepper */
+
+.stepper-item::before {
+    display: none;
+}
+
+
+/* 3. Estado Activo (Cambio de color al scroll) */
+
+
+/* Esto hace que al saltar a un ID (#cap1), el scroll se detenga 120px antes */
+
+article[id],
+section[id] {
+    scroll-margin-top: 120px;
+}
+
+
+/* Asegura un scroll suave */
+
+
+/* Escondemos el texto por defecto para un look minimalista */
+
+.step-label {
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    display: none;
+    /* Lo mostraremos solo al hacer hover o estar activo */
+}
+
+.stepper-item.active {
+    opacity: 1;
+    color: var(--accent);
+    transform: translateX(5px);
+    /* Pequeño desplazamiento visual */
+}
+
+.stepper-item.active::before {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px rgba(234, 88, 12, 0.3);
+}
+
+.stepper-item.active .step-label {
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+
+/* HOVER: Mostrar etiqueta al pasar el mouse */
+
+.project-stepper:hover .step-label {
+    display: block;
+}
+
+
+/* DARK MODE ADAPTATION */
+
+body.dark-mode .project-stepper {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* Modificadores de fondo */
+
+.bg-surface-2 {
+    background-color: var(--surface-2);
+}
+
+
+/* --- SECTION: PROCESS INTRO --- */
+
+.process-intro {
+    padding: 100px 0 60px 0;
+    /* Espaciado generoso para dar aire antes del contenido denso */
+    background-color: var(--bg-surface);
+}
+
+.process-header {
+    max-width: 1122px;
+    /* Ancho controlado para mejorar la legibilidad del párrafo */
+    margin: 0 auto;
+    text-align: left;
+}
+
+
+/* Estilo para el subtítulo pequeño (Eyebrow) */
+
+.process-header .eyebrow {
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--accent);
+    margin-bottom: 16px;
+    letter-spacing: 0.15em;
+}
+
+
+/* Título Principal de la sección */
+
+.process-header h3 {
+    max-width: 800px;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: var(--text-main);
+}
+
+
+/* Descripción de la metodología */
+
+.process-header .section-description {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: var(--text-soft);
+    margin-bottom: 0;
+    max-width: 800px;
+}
+
+
+/* 2. HERO & METADATA */
+
+.project-detail-hero {
+    padding: 160px 0px 0px;
+}
+
+.project-header h1 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    max-width: 860px;
+}
+
+.project-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-soft);
+    max-width: 850px;
+    line-height: 1.5;
+}
+
+.project-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 40px;
+    padding: 60px 0;
+    border-top: 1px;
+    margin-top: 60px;
+    width: 100%;
+}
+
+.icon-box {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+}
+
+
+/* Si usas SVGs directos */
+
+.icon-box svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 1.5px;
+}
+
+.project-meta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.project-meta-item span {
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.project-meta-item p {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+.problem-statement h2 {
+    font-size: 2.25rem;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    color: var(--text-main);
+}
+
+.problem-statement .col-text h3 {
+    display: inline-block;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--accent);
+    margin-bottom: 16px;
+    letter-spacing: 0.15em;
+}
+
+.problem-statement .col-text p {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: var(--text-soft);
+}
+
+
+/* Para que la caja de hipótesis destaque */
+
+.problem-statement .data-box {
+    border-left: 4px solid var(--accent);
+    background: var(--surface);
+    padding: 32px;
+    font-style: italic;
+}
+
+
+/* 3. GRIDS & COMPONENTES DE DISEÑO */
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.two-columns-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    /* Restaurado: centrado vertical de visual/texto */
+}
+
+
+/* Ajuste específico para IA Flow y Pilares */
+
+.ia-flow-grid,
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.metric-card {
+    background: var(--surface);
+    padding: 40px 32px;
+    border-radius: var(--card-radius);
+    border: 1px solid var(--line, #eee);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-soft);
+}
+
+.metric-card p {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--text-soft);
+}
+
+.metric-card strong {
+    display: block;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    border-color: var(--accent);
+}
+
+.metric-value {
+    display: block;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.metric-label {
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.metric-description {
+    font-size: 1rem;
+    color: var(--text-soft);
+    line-height: 1.5;
+    text-align: center;
+}
+
+
+/* 4. ELEMENTOS NARRATIVOS */
+
+.stage-tag {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--accent);
+    margin-bottom: 16px;
+    letter-spacing: 0.15em;
+}
+
+.col-text h3 {
+    font-size: 1.25rem;
+    color: var(--text-soft);
+}
+
+.col-text p {
+    font-size: 1.125rem;
+    color: var(--text-soft);
+}
+
+.col-text {
+    font-size: 1.125rem;
+    color: var(--text-soft);
+}
+
+.highlight-list {
+    padding-left: 20px;
+    border-left: 3px solid var(--accent);
+    transition: border-color 0.3s ease;
+}
+
+.highlight-list strong {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-soft);
+}
+
+.highlight-list p {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--text-soft);
+}
+
+.image-placeholder {
+    background: var(--surface-2);
+    border-radius: var(--card-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 350px;
+    width: 100%;
+}
+
+
+/* 3. Control de la imagen interna */
+
+.image-placeholder img {
+    max-width: 90%;
+    /* O el porcentaje que prefieras para que no sea gigante */
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    /* Un radio menor para la imagen interna queda muy bien */
+}
+
+.image-placeholder.mini {
+    min-height: 250px;
+}
+
+
+/* Cajas de Información */
+
+.guerrilla-box {
+    padding: 60px 0px;
+    border: none;
+    margin-top: 60px;
+}
+
+.guerrilla-box h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-soft);
+    margin: 0 0 40px 0;
+    line-height: 1.2;
+}
+
+.qa-box {
+    background-color: var(--surface-2);
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.qa-box h4 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.qa-box h4::before {
+    content: "";
+    width: 12px;
+    height: 2px;
+    background: var(--accent);
+}
+
+.qa-box p {
+    font-size: 1.125rem;
+    color: var(--text-soft);
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 400;
+}
+
+.data-box {
+    padding: 32px;
+    background: var(--surface-2);
+    border: none;
+    border-radius: 16px;
+    margin-top: 24px;
+    /* Corregido: margen para bloques independientes */
+    color: var(--text-soft);
+    font-size: 1.125rem;
+}
+
+.hypothesis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    width: 100%;
+}
+
+.hypo-item {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px;
+    background: var(--surface, #ffffff);
+    border-radius: var(--card-radius, 18px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+    border: 1px solid var(--line, #e5e7eb);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hypo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+
+/* 5. ESTRATEGIA Y FEEDBACK */
+
+.question-container {
+    margin: 40px auto;
+    padding: 100px 48px;
+    background: var(--surface-2);
+    border-radius: var(--card-radius, 18px);
+    text-align: center;
+    max-width: 1200px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.question-text {
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text-soft);
+    line-height: 1.4;
+    margin: 0 auto;
+    max-width: 1000px;
+    text-wrap: balance;
+}
+
+.question-text::before {
+    content: "“";
+    display: block;
+    font-size: 5rem;
+    color: var(--accent);
+    font-family: serif;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.question-text strong {
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.feedback-grid-detailed {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+
+/* 6. REFLEXIÓN Y UTILIDADES */
+
+.final-reflection {
+    text-align: center;
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reflection-text {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: var(--text-soft);
+    margin: 32px auto;
+    max-width: 720px;
+    font-weight: 400;
+}
+
+.cta-internal {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.mt-60 {
+    margin-top: 60px;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 16px 32px;
+    background: transparent;
+    color: var(--text-soft);
+    border: 2px solid var(--line-separator);
+    border-radius: 50px;
+    /* Estilo píldora */
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: var(--text-soft);
+    color: var(--surface);
+    border-color: var(--text-soft);
+    transform: translateY(-3px);
+}
+
+
+/* ============================================================ 
+   BLOQUE DARK MODE (AGREGAR PARA REPARAR) 
+   ============================================================ */
+
+body.dark-mode {
+    /* Definición de los nuevos valores para las variables existentes */
+    --bg: #0b1220;
+    --surface: #0f172a;
+    --surface-2: #111827;
+    --text: #e5e7eb;
+    --text-soft: #94a3b8;
+    --text-main: #f8fafc;
+    --line: rgba(255, 255, 255, 0.12);
+    --line-separator: rgba(255, 255, 255, 0.12);
+    --accent: #f97316;
+}
+
+
+/* Aplicación de fondo general si no estaba heredando */
+
+body.dark-mode .project-detail {
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+
+/* Forzar el color de títulos que usan variables específicas o colores fijos */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode .metric-card h4,
+body.dark-mode .feature-title,
+body.dark-mode .guerrilla-box h3 {
+    color: var(--text-soft);
+}
+
+
+/* Ajuste de bordes para cards y secciones */
+
+body.dark-mode .metric-card,
+body.dark-mode .hypo-item,
+body.dark-mode .stat-card,
+body.dark-mode .qa-box,
+body.dark-mode .flow-slide {
+    border-color: var(--line);
+    background-color: var(--surface);
+}
+
+
+/* Fix para el texto dentro de las cards de hipótesis y métricas */
+
+body.dark-mode .hypo-item p,
+body.dark-mode .metric-description,
+body.dark-mode .col-text,
+body.dark-mode .reflection-text {
+    color: var(--text-soft);
+}
+
+.impact-dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.main-impact-column,
+.secondary-impact-column {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.metric-card.roadmap-card {
+    border-style: dashed;
+}
+
+.impact-highlight {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-soft) !important;
+}
+
+.status-badge {
+    background-color: var(--accent);
+    color: var(--surface);
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+}
+
+.status-badge.success {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.status-badge.validated {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.status-badge.operational {
+    background: rgba(234, 88, 12, 0.1);
+    color: var(--accent);
+}
+
+.status-badge.vision {
+    background: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
+}
+
+.back-to-top-container {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.back-to-top-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-soft);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.back-to-top-link svg {
+    transition: transform 0.3s ease;
+}
+
+.back-to-top-link:hover {
+    opacity: 1;
+    color: var(--accent);
+}
+
+.back-to-top-link:hover svg {
+    transform: translateY(-4px);
+    /* Pequeña animación de rebote hacia arriba */
+}
+
+
+/* 9. RESPONSIVE DESIGN (REPARADO POR CASCADA) */
+
+@media (max-width: 1024px) {
+    .metrics-grid,
+    .two-columns-grid,
+    .feedback-grid-detailed,
+    .impact-dashboard-grid,
+    .feature-main-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px;
+    }
+    /* Carrusel de arquitectura: pasa de horizontal a vertical */
+    .flow-slide {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .slide-visual {
+        height: 250px;
+        order: -1;
+        /* Imagen arriba del texto */
+    }
+    .slide-content {
+        padding: 40px 24px;
+    }
+}
+
+@media (max-width: 992px) {
+    /* Feature blocks y contenedores de cristal */
+    .feature-visual {
+        margin-top: 40px;
+    }
+    .visual-container.glass-effect {
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ajustes globales de espaciado para móviles */
+    .section-content {
+        padding: 60px 0;
+    }
+    .container {
+        padding: 40px 20px;
+        /* Reducción de padding lateral */
+    }
+    .project-header h1 {
+        font-size: 1.85rem;
+    }
+    .question-text {
+        font-size: 1.4rem;
+    }
+    .question-container {
+        padding: 60px 20px;
+    }
+    .impact-stats {
+        grid-template-columns: 1fr;
+    }
+    .stat-card h4 {
+        font-size: 2.4rem;
+    }
+    .metric-value {
+        font-size: 2.6rem;
+    }
+    .breadcrumbs {
+        position: relative;
+        z-index: 1;
+        /* Bajamos la prioridad de las breadcrumbs */
+    }
+}
+
+@media (max-width: 560px) {
+    .project-stepper {
+        display: none !important;
+        /* Lo elimina por completo del flujo y de la vista */
+    }
+    /* Ajuste del layout para que el contenido no deje el hueco del gap */
+    .case-study-layout {
+        display: block;
+        /* Cambiamos de flex a block para evitar problemas de alineación */
+        gap: 0;
+    }
+    .case-study-content {
+        width: 100%;
+        padding: 0 20px;
+        /* Añadimos un poco de aire lateral si no lo tiene el contenedor */
+    }
+}

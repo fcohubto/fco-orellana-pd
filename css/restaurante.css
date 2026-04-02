@@ -1,0 +1,1399 @@
+/* ============================================================ 
+   PROYECTO: PAGO EN RESTAURANTES (SISTEMA DE DISEÑO) 
+   ============================================================ */
+
+
+/* 1. DESIGN TOKENS & VARIABLES */
+
+:root {
+    --line-separator: rgba(0, 0, 0, 0.08);
+    /* Fallbacks de seguridad */
+    --accent: #ea580c;
+    --text: #212121;
+    --text-soft: #424242;
+    --text-main: #1a1a1a;
+    --surface: #ffffff;
+    --surface-2: #F8FAFC;
+    --bg-surface: #FFFFFF;
+    --card-radius: 18px;
+}
+
+
+/* 2. LAYOUT & ESTRUCTURA BASE */
+
+.project-detail {
+    background: var(--bg, #fff);
+}
+
+.section-wrapper {
+    width: 100%;
+    display: block;
+    padding: 100px 0px 100px;
+}
+
+.section-wrapper.border-top {
+    border-top: 1px solid var(--line-separator);
+}
+
+.project-progress-nav {
+    position: sticky;
+    top: 80px;
+    /* Colocado justo debajo del navbar (ajusta si tu navbar es otra medida) */
+    z-index: 999;
+    /* Alto, pero menor que el navbar (1000) */
+    background-color: var(--bg-surface);
+    /* Fondo sólido obligatorio */
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 60px;
+    padding: 10px 0;
+    /* Un poco de aire vertical */
+    border-bottom: 1px solid var(--line-separator);
+    transition: opacity 0.4s ease, background-color 0.3s ease;
+    /* */
+}
+
+.project-progress-nav .container {
+    max-width: 1120px;
+    /* Tu ancho máximo global */
+    margin: 0 auto;
+    padding: 0 20px;
+    /* Padding de seguridad lateral */
+}
+
+.project-progress-nav.is-sticky {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+/* Estado Dark Mode para el contenedor principal */
+
+body.dark-mode .project-progress-nav {
+    background-color: #121212;
+    /* O el color de fondo oscuro de tu proyecto */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Color de texto para pasos no activos */
+
+body.dark-mode .step-name {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* Color de texto para el paso activo */
+
+body.dark-mode .progress-step.active .step-name {
+    color: #ffffff;
+}
+
+
+/* Mantenemos el naranja Transbank para la línea activa */
+
+body.dark-mode .progress-step.active .step-dot {
+    background-color: #ff5a19;
+    /* Tu variable de acento naranja */
+}
+
+
+/* Color de la línea de fondo (la que no está activa) */
+
+body.dark-mode .step-dot {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.progress-track {
+    display: flex;
+    justify-content: space-between;
+    /* Space Between para look de línea de tiempo */
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-decoration: none;
+    flex: 1;
+    /* Esto hace que se dividan el ancho proporcionalmente */
+    text-align: left;
+    /* O center si prefieres */
+}
+
+.step-dot {
+    height: 4px;
+    width: 100%;
+    /* La línea ocupará todo el ancho de su columna */
+    background: #eee;
+    /* Gris muy claro para pasos no completados */
+    border-radius: 2px;
+    transition: background 0.3s ease;
+}
+
+.step-name {
+    font-size: 0.85rem;
+    /* Ajustado para que quepa bien en una línea */
+    font-weight: 700;
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    background: transparent;
+    /* Evita que el texto se rompa en dos líneas */
+}
+
+
+/* Estado Activo */
+
+.progress-step.active .step-dot {
+    background: var(--accent);
+    height: 6px;
+}
+
+.progress-step.active .step-name {
+    color: var(--text-main);
+    font-weight: 800;
+}
+
+
+/* Hover effect */
+
+.progress-step:hover .step-name {
+    color: var(--accent);
+}
+
+.progress-step:hover .step-dot {
+    background: var(--text-soft);
+}
+
+.section-content {
+    padding: 60px 0;
+}
+
+.section-content h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.container {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0px 32px;
+}
+
+.container.narrow {
+    max-width: 800px;
+}
+
+.bg-surface-2 {
+    background-color: var(--surface-2);
+}
+
+.breadcrumb-nav {
+    padding: 20px 0;
+    background: var(--bg);
+}
+
+.breadcrumb-list {
+    display: flex;
+    list-style: none;
+    gap: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-soft);
+}
+
+.breadcrumb-list li:not(:last-child)::after {
+    content: "/";
+    margin-left: 12px;
+    color: var(--line);
+    font-weight: 400;
+}
+
+.breadcrumb-list a {
+    transition: color 0.2s ease;
+}
+
+.breadcrumb-list a:hover {
+    color: var(--accent);
+}
+
+.breadcrumb-list li[aria-current="page"] {
+    color: var(--text);
+    font-weight: 600;
+    pointer-events: none;
+}
+
+
+/* Ajuste para Dark Mode sutil */
+
+body.dark-mode .breadcrumb-list li:not(:last-child)::after {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.icon-box {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    /* Usando el naranja de Transbank */
+}
+
+.icon-box svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 1.5px;
+    /* Un grosor refinado para estética Senior */
+}
+
+
+/* --- SECTION: PROCESS INTRO --- */
+
+.process-intro {
+    padding: 100px 0 60px 0;
+    /* Espaciado generoso para dar aire antes del contenido denso */
+    background-color: var(--bg-surface);
+}
+
+.process-header {
+    max-width: 1122px;
+    /* Ancho controlado para mejorar la legibilidad del párrafo */
+    margin: 0 auto;
+    text-align: left;
+}
+
+
+/* Estilo para el subtítulo pequeño (Eyebrow) */
+
+.process-header .eyebrow {
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--accent);
+    margin-bottom: 16px;
+    letter-spacing: 0.15em;
+}
+
+
+/* Título Principal de la sección */
+
+.process-header h3 {
+    max-width: 800px;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: var(--text-main);
+}
+
+
+/* Descripción de la metodología */
+
+.process-header .section-description {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: var(--text-soft);
+    margin-bottom: 0;
+    max-width: 800px;
+}
+
+
+/* --- DARK MODE SUPPORT --- */
+
+body.dark-mode .process-intro {
+    background-color: #121212;
+}
+
+body.dark-mode .process-header h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .process-header .section-description {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* --- RESPONSIVE --- */
+
+@media (max-width: 768px) {
+    .process-header h3 {
+        font-size: 1.8rem;
+    }
+    .process-intro {
+        padding: 60px 0 40px 0;
+    }
+}
+
+
+/* 3. HERO & METADATA SECTON */
+
+.project-detail-hero {
+    padding: 160px 0px 0px;
+}
+
+.project-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    max-width: 860px;
+}
+
+.project-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-soft);
+    max-width: 850px;
+    line-height: 1.5;
+}
+
+.project-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 40px;
+    padding: 60px 0;
+    border-top: 1px;
+    margin-top: 60px;
+    width: 100%;
+}
+
+.icon-box {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+}
+
+
+/* Si usas SVGs directos */
+
+.icon-box svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 1.5px;
+}
+
+.project-meta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.project-meta-item span {
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.project-meta-item p {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+.problem-statement h2 {
+    font-size: 2.25rem;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    color: var(--text-main);
+}
+
+.problem-statement .col-text h3 {
+    display: inline-block;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--accent);
+    margin-bottom: 16px;
+    letter-spacing: 0.15em;
+}
+
+.problem-statement .col-text p {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: var(--text-soft);
+}
+
+
+/* Para que la caja de hipótesis destaque */
+
+.problem-statement .data-box {
+    border-left: 4px solid var(--accent);
+    background: var(--surface);
+    padding: 32px;
+    font-style: italic;
+}
+
+
+/* 4. COMPONENTES DE MÉTRICAS Y DATA */
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.metric-card {
+    background: var(--surface);
+    padding: 40px 32px;
+    border-radius: var(--card-radius);
+    border: 1px solid var(--line, #eee);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-card h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-soft);
+}
+
+.metric-card p {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--text-soft);
+}
+
+.metric-card strong {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-soft);
+    margin-bottom: 12px;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.metric-value {
+    display: block;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.metric-label {
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.metric-description {
+    font-size: 1rem;
+    color: var(--text-soft);
+    line-height: 1.5;
+    text-align: center;
+}
+
+
+/* 5. ARQUITECTURA E INSIGHTS (DATA BOXES) */
+
+.nav-btn:hover {
+    transform: scale(1.1);
+    color: var(--accent);
+}
+
+.nav-btn:disabled,
+.nav-btn[style*="pointer-events: none"] {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+.section-title h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.architecture-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 40px 0;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 20px;
+    scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.step-badge {
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.flow-slide {
+    min-width: 100%;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 24px;
+    border: 1px solid var(--line, rgba(0, 0, 0, 0.05));
+    scroll-snap-align: center;
+    overflow: hidden;
+}
+
+.slide-content {
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info-group {
+    margin-bottom: 24px;
+}
+
+.info-label {
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.info-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-soft, #1E293B);
+}
+
+.slide-content h4 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-soft);
+    margin: 12px 0;
+}
+
+.slide-content p {
+    font-size: 1.125rem;
+    color: var(--text-soft, #424242);
+    line-height: 1.5;
+}
+
+.slide-visual {
+    height: 100%;
+    background: var(--surface-2, #f1f5f9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: #D1D5DB;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background-color: var(--accent);
+    transform: scale(1.2);
+}
+
+.carousel-nav {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--text-soft);
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    color: var(--accent);
+    transform: scale(1.1);
+}
+
+.nav-btn:disabled,
+.nav-btn[style*="pointer-events: none"] {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+
+/* 6. NARRATIVA VISUAL (GRIDS Y CONTENIDO) */
+
+.two-columns-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    /* Restaurado: centrado vertical de visual/texto */
+}
+
+.pillars-grid {
+    display: grid;
+    gap: 32px;
+    margin-top: 32px;
+}
+
+.col-text {
+    font-size: 1.125rem;
+    color: var(--text-soft);
+}
+
+.highlight-list {
+    padding-left: 20px;
+    border-left: 3px solid var(--accent);
+    transition: border-color 0.3s ease;
+}
+
+.highlight-list strong {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-soft);
+}
+
+.highlight-list p {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--text-soft);
+}
+
+.badge {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 6px 14px;
+    background-color: rgba(178, 67, 6, 0.1);
+    color: var(--accent);
+    border-radius: 30px;
+    margin-bottom: 16px;
+}
+
+.stage-tag {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--accent);
+    margin-bottom: 16px;
+    letter-spacing: 0.15em;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-placeholder {
+    background: var(--surface-2);
+    border-radius: var(--card-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 350px;
+    width: 100%;
+}
+
+.qa-box {
+    background-color: var(--surface-2);
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.qa-box h4 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.qa-box h4::before {
+    content: "";
+    width: 12px;
+    height: 2px;
+    background: var(--accent);
+}
+
+.qa-box p {
+    font-size: 1.125rem;
+    color: var(--text-soft);
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 400;
+}
+
+.data-box {
+    padding: 32px;
+    background: var(--surface-2);
+    border: none;
+    border-radius: 16px;
+    margin-top: 24px;
+    /* Corregido: margen para bloques independientes */
+    color: var(--text-soft);
+    font-size: 1.125rem;
+}
+
+
+/* 7. RESEARCH & DISCOVERY COMPONENTS */
+
+.question-container {
+    margin: 40px auto;
+    padding: 100px 48px;
+    background: var(--surface-2);
+    border-radius: var(--card-radius, 18px);
+    text-align: center;
+    max-width: 1200px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quote-icon {
+    font-family: serif;
+    font-size: 5rem;
+    line-height: 1.5;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+.question-text {
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text-soft);
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 1000px;
+    text-wrap: balance;
+}
+
+.user-info {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-soft);
+    margin-top: 32px;
+    display: block;
+}
+
+.guerrilla-box {
+    padding: 60px 0px;
+    border: none;
+    margin-top: 60px;
+}
+
+.guerrilla-box h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-soft);
+    margin: 0 0 40px 0;
+    line-height: 1.5;
+}
+
+.hypothesis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    width: 100%;
+}
+
+.hypo-item {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px;
+    background: var(--surface, #ffffff);
+    border-radius: var(--card-radius, 18px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+    border: 1px solid var(--line, #e5e7eb);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hypo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.icon-box-hypo i {
+    width: 24px;
+    height: 24px;
+    color: var(--accent);
+    stroke-width: 2px;
+}
+
+.icon-box-hypo svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--accent);
+    fill: none;
+    stroke-width: 2px;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.guerrilla-box h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text, #1E293B);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.hypo-item p {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--text-soft, #424242);
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+/* 8. FEEDBACK & REFLECTION */
+
+.feedback-grid-detailed {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+
+/* Helpers de espaciado */
+
+.mt-100 {
+    margin-top: 100px;
+}
+
+.mt-60 {
+    margin-top: 60px;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+
+/* --- FEATURE SHOWCASE SYSTEM --- */
+
+.feature-block {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.feature-main-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.feature-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.visual-container.glass-effect {
+    max-width: 380px;
+    width: 60%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--line);
+    border-radius: 32px;
+    padding: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.visual-container.glass-effect:hover {
+    transform: translateY(-10px) rotate(1deg);
+}
+
+.feature-visual-media {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    display: block;
+}
+
+.feature-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--text-soft);
+    letter-spacing: -0.02em;
+}
+
+.feature-description {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: var(--text-soft);
+}
+
+.impact-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.stat-card {
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px solid #F1F5F9;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h4 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 0 0 15px 0;
+    letter-spacing: -0.02em;
+}
+
+.stat-card strong {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-soft);
+    margin-bottom: 12px;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.stat-card p {
+    font-size: 1.125em;
+    color: var(--text-soft);
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+/* --- IMPACT DASHBOARD SYSTEM (NUEVA PROPUESTA) --- */
+
+.impact-dashboard-wrapper {
+    padding: 100px 0;
+    position: relative;
+}
+
+.impact-dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.main-impact-column,
+.secondary-impact-column {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.metric-card.roadmap-card {
+    border-style: dashed;
+}
+
+.impact-highlight {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-soft) !important;
+}
+
+.status-badge {
+    background-color: var(--accent);
+    color: var(--surface);
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+}
+
+.status-badge.success {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.status-badge.validated {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.status-badge.operational {
+    background: rgba(234, 88, 12, 0.1);
+    color: var(--accent);
+}
+
+.status-badge.vision {
+    background: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
+}
+
+
+/* --- REFLEXIÓN FINAL & CTA --- */
+
+.final-reflection {
+    text-align: center;
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reflection-text {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: var(--text-soft);
+    margin: 32px auto;
+    max-width: 720px;
+    font-weight: 400;
+}
+
+.cta-internal {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Estilo para el botón secundario basado en tu diseño */
+
+.btn-secondary {
+    display: inline-block;
+    padding: 16px 32px;
+    background: transparent;
+    color: var(--text-soft);
+    border: 2px solid var(--line-separator);
+    border-radius: 50px;
+    /* Estilo píldora */
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: var(--text-soft);
+    color: var(--surface);
+    border-color: var(--text-soft);
+    transform: translateY(-3px);
+}
+
+
+/* ============================================================ 
+   BLOQUE DARK MODE (AGREGAR PARA REPARAR) 
+   ============================================================ */
+
+body.dark-mode {
+    /* Definición de los nuevos valores para las variables existentes */
+    --bg: #0b1220;
+    --surface: #0f172a;
+    --surface-2: #111827;
+    --text: #e5e7eb;
+    --text-soft: #94a3b8;
+    --text-main: #f8fafc;
+    --line: rgba(255, 255, 255, 0.12);
+    --line-separator: rgba(255, 255, 255, 0.12);
+    --accent: #f97316;
+}
+
+
+/* Aplicación de fondo general si no estaba heredando */
+
+body.dark-mode .project-detail {
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+
+/* Forzar el color de títulos que usan variables específicas o colores fijos */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode .metric-card h4,
+body.dark-mode .feature-title,
+body.dark-mode .guerrilla-box h3 {
+    color: var(--text-soft);
+}
+
+
+/* Ajuste de bordes para cards y secciones */
+
+body.dark-mode .metric-card,
+body.dark-mode .hypo-item,
+body.dark-mode .stat-card,
+body.dark-mode .qa-box,
+body.dark-mode .flow-slide {
+    border-color: var(--line);
+    background-color: var(--surface);
+}
+
+
+/* Fix para el texto dentro de las cards de hipótesis y métricas */
+
+body.dark-mode .hypo-item p,
+body.dark-mode .metric-description,
+body.dark-mode .col-text,
+body.dark-mode .reflection-text {
+    color: var(--text-soft);
+}
+
+
+/* FIX PARA MENÚ HAMBURGUESA */
+
+.header-container,
+.navbar {
+    position: sticky;
+    /* O fixed si quieres que flote sobre todo siempre */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Prioridad alta para que nada lo cubra al hacer scroll */
+    background: rgba(255, 255, 255, 0.88);
+    /* El blur solo funciona con transparencia */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+}
+
+body.dark-mode .navbar {
+    background: rgba(11, 18, 32, 0.82);
+}
+
+.menu-toggle,
+#hamburger-menu {
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 10001 !important;
+}
+
+.back-to-top-container {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.back-to-top-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-soft);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.back-to-top-link svg {
+    transition: transform 0.3s ease;
+}
+
+.back-to-top-link:hover {
+    opacity: 1;
+    color: var(--accent);
+}
+
+.back-to-top-link:hover svg {
+    transform: translateY(-4px);
+    /* Pequeña animación de rebote hacia arriba */
+}
+
+
+/* 9. RESPONSIVE DESIGN (REPARADO POR CASCADA) */
+
+@media (max-width: 1024px) {
+    .metrics-grid,
+    .two-columns-grid,
+    .feedback-grid-detailed,
+    .impact-dashboard-grid,
+    .feature-main-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px;
+    }
+    /* Carrusel de arquitectura: pasa de horizontal a vertical */
+    .flow-slide {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .slide-visual {
+        height: 250px;
+        order: -1;
+        /* Imagen arriba del texto */
+    }
+    .slide-content {
+        padding: 40px 24px;
+    }
+}
+
+@media (max-width: 992px) {
+    /* Feature blocks y contenedores de cristal */
+    .feature-visual {
+        margin-top: 40px;
+    }
+    .visual-container.glass-effect {
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+    }
+    .project-meta-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2x2 en pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ajustes globales de espaciado para móviles */
+    .section-content {
+        padding: 60px 0;
+    }
+    .container {
+        padding: 40px 20px;
+        /* Reducción de padding lateral */
+    }
+    .project-header h1 {
+        font-size: 1.85rem;
+    }
+    .question-text {
+        font-size: 1.4rem;
+    }
+    .question-container {
+        padding: 60px 20px;
+    }
+    .impact-stats {
+        grid-template-columns: 1fr;
+    }
+    .stat-card h4 {
+        font-size: 2.4rem;
+    }
+    .metric-value {
+        font-size: 2.6rem;
+    }
+    .breadcrumbs {
+        position: relative;
+        z-index: 1;
+        /* Bajamos la prioridad de las breadcrumbs */
+    }
+    .progress-track {
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    .step-name {
+        font-size: 0.65rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .project-stepper {
+        display: none !important;
+        /* Lo elimina por completo del flujo y de la vista */
+    }
+    /* Ajuste del layout para que el contenido no deje el hueco del gap */
+    .case-study-layout {
+        display: block;
+        /* Cambiamos de flex a block para evitar problemas de alineación */
+        gap: 0;
+    }
+    .case-study-content {
+        width: 100%;
+        padding: 0 20px;
+        /* Añadimos un poco de aire lateral si no lo tiene el contenedor */
+    }
+    .project-meta-grid {
+        grid-template-columns: 1fr;
+        /* 1 columna en móviles */
+    }
+    .step-name {
+        font-size: 0.75rem;
+    }
+}

@@ -1,0 +1,790 @@
+/* ============================================================ 
+   SISTEMA DE DISEÑO: fcoux.pd 
+   ============================================================ */
+
+
+/* 1. VARIABLES (DESIGN TOKENS) */
+
+:root {
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --surface-2: #F8FAFC;
+    --surface-3: #dddddd;
+    --surface-4: #d4d4d4;
+    --surface-dark-card: #232326;
+    --surface-dark-card-hover: #2b2b2f;
+    --surface-muted: #3a3a36;
+    --surface-muted-hover: #42423d;
+    --text: #212121;
+    --text-soft: #424242;
+    --text-light: #f8fafc;
+    --tag-primary: #f97316;
+    --tag-secundary: #c3ffb4;
+    --text-light-soft: rgba(255, 255, 255, 0.82);
+    --text-muted-card: rgba(255, 255, 255, 0.64);
+    --line: #e5e7eb;
+    --accent: #ea580c;
+    --accent-dark: #c2410c;
+    --btn-hover-gray: #f1f5f9;
+    --tag-bg: rgba(255, 255, 255, 0.18);
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --card-radius: 18px;
+    --header-height: 84px;
+}
+
+
+/* 2. DARK MODE TOKENS */
+
+body.dark-mode {
+    --bg: #0b1220;
+    --surface: #0f172a;
+    --surface-2: #111827;
+    --surface-dark-card: #171c27;
+    --surface-dark-card-hover: #1d2431;
+    --surface-muted: #2b313d;
+    --surface-muted-hover: #323949;
+    --text: #e5e7eb;
+    --text-soft: #94a3b8;
+    --text-light: #f8fafc;
+    --text-light-soft: rgba(255, 255, 255, 0.82);
+    --text-muted-card: rgba(255, 255, 255, 0.62);
+    --line: rgba(255, 255, 255, 0.12);
+    --accent: #f97316;
+    --accent-dark: #ea580c;
+    --btn-hover-gray: rgba(255, 255, 255, 0.06);
+    --tag-bg: rgba(255, 255, 255, 0.14);
+    --shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+
+/* 3. RESET & BASE */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+
+/* 4. LAYOUT ESTRUCTURAL */
+
+.container {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 48px 0;
+    /* Reparado el 60 sin unidad */
+}
+
+.section {
+    padding: 48px 0;
+}
+
+.section-title h2,
+.hitos-title,
+h2.section-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text);
+}
+
+
+/* 5. NAVBAR & NAVIGATION */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+body.dark-mode .navbar {
+    background: rgba(11, 18, 32, 0.82);
+}
+
+.nav-content {
+    min-height: var(--header-height);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 24px;
+}
+
+.logo {
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    font-size: 1rem;
+}
+
+.desktop-nav a {
+    color: var(--text-soft);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.desktop-nav a:hover,
+.desktop-nav a[aria-current="page"] {
+    color: var(--accent);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+}
+
+
+/* BREADCRUMBS */
+
+.breadcrumb-nav {
+    padding: 20px 0;
+    background: var(--bg);
+}
+
+.breadcrumb-list {
+    display: flex;
+    list-style: none;
+    gap: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-soft);
+}
+
+.breadcrumb-list li:not(:last-child)::after {
+    content: "/";
+    margin-left: 12px;
+    color: var(--line);
+    font-weight: 400;
+}
+
+body.dark-mode .breadcrumb-list li:not(:last-child)::after {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.breadcrumb-list a:hover {
+    color: var(--accent);
+}
+
+.breadcrumb-list li[aria-current="page"] {
+    color: var(--text);
+    font-weight: 600;
+    pointer-events: none;
+}
+
+
+/* 6. COMPONENTES UI (BUTTONS, TOGGLES, TAGS) */
+
+
+/* THEME TOGGLE */
+
+.theme-toggle {
+    width: 52px;
+    height: 28px;
+    position: relative;
+    cursor: pointer;
+}
+
+.theme-toggle-track {
+    width: 100%;
+    height: 100%;
+    border-radius: 999px;
+    background: #e4e4e7;
+    border: 1px solid var(--line);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #ffffff;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .theme-toggle-track {
+    background: var(--surface-muted);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 2px 4px rgba(188, 188, 188, 0.2);
+}
+
+body.dark-mode .theme-toggle-thumb {
+    transform: translateX(24px);
+    background: var(--accent);
+    box-shadow: 0 0 12px rgba(243, 243, 243, 0.4), 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle:hover .theme-toggle-track {
+    border-color: var(--accent);
+}
+
+
+/* BOTONES */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-width: 140px;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.25);
+}
+
+.btn-secondary,
+.btn-outline {
+    background: var(--btn-hover-gray);
+    border-color: var(--line);
+    color: var(--text);
+}
+
+.btn-secondary:hover,
+.btn-outline:hover {
+    background: var(--btn-hover-gray);
+    border-color: var(--text);
+    color: var(--text);
+    transform: translateY(-2px);
+}
+
+
+/* TAGS */
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.03em;
+}
+
+.tag-primary {
+    background: var(--tag-primary);
+    color: #ffffff;
+    border-radius: 16px;
+}
+
+.tag-secondary {
+    background: var(--tag-secundary);
+    color: var(--text-soft);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+}
+
+body.dark-mode .tag-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-light-soft);
+}
+
+
+/* 7. SECCIONES ESPECÍFICAS */
+
+
+/* HERO */
+
+.hero {
+    padding: 140px 0 100px;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    max-width: 860px;
+}
+
+.hero-text {
+    font-size: 1.25rem;
+    color: var(--text-soft);
+    max-width: 850px;
+    line-height: 1.5;
+}
+
+.hero-actions {
+    margin-top: 32px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+
+/* RESUME & HITOS */
+
+.resume-unified-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.resume-intro {
+    max-width: 860px;
+    color: var(--text-soft);
+    font-size: 18px;
+}
+
+body.dark-mode .resume-intro {
+    color: var(--text-soft);
+}
+
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin: 40px 0 60px;
+}
+
+.metric-item {
+    background: var(--surface);
+    padding: 32px 24px;
+    border-radius: var(--card-radius);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+body.dark-mode .metric-item {
+    background: var(--surface-dark-card);
+}
+
+.metric-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+}
+
+.metric-item h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.metric-item p {
+    font-size: 1rem;
+    color: var(--text-soft);
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 400;
+}
+
+.resume-actions {
+    margin-top: 28px;
+    display: flex;
+    gap: 12px;
+}
+
+
+/* LOGROS (HITOS) */
+
+.hitos-container {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 48px 0;
+}
+
+.hitos-container .hitos-title {
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.hitos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.hito-card {
+    background: var(--surface);
+    padding: 40px 32px;
+    border-radius: var(--card-radius);
+    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+    transition: all 0.3s ease;
+    min-height: auto;
+}
+
+.hito-card:hover {
+    transform: translateX(8px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow);
+}
+
+.hito-number {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 90px;
+}
+
+.hito-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+}
+
+.hito-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.hito-card p {
+    font-size: 1rem;
+    color: var(--text-soft);
+    margin: 0;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+body.dark-mode .hito-card {
+    background: var(--surface-dark-card);
+}
+
+
+/* PROJECTS */
+
+.projects {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-top: 40px;
+}
+
+.project-card {
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    background: var(--surface-dark-card);
+    transition: 0.22s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+}
+
+.project-image {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--surface-2);
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: 0.35s ease;
+}
+
+.project-card:hover .project-image img {
+    filter: grayscale(0%);
+    transform: scale(1.03);
+}
+
+.project-content {
+    padding: 32px;
+    color: var(--text-light);
+    background-color: var(--surface-2);
+}
+
+body.dark-mode .project-content {
+    background-color: var(--surface);
+}
+
+.project-content h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    /* Forzamos el peso para que iguale a las métricas */
+    line-height: 1.2;
+    /* Igualamos al de .metric-item */
+    margin-bottom: 14px;
+    color: var(--text);
+    /* Usamos el color principal, no el soft */
+}
+
+body.dark-mode .project-content h3 {
+    color: var(--text-light);
+}
+
+.project-date {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 14px;
+}
+
+body.dark-mode .project-date {
+    color: var(--text-light);
+}
+
+.project-description {
+    font-size: 1rem;
+    color: var(--text-soft);
+    line-height: 1.7;
+}
+
+body.dark-mode .project-description {
+    color: var(--text-light);
+}
+
+
+/* CTA & FOOTER */
+
+.cta {
+    background: var(--surface-2);
+    padding: 96px 0;
+    text-align: center;
+}
+
+body.dark-mode .cta {
+    background: var(--surface);
+}
+
+.cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+.footer {
+    padding: 48px 0;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-soft);
+}
+
+
+/* 8. MENU MOBILE */
+
+.menu-toggle {
+    width: 32px;
+    height: 32px;
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 1.8px;
+    background: var(--text);
+    border-radius: 999px;
+    transition: 0.25s ease;
+}
+
+.menu-toggle.is-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.is-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-menu {
+    display: none;
+    padding: 0 24px 20px;
+    border-top: 1px solid var(--line);
+    background: inherit;
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 14px 0;
+    font-weight: 500;
+    border-bottom: 1px solid var(--line);
+}
+
+.mobile-menu.is-open {
+    display: block;
+}
+
+
+/* 9. RESPONSIVE DESIGN (REPARADO POR CASCADA) */
+
+
+/* --- TABLETS Y PANTALLAS MEDIANAS (1024px) --- */
+
+@media (max-width: 1024px) {
+    .projects,
+    .hitos-grid,
+    .metrics {
+        grid-template-columns: 1fr !important;
+        gap: 32px;
+    }
+    .project-content {
+        padding: 32px 24px;
+    }
+}
+
+
+/* --- DISPOSITIVOS MÓVILES (900px) --- */
+
+@media (max-width: 900px) {
+    .desktop-nav {
+        display: none !important;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+
+/* --- SMARTPHONES (Hasta 768px) --- */
+
+@media (max-width: 768px) {
+    .section,
+    .hitos-container,
+    .cta {
+        padding: 60px 0px;
+    }
+    .container {
+        padding: 0 20px;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .section-title h2,
+    .hitos-title {
+        font-size: 1.75rem;
+        /* Bajamos un poco para diferenciar del H1 */
+        margin-bottom: 24px;
+    }
+}
+
+.hero {
+    padding: 100px 0 60px;
+}
+
+.hito-card {
+    padding: 32px 24px;
+}
+
+.breadcrumb-nav {
+    position: relative;
+    z-index: 1;
+    padding: 16px 0;
+}
+
+
+/* --- SMARTPHONES PEQUEÑOS (Hasta 480px) --- */
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.85rem;
+    }
+    .hitos-title,
+    .section-title h2 {
+        font-size: 1.5rem;
+    }
+    .btn {
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+
+/* --- DESKTOP LARGE (Desde 1100px) --- */
+
+@media (min-width: 1100px) {
+    .projects {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+    }
+}

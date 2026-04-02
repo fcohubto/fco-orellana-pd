@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/portfolio.pd-ux/">
+    <title>Pago en Restaurantes | fcoux.pd</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/restaurante.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar" id="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="logo"><strong>fcoux</strong>.pd</a>
+            <nav class="nav-links desktop-nav">
+                <a href="../index.html#about">Resume</a>
+                <a href="../index.html#projects">Casos de Estudio</a>
+                <a href="../index.html#contact">Contacto</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar tema">
+                    <div class="theme-toggle-track">
+                        <div class="theme-toggle-thumb"></div>
+                    </div>
+                </button>
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+        <nav class="mobile-menu" id="mobileMenu">
+            <a href="../index.html#about">Resume</a>
+            <a href="../index.html#projects">Casos de Estudio</a>
+            <a href="../index.html#contact">Contacto</a>
+        </nav>
+    </header>
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../index.html#projects">Casos de Estudio</a></li>
+                <li aria-current="page">Pago en Restaurantes</li>
+            </ol>
+        </div>
+    </nav>
+    <main>
+        <section class="project-detail-hero">
+            <div class="container">
+                <div class="project-tags">
+                    <span class="tag tag-primary">Transbank</span>
+                    <span class="tag tag-secondary">Fintech</span>
+                </div>
+
+                <div class="project-header">
+                    <h1>Pago en Restaurantes</h1>
+                    <p class="project-subtitle">Transformación del flujo de cuentas compartidas en terminales POS para eliminar errores de cálculo y agilizar la rotación de mesas.</p>
+                </div>
+
+                <div class="project-meta-grid">
+                    <div class="project-meta-item">
+                        <div class="icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                        </div>
+                        <span>ROL</span>
+                        <p>Lead UX/UI</p>
+                    </div>
+
+                    <div class="project-meta-item">
+                        <div class="icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <span>DURACIÓN</span>
+                        <p>4 meses</p>
+                    </div>
+
+                    <div class="project-meta-item">
+                        <div class="icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                        </div>
+                        <span>METODOLOGÍA</span>
+                        <p>Dual Track Agile</p>
+                    </div>
+
+                    <div class="project-meta-item">
+                        <div class="icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                        </div>
+                        <span>HERRAMIENTAS</span>
+                        <p>Figma, Miro, Jira, FigJam</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-wrapper bg-surface-2">
+            <div class="container narrow">
+                <div class="problem-statement">
+                    <span class="stage-tag">EL DESAFÍO</span>
+                    <h2 class="mt-40">Modernizando el caos de las cuentas compartidas</h2>
+
+                    <div class="two-columns-grid mt-60">
+                        <div class="col-text">
+                            <h3>EL PROBLEMA</h3>
+                            <p>El flujo lineal de los terminales ignoraba la dinámica de los pagos grupales. Esto obligaba al personal a actuar como contadores manuales, generando errores críticos de caja, lentitud en la rotación de mesas y fricción con
+                                el cliente final.</p>
+                        </div>
+                        <div class="col-text">
+                            <h3>EL OBJETIVO</h3>
+                            <p>Transformar un hardware rígido en una herramienta ágil. Buscamos <strong>eliminar la fricción contable</strong> para elevar el NPS del comercio y blindar la preferencia de Transbank en un mercado gastronómico cada vez más exigente.</p>
+                        </div>
+                    </div>
+
+                    <div class="data-box mt-40">
+                        <strong>Hipótesis central:</strong> Si automatizamos la partición de saldos mediante una interfaz intuitiva, reduciremos el tiempo operativo en un 40% y eliminaremos el 100% de los errores manuales que hoy afectan la rentabilidad
+                        del local.
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-wrapper border-top">
+            <div class="section-content">
+                <div class="container">
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <span class="metric-value">-40%</span>
+                            <h3 class="metric-label">Tiempo en mesa</h3>
+                            <p class="metric-description">Reducción drástica del tiempo operativo del personal gestionando pagos.</p>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-value">NPS 9</span>
+                            <h3 class="metric-label">Satisfacción</h3>
+                            <p class="metric-description">Incremento desde un NPS 4 tras la implementación de la nueva funcionalidad.</p>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-value">+20%</span>
+                            <h3 class="metric-label">Rotación</h3>
+                            <p class="metric-description">Optimización del cierre de cuentas en horas críticas de alta transaccionalidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-wrapper process-intro">
+            <div class="container">
+                <div class="process-header">
+                    <span class="eyebrow">Metodología de Trabajo</span>
+                    <h3>Un enfoque basado en datos y validación constante</h3>
+                    <p class="section-description">
+                        Dividí este proyecto en 4 fases críticas para asegurar que la solución no solo fuera estética, sino funcional y escalable para el ecosistema de pagos.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <nav class="project-progress-nav" aria-label="Progreso del caso de estudio">
+            <div class="container">
+                <div class="progress-track">
+                    <a href="#cap1" class="progress-step active js-scroll-link">
+                        <span class="step-dot"></span>
+                        <span class="step-name">01. DISCOVERY</span>
+                    </a>
+                    <a href="#cap2" class="progress-step active js-scroll-link">
+                        <span class="step-dot"></span>
+                        <span class="step-name">02. ESTRATEGÍA</span>
+                    </a>
+                    <a href="#cap3" class="progress-step active js-scroll-link">
+                        <span class="step-dot"></span>
+                        <span class="step-name">03. DISEÑO</span>
+                    </a>
+                    <a href="#cap4" class="progress-step active js-scroll-link">
+                        <span class="step-dot"></span>
+                        <span class="step-name">04. VALIDACIÓN</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <section id="cap1" class="section-content">
+            <div class="section-content">
+                <div class="container">
+                    <span class="stage-tag" id="cap1">ETAPA 01: DISCOVERY</span>
+                    <!-- Título enfocado en el impacto operativo -->
+                    <h2>Anatomía de la fricción: <br>El costo de los pagos divididos</h2>
+
+                    <div class="two-columns-grid">
+                        <div class="col-text">
+                            <p>Históricamente, los terminales POS obligaban a flujos lineales que ignoraban la complejidad social de un restaurante. Detectamos que el mayor "pico de dolor" se concentraba en la carga cognitiva del personal durante el cierre
+                                de cuenta [2, 6].</p>
+
+                            <div class="pillars-grid">
+                                <div class="highlight-list">
+                                    <strong>Fricción Contable</strong>
+                                    <p>El personal realizaba cálculos manuales bajo presión, derivando en errores frecuentes y pérdida directa de propinas [5, 7].</p>
+                                </div>
+                                <div class="highlight-list">
+                                    <strong>Inmovilización de Terminales</strong>
+                                    <p>El hardware quedaba bloqueado durante minutos por mesa, colapsando la rotación en horas críticas de alta transaccionalidad [7, 8].</p>
+                                </div>
+                                <div class="highlight-list">
+                                    <strong>Opacidad para el Comensal</strong>
+                                    <p>La falta de transparencia en los saldos pendientes generaba una "ansiedad de pago" que afectaba negativamente el NPS del local [4, 7].</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-visual">
+                            <div class="image-placeholder journey-map">
+                                <img src="../media/researc.png" alt="Journey Map: El flujo de pago en 8+ fases" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Voice of Customer: Directo de tus fuentes -->
+                    <div class="question-container">
+                        <div class="quote-icon">“</div>
+                        <p class="question-text">
+                            “Hay muchos errores al procesar pagos divididos, y a veces se pierden propinas o falta plata al cerrar el turno”
+                        </p>
+                        <p class="user-info">
+                            Miguel, 35 años, Garzón y Cajero
+                        </p>
+                    </div>
+
+                    <!-- Hipótesis de Investigación de Campo corregidas -->
+                    <div class="guerrilla-box mt-60">
+                        <h3>Validación de Campo: Hipótesis Críticas</h3>
+                        <div class="hypothesis-grid">
+                            <article class="hypo-item">
+                                <div class="icon-box-hypo">
+                                    <i data-lucide="users"></i>
+                                </div>
+                                <h4>Cuello de botella social</h4>
+                                <p>La negociación de montos entre comensales es el punto de mayor latencia, deteniendo el flujo operativo del restaurante.</p>
+                            </article>
+
+                            <article class="hypo-item">
+                                <div class="icon-box-hypo">
+                                    <i data-lucide="alert-triangle"></i>
+                                </div>
+                                <h4>Fuga de Confianza</h4>
+                                <p>La incertidumbre en la revisión manual de montos genera roces innecesarios entre el personal y el cliente final.</p>
+                            </article>
+
+                            <article class="hypo-item">
+                                <div class="icon-box-hypo">
+                                    <i data-lucide="refresh-cw"></i>
+                                </div>
+                                <h4>Brecha de Sincronización</h4>
+                                <p>Existe una desconexión crítica entre la entrada de datos en el POS y la voluntad real de pago de cada comensal.</p>
+                            </article>
+                        </div>
+                    </div>
+
+                    <script src="https://unpkg.com/lucide@latest"></script>
+                    <script>
+                        lucide.createIcons();
+                    </script>
+                </div>
+            </div>
+
+
+        </section>
+        <section id="cap2" class="section-wrapper border-top bg-surface-2">
+
+            <div class="section-content">
+                <div class="container">
+                    <span class="stage-tag">ETAPA 02: ESTRATEGIA</span>
+                    <!-- Título con enfoque en el valor entregado -->
+                    <h2>Arquitectura de Transacción: <br> Del cálculo manual a la lógica automatizada</h2>
+
+                    <div class="two-columns-grid">
+                        <div class="col-text">
+                            <h3>Pilares de la Solución</h3>
+                            <div class="pillars-grid">
+                                <div class="highlight-list">
+                                    <strong>Automatización Algorítmica</strong>
+                                    <p>Eliminamos la carga cognitiva del garzón mediante la gestión de saldos dinámicos en tiempo real, garantizando precisión total en cada cierre de cuenta.</p>
+                                </div>
+                                <div class="highlight-list">
+                                    <strong>Jerarquía de Pago Crítica</strong>
+                                    <p>Diseñamos una interfaz de lectura rápida que prioriza la información esencial para entornos de alta rotación y estrés operativo.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-visual">
+                            <div class="qa-box">
+                                <h4>KPIs de Estrategia</h4>
+                                <p>• Reducción de tiempos de ocupación del terminal.</p>
+                                <p>• Eliminación del 100% de errores en cierres de caja.</p>
+                            </div>
+                            <div class="qa-box">
+                                <h4>Viabilidad Técnica</h4>
+                                <p>Definimos el alcance según las limitaciones de hardware del terminal POS para asegurar una respuesta fluida en cobros simultáneos [4, 6].</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-container">
+                        <div class="quote-icon">“</div>
+                        <p class="question-text">
+                            Transformamos un proceso administrativo lento en una
+                            <strong>experiencia de pago invisible</strong> que empodera al personal y da transparencia al cliente.
+                        </p>
+
+                    </div>
+
+
+                    <div class="mt-100">
+                        <div class="section-title">
+                            <h2>Arquitectura de Información</h2>
+                        </div>
+                        <div class="architecture-carousel">
+                            <div class="carousel-track">
+
+                                <div class="flow-slide">
+                                    <div class="slide-content">
+                                        <div class="step-badge">01</div>
+                                        <h4>Ingreso</h4>
+                                        <p>Selección de mesa y visualización de deuda total desde el panel principal del terminal POS.</p>
+                                    </div>
+                                    <div class="slide-visual">
+                                        <img src="../media/pantalla-01.png" alt="Pantalla de ingreso">
+                                    </div>
+                                </div>
+
+                                <div class="flow-slide">
+                                    <div class="slide-content">
+                                        <div class="step-badge">02</div>
+                                        <h4>Partición</h4>
+                                        <p>Definición de rutas: División por montos iguales, específicos o por ítems de consumo.</p>
+                                    </div>
+                                    <div class="slide-visual">
+                                        <img src="../media/pantalla-02.png" alt="Pantalla de partición">
+                                    </div>
+                                </div>
+                                <div class="flow-slide">
+                                    <div class="slide-content">
+                                        <div class="step-badge">03</div>
+                                        <h4>Liquidación</h4>
+                                        <p>Gestión dinámica de saldos y pagos parciales</p>
+                                    </div>
+                                    <div class="slide-visual">
+                                        <img src="../media/pantalla-02.png" alt="Pantalla de partición">
+                                    </div>
+                                </div>
+                                <div class="flow-slide">
+                                    <div class="slide-content">
+                                        <div class="step-badge">04</div>
+                                        <h4>Cierre</h4>
+                                        <p>Emisión de comprobantes y liberación de mesa.</p>
+                                    </div>
+                                    <div class="slide-visual">
+                                        <img src="../media/pantalla-02.png" alt="Pantalla de partición">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="carousel-dots">
+                                <span class="dot active"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="cap3" class="section-wrapper border-top">
+            <div class="section-content">
+                <div class="container">
+                    <span class="stage-tag" id="cap3">ETAPA 03: DISEÑO DE INTERACCIÓN</span>
+                    <h2>Interfaz de alta precisión transaccional</h2>
+
+                    <div class="two-columns-grid mt-40">
+                        <div class="col-text">
+                            <p>Transformamos la estrategia en una solución tangible, optimizando el flujo para entornos de alta demanda. El objetivo fue eliminar el error de cálculo mediante una arquitectura de información que guía al usuario en cada paso
+                                crítico.
+                            </p>
+                            <div class="qa-box mt-20">
+                                <h4>Arquitectura Nativa</h4>
+                                <p>Integramos la división de cuentas como una función núcleo del ecosistema POS, asegurando fluidez sin salir del flujo de pago principal.</p>
+                            </div>
+                        </div>
+                        <div class="col-visual">
+                            <div class="image-placeholder">
+                                <img src="../media/Frame 19210.png" alt="Arquitectura transaccional POS" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-block">
+            <div class="container">
+                <div class="feature-main-grid">
+                    <div class="feature-info">
+                        <span class="status-badge">Velocidad de Cobro</span>
+                        <h3 class="feature-title">División por Montos Iguales</h3>
+                        <p class="feature-description">
+                            Automatización de la división exacta del saldo total. El sistema gestiona las fracciones del monto según el número de comensales, eliminando el cálculo mental del personal.
+                        </p>
+                    </div>
+                    <div class="feature-visual">
+                        <div class="visual-container glass-effect">
+                            <img src="../media/bloqueotemporal.gif" alt="Flujo montos iguales" class="feature-gif">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="impact-stats">
+                    <div class="stat-card">
+                        <h4>-40%</h4>
+                        <strong>Carga Cognitiva</strong>
+                        <p>Reducción del estrés operativo al automatizar el cálculo de saldos fraccionados.</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Aceleración</h4>
+                        <strong>Impacto</strong>
+                        <p>Disminución del 40% en el tiempo de procesamiento de pagos en mesas grupales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-block">
+            <div class="container">
+                <div class="feature-main-grid">
+                    <div class="feature-info">
+                        <span class="status-badge">Flexibilidad y Control</span>
+                        <h3 class="feature-title">Pagos por Monto Variable</h3>
+                        <p class="feature-description">
+                            Permite la entrada de montos personalizados por comensal, recalculando el saldo pendiente de la mesa de forma dinámica y en tiempo real.
+                        </p>
+                    </div>
+                    <div class="feature-visual">
+                        <div class="visual-container glass-effect">
+                            <img src="../media/bloqueotemporal.gif" alt="Flujo montos variables" class="feature-gif">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="impact-stats">
+                    <div class="stat-card">
+                        <h4>NPS 9</h4>
+                        <strong>Satisfacción</strong>
+                        <p>Superamos el NPS 4 inicial al entregar transparencia total en el desglose de saldos.</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>+20%</h4>
+                        <strong>Rotación</strong>
+                        <p>Optimización crítica del cierre de cuentas durante las horas de mayor transaccionalidad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cap4" class="section-wrapper border-top bg-surface-2">
+            <div class="section-content">
+                <div class="container">
+                    <span class="stage-tag" id="cap4">ETAPA 04: IMPACTO Y VALIDACIÓN</span>
+                    <h2>Handoff de precisión y escala real</h2>
+
+                    <div class="two-columns-grid mt-40">
+                        <div class="col-text">
+                            <p>Tras validar los prototipos de alta fidelidad, ejecutamos un handoff técnico riguroso. El foco fue asegurar que la lógica de negocio se mantuviera intacta frente a las limitaciones de memoria y procesamiento de los terminales
+                                Verifone.
+                            </p>
+                            <div class="pillars-grid">
+                                <div class="highlight-list">
+                                    <strong>Robustez del Sistema</strong>
+                                    <p>Documentación exhaustiva de edge cases y flujos de error para garantizar una operación sin interrupciones en entornos críticos.</p>
+                                </div>
+                                <div class="highlight-list">
+                                    <strong>Consistencia Visual</strong>
+                                    <p>Implementación de Design Tokens específicos para pantallas de baja resolución, optimizando contraste y legibilidad.</p>
+                                </div>
+                                <div class="highlight-list">
+                                    <strong>Hit Areas Ampliadas</strong>
+                                    <p>Rediseño de componentes táctiles para minimizar errores de digitación por parte del personal de servicio.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-visual">
+                            <div class="image-placeholder">
+                                <img src="../media/division.png" alt="Especificaciones técnicas de handoff" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard de impacto estratégico -->
+                    <div class="impact-dashboard-grid mt-60">
+                        <div class="main-impact-column">
+                            <div class="metric-card">
+                                <span class="status-badge success">Logro Crítico</span>
+                                <h4>Cero descuadres de caja</h4>
+                                <p class="impact-highlight">Eliminación total de errores manuales reportados por cálculos fallidos en el cierre de turno.</p>
+                            </div>
+                            <div class="metric-card">
+                                <span class="status-badge validated">Validación Real</span>
+                                <h4>Piloto de 100 comercios</h4>
+                                <p class="impact-highlight">Arquitectura validada y operando con éxito en una red de prueba de alta transaccionalidad.</p>
+                            </div>
+                        </div>
+                        <div class="secondary-impact-column">
+                            <div class="metric-card">
+                                <span class="status-badge operational">Eficiencia</span>
+                                <h4>Optimización del "Pico de Pago"</h4>
+                                <p>Reducción crítica de la fricción entre el comensal y el personal durante los momentos de mayor flujo.</p>
+                            </div>
+                            <div class="metric-card roadmap-card">
+                                <span class="status-badge vision">Visión</span>
+                                <h4>Roadmap Escalable</h4>
+                                <p>Diseño de una arquitectura de información preparada para el despliegue masivo a nivel nacional.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="section-wrapper border-top">
+            <div class="section-content">
+                <div class="container narrow">
+                    <div class="final-reflection">
+                        <span class="stage-tag">IMPACTO DE NEGOCIO</span>
+                        <h2>Un cambio de paradigma en pagos</h2>
+                        <p class="reflection-text">
+                            Este proyecto no solo fue una actualización de software; fue una modernización sistémica del sector gastronómico en Chile. Logramos demostrar que el diseño centrado en el usuario es la herramienta más poderosa para transformar industrias tradicionales.
+                        </p>
+                        <div class="back-to-top-container">
+                            <a href="../html/restaurante.html" class="back-to-top-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg> Volver
+                                al inicio
+                            </a>
+                        </div>
+                        <div class="cta-internal">
+                            <a href="../index.html#projects" class="btn btn-secondary">Explorar más proyectos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding: 60px 0; border-top: 1px solid var(--line-separator); text-align: center;">
+        <div class="container">
+            <p style="color: var(--text-soft); font-size: 1rem; margin: 0;">
+                © 2026 Francisco Orellana — fcoux.pd. <br> Santiago, Chile.
+            </p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+
+</body>
+
+</html>
