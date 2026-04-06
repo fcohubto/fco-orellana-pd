@@ -1407,10 +1407,12 @@ body.dark-mode .navbar {
     }
 }
 
+
+/* TABLETS (Portrait) */
+
 @media (max-width: 992px) {
-    /* Feature blocks y contenedores de cristal */
     .feature-visual {
-        margin-top: 40px;
+        margin-top: 32px;
     }
     .visual-container.glass-effect {
         max-width: 100%;
@@ -1419,82 +1421,113 @@ body.dark-mode .navbar {
     }
     .project-meta-grid {
         grid-template-columns: repeat(2, 1fr);
-        /* 2x2 en pantallas medianas */
+        gap: 20px;
     }
     .col-visual {
         padding: 24px;
-        /* Reducimos el padding en tablets/mobile */
-        margin-top: 24px;
-        /* Espacio superior si se apila bajo el texto */
+        margin-top: 32px;
     }
 }
 
+
+/* MÓVILES (Smartphone standard) */
+
 @media (max-width: 768px) {
-    /* Ajustes globales de espaciado para móviles */
+    /* Contenedores y Espaciados */
+    .section-wrapper,
     .section-content {
-        padding: 60px 0;
+        padding: 64px 0;
     }
     .container {
-        padding: 40px 20px;
-        /* Reducción de padding lateral */
+        padding: 0 24px;
     }
+    /* Consistencia lateral */
+    /* TIPOGRAFÍA ACCESIBLE (Escala 1.2) */
+    h1,
     .project-header h1 {
-        font-size: 1.85rem;
+        font-size: 2.1rem;
     }
+    h2,
+    .feature-title {
+        font-size: 1.75rem;
+    }
+    h3 {
+        font-size: 1.5rem;
+    }
+    h4 {
+        font-size: 1.25rem;
+    }
+    /* Textos de lectura */
+    p,
+    .section-description {
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
+    /* Citas e Insights destacados */
     .question-text {
-        font-size: 1.4rem;
+        font-size: 1.35rem;
+        /* No menos de 20px para impacto visual */
+        line-height: 1.4;
     }
     .question-container {
-        padding: 60px 20px;
+        padding: 48px 24px;
     }
+    /* Métricas: Priorizamos legibilidad sobre tamaño gigante */
     .impact-stats {
         grid-template-columns: 1fr;
-    }
-    .stat-card h4 {
-        font-size: 2.4rem;
+        gap: 24px;
     }
     .metric-value {
-        font-size: 2.6rem;
+        font-size: 2.2rem;
+        letter-spacing: -1px;
     }
-    .breadcrumbs {
-        position: relative;
-        z-index: 1;
-        /* Bajamos la prioridad de las breadcrumbs */
-    }
+    /* Elementos de navegación */
     .progress-track {
-        overflow-x: auto;
-        padding-bottom: 10px;
+        padding-bottom: 12px;
     }
     .step-name {
-        font-size: 0.65rem;
+        font-size: 0.75rem;
+        font-weight: 600;
     }
 }
+
+
+/* MÓVILES PEQUEÑOS (Compact devices) */
 
 @media (max-width: 560px) {
     .project-stepper {
         display: none !important;
-        /* Lo elimina por completo del flujo y de la vista */
     }
-    /* Ajuste del layout para que el contenido no deje el hueco del gap */
     .case-study-layout {
         display: block;
-        /* Cambiamos de flex a block para evitar problemas de alineación */
-        gap: 0;
     }
     .case-study-content {
         width: 100%;
-        padding: 0 20px;
-        /* Añadimos un poco de aire lateral si no lo tiene el contenedor */
+        padding: 0;
     }
+    /* Ajuste final de títulos para pantallas muy angostas */
+    h1,
+    .project-header h1 {
+        font-size: 1.85rem;
+    }
+    h2,
+    .feature-title {
+        font-size: 1.6rem;
+    }
+    /* Cards de metadatos */
     .project-meta-grid {
         grid-template-columns: 1fr;
-        /* 1 columna en móviles */
-    }
-    .step-name {
-        font-size: 0.75rem;
     }
     .col-visual {
-        padding: 12px;
+        padding: 16px;
         border-radius: 12px;
+    }
+    /* Garantizamos que los botones y tags sean clickeables (44px min) */
+    .stage-tag,
+    .eyebrow,
+    .status-badge {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+        display: inline-block;
     }
 }
