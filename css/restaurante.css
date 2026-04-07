@@ -16,6 +16,11 @@
     --surface-2: #F8FAFC;
     --bg-surface: #FFFFFF;
     --card-radius: 18px;
+    --line: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode {
+    --line-separator: rgba(255, 255, 255, 0.1);
 }
 
 
@@ -35,82 +40,63 @@
     border-top: 1px solid var(--line-separator);
 }
 
+
+/* ==========================================================================
+   Navegación de Progreso (Sticky Nav)
+   ========================================================================== */
+
 .project-progress-nav {
+    position: -webkit-sticky;
     position: sticky;
-    top: 80px;
-    /* Colocado justo debajo del navbar (ajusta si tu navbar es otra medida) */
+    top: 120px;
     z-index: 999;
-    /* Alto, pero menor que el navbar (1000) */
-    background-color: var(--bg-surface);
-    /* Fondo sólido obligatorio */
+    background-color: var(--bg-surface, #ffffff);
     width: 100%;
-    margin-top: 0;
-    margin-bottom: 60px;
-    padding: 10px 0;
-    /* Un poco de aire vertical */
-    border-bottom: 1px solid var(--line-separator);
-    transition: opacity 0.4s ease, background-color 0.3s ease;
-    /* */
-}
-
-.project-progress-nav .container {
-    max-width: 1120px;
-    /* Tu ancho máximo global */
-    margin: 0 auto;
-    padding: 0 20px;
-    /* Padding de seguridad lateral */
-}
-
-.project-progress-nav.is-sticky {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    /* AJUSTES CRÍTICOS AQUÍ: */
+    height: auto;
+    /* Permite que el contenido defina el alto */
+    min-height: 80px;
+    /* Asegura un alto mínimo para que no se corte */
+    display: block;
+    /* Asegura comportamiento de bloque */
+    padding: 20px 0;
+    /* Espaciado interno generoso */
+    margin: 0;
+    /* Evita desplazamientos raros */
+    border-bottom: 1px solid var(--line-separator, rgba(0, 0, 0, 0.1));
+    overflow: visible;
+    /* Evita que se corte el texto o dots */
 }
 
 
-/* Estado Dark Mode para el contenedor principal */
+/* Soporte para Dark Mode */
 
 body.dark-mode .project-progress-nav {
     background-color: #121212;
-    /* O el color de fondo oscuro de tu proyecto */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-
-/* Color de texto para pasos no activos */
-
-body.dark-mode .step-name {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-
-/* Color de texto para el paso activo */
-
-body.dark-mode .progress-step.active .step-name {
-    color: #ffffff;
-}
-
-
-/* Mantenemos el naranja Transbank para la línea activa */
-
-body.dark-mode .progress-step.active .step-dot {
-    background-color: #ff5a19;
-    /* Tu variable de acento naranja */
-}
-
-
-/* Color de la línea de fondo (la que no está activa) */
-
-body.dark-mode .step-dot {
-    background-color: rgba(255, 255, 255, 0.1);
+.project-progress-nav .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .progress-track {
     display: flex;
     justify-content: space-between;
-    /* Space Between para look de línea de tiempo */
     align-items: flex-start;
     gap: 12px;
+    width: 100%;
 }
+
+
+/* Estructura de cada paso */
 
 .progress-step {
     display: flex;
@@ -118,44 +104,146 @@ body.dark-mode .step-dot {
     gap: 10px;
     text-decoration: none;
     flex: 1;
-    /* Esto hace que se dividan el ancho proporcionalmente */
     text-align: left;
-    /* O center si prefieres */
+    transition: all 0.3s ease;
 }
+
+
+/* La línea (Dot) */
 
 .step-dot {
     height: 4px;
     width: 100%;
-    /* La línea ocupará todo el ancho de su columna */
     background: #eee;
-    /* Gris muy claro para pasos no completados */
     border-radius: 2px;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
 }
+
+body.dark-mode .step-dot {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* El texto (Name) */
 
 .step-name {
     font-size: 0.85rem;
-    /* Ajustado para que quepa bien en una línea */
     font-weight: 700;
-    color: var(--text-soft);
+    color: var(--text-soft, #666);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     white-space: nowrap;
-    background: transparent;
-    /* Evita que el texto se rompa en dos líneas */
+    transition: color 0.3s ease;
+}
+
+body.dark-mode .step-name {
+    color: rgba(255, 255, 255, 0.5);
 }
 
 
-/* Estado Activo */
+/* ==========================================================================
+   ESTADOS ACTIVOS (Solución a la especificidad)
+   ========================================================================== */
 
-.progress-step.active .step-dot {
-    background: var(--accent);
+
+/* 1. Línea Activa */
+
+.progress-step.active .step-dot,
+body.dark-mode .progress-step.active .step-dot {
+    background-color: #ff5a19 !important;
+    /* Tu Naranja Transbank */
     height: 6px;
+    opacity: 1;
 }
+
+
+/* 2. Texto Activo */
 
 .progress-step.active .step-name {
-    color: var(--text-main);
-    font-weight: 800;
+    color: var(--text-main, #000) !important;
+    font-weight: 800 !important;
+}
+
+body.dark-mode .progress-step.active .step-name {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+}
+
+
+/* ==========================================================================
+   HOVER EFFECTS
+   ========================================================================== */
+
+.progress-step:hover .step-name {
+    color: #ff5a19;
+}
+
+.progress-step:hover .step-dot {
+    background: #ff5a19;
+    opacity: 0.5;
+}
+
+
+/* Capa Lightbox */
+
+.lightbox {
+    pointer-events: auto;
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    /* Por encima del navbar y stepper */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--surface);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+.lightbox.active {
+    display: flex !important;
+    /* Forzamos el display para evitar conflictos */
+}
+
+.lightbox img {
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    object-fit: contain;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+
+/* Contenedor original */
+
+.image-zoom-trigger {
+    cursor: zoom-in;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.zoom-hint {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: var(--accent);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 1.25rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.image-zoom-trigger:hover .zoom-hint {
+    opacity: 1;
 }
 
 
@@ -185,7 +273,6 @@ body.dark-mode .step-dot {
     width: 100%;
     max-width: 1120px;
     margin: 0 auto;
-    padding: 0px 32px;
 }
 
 .container.narrow {
@@ -298,7 +385,7 @@ body.dark-mode .breadcrumb-list li:not(:last-child)::after {
 
 .process-header h3 {
     max-width: 700px;
-    font-size: 2rem;
+    font-size: 1.75rem;
     line-height: 1.2;
     margin-bottom: 24px;
     color: var(--text-soft);
@@ -335,7 +422,7 @@ body.dark-mode .process-header .section-description {
 
 @media (max-width: 768px) {
     .process-header h3 {
-        font-size: 1.8rem;
+        font-size: 1.75rem;
     }
     .process-intro {
         padding: 60px 0 40px 0;
@@ -356,6 +443,7 @@ body.dark-mode .process-header .section-description {
     margin-bottom: 24px;
     letter-spacing: -0.02em;
     max-width: 860px;
+    color: var(--text-soft);
 }
 
 .project-subtitle {
@@ -375,25 +463,6 @@ body.dark-mode .process-header .section-description {
     width: 100%;
 }
 
-.icon-box {
-    width: 32px;
-    height: 32px;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--accent);
-}
-
-
-/* Si usas SVGs directos */
-
-.icon-box svg {
-    width: 100%;
-    height: 100%;
-    stroke-width: 1.5px;
-}
-
 .project-meta-item {
     display: flex;
     flex-direction: column;
@@ -402,7 +471,7 @@ body.dark-mode .process-header .section-description {
 
 .project-meta-item span {
     display: block;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 400;
     text-transform: uppercase;
     color: var(--accent);
@@ -410,7 +479,7 @@ body.dark-mode .process-header .section-description {
 }
 
 .project-meta-item p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 400;
     margin: 0;
 }
@@ -419,14 +488,14 @@ body.dark-mode .process-header .section-description {
     font-size: 2.25rem;
     line-height: 1.5;
     letter-spacing: -0.02em;
-    color: var(--text-main);
+    color: var(--text-soft);
 }
 
 .problem-statement .col-text h3 {
     display: inline-block;
     font-size: 1.25rem;
     font-weight: 400;
-    color: var(--accent);
+    color: var(--text-soft);
     margin-bottom: 16px;
     letter-spacing: 0.15em;
 }
@@ -445,6 +514,13 @@ body.dark-mode .process-header .section-description {
     background: var(--surface);
     padding: 32px;
     font-style: italic;
+}
+
+.data-box strong {
+    display: block;
+    font-weight: 700;
+    color: var(--text-soft);
+    margin-bottom: 12px;
 }
 
 
@@ -467,7 +543,7 @@ body.dark-mode .process-header .section-description {
 }
 
 .metric-card h4 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-soft);
 }
@@ -532,7 +608,7 @@ body.dark-mode .process-header .section-description {
 }
 
 .section-title h3 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: var(--text);
     text-align: left;
@@ -751,9 +827,25 @@ body.dark-mode .process-header .section-description {
     margin-top: 64px;
 }
 
+.col-text h3 {
+    font-size: 1.75rem;
+    color: var(--text-soft);
+}
+
+.col-text h4 {
+    font-size: 1.5rem;
+    color: var(--text-soft);
+}
+
+.col-text p {
+    font-size: 1.125rem;
+    color: var(--text-soft);
+}
+
 .col-text {
     font-size: 1.125rem;
     color: var(--text-soft);
+    justify-content: start;
 }
 
 .highlight-list {
@@ -864,6 +956,7 @@ body.dark-mode .process-header .section-description {
     /* Corregido: margen para bloques independientes */
     color: var(--text-soft);
     font-size: 1.125rem;
+    letter-spacing: normal;
 }
 
 
@@ -927,7 +1020,8 @@ body.dark-mode .process-header .section-description {
 
 .hypothesis-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
+    /* Forzamos 3 columnas arriba */
     gap: 24px;
     width: 100%;
 }
@@ -947,21 +1041,32 @@ body.dark-mode .process-header .section-description {
 .hypo-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: var(--accent);
 }
 
-.icon-box-hypo i {
-    width: 24px;
-    height: 24px;
-    color: var(--accent);
-    stroke-width: 2px;
+
+/* Asegura que el contenedor del icono tenga el mismo estilo que tus stat-cards */
+
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    /* Ajusta según tu diseño de stat-card */
+    height: 40px;
+    margin-bottom: 1rem;
+    font-size: 32px;
 }
 
-.icon-box-hypo svg {
-    width: 24px;
-    height: 24px;
+
+/* Estilo específico para los iconos de Lucide dentro de esos spans */
+
+.card-icon svg {
+    width: 48px;
+    height: 48px;
     stroke: var(--accent);
-    fill: none;
     stroke-width: 2px;
+    fill: none;
 }
 
 .card-header {
@@ -987,7 +1092,7 @@ body.dark-mode .process-header .section-description {
 }
 
 .hypo-item p {
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 400;
     color: var(--text-soft, #424242);
     line-height: 1.5;
@@ -1076,19 +1181,20 @@ body.dark-mode .process-header .section-description {
 }
 
 .feature-title {
-    font-size: 2.25rem;
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 24px;
     color: var(--text-soft);
     letter-spacing: -0.02em;
 }
 
-.feature-title h4 {
-    font-size: 1.25rem;
+h4.feature-title {
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-soft);
     margin: 0;
     line-height: 1.5;
+    padding-bottom: 24px;
 }
 
 .feature-description {
@@ -1252,7 +1358,7 @@ body.dark-mode .process-header .section-description {
 }
 
 .btn-secondary:hover {
-    background: var(--text-soft);
+    background: var(--surface);
     color: var(--surface);
     border-color: var(--text-soft);
     transform: translateY(-3px);
@@ -1328,7 +1434,7 @@ body.dark-mode .reflection-text {
     /* O fixed si quieres que flote sobre todo siempre */
     top: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 9999 !important;
     /* Prioridad alta para que nada lo cubra al hacer scroll */
     background: rgba(255, 255, 255, 0.88);
     /* El blur solo funciona con transparencia */
@@ -1404,6 +1510,24 @@ body.dark-mode .navbar {
     }
     .slide-content {
         padding: 40px 24px;
+    }
+    .hypo-item:nth-child(4) {
+        grid-column: 1 / 2;
+        margin-left: 50%;
+        /* Empuja la card hacia el centro */
+    }
+    .hypo-item:nth-child(5) {
+        grid-column: 2 / 3;
+        margin-left: 50%;
+        /* Empuja la card hacia el centro */
+    }
+    .hypothesis-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hypo-item:nth-child(4),
+    .hypo-item:nth-child(5) {
+        grid-column: auto;
+        margin-left: 0;
     }
 }
 
@@ -1529,5 +1653,8 @@ body.dark-mode .navbar {
         font-size: 0.75rem;
         padding: 6px 12px;
         display: inline-block;
+    }
+    .hypothesis-grid {
+        grid-template-columns: 1fr;
     }
 }
