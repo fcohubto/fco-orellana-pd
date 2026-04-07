@@ -50,6 +50,29 @@ body.dark-mode .navbar {
     z-index: 10001 !important;
 }
 
+.feature-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--text-soft);
+    letter-spacing: -0.02em;
+}
+
+h4.feature-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-soft);
+    margin: 0;
+    line-height: 1.5;
+    padding-bottom: 24px;
+}
+
+.feature-description {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: var(--text-soft);
+}
+
 
 /* 1. LAYOUT & ESTRUCTURA DE CAPAS (SISTEMA IRROMPIBLE) */
 
@@ -63,7 +86,7 @@ body.dark-mode .navbar {
 .section-wrapper {
     width: 100%;
     display: block;
-    padding: 100px 0px 100px;
+    padding: 64px 0px 64px;
 }
 
 .section-wrapper.border-top {
@@ -340,12 +363,116 @@ body.dark-mode .project-stepper {
 
 /* Título Principal de la sección */
 
-.process-header h3 {
-    max-width: 800px;
-    font-size: 2.5rem;
+.process-header h2 {
+    max-width: 700px;
+    font-size: 2.25rem;
     line-height: 1.2;
     margin-bottom: 24px;
-    color: var(--text-main);
+    color: var(--text-soft);
+}
+
+.process-header h3 {
+    max-width: 700px;
+    font-size: 1.75rem;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: var(--text-soft);
+}
+
+
+/* Contenedor para evitar saltos de layout */
+
+.image-zoom-wrapper {
+    cursor: zoom-in;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+
+/* Estado expandido (Lightbox) */
+
+.zoomable.is-expanded {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 40px;
+    cursor: zoom-out;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* Prevenir scroll cuando la imagen está abierta */
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+
+/* Contenedor original */
+
+.image-zoom-trigger {
+    cursor: zoom-in;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.zoom-hint {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: var(--accent);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 1.25rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.image-zoom-trigger:hover .zoom-hint {
+    opacity: 1;
+}
+
+
+/* Capa Lightbox */
+
+.lightbox {
+    pointer-events: auto;
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    /* Por encima del navbar y stepper */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--surface 0.95);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+.lightbox.active {
+    display: flex !important;
+    /* Forzamos el display para evitar conflictos */
+}
+
+.lightbox img {
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    object-fit: contain;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
 }
 
 
@@ -360,6 +487,21 @@ body.dark-mode .project-stepper {
 }
 
 
+/* --- DARK MODE SUPPORT --- */
+
+body.dark-mode .process-intro {
+    background-color: #121212;
+}
+
+body.dark-mode .process-header h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .process-header .section-description {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
 /* 2. HERO & METADATA */
 
 .project-detail-hero {
@@ -367,12 +509,13 @@ body.dark-mode .project-stepper {
 }
 
 .project-header h1 {
-    font-size: clamp(2rem, 6vw, 4rem);
+    font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 700;
     line-height: 1.5;
     margin-bottom: 24px;
     letter-spacing: -0.02em;
     max-width: 860px;
+    color: var(--text-main);
 }
 
 .project-subtitle {
@@ -478,7 +621,29 @@ body.dark-mode .project-stepper {
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
+    background-color: var(--surface);
     /* Restaurado: centrado vertical de visual/texto */
+}
+
+.three-columns-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    /* Nota: Usamos 'start' en lugar de 'center' para que si una card tiene 
+       más texto que otra, los títulos de las cards permanezcan alineados arriba. */
+}
+
+.four-columns-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    align-items: start;
+}
+
+.text-accent {
+    color: var(--accent);
+    /* Para destacar el Resultado y Factibilidad técnica */
 }
 
 
@@ -543,6 +708,7 @@ body.dark-mode .project-stepper {
     font-size: 1.25rem;
     margin-bottom: 8px;
     text-align: center;
+    color: var(--text-soft);
 }
 
 .metric-description {
@@ -577,6 +743,7 @@ body.dark-mode .project-stepper {
 .col-text {
     font-size: 1.125rem;
     color: var(--text-soft);
+    justify-content: start;
 }
 
 .highlight-list {
@@ -605,6 +772,101 @@ body.dark-mode .project-stepper {
     justify-content: center;
     min-height: 350px;
     width: 100%;
+}
+
+
+/* --- COL-VISUAL: Contenedor de Mockups y Media --- */
+
+.col-visual {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 16px;
+    /* Bordes redondeados consistentes con tu UI */
+    overflow: hidden;
+    /* Para que las imágenes no se salgan de las esquinas */
+    background-color: #fcfcfc;
+    /* Fondo neutro muy sutil para destacar el mockup */
+    padding: 40px;
+    /* Aire interno para que el diseño "respire" */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid var(--line-separator);
+}
+
+
+/* Efecto al pasar el mouse (opcional para interactividad) */
+
+.col-visual:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card {
+    justify-items: start;
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px solid #F1F5F9;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h4 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 0 0 15px 0;
+    letter-spacing: -0.02em;
+}
+
+.stat-card strong {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-soft);
+    margin-bottom: 12px;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.stat-card p {
+    font-size: 1rem;
+    color: var(--text-soft);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.card-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 32px;
+    /* Un poco más de aire según tu captura */
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    /* Tamaño del emoji */
+    background-color: rgba(var(--accent-rgb), 0.1);
+    /* Opcional: un fondo suave si tu estilo lo permite */
+    border-radius: 8px;
+}
+
+
+/* Si decides pasar a SVGs (Lucide, Phosphor, etc.) este ya lo tienes bien */
+
+.card-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--accent);
+    fill: none;
+    stroke-width: 1.5px;
 }
 
 
@@ -789,6 +1051,14 @@ body.dark-mode .project-stepper {
     margin-top: 40px;
 }
 
+.mt-16 {
+    margin-top: 16px;
+}
+
+.mt-24 {
+    margin-top: 24px;
+}
+
 .btn-secondary {
     display: inline-block;
     padding: 16px 32px;
@@ -958,93 +1228,364 @@ body.dark-mode .reflection-text {
     /* Pequeña animación de rebote hacia arriba */
 }
 
+.technical-table-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
-/* 9. RESPONSIVE DESIGN (REPARADO POR CASCADA) */
+.table-row {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 2fr;
+    /* Proporción Proceso | Acción | Resultado */
+    border-bottom: 1px solid var(--accent);
+    /* Línea horizontal del wireframe */
+    padding: 32px 0;
+}
+
+.table-header {
+    font-weight: bold;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 16px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.table-col {
+    padding: 0 40px;
+    position: relative;
+}
+
+
+/* Líneas verticales separadoras del wireframe */
+
+.table-col:not(:first-child) {
+    border-left: 1px solid var(--accent);
+}
+
+.col-proceso {
+    padding-left: 0;
+}
+
+.col-resultado {
+    padding-right: 0;
+}
+
+.no-border {
+    border-bottom: none;
+}
+
+
+/* Contenedor del carrusel con Scroll Snap */
+
+.study-carousel-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0;
+    /* Volvemos a eliminar el espacio */
+    padding: 0;
+    /* Eliminamos el padding que empujaba el contenido */
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    width: 100%;
+    position: relative;
+    /* El contenedor ocupa todo el ancho */
+    -webkit-overflow-scrolling: touch;
+}
+
+.carousel-main-container {
+    position: relative;
+    width: 100%;
+}
+
+
+/* Ocultar barra de scroll en navegadores modernos */
+
+.study-carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Cada slide ocupa el 100% del ancho del contenedor */
+
+.study-slide {
+    flex: 0 0 100%;
+    /* No se encoge, no crece, ocupa el 100% */
+    min-width: 100%;
+    /* Refuerza que no se achique */
+    width: 100%;
+    scroll-snap-align: start;
+    /* Cambia center por start para mejor precisión */
+    cursor: grab;
+}
+
+
+/* Ajuste de seguridad para la grilla interna (por si acaso) */
+
+.study-slide .two-columns-grid {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Estilos de los Dots */
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 40px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Color base */
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.dot.active,
+.dot:hover {
+    background-color: #FF5C35;
+    /* Tu naranja de acento */
+    transform: scale(1.2);
+    cursor: grabbing !important;
+}
+
+
+/* Clases de apoyo que ya conoces */
+
+.orange {
+    color: #FF5C35;
+}
+
+.orange-border {
+    border-left: 2px solid #FF5C35;
+    padding-left: 24px;
+}
+
+.quote {
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.hallazgo-box {
+    background: rgba(255, 92, 53, 0.05);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.hallazgo-box strong {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-soft);
+    margin-bottom: 12px;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.hallazgo-box p {
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-soft);
+    margin-bottom: 12px;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+
+/* Estilos de acento naranja para los casos (basado en tu captura) */
+
+.orange {
+    color: #FF5C35;
+}
+
+.orange-border {
+    border-left: 2px solid #FF5C35;
+    padding-left: 20px;
+}
+
+
+/* Estilos para la card de testimonios */
+
+.quote-card .quote {
+    font-style: italic;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.hallazgo-box {
+    background: rgba(255, 92, 53, 0.05);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+
+/* ==========================================================================
+   BREAKPOINT: TABLET / LAPTOP PEQUEÑA (1024px)
+   ========================================================================== */
 
 @media (max-width: 1024px) {
+    /* Grillas a una columna */
     .metrics-grid,
     .two-columns-grid,
     .feedback-grid-detailed,
     .impact-dashboard-grid,
-    .feature-main-grid {
+    .feature-main-grid,
+    .four-columns-grid {
         grid-template-columns: 1fr !important;
-        gap: 40px;
+        gap: 32px;
     }
-    /* Carrusel de arquitectura: pasa de horizontal a vertical */
+    /* Ajuste Carrusel Study (El que acabamos de arreglar) */
+    .study-slide {
+        padding: 20px;
+    }
+    /* Carrusel de arquitectura: Adaptación vertical */
     .flow-slide {
         grid-template-columns: 1fr;
         height: auto;
     }
     .slide-visual {
-        height: 250px;
+        height: 300px;
         order: -1;
-        /* Imagen arriba del texto */
+        /* Imagen siempre arriba del texto */
     }
     .slide-content {
-        padding: 40px 24px;
+        padding: 32px 20px;
     }
 }
 
+
+/* ==========================================================================
+   BREAKPOINT: TABLET VERTICAL (992px)
+   ========================================================================== */
+
 @media (max-width: 992px) {
-    /* Feature blocks y contenedores de cristal */
+    /* Tipografía Escala "Restaurantes" */
+    h1,
+    .project-header h1 {
+        font-size: 2.2rem;
+    }
+    h2,
+    .feature-title {
+        font-size: 1.8rem;
+    }
+    h3 {
+        font-size: 1.5rem;
+    }
+    .section-description {
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
+    /* Contenedores visuales */
     .feature-visual {
-        margin-top: 40px;
+        margin-top: 32px;
     }
     .visual-container.glass-effect {
         max-width: 100%;
         width: 100%;
         margin: 0;
     }
+    /* Tablas de hallazgos / Comparativas */
+    .table-header {
+        display: none;
+    }
+    .table-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .table-col {
+        border-left: none !important;
+        padding: 4px 0;
+    }
 }
+
+
+/* ==========================================================================
+   BREAKPOINT: MÓVIL (768px)
+   ========================================================================== */
 
 @media (max-width: 768px) {
-    /* Ajustes globales de espaciado para móviles */
-    .section-content {
+    /* Espaciados Globales Móvil */
+    .container {
+        padding: 0 24px;
+    }
+    .section-wrapper {
         padding: 60px 0;
     }
-    .container {
-        padding: 40px 20px;
-        /* Reducción de padding lateral */
-    }
+    /* Títulos Impacto */
     .project-header h1 {
-        font-size: 1.85rem;
+        font-size: 1.75rem;
     }
     .question-text {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
-    .question-container {
-        padding: 60px 20px;
-    }
+    /* Stats e Impacto */
     .impact-stats {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
-    .stat-card h4 {
-        font-size: 2.4rem;
-    }
+    .stat-card h4,
     .metric-value {
-        font-size: 2.6rem;
+        font-size: 2.2rem;
     }
-    .breadcrumbs {
-        position: relative;
-        z-index: 1;
-        /* Bajamos la prioridad de las breadcrumbs */
+    /* Carrusel & Dots (Aseguramos legibilidad) */
+    .carousel-dots {
+        gap: 8px;
+        margin-top: 24px;
+    }
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+    /* Lightbox (Imagen más grande en móvil) */
+    .lightbox img {
+        max-width: 95%;
+        max-height: 80vh;
     }
 }
 
+
+/* ==========================================================================
+   BREAKPOINT: MÓVIL SMALL (560px)
+   ========================================================================== */
+
 @media (max-width: 560px) {
-    .project-stepper {
+    /* Eliminación de Stepper para ganar Real Estate */
+    .project-stepper,
+    .project-progress-nav {
         display: none !important;
-        /* Lo elimina por completo del flujo y de la vista */
     }
-    /* Ajuste del layout para que el contenido no deje el hueco del gap */
+    /* Layout Full Width */
     .case-study-layout {
         display: block;
-        /* Cambiamos de flex a block para evitar problemas de alineación */
-        gap: 0;
+        padding: 0;
     }
     .case-study-content {
         width: 100%;
+        padding: 0;
+    }
+    /* Ajuste de Cards de Hallazgos */
+    .hallazgo-box {
+        padding: 16px;
+    }
+    .hallazgo-box strong {
+        font-size: 1.1rem;
+    }
+    /* Reducción final de padding en secciones */
+    .container {
         padding: 0 20px;
-        /* Añadimos un poco de aire lateral si no lo tiene el contenedor */
     }
 }
