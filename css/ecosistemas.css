@@ -86,7 +86,7 @@ h4.feature-title {
 .section-wrapper {
     width: 100%;
     display: block;
-    padding: 64px 0px 64px;
+    padding: 100px 0px 100px 0px;
 }
 
 .section-wrapper.border-top {
@@ -113,7 +113,6 @@ h4.feature-title {
     width: 100%;
     max-width: 1120px;
     margin: 0 auto;
-    padding: 0px 32px;
 }
 
 .container.narrow {
@@ -562,7 +561,7 @@ body.dark-mode .process-header .section-description {
 
 .project-meta-item span {
     display: block;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 400;
     text-transform: uppercase;
     color: var(--accent);
@@ -570,7 +569,7 @@ body.dark-mode .process-header .section-description {
 }
 
 .project-meta-item p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 400;
     margin: 0;
 }
@@ -579,14 +578,14 @@ body.dark-mode .process-header .section-description {
     font-size: 2.25rem;
     line-height: 1.5;
     letter-spacing: -0.02em;
-    color: var(--text-main);
+    color: var(--text-soft);
 }
 
 .problem-statement .col-text h3 {
     display: inline-block;
     font-size: 1.25rem;
     font-weight: 400;
-    color: var(--accent);
+    color: var(--text-soft);
     margin-bottom: 16px;
     letter-spacing: 0.15em;
 }
@@ -674,7 +673,7 @@ body.dark-mode .process-header .section-description {
 }
 
 .metric-card p {
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 400;
     color: var(--text-soft);
 }
@@ -696,7 +695,7 @@ body.dark-mode .process-header .section-description {
 
 .metric-value {
     display: block;
-    font-size: 3.2rem;
+    font-size: 3rem;
     font-weight: 700;
     color: var(--accent);
     margin-bottom: 12px;
@@ -943,6 +942,14 @@ body.dark-mode .process-header .section-description {
     /* Corregido: margen para bloques independientes */
     color: var(--text-soft);
     font-size: 1.125rem;
+    letter-spacing: normal;
+}
+
+.data-box strong {
+    display: block;
+    font-weight: 700;
+    color: var(--text-soft);
+    margin-bottom: 12px;
 }
 
 .hypothesis-grid {
@@ -1041,6 +1048,10 @@ body.dark-mode .process-header .section-description {
     margin-top: 40px;
     display: flex;
     justify-content: center;
+}
+
+.mt-80 {
+    margin-top: 80px;
 }
 
 .mt-60 {
@@ -1230,8 +1241,22 @@ body.dark-mode .reflection-text {
 
 .technical-table-wrapper {
     width: 100%;
+    max-width: 900px;
+    /* Evita que la tabla crezca infinitamente */
+    margin: 40px auto;
+    /* Centra el componente y le da aire vertical */
     display: flex;
     flex-direction: column;
+    /* Identificación como unidad adicional */
+    background: var(sr);
+    /* Fondo muy leve */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    /* Borde sutil */
+    border-radius: 12px;
+    padding: 32px;
+    /* Espacio interno para que el contenido no toque los bordes */
+    /* Efecto de elevación sutil (opcional) */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
 .table-row {
@@ -1255,6 +1280,12 @@ body.dark-mode .reflection-text {
 .table-col {
     padding: 0 40px;
     position: relative;
+    font-size: 1rem;
+}
+
+.dark-mode .technical-table-wrapper {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 
@@ -1283,9 +1314,7 @@ body.dark-mode .reflection-text {
     display: flex;
     flex-wrap: nowrap;
     gap: 0;
-    /* Volvemos a eliminar el espacio */
     padding: 0;
-    /* Eliminamos el padding que empujaba el contenido */
     scroll-snap-type: x mandatory;
     overflow-x: auto;
     width: 100%;
@@ -1358,6 +1387,47 @@ body.dark-mode .reflection-text {
 }
 
 
+/* ==========================================================================
+   DARK MODE: CAROUSEL DOTS
+   ========================================================================== */
+
+
+/* Cuando el body o un contenedor padre tiene la clase .dark-mode */
+
+.dark-mode .dot {
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Dot inactivo: Blanco traslúcido */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .dot.active {
+    background-color: #FF5C35;
+    /* Mantenemos tu naranja de marca */
+    box-shadow: 0 0 12px rgba(255, 92, 53, 0.6);
+    /* Glow sutil para que "vibre" en la oscuridad */
+    border-color: #FF5C35;
+    transform: scale(1.2);
+    /* Un toque de feedback visual extra */
+}
+
+
+/* Hover en Dark Mode para mejorar la navegabilidad */
+
+.dark-mode .dot:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+
+/* Ajuste del contenedor de los dots si tiene fondo */
+
+.dark-mode .carousel-dots {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+}
+
+
 /* Clases de apoyo que ya conoces */
 
 .orange {
@@ -1370,9 +1440,8 @@ body.dark-mode .reflection-text {
 }
 
 .quote {
-    font-style: italic;
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.5;
     margin-bottom: 20px;
 }
 
@@ -1428,6 +1497,88 @@ body.dark-mode .reflection-text {
     background: rgba(255, 92, 53, 0.05);
     padding: 20px;
     border-radius: 8px;
+}
+
+.comparison-slider-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-slider {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 800 / 427;
+}
+
+.comparison-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    /* Estado inicial */
+    height: 100%;
+    overflow: hidden;
+}
+
+
+/* Manejador visual */
+
+.slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: var(--accent);
+    cursor: ew-resize;
+    z-index: 10;
+}
+
+.handle-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.badge {
+    position: absolute;
+    bottom: 20px;
+    padding: 6px 12px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    border-radius: 4px;
+}
+
+.badge-before {
+    left: 20px;
+}
+
+.badge-after {
+    right: 20px;
 }
 
 
@@ -1555,6 +1706,17 @@ body.dark-mode .reflection-text {
         max-width: 95%;
         max-height: 80vh;
     }
+    .three-columns-grid {
+        /* Una sola columna para lectura vertical cómoda */
+        grid-template-columns: 1fr !important;
+        gap: 40px;
+        align-items: center;
+        /* En móvil solemos centrar el eje visual */
+    }
+    .three-columns-grid>*:last-child:nth-child(odd) {
+        grid-column: span 1;
+        max-width: 100%;
+    }
 }
 
 
@@ -1587,5 +1749,8 @@ body.dark-mode .reflection-text {
     /* Reducción final de padding en secciones */
     .container {
         padding: 0 20px;
+    }
+    .three-columns-grid {
+        gap: 24px;
     }
 }
