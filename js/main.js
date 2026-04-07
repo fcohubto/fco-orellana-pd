@@ -222,11 +222,54 @@ const hideObserver = new IntersectionObserver((entries) => {
         }
     });
 }, {
-    // MODIFICA ESTE VALOR:
-    // Al poner 200px, el componente se ocultará 200 píxeles ANTES 
-    // de que el footer aparezca en pantalla.
     rootMargin: "0px 0px 200px 0px",
     threshold: 0
 });
 
 if (footer && stepperNav) hideObserver.observe(footer);
+
+/* --- LÓGICA DE EXPANSIÓN SIN PARPADEO --- */
+const lightbox = document.getElementById('lightbox-overlay');
+const lightboxImg = document.getElementById('lightbox-img');
+
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('js-zoomable')) {
+        lightboxImg.src = e.target.src;
+        lightbox.classList.add('active');
+        document.body.classList.add('no-scroll');
+        return;
+    }
+
+    if (lightbox && lightbox.classList.contains('active')) {
+        lightbox.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+        setTimeout(() => { lightboxImg.src = ""; }, 300);
+    }
+});
+
+/* --- LÓGICA MULTI-CARRUSEL (PARA TODOS LOS CASOS) --- */
+const allCarousels = document.querySelectorAll('.study-carousel-container, .carousel-track');
+
+allCarousels.forEach((track) => {
+    // Buscamos los dots que están específicamente en el mismo contenedor padre que este carrusel
+    const container = track.closest('.carousel-main-container') || track.parentElement;
+    const dots = container.querySelectorAll('.dot');
+
+    if (track && dots.length > 0) {
+        track.addEventListener('scroll', () => {
+            const width = track.clientWidth;
+            const scrollLeft = track.scrollLeft;
+
+            // Calculamos el índice con el umbral de 10px para precisión
+            const currentIndex = Math.floor((scrollLeft + 10) / width);
+
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }, { passive: true });
+    }
+});
