@@ -273,3 +273,30 @@ allCarousels.forEach((track) => {
         }, { passive: true });
     }
 });
+/* --- BEFORE/AFTER SLIDER LOGIC --- */
+const sliderContainer = document.querySelector('.comparison-slider-container');
+const sliderHandle = document.querySelector('.slider-handle');
+const imgOverlay = document.querySelector('.img-overlay');
+
+if (sliderContainer && sliderHandle) {
+    const moveSlider = (e) => {
+        const rect = sliderContainer.getBoundingClientRect();
+        // Detectamos si es touch o mouse
+        const x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+        let position = x - rect.left;
+
+        // Validamos límites para que no se salga del contenedor
+        if (position < 0) position = 0;
+        if (position > rect.width) position = rect.width;
+
+        const percentage = (position / rect.width) * 100;
+
+        sliderHandle.style.left = `${percentage}%`;
+        imgOverlay.style.width = `${percentage}%`;
+    };
+
+    // Eventos de Mouse
+    sliderContainer.addEventListener('mousemove', moveSlider);
+    // Eventos de Touch para móvil
+    sliderContainer.addEventListener('touchmove', moveSlider, { passive: true });
+}
