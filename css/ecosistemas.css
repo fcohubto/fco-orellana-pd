@@ -1543,7 +1543,7 @@ body.dark-mode .stepper-item.active::after {
     }
     /* Ajuste Stepper para Header Móvil */
     .project-stepper {
-        top: 60px;
+        top: 100px;
         gap: 15px;
     }
     .step-number {
@@ -1598,6 +1598,7 @@ body.dark-mode .stepper-item.active::after {
     }
     /* Stepper Minimalista */
     .project-stepper {
+     top: 100px;
         justify-content: space-evenly;
         gap: 5px;
         height: 44px;
