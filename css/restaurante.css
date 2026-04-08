@@ -12,6 +12,7 @@
     --text: #212121;
     --text-soft: #424242;
     --text-main: #1a1a1a;
+    --text-on-color: #ffffff;
     --surface: #ffffff;
     --surface-2: #F8FAFC;
     --bg-surface: #FFFFFF;
@@ -48,7 +49,7 @@ body.dark-mode {
 .project-progress-nav {
     position: -webkit-sticky;
     position: sticky;
-    top: 120px;
+    top: 140px;
     z-index: 999;
     background-color: var(--bg-surface, #ffffff);
     width: 100%;
@@ -129,7 +130,7 @@ body.dark-mode .step-dot {
 .step-name {
     font-size: 0.85rem;
     font-weight: 700;
-    color: var(--text-soft, #666);
+    color: var(--text-soft);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     white-space: nowrap;
@@ -167,20 +168,6 @@ body.dark-mode .progress-step.active .step-dot {
 body.dark-mode .progress-step.active .step-name {
     color: #ffffff !important;
     font-weight: 800 !important;
-}
-
-
-/* ==========================================================================
-   HOVER EFFECTS
-   ========================================================================== */
-
-.progress-step:hover .step-name {
-    color: #ff5a19;
-}
-
-.progress-step:hover .step-dot {
-    background: #ff5a19;
-    opacity: 0.5;
 }
 
 
@@ -234,10 +221,10 @@ body.dark-mode .progress-step.active .step-name {
     bottom: 10px;
     right: 10px;
     background: var(--accent);
-    color: white;
+    color: var(--text-on-color);
     padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 1.25rem;
+    border-radius: 16px;
+    font-size: 1.125rem;
     opacity: 0;
     transition: opacity 0.3s;
 }
@@ -284,7 +271,7 @@ body.dark-mode .progress-step.active .step-name {
 }
 
 .breadcrumb-nav {
-    padding: 20px 0;
+    padding: 0px;
     background: var(--bg);
 }
 
@@ -420,20 +407,11 @@ body.dark-mode .process-header .section-description {
 
 /* --- RESPONSIVE --- */
 
-@media (max-width: 768px) {
-    .process-header h3 {
-        font-size: 1.75rem;
-    }
-    .process-intro {
-        padding: 60px 0 40px 0;
-    }
-}
-
 
 /* 3. HERO & METADATA SECTON */
 
 .project-detail-hero {
-    padding: 160px 0px 0px;
+    padding: 100px 0px 0px;
 }
 
 .project-header h1 {
@@ -471,13 +449,14 @@ body.dark-mode .process-header .section-description {
 
 .project-meta-item span {
     display: block;
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 400;
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 8px;
 }
 
+.card-body-metric,
 .project-meta-item p {
     font-size: 1rem;
     font-weight: 400;
@@ -791,7 +770,6 @@ body.dark-mode .process-header .section-description {
     padding: 40px;
     /* Aire interno para que el diseño "respire" */
     transition: transform 0.4s ease, box-shadow 0.4s ease;
-    border: 1px solid var(--line-separator);
 }
 
 
@@ -884,35 +862,6 @@ body.dark-mode .process-header .section-description {
     color: var(--accent);
     margin-bottom: 16px;
     letter-spacing: 0.15em;
-}
-
-
-/* --- COL-VISUAL: Contenedor de Mockups y Media --- */
-
-.col-visual {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    border-radius: 16px;
-    /* Bordes redondeados consistentes con tu UI */
-    overflow: hidden;
-    /* Para que las imágenes no se salgan de las esquinas */
-    background-color: var(--surface-2);
-    /* Fondo neutro muy sutil para destacar el mockup */
-    padding: 40px;
-    /* Aire interno para que el diseño "respire" */
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    border: 1px solid var(--line-separator);
-}
-
-
-/* Efecto al pasar el mouse (opcional para interactividad) */
-
-.col-visual:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
 }
 
 .qa-box {
@@ -1054,7 +1003,7 @@ body.dark-mode .process-header .section-description {
     width: 40px;
     /* Ajusta según tu diseño de stat-card */
     height: 40px;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     font-size: 32px;
 }
 
@@ -1086,15 +1035,15 @@ body.dark-mode .process-header .section-description {
 .guerrilla-box h4 {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--text, #1E293B);
+    color: var(--text-soft);
     margin: 0;
     line-height: 1.5;
 }
 
 .hypo-item p {
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 400;
-    color: var(--text-soft, #424242);
+    color: var(--text-soft);
     line-height: 1.5;
     margin: 0;
 }
@@ -1102,7 +1051,7 @@ body.dark-mode .process-header .section-description {
 .hypo-item h4 {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--text, #1E293B);
+    color: var(--text-soft);
     margin: 0;
     line-height: 1.5;
 }
@@ -1151,7 +1100,9 @@ body.dark-mode .process-header .section-description {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    width: 100%;
+    /* Evita que el contenedor empuje hacia abajo */
+    max-height: 100%;
 }
 
 .visual-container.glass-effect {
@@ -1175,9 +1126,14 @@ body.dark-mode .process-header .section-description {
 
 .feature-visual-media {
     width: 100%;
+    /* Limitamos el ancho máximo para que no se vea gigante en tablets */
+    max-width: 450px;
     height: auto;
     border-radius: 20px;
     display: block;
+    margin: 0 auto;
+    /* Suavizamos la transición de tamaño */
+    transition: max-width 0.3s ease;
 }
 
 .feature-title {
@@ -1205,9 +1161,9 @@ h4.feature-title {
 
 .impact-stats {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 60px;
     width: 100%;
 }
 
@@ -1285,34 +1241,54 @@ h4.feature-title {
 
 .status-badge {
     background-color: var(--accent);
-    color: var(--surface);
+    color: var(--text-on-color);
     display: inline-block;
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 400;
     letter-spacing: 0.05em;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
 }
+
+
+/* SUCCESS (Verde - Esmeralda más profundo) */
 
 .status-badge.success {
-    background: rgba(16, 185, 129, 0.1);
-    color: #10b981;
+    background: rgba(5, 150, 105, 0.12);
+    /* Un toque más de opacidad */
+    color: #059669;
+    /* Verde con mayor peso visual */
+    border: 1px solid rgba(5, 150, 105, 0.2);
+    /* Borde sutil para definir la forma */
 }
+
+
+/* VALIDATED (Azul - Cobalto) */
 
 .status-badge.validated {
-    background: rgba(59, 130, 246, 0.1);
-    color: #3b82f6;
+    background: rgba(37, 99, 235, 0.12);
+    color: #2563eb;
+    border: 1px solid rgba(37, 99, 235, 0.2);
 }
+
+
+/* OPERATIONAL (Tu Naranja Accent - Más "tostado") */
 
 .status-badge.operational {
-    background: rgba(234, 88, 12, 0.1);
-    color: var(--accent);
+    background: rgba(234, 88, 12, 0.12);
+    color: #ea580c;
+    /* Forzamos un tono ligeramente más oscuro que el accent puro para lectura */
+    border: 1px solid rgba(234, 88, 12, 0.2);
 }
 
+
+/* VISION (Violeta - Más intenso) */
+
 .status-badge.vision {
-    background: rgba(139, 92, 246, 0.1);
-    color: #8b5cf6;
+    background: rgba(124, 58, 237, 0.12);
+    color: #7c3aed;
+    border: 1px solid rgba(124, 58, 237, 0.2);
 }
 
 
@@ -1487,18 +1463,38 @@ body.dark-mode .navbar {
 }
 
 
-/* 9. RESPONSIVE DESIGN (REPARADO POR CASCADA) */
+/* ============================================================ 
+   9. RESPONSIVE DESIGN (OPTIMIZADO)
+   ============================================================ */
 
 @media (max-width: 1024px) {
     .metrics-grid,
     .two-columns-grid,
     .feedback-grid-detailed,
     .impact-dashboard-grid,
-    .feature-main-grid {
+    .feature-main-grid,
+    .hypothesis-grid {
         grid-template-columns: 1fr !important;
-        gap: 40px;
+        gap: 32px;
     }
-    /* Carrusel de arquitectura: pasa de horizontal a vertical */
+    .container {
+        max-width: 100%;
+        padding: 0 40px;
+    }
+    .project-progress-nav {
+        top: 80px !important;
+        /* Ajuste según altura de tu navbar */
+        background: var(--bg-surface);
+    }
+    .col-visual img,
+    .feature-visual-media {
+        width: auto !important;
+        max-width: 380px;
+        max-height: 55vh !important;
+        /* Bajado un poco para dar aire */
+        object-fit: contain !important;
+        margin: 0 auto;
+    }
     .flow-slide {
         grid-template-columns: 1fr;
         height: auto;
@@ -1506,155 +1502,105 @@ body.dark-mode .navbar {
     .slide-visual {
         height: 250px;
         order: -1;
-        /* Imagen arriba del texto */
-    }
-    .slide-content {
-        padding: 40px 24px;
-    }
-    .hypo-item:nth-child(4) {
-        grid-column: 1 / 2;
-        margin-left: 50%;
-        /* Empuja la card hacia el centro */
-    }
-    .hypo-item:nth-child(5) {
-        grid-column: 2 / 3;
-        margin-left: 50%;
-        /* Empuja la card hacia el centro */
-    }
-    .hypothesis-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .hypo-item:nth-child(4),
-    .hypo-item:nth-child(5) {
-        grid-column: auto;
-        margin-left: 0;
     }
 }
 
-
-/* TABLETS (Portrait) */
-
 @media (max-width: 992px) {
-    .feature-visual {
-        margin-top: 32px;
+    .project-header h1 {
+        font-size: 2.5rem;
     }
-    .visual-container.glass-effect {
-        max-width: 100%;
-        width: 100%;
-        margin: 0;
+    h2,
+    .feature-title,
+    .process-header h2 {
+        font-size: 1.75rem;
     }
     .project-meta-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-    .col-visual {
-        padding: 24px;
-        margin-top: 32px;
-    }
-}
-
-
-/* MÓVILES (Smartphone standard) */
-
-@media (max-width: 768px) {
-    /* Contenedores y Espaciados */
-    .section-wrapper,
-    .section-content {
-        padding: 64px 0;
-    }
-    .container {
-        padding: 0 24px;
-    }
-    /* Consistencia lateral */
-    /* TIPOGRAFÍA ACCESIBLE (Escala 1.2) */
-    h1,
-    .project-header h1 {
-        font-size: 2.1rem;
-    }
-    h2,
-    .feature-title {
-        font-size: 1.75rem;
-    }
-    h3 {
-        font-size: 1.5rem;
-    }
-    h4 {
-        font-size: 1.25rem;
-    }
-    /* Textos de lectura */
-    p,
-    .section-description {
-        font-size: 1.05rem;
-        line-height: 1.6;
-    }
-    /* Citas e Insights destacados */
-    .question-text {
-        font-size: 1.35rem;
-        /* No menos de 20px para impacto visual */
-        line-height: 1.4;
-    }
-    .question-container {
-        padding: 48px 24px;
-    }
-    /* Métricas: Priorizamos legibilidad sobre tamaño gigante */
-    .impact-stats {
-        grid-template-columns: 1fr;
         gap: 24px;
     }
-    .metric-value {
-        font-size: 2.2rem;
-        letter-spacing: -1px;
-    }
-    /* Elementos de navegación */
-    .progress-track {
-        padding-bottom: 12px;
-    }
-    .step-name {
-        font-size: 0.75rem;
-        font-weight: 600;
+    .visual-container.glass-effect {
+        width: 100%;
+        max-width: 100%;
     }
 }
 
-
-/* MÓVILES PEQUEÑOS (Compact devices) */
-
-@media (max-width: 560px) {
-    .project-stepper {
+@media (max-width: 768px) {
+    .section-wrapper,
+    .section-content {
+        padding: 50px 0;
+    }
+    /* Stepper Mobile */
+    .step-name {
         display: none !important;
     }
-    .case-study-layout {
-        display: block;
+    .project-progress-nav {
+        top: 60px !important;
+        padding: 12px 0 !important;
     }
-    .case-study-content {
-        width: 100%;
-        padding: 0;
+    .progress-track {
+        gap: 6px !important;
+        padding: 0 20px;
     }
-    /* Ajuste final de títulos para pantallas muy angostas */
-    h1,
+    /* Mejora de Cards en móvil */
+    .metric-card,
+    .stat-card {
+        padding: 32px 20px !important;
+        text-align: center;
+        align-items: center;
+    }
+    .question-text {
+        font-size: 1.5rem !important;
+    }
+    /* GESTIÓN DE ZOOM MÓVIL */
+    .image-zoom-trigger {
+        cursor: pointer;
+        margin: 16px 0;
+    }
+    .zoom-hint {
+        display: none;
+    }
+    /* Innecesario en táctil */
+    .lightbox img {
+        max-width: 95% !important;
+        max-height: 75vh !important;
+        box-shadow: none;
+        /* Evita artefactos visuales en móvil */
+    }
+    .impact-stats {
+        /* En móvil forzamos 1 columna para asegurar lectura */
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .feature-visual-media {
+        max-width: 320px;
+        /* Tamaño ideal para móvil */
+    }
+}
+
+@media (max-width: 560px) {
+    .container {
+        padding: 0 20px;
+    }
     .project-header h1 {
         font-size: 1.85rem;
     }
-    h2,
-    .feature-title {
-        font-size: 1.6rem;
-    }
-    /* Cards de metadatos */
     .project-meta-grid {
         grid-template-columns: 1fr;
     }
-    .col-visual {
-        padding: 16px;
-        border-radius: 12px;
+    /* Stepper ultra-compacto */
+    .project-progress-nav {
+        top: 60px !important;
+        height: 48px !important;
+        display: flex !important;
+        align-items: center !important;
     }
-    /* Garantizamos que los botones y tags sean clickeables (44px min) */
-    .stage-tag,
-    .eyebrow,
-    .status-badge {
-        font-size: 0.75rem;
-        padding: 6px 12px;
-        display: inline-block;
+    .step-dot {
+        height: 4px !important;
+        border-radius: 2px;
     }
-    .hypothesis-grid {
-        grid-template-columns: 1fr;
+    /* Eliminar hovers que pegan el dedo en móvil */
+    .col-visual:hover,
+    .hypo-item:hover {
+        transform: none !important;
     }
 }
