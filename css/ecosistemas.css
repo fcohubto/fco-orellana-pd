@@ -1,17 +1,14 @@
 /* ============================================================ 
-   PROYECTO: ECOSISTEMA DE PAGOS POS (SISTEMA DE DISEÑO) 
-   ============================================================ */
+PROYECTO: ECOSISTEMA DE PAGOS POS (SISTEMA DE DISEÑO) 
+============================================================ */
 
-
-/* VARIABLE LOCAL PARA EL SEPARADOR */
-
-:root {
+ :root {
     --line-separator: rgba(0, 0, 0, 0.08);
-    /* Fallbacks de seguridad por si index.css no carga */
     --accent: #ea580c;
     --text: #212121;
     --text-soft: #424242;
     --text-main: #1a1a1a;
+    --text-on-color: #ffffff;
     --surface: #ffffff;
     --surface-2: #F8FAFC;
     --card-radius: 18px;
@@ -25,14 +22,11 @@ body.dark-mode {
 .header-container,
 .navbar {
     position: sticky;
-    /* O fixed si quieres que flote sobre todo siempre */
     top: 0;
     width: 100%;
-    z-index: 9999 !important;
-    /* Fuerza la prioridad sobre el stepper */
-    /* Prioridad alta para que nada lo cubra al hacer scroll */
+    z-index: 1000 !important;
+    /* Ajustado para que el lightbox (9999) gane */
     background: rgba(255, 255, 255, 0.88);
-    /* El blur solo funciona con transparencia */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
@@ -74,14 +68,11 @@ h4.feature-title {
 }
 
 
-/* 1. LAYOUT & ESTRUCTURA DE CAPAS (SISTEMA IRROMPIBLE) */
+/* 1. LAYOUT & ESTRUCTURA DE CAPAS */
 
 .project-detail {
     background: var(--bg, #fff);
 }
-
-
-/* CAPA 1: Wrapper (Fondo y Línea) */
 
 .section-wrapper {
     width: 100%;
@@ -93,9 +84,6 @@ h4.feature-title {
     border-top: 1px solid var(--line-separator);
 }
 
-
-/* CAPA 2: Content (Aire sagrado de 100px) */
-
 .section-content {
     padding: 60px 0;
 }
@@ -105,9 +93,6 @@ h4.feature-title {
     font-weight: 700;
     color: var(--text);
 }
-
-
-/* CAPA 3: Container (Ancho máximo) */
 
 .container {
     width: 100%;
@@ -120,7 +105,7 @@ h4.feature-title {
 }
 
 .breadcrumb-nav {
-    padding: 0px;
+    padding: 20px 0;
     background: var(--bg);
 }
 
@@ -155,41 +140,20 @@ h4.feature-title {
 }
 
 
-/* Ajuste para Dark Mode sutil */
-
-body.dark-mode .breadcrumb-list li:not(:last-child)::after {
-    color: rgba(255, 255, 255, 0.2);
-}
-
-
-/* ============================================================ 
-   AJUSTE: STEPPER FLOTANTE CENTRAL Y DINÁMICO
-   ============================================================ */
-
-
-/* 1. Reajuste del Layout para que el contenido vuelva al centro */
+/* STEPPER FLOTANTE */
 
 .case-study-layout {
     display: flex;
     align-items: flex-start;
     gap: 60px;
-    /* Espacio entre el stepper y el contenido */
     position: relative;
     width: 100%;
 }
 
 .case-study-content {
     flex: 1;
-    /* Esto obliga al contenido a ocupar todo el ancho restante */
     min-width: 0;
-    /* Evita que elementos anchos (imágenes) rompan el flex */
 }
-
-
-/* 2. Stepper Fixed y Centrado Verticalmente a la izquierda */
-
-
-/* Lo situamos a 40px del borde para no tapar texto, pero fijo en pantalla */
 
 .project-stepper {
     position: fixed;
@@ -217,15 +181,10 @@ body.dark-mode .breadcrumb-list li:not(:last-child)::after {
     /* Agrega esto */
 }
 
-
-/* El ajuste que mencionabas para no tapar el inicio */
-
-article[id] {
-    scroll-margin-top: 100px;
+article[id],
+section[id] {
+    scroll-margin-top: 120px;
 }
-
-
-/* Clase que activará el JavaScript */
 
 .project-stepper.is-visible {
     opacity: 1;
@@ -238,10 +197,8 @@ article[id] {
 .stepper-item {
     display: flex;
     flex-direction: row;
-    /* Alineación horizontal */
     align-items: center;
     justify-content: flex-end;
-    /* Empuja todo hacia el punto */
     gap: 12px;
     text-decoration: none;
     color: var(--text-soft);
@@ -258,49 +215,32 @@ article[id] {
     flex-shrink: 0;
 }
 
-
-/* El puntito indicador del stepper */
-
-.stepper-item::before {
-    display: none;
+.stepper-item:hover {
+    color: var(--accent) !important;
+    opacity: 1;
 }
 
-
-/* 3. Estado Activo (Cambio de color al scroll) */
-
-
-/* Esto hace que al saltar a un ID (#cap1), el scroll se detenga 120px antes */
-
-article[id],
-section[id] {
-    scroll-margin-top: 120px;
+.stepper-item:hover .step-label {
+    color: var(--accent);
+    font-weight: 600;
+    /* El grosor solicitado */
 }
 
-
-/* Asegura un scroll suave */
-
-
-/* Escondemos el texto por defecto para un look minimalista */
+.stepper-item:hover::after {
+    background: var(--accent) !important;
+}
 
 .step-label {
     font-size: 1rem;
     font-weight: 400;
     letter-spacing: 0.1em;
     display: none;
-    /* Lo mostraremos solo al hacer hover o estar activo */
 }
 
 .stepper-item.active {
     opacity: 1;
     color: var(--accent);
     transform: translateX(5px);
-    /* Pequeño desplazamiento visual */
-}
-
-.stepper-item.active::before {
-    background: var(--accent);
-    border-color: var(--accent);
-    box-shadow: 0 0 10px rgba(234, 88, 12, 0.3);
 }
 
 .stepper-item.active .step-label {
@@ -308,46 +248,35 @@ section[id] {
     letter-spacing: 0.1em;
 }
 
-
-/* HOVER: Mostrar etiqueta al pasar el mouse */
-
 .project-stepper:hover .step-label {
     display: block;
 }
 
-
-/* DARK MODE ADAPTATION */
-
-body.dark-mode .project-stepper {
-    background: rgba(15, 23, 42, 0.6);
-    border-color: rgba(255, 255, 255, 0.1);
+.stepper-item.active::after {
+    background-color: var(--accent) !important;
+    opacity: 1;
 }
 
 
-/* Modificadores de fondo */
+/* Cambia el círculo a naranja también cuando pasas el mouse (Hover) */
 
-.bg-surface-2 {
-    background-color: var(--surface-2);
+.stepper-item:hover::after {
+    background-color: var(--accent) !important;
+    opacity: 1;
 }
 
 
-/* --- SECTION: PROCESS INTRO --- */
+/* PROCESS INTRO & ZOOM */
 
 .process-intro {
     padding: 100px 0 60px 0;
-    /* Espaciado generoso para dar aire antes del contenido denso */
-    background-color: var(--bg-surface);
 }
 
 .process-header {
     max-width: 1122px;
-    /* Ancho controlado para mejorar la legibilidad del párrafo */
     margin: 0 auto;
     text-align: left;
 }
-
-
-/* Estilo para el subtítulo pequeño (Eyebrow) */
 
 .process-header .eyebrow {
     text-transform: uppercase;
@@ -359,66 +288,70 @@ body.dark-mode .project-stepper {
     letter-spacing: 0.15em;
 }
 
-
-/* Título Principal de la sección */
-
-.process-header h2 {
-    max-width: 700px;
-    font-size: 2.25rem;
-    line-height: 1.2;
-    margin-bottom: 24px;
-    color: var(--text-soft);
-}
-
-.process-header h3 {
-    max-width: 700px;
-    font-size: 1.75rem;
-    line-height: 1.2;
-    margin-bottom: 24px;
-    color: var(--text-soft);
-}
-
-
-/* Contenedor para evitar saltos de layout */
-
 .image-zoom-wrapper {
     cursor: zoom-in;
     overflow: hidden;
     border-radius: 8px;
+    /* Eliminado transform-style para evitar parpadeo */
 }
 
 
-/* Estado expandido (Lightbox) */
+/* LIGHTBOX (Estandarizado con Restaurantes) */
 
-.zoomable.is-expanded {
+.lightbox {
+    display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: contain;
     z-index: 9999;
-    background-color: rgba(0, 0, 0, 0.9);
-    padding: 40px;
-    cursor: zoom-out;
-    transition: all 0.3s ease-in-out;
+    /* El más alto */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    /* Por defecto claro como tu variable */
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+body.dark-mode .lightbox {
+    background-color: rgba(15, 23, 42, 0.95);
+}
+
+.lightbox.active {
+    display: flex !important;
+    opacity: 1;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.lightbox.active img {
+    transform: scale(1);
 }
 
 
-/* Prevenir scroll cuando la imagen está abierta */
+/*PRIMER AJUSTE+/
 
-body.no-scroll {
-    overflow: hidden;
-}
-
-
-/* Contenedor original */
+/* --- COMPONENTES VISUALES --- */
 
 .image-zoom-trigger {
     cursor: zoom-in;
     position: relative;
     border-radius: 8px;
     overflow: hidden;
+    /* Eliminamos posibles conflictos de renderizado */
+    display: block;
+    width: 100%;
 }
 
 .zoom-hint {
@@ -426,52 +359,18 @@ body.no-scroll {
     bottom: 10px;
     right: 10px;
     background: var(--accent);
-    color: white;
+    color: var(--text-on-color);
     padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 1.25rem;
+    border-radius: 16px;
+    font-size: 1.125rem;
     opacity: 0;
     transition: opacity 0.3s;
+    z-index: 10;
+    /* Aseguramos que el hint esté sobre la imagen */
 }
 
 .image-zoom-trigger:hover .zoom-hint {
     opacity: 1;
-}
-
-
-/* Capa Lightbox */
-
-.lightbox {
-    pointer-events: auto;
-    display: none;
-    position: fixed;
-    z-index: 99999;
-    /* Por encima del navbar y stepper */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--surface 0.95);
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(10px);
-}
-
-.lightbox.active {
-    display: flex !important;
-    /* Forzamos el display para evitar conflictos */
-}
-
-.lightbox img {
-    pointer-events: none;
-    user-select: none;
-    -webkit-user-drag: none;
-    object-fit: contain;
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 4px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
 }
 
 
@@ -514,7 +413,7 @@ body.dark-mode .process-header .section-description {
     margin-bottom: 24px;
     letter-spacing: -0.02em;
     max-width: 860px;
-    color: var(--text-main);
+    color: var(--text-soft);
 }
 
 .project-subtitle {
@@ -529,7 +428,8 @@ body.dark-mode .process-header .section-description {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 40px;
     padding: 60px 0;
-    border-top: 1px;
+    border-top: 1px solid var(--line-separator);
+    /* Corregido para usar la variable de línea */
     margin-top: 60px;
     width: 100%;
 }
@@ -543,9 +443,6 @@ body.dark-mode .process-header .section-description {
     justify-content: center;
     color: var(--accent);
 }
-
-
-/* Si usas SVGs directos */
 
 .icon-box svg {
     width: 100%;
@@ -596,9 +493,6 @@ body.dark-mode .process-header .section-description {
     color: var(--text-soft);
 }
 
-
-/* Para que la caja de hipótesis destaque */
-
 .problem-statement .data-box {
     border-left: 4px solid var(--accent);
     background: var(--surface);
@@ -621,7 +515,6 @@ body.dark-mode .process-header .section-description {
     gap: 60px;
     align-items: center;
     background-color: var(--surface);
-    /* Restaurado: centrado vertical de visual/texto */
 }
 
 .three-columns-grid {
@@ -629,8 +522,6 @@ body.dark-mode .process-header .section-description {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 60px;
     align-items: start;
-    /* Nota: Usamos 'start' en lugar de 'center' para que si una card tiene 
-       más texto que otra, los títulos de las cards permanezcan alineados arriba. */
 }
 
 .four-columns-grid {
@@ -642,11 +533,7 @@ body.dark-mode .process-header .section-description {
 
 .text-accent {
     color: var(--accent);
-    /* Para destacar el Resultado y Factibilidad técnica */
 }
-
-
-/* Ajuste específico para IA Flow y Pilares */
 
 .ia-flow-grid,
 .pillars-grid {
@@ -660,10 +547,11 @@ body.dark-mode .process-header .section-description {
     background: var(--surface);
     padding: 40px 32px;
     border-radius: var(--card-radius);
-    border: 1px solid var(--line, #eee);
+    border: 1px solid var(--line);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .metric-card h3 {
@@ -718,6 +606,9 @@ body.dark-mode .process-header .section-description {
 }
 
 
+/*SEGUNDO AJUSTE*/
+
+
 /* 4. ELEMENTOS NARRATIVOS */
 
 .stage-tag {
@@ -735,7 +626,7 @@ body.dark-mode .process-header .section-description {
 }
 
 .col-text p {
-    font-size: 1.125rem;
+    font-size: 1rem;
     color: var(--text-soft);
 }
 
@@ -783,19 +674,15 @@ body.dark-mode .process-header .section-description {
     align-items: center;
     width: 100%;
     border-radius: 16px;
-    /* Bordes redondeados consistentes con tu UI */
-    overflow: hidden;
-    /* Para que las imágenes no se salgan de las esquinas */
-    background-color: #fcfcfc;
-    /* Fondo neutro muy sutil para destacar el mockup */
+    overflow: visible;
+    /* CAMBIO CLAVE: Cambiado de 'hidden' a 'visible' para evitar que el lightbox parpadee al expandirse */
+    background: rgba(248, 157, 135, 0.05);
     padding: 40px;
-    /* Aire interno para que el diseño "respire" */
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     border: 1px solid var(--line-separator);
+    position: relative;
+    /* Asegura un contexto estable para las imágenes internas */
 }
-
-
-/* Efecto al pasar el mouse (opcional para interactividad) */
 
 .col-visual:hover {
     transform: translateY(-4px);
@@ -803,7 +690,6 @@ body.dark-mode .process-header .section-description {
 }
 
 .stat-card {
-    justify-items: start;
     background: var(--surface);
     border-radius: 20px;
     padding: 40px 30px;
@@ -844,40 +730,28 @@ body.dark-mode .process-header .section-description {
 }
 
 .card-icon {
-    width: 32px;
-    height: 32px;
-    margin-bottom: 32px;
-    /* Un poco más de aire según tu captura */
     align-items: center;
     justify-content: center;
+    width: 40px;
+    /* Ajusta según tu diseño de stat-card */
+    height: 40px;
+    margin-bottom: 0.5rem;
     font-size: 32px;
-    /* Tamaño del emoji */
-    background-color: rgba(var(--accent-rgb), 0.1);
-    /* Opcional: un fondo suave si tu estilo lo permite */
-    border-radius: 8px;
 }
-
-
-/* Si decides pasar a SVGs (Lucide, Phosphor, etc.) este ya lo tienes bien */
 
 .card-icon svg {
-    width: 24px;
-    height: 24px;
+    width: 48px;
+    height: 48px;
     stroke: var(--accent);
+    stroke-width: 2px;
     fill: none;
-    stroke-width: 1.5px;
 }
-
-
-/* 3. Control de la imagen interna */
 
 .image-placeholder img {
     max-width: 90%;
-    /* O el porcentaje que prefieras para que no sea gigante */
     height: auto;
     object-fit: contain;
     border-radius: 8px;
-    /* Un radio menor para la imagen interna queda muy bien */
 }
 
 .image-placeholder.mini {
@@ -939,7 +813,6 @@ body.dark-mode .process-header .section-description {
     border: none;
     border-radius: 16px;
     margin-top: 24px;
-    /* Corregido: margen para bloques independientes */
     color: var(--text-soft);
     font-size: 1.125rem;
     letter-spacing: normal;
@@ -975,6 +848,9 @@ body.dark-mode .process-header .section-description {
     transform: translateY(-5px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
+
+
+/*TERCER AJUSTE*/
 
 
 /* 5. ESTRATEGIA Y FEEDBACK */
@@ -1050,6 +926,9 @@ body.dark-mode .process-header .section-description {
     justify-content: center;
 }
 
+
+/* Espaciadores (Helpers) */
+
 .mt-80 {
     margin-top: 80px;
 }
@@ -1062,12 +941,12 @@ body.dark-mode .process-header .section-description {
     margin-top: 40px;
 }
 
-.mt-16 {
-    margin-top: 16px;
-}
-
 .mt-24 {
     margin-top: 24px;
+}
+
+.mt-16 {
+    margin-top: 16px;
 }
 
 .btn-secondary {
@@ -1077,7 +956,6 @@ body.dark-mode .process-header .section-description {
     color: var(--text-soft);
     border: 2px solid var(--line-separator);
     border-radius: 50px;
-    /* Estilo píldora */
     font-weight: 700;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -1092,11 +970,10 @@ body.dark-mode .process-header .section-description {
 
 
 /* ============================================================ 
-   BLOQUE DARK MODE (AGREGAR PARA REPARAR) 
+   BLOQUE DARK MODE (Sincronizado)
    ============================================================ */
 
 body.dark-mode {
-    /* Definición de los nuevos valores para las variables existentes */
     --bg: #0b1220;
     --surface: #0f172a;
     --surface-2: #111827;
@@ -1108,16 +985,10 @@ body.dark-mode {
     --accent: #f97316;
 }
 
-
-/* Aplicación de fondo general si no estaba heredando */
-
 body.dark-mode .project-detail {
     background-color: var(--bg);
     color: var(--text);
 }
-
-
-/* Forzar el color de títulos que usan variables específicas o colores fijos */
 
 body.dark-mode h1,
 body.dark-mode h2,
@@ -1126,53 +997,26 @@ body.dark-mode h4,
 body.dark-mode .metric-card h4,
 body.dark-mode .feature-title,
 body.dark-mode .guerrilla-box h3 {
-    color: var(--text-soft);
+    color: var(--text-main);
+    /* Ajustado para mejor contraste en dark */
 }
-
-
-/* Ajuste de bordes para cards y secciones */
 
 body.dark-mode .metric-card,
 body.dark-mode .hypo-item,
 body.dark-mode .stat-card,
-body.dark-mode .qa-box,
-body.dark-mode .flow-slide {
+body.dark-mode .qa-box {
     border-color: var(--line);
     background-color: var(--surface);
 }
 
 
-/* Fix para el texto dentro de las cards de hipótesis y métricas */
-
-body.dark-mode .hypo-item p,
-body.dark-mode .metric-description,
-body.dark-mode .col-text,
-body.dark-mode .reflection-text {
-    color: var(--text-soft);
-}
+/* 7. COMPONENTES AVANZADOS */
 
 .impact-dashboard-grid {
     display: grid;
     grid-template-columns: 1.3fr 1fr;
     gap: 32px;
     align-items: start;
-}
-
-.main-impact-column,
-.secondary-impact-column {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-.metric-card.roadmap-card {
-    border-style: dashed;
-}
-
-.impact-highlight {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--text-soft) !important;
 }
 
 .status-badge {
@@ -1188,93 +1032,59 @@ body.dark-mode .reflection-text {
     margin-bottom: 8px;
 }
 
+
+/* SUCCESS (Verde - Esmeralda más profundo) */
+
 .status-badge.success {
-    background: rgba(16, 185, 129, 0.1);
-    color: #10b981;
+    background: rgba(5, 150, 105, 0.12);
+    /* Un toque más de opacidad */
+    color: #059669;
+    /* Verde con mayor peso visual */
+    border: 1px solid rgba(5, 150, 105, 0.2);
+    /* Borde sutil para definir la forma */
 }
+
+
+/* VALIDATED (Azul - Cobalto) */
 
 .status-badge.validated {
-    background: rgba(59, 130, 246, 0.1);
-    color: #3b82f6;
+    background: rgba(37, 99, 235, 0.12);
+    color: #2563eb;
+    border: 1px solid rgba(37, 99, 235, 0.2);
 }
+
+
+/* OPERATIONAL (Tu Naranja Accent - Más "tostado") */
 
 .status-badge.operational {
-    background: rgba(234, 88, 12, 0.1);
-    color: var(--accent);
+    background: rgba(234, 88, 12, 0.12);
+    color: #ea580c;
+    /* Forzamos un tono ligeramente más oscuro que el accent puro para lectura */
+    border: 1px solid rgba(234, 88, 12, 0.2);
 }
 
-.status-badge.vision {
-    background: rgba(139, 92, 246, 0.1);
-    color: #8b5cf6;
-}
 
-.back-to-top-container {
-    margin-top: 40px;
-    margin-bottom: 20px;
-}
-
-.back-to-top-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--text-soft);
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    opacity: 0.7;
-}
-
-.back-to-top-link svg {
-    transition: transform 0.3s ease;
-}
-
-.back-to-top-link:hover {
-    opacity: 1;
-    color: var(--accent);
-}
-
-.back-to-top-link:hover svg {
-    transform: translateY(-4px);
-    /* Pequeña animación de rebote hacia arriba */
-}
+/* Tabla Técnica */
 
 .technical-table-wrapper {
     width: 100%;
     max-width: 900px;
-    /* Evita que la tabla crezca infinitamente */
     margin: 40px auto;
-    /* Centra el componente y le da aire vertical */
     display: flex;
     flex-direction: column;
-    /* Identificación como unidad adicional */
-    background: var(sr);
-    /* Fondo muy leve */
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    /* Borde sutil */
+    background: rgba(248, 157, 135, 0.05);
+    /* Corregido Sr por variable real */
+    border: 1px solid var(--line-separator);
     border-radius: 12px;
     padding: 32px;
-    /* Espacio interno para que el contenido no toque los bordes */
-    /* Efecto de elevación sutil (opcional) */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
 .table-row {
     display: grid;
     grid-template-columns: 1fr 1.5fr 2fr;
-    /* Proporción Proceso | Acción | Resultado */
     border-bottom: 1px solid var(--accent);
-    /* Línea horizontal del wireframe */
     padding: 32px 0;
-}
-
-.table-header {
-    font-weight: bold;
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 16px;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
 }
 
 .table-col {
@@ -1283,89 +1093,42 @@ body.dark-mode .reflection-text {
     font-size: 1rem;
 }
 
-.dark-mode .technical-table-wrapper {
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(255, 255, 255, 0.1);
-}
-
-
-/* Líneas verticales separadoras del wireframe */
-
 .table-col:not(:first-child) {
     border-left: 1px solid var(--accent);
 }
 
-.col-proceso {
-    padding-left: 0;
-}
 
-.col-resultado {
-    padding-right: 0;
-}
-
-.no-border {
-    border-bottom: none;
-}
-
-
-/* Contenedor del carrusel con Scroll Snap */
+/* Carrusel con Scroll Snap */
 
 .study-carousel-container {
     display: flex;
     flex-wrap: nowrap;
     gap: 0;
-    padding: 0;
     scroll-snap-type: x mandatory;
     overflow-x: auto;
     width: 100%;
-    position: relative;
-    /* El contenedor ocupa todo el ancho */
     -webkit-overflow-scrolling: touch;
 }
-
-.carousel-main-container {
-    position: relative;
-    width: 100%;
-}
-
-
-/* Ocultar barra de scroll en navegadores modernos */
 
 .study-carousel-container::-webkit-scrollbar {
     display: none;
 }
 
-
-/* Cada slide ocupa el 100% del ancho del contenedor */
-
 .study-slide {
     flex: 0 0 100%;
-    /* No se encoge, no crece, ocupa el 100% */
     min-width: 100%;
-    /* Refuerza que no se achique */
-    width: 100%;
     scroll-snap-align: start;
-    /* Cambia center por start para mejor precisión */
-    cursor: grab;
 }
 
 
-/* Ajuste de seguridad para la grilla interna (por si acaso) */
-
-.study-slide .two-columns-grid {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-
-/* Estilos de los Dots */
+/* --- ESTILOS DE LOS DOTS (CARRUSEL) --- */
 
 .carousel-dots {
     display: flex;
     justify-content: center;
     gap: 12px;
     margin-top: 40px;
+    transition: all 0.3s ease;
 }
 
 .dot {
@@ -1373,9 +1136,9 @@ body.dark-mode .reflection-text {
     height: 10px;
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.2);
-    /* Color base */
     transition: all 0.3s ease;
     text-decoration: none;
+    display: inline-block;
 }
 
 .dot.active,
@@ -1383,52 +1146,40 @@ body.dark-mode .reflection-text {
     background-color: #FF5C35;
     /* Tu naranja de acento */
     transform: scale(1.2);
-    cursor: grabbing !important;
+    cursor: pointer;
+    /* Corregido de grabbing a pointer para navegación */
 }
 
 
-/* ==========================================================================
-   DARK MODE: CAROUSEL DOTS
-   ========================================================================== */
+/* --- DARK MODE: CAROUSEL DOTS --- */
 
-
-/* Cuando el body o un contenedor padre tiene la clase .dark-mode */
-
-.dark-mode .dot {
+body.dark-mode .dot {
     background-color: rgba(255, 255, 255, 0.2);
-    /* Dot inactivo: Blanco traslúcido */
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.dark-mode .dot.active {
+body.dark-mode .dot.active {
     background-color: #FF5C35;
-    /* Mantenemos tu naranja de marca */
     box-shadow: 0 0 12px rgba(255, 92, 53, 0.6);
-    /* Glow sutil para que "vibre" en la oscuridad */
     border-color: #FF5C35;
-    transform: scale(1.2);
-    /* Un toque de feedback visual extra */
 }
 
-
-/* Hover en Dark Mode para mejorar la navegabilidad */
-
-.dark-mode .dot:hover:not(.active) {
+body.dark-mode .dot:hover:not(.active) {
     background-color: rgba(255, 255, 255, 0.4);
 }
 
-
-/* Ajuste del contenedor de los dots si tiene fondo */
-
-.dark-mode .carousel-dots {
+body.dark-mode .carousel-dots {
     background: rgba(0, 0, 0, 0.2);
     padding: 8px 16px;
     border-radius: 20px;
     backdrop-filter: blur(4px);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
-/* Clases de apoyo que ya conoces */
+/* --- COMPONENTES DE TEXTO Y HALLAZGOS --- */
 
 .orange {
     color: #FF5C35;
@@ -1439,16 +1190,12 @@ body.dark-mode .reflection-text {
     padding-left: 24px;
 }
 
-.quote {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 20px;
-}
-
 .hallazgo-box {
     background: rgba(255, 92, 53, 0.05);
+    /* Sincronizado con el naranja principal */
     padding: 20px;
     border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 .hallazgo-box strong {
@@ -1456,70 +1203,56 @@ body.dark-mode .reflection-text {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-soft);
-    margin-bottom: 12px;
-    text-transform: none;
-    letter-spacing: normal;
+    margin-bottom: 8px;
 }
 
 .hallazgo-box p {
-    display: block;
     font-size: 1rem;
     font-weight: 400;
     color: var(--text-soft);
-    margin-bottom: 12px;
-    text-transform: none;
-    letter-spacing: normal;
+    margin: 0;
 }
-
-
-/* Estilos de acento naranja para los casos (basado en tu captura) */
-
-.orange {
-    color: #FF5C35;
-}
-
-.orange-border {
-    border-left: 2px solid #FF5C35;
-    padding-left: 20px;
-}
-
-
-/* Estilos para la card de testimonios */
 
 .quote-card .quote {
     font-style: italic;
     margin-bottom: 20px;
     font-size: 1.1rem;
     line-height: 1.6;
+    color: var(--text-soft);
 }
 
-.hallazgo-box {
-    background: rgba(255, 92, 53, 0.05);
-    padding: 20px;
-    border-radius: 8px;
-}
+
+/* --- COMPARISON SLIDER (BEFORE/AFTER) --- */
 
 .comparison-slider-container {
     width: 100%;
     max-width: 1000px;
     margin: 40px auto;
     position: relative;
-    border-radius: 12px;
+    border-radius: 16px;
+    padding: 20px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    background: var(--surface-2);
+    /* Evita fondo vacío durante carga */
 }
 
 .comparison-slider {
     position: relative;
     width: 100%;
-    aspect-ratio: 800 / 427;
+    aspect-ratio: 16 / 9;
+    /* Ajustado para mayor estabilidad visual */
 }
 
 .comparison-slider img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    /* Cambiado a contain para ver el diagrama completo */
     display: block;
+    /* Añadimos un padding interno a la imagen para que no toque la línea naranja */
+    padding: 30px;
+    box-sizing: border-box;
 }
 
 .img-overlay {
@@ -1527,13 +1260,13 @@ body.dark-mode .reflection-text {
     top: 0;
     left: 0;
     width: 50%;
-    /* Estado inicial */
     height: 100%;
     overflow: hidden;
+    border-right: 2px solid var(--accent);
+    background: rgba(0, 0, 0, 0.03);
+    /* Un gris casi imperceptible para dar contexto */
+    /* Línea de división integrada */
 }
-
-
-/* Manejador visual */
 
 .slider-handle {
     position: absolute;
@@ -1544,6 +1277,7 @@ body.dark-mode .reflection-text {
     background: var(--accent);
     cursor: ew-resize;
     z-index: 10;
+    transform: translateX(-50%);
 }
 
 .handle-circle {
@@ -1568,9 +1302,12 @@ body.dark-mode .reflection-text {
     padding: 6px 12px;
     background: rgba(0, 0, 0, 0.6);
     color: white;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     border-radius: 4px;
+    letter-spacing: 0.05em;
+    pointer-events: none;
+    /* No interfiere con el click del slider */
 }
 
 .badge-before {
@@ -1581,176 +1318,301 @@ body.dark-mode .reflection-text {
     right: 20px;
 }
 
+body.dark-mode .project-stepper {
+    background: rgba(30, 41, 59, 0.8);
+    /* Azul muy oscuro translúcido */
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+}
 
-/* ==========================================================================
-   BREAKPOINT: TABLET / LAPTOP PEQUEÑA (1024px)
-   ========================================================================== */
+
+/* Texto de los capítulos en Dark Mode */
+
+body.dark-mode .stepper-item {
+    color: rgba(255, 255, 255, 0.4);
+    /* Gris claro para los inactivos */
+}
+
+body.dark-mode .stepper-item.active {
+    color: var(--accent);
+    /* Naranja brillante para el activo */
+    opacity: 1;
+}
+
+
+/* Los puntos (dots) del stepper en Dark Mode */
+
+body.dark-mode .stepper-item::after {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .stepper-item.active::after {
+    background: var(--accent);
+}
+
+
+/*QUINTO AJUSTE*/
+
+
+/* ============================================================ 
+   9. RESPONSIVE DESIGN: ECOSISTEMAS (VERSIÓN DOCK FINAL)
+   ============================================================ */
+
+
+/* --- TABLET Y LAPTOP (1024px) --- */
 
 @media (max-width: 1024px) {
-    /* Grillas a una columna */
     .metrics-grid,
     .two-columns-grid,
-    .feedback-grid-detailed,
-    .impact-dashboard-grid,
+    .three-columns-grid,
+    .impact-stats,
     .feature-main-grid,
-    .four-columns-grid {
+    .hypothesis-grid,
+    .impact-dashboard-grid {
         grid-template-columns: 1fr !important;
         gap: 32px;
     }
-    /* Ajuste Carrusel Study (El que acabamos de arreglar) */
-    .study-slide {
-        padding: 20px;
+    .container {
+        padding: 0 40px;
     }
-    /* Carrusel de arquitectura: Adaptación vertical */
-    .flow-slide {
-        grid-template-columns: 1fr;
-        height: auto;
+    .case-study-layout {
+        display: block;
     }
-    .slide-visual {
-        height: 300px;
-        order: -1;
-        /* Imagen siempre arriba del texto */
+    /* STEPPER: Conversión a Dock Superior Fijo */
+    .project-stepper {
+        position: fixed;
+        top: 100px;
+        /* Ajustar según tu header */
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 48px;
+        flex-direction: row;
+        /* Horizontal */
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        background: #ffffff;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        z-index: 4000;
+        padding: 0;
     }
-    .slide-content {
-        padding: 32px 20px;
+    /* 3. LIMPIEZA DEL CONTENIDO (Basado en tu HTML) */
+    /* Ocultamos los puntos definitivamente */
+    .stepper-item::after {
+        display: none !important;
+    }
+    /* OCULTAMOS EL TEXTO LARGO (Inmersión, Estrategia, etc.) */
+    .step-label {
+        display: none !important;
+    }
+    /* MOSTRAMOS SOLO EL NÚMERO (Cap. 01, Cap. 02...) */
+    .step-number {
+        display: block !important;
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+    }
+    .stepper-item {
+        opacity: 0.4;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+    .stepper-item.active {
+        opacity: 1;
+        color: var(--accent) !important;
+    }
+    .stepper-item.active .step-number {
+        font-weight: 700;
+    }
+    /* 4. Compensación de scroll */
+    .case-study-content {
+        padding-top: 60px;
+    }
+    .col-visual img,
+    .feature-visual-media,
+    .visual-container img {
+        width: auto !important;
+        max-width: 100%;
+        max-height: 50vh !important;
+        object-fit: contain !important;
+        margin: 0 auto;
+        display: block;
+    }
+    /* Control Tipográfico inicial */
+    .project-header h1 {
+        font-size: 2.8rem;
+        line-height: 1.1;
+    }
+    h2 {
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+    }
+    .case-study-content {
+        padding-top: 60px;
+    }
+    /* Ajuste de Stat Cards para que ocupen el ancho total sin romperse */
+    .stat-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
     }
 }
 
 
-/* ==========================================================================
-   BREAKPOINT: TABLET VERTICAL (992px)
-   ========================================================================== */
+/* --- TABLET VERTICAL (992px) --- */
 
 @media (max-width: 992px) {
-    /* Tipografía Escala "Restaurantes" */
-    h1,
     .project-header h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
     h2,
-    .feature-title {
-        font-size: 1.8rem;
+    .feature-title,
+    .process-header h2 {
+        font-size: 1.85rem;
+        line-height: 1.25;
+        font-weight: 700;
+        letter-spacing: -0.01em;
     }
     h3 {
         font-size: 1.5rem;
+        line-height: 1.3;
+        font-weight: 600;
     }
+    p,
     .section-description {
-        font-size: 1.05rem;
-        line-height: 1.6;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 1.25rem;
     }
-    /* Contenedores visuales */
-    .feature-visual {
-        margin-top: 32px;
+    .project-meta-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
     }
-    .visual-container.glass-effect {
-        max-width: 100%;
-        width: 100%;
-        margin: 0;
+    .project-stepper {
+        top: 100px;
+        /* Sigue al header si este encoge */
+        gap: 60px;
     }
-    /* Tablas de hallazgos / Comparativas */
+    .step-label {
+        font-size: 0.8rem;
+    }
+    /* Refuerzo de Stat Cards */
+    .stat-card {
+        padding: 40px 30px !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .project-meta-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
     .table-header {
         display: none;
     }
     .table-row {
         grid-template-columns: 1fr;
-        gap: 12px;
         padding: 20px 0;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
-    .table-col {
-        border-left: none !important;
-        padding: 4px 0;
-    }
 }
 
 
-/* ==========================================================================
-   BREAKPOINT: MÓVIL (768px)
-   ========================================================================== */
+/* --- MÓVIL (768px) --- */
 
 @media (max-width: 768px) {
-    /* Espaciados Globales Móvil */
-    .container {
-        padding: 0 24px;
-    }
-    .section-wrapper {
-        padding: 60px 0;
-    }
-    /* Títulos Impacto */
+    /* Control de Fuentes Móvil */
     .project-header h1 {
-        font-size: 1.75rem;
+        font-size: 2.2rem;
+        line-height: 1.15;
+    }
+    h2,
+    .feature-title {
+        font-size: 1.65rem;
+        line-height: 1.3;
+        margin-bottom: 1.2rem;
     }
     .question-text {
-        font-size: 1.3rem;
+        font-size: 1.4rem !important;
+        line-height: 1.4;
     }
-    /* Stats e Impacto */
-    .impact-stats {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    /* Ajuste Stepper para Header Móvil */
+    .project-stepper {
+        top: 60px;
+        gap: 15px;
     }
-    .stat-card h4,
+    .step-number {
+        font-size: 0.8rem;
+    }
+    /* Cards e Impacto con control tipográfico */
+    .stat-card {
+        padding: 32px 20px !important;
+        gap: 16px;
+    }
+    .stat-card h4 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+    }
     .metric-value {
         font-size: 2.2rem;
+        font-weight: 800;
+        line-height: 1;
     }
-    /* Carrusel & Dots (Aseguramos legibilidad) */
-    .carousel-dots {
-        gap: 8px;
-        margin-top: 24px;
+    .section-wrapper {
+        padding: 40px 0;
     }
-    .dot {
-        width: 8px;
-        height: 8px;
-    }
-    /* Lightbox (Imagen más grande en móvil) */
-    .lightbox img {
-        max-width: 95%;
-        max-height: 80vh;
-    }
-    .three-columns-grid {
-        /* Una sola columna para lectura vertical cómoda */
-        grid-template-columns: 1fr !important;
-        gap: 40px;
-        align-items: center;
-        /* En móvil solemos centrar el eje visual */
-    }
-    .three-columns-grid>*:last-child:nth-child(odd) {
-        grid-column: span 1;
-        max-width: 100%;
+    .comparison-slider-container {
+        height: 280px;
     }
 }
 
 
-/* ==========================================================================
-   BREAKPOINT: MÓVIL SMALL (560px)
-   ========================================================================== */
+/* --- MÓVIL SMALL (560px) --- */
 
 @media (max-width: 560px) {
-    /* Eliminación de Stepper para ganar Real Estate */
-    .project-stepper,
-    .project-progress-nav {
-        display: none !important;
-    }
-    /* Layout Full Width */
-    .case-study-layout {
-        display: block;
-        padding: 0;
-    }
-    .case-study-content {
-        width: 100%;
-        padding: 0;
-    }
-    /* Ajuste de Cards de Hallazgos */
-    .hallazgo-box {
-        padding: 16px;
-    }
-    .hallazgo-box strong {
-        font-size: 1.1rem;
-    }
-    /* Reducción final de padding en secciones */
     .container {
         padding: 0 20px;
     }
-    .three-columns-grid {
-        gap: 24px;
+    /* Tipografía Compacta Final */
+    .project-header h1 {
+        font-size: 1.85rem;
+    }
+    h2,
+    .feature-title {
+        font-size: 1.5rem;
+        line-height: 1.3;
+    }
+    h3 {
+        font-size: 1.3rem;
+    }
+    p,
+    .small-text {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    /* Stepper Minimalista */
+    .project-stepper {
+        justify-content: space-evenly;
+        gap: 5px;
+        height: 44px;
+    }
+    .step-number {
+        font-size: 0.75rem;
+    }
+    .project-meta-grid {
+        grid-template-columns: 1fr;
+    }
+    .stat-card {
+        padding: 24px 15px !important;
+    }
+    .col-visual:hover,
+    .stat-card:hover {
+        transform: none !important;
     }
 }
