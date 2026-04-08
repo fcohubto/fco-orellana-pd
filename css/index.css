@@ -30,6 +30,7 @@
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     --card-radius: 18px;
     --header-height: 84px;
+    --line-separator: rgba(0, 0, 0, 0.08);
 }
 
 
@@ -108,7 +109,8 @@ button {
     width: 100%;
     max-width: 1120px;
     margin: 0 auto;
-    padding: 48px 0;
+    padding: 60px 0;
+    border-top: 1px solid var(--line-separator);
     /* Reparado el 60 sin unidad */
 }
 
@@ -122,7 +124,7 @@ h2.section-title {
     font-size: 2.25rem;
     font-weight: 800;
     letter-spacing: -0.02em;
-    color: var(--text);
+    color: var(--text-soft);
 }
 
 
@@ -302,9 +304,9 @@ body.dark-mode .theme-toggle-thumb {
 
 .btn-secondary,
 .btn-outline {
-    background: var(--btn-hover-gray);
+    background: var(--surface-2);
     border-color: var(--line);
-    color: var(--text);
+    color: var(--text-soft);
 }
 
 .btn-secondary:hover,
@@ -371,6 +373,7 @@ body.dark-mode .tag-secondary {
     margin-bottom: 24px;
     letter-spacing: -0.02em;
     max-width: 860px;
+    color: var(--text-soft);
 }
 
 .hero-text {
@@ -590,7 +593,7 @@ body.dark-mode .project-content {
     line-height: 1.2;
     /* Igualamos al de .metric-item */
     margin-bottom: 14px;
-    color: var(--text);
+    color: var(--text-soft);
     /* Usamos el color principal, no el soft */
 }
 
@@ -622,7 +625,7 @@ body.dark-mode .project-description {
 /* CTA & FOOTER */
 
 .cta {
-    background: var(--surface-2);
+    background: var(--surface);
     padding: 96px 0;
     text-align: center;
 }
@@ -634,6 +637,7 @@ body.dark-mode .cta {
 .cta h2 {
     font-size: 2.5rem;
     margin-bottom: 16px;
+    color: var(--text-soft);
 }
 
 .footer {
@@ -641,6 +645,7 @@ body.dark-mode .cta {
     text-align: center;
     font-size: 1rem;
     color: var(--text-soft);
+    background-color: var(--surface-2);
 }
 
 
