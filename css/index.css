@@ -110,8 +110,7 @@ button {
     max-width: 1120px;
     margin: 0 auto;
     padding: 60px 0;
-    border-top: 1px solid var(--line-separator);
-    /* Reparado el 60 sin unidad */
+    
 }
 
 .section {
