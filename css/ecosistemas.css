@@ -120,7 +120,7 @@ h4.feature-title {
 }
 
 .breadcrumb-nav {
-    padding: 20px 0;
+    padding: 0px;
     background: var(--bg);
 }
 
@@ -504,7 +504,7 @@ body.dark-mode .process-header .section-description {
 /* 2. HERO & METADATA */
 
 .project-detail-hero {
-    padding: 160px 0px 0px;
+    padding: 100px 0px 0px;
 }
 
 .project-header h1 {
