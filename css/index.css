@@ -696,10 +696,12 @@ body.dark-mode .cta {
 }
 
 
-/* 9. RESPONSIVE DESIGN (REPARADO POR CASCADA) */
+/* ============================================================ 
+   9. RESPONSIVE DESIGN (REVISADO: H3, P & BORDER-TOP)
+   ============================================================ */
 
 
-/* --- TABLETS Y PANTALLAS MEDIANAS (1024px) --- */
+/* BREAKPOINT: TABLET / LAPTOP PEQUEÑA (1024px) */
 
 @media (max-width: 1024px) {
     .projects,
@@ -708,70 +710,75 @@ body.dark-mode .cta {
         grid-template-columns: 1fr !important;
         gap: 32px;
     }
-    .project-content {
-        padding: 32px 24px;
+    .container {
+        max-width: 100%;
+        padding: 0 40px;
     }
 }
 
 
-/* --- DISPOSITIVOS MÓVILES (900px) --- */
+/* BREAKPOINT: TABLET VERTICAL (992px) */
 
-@media (max-width: 900px) {
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 2.5rem;
+        line-height: 1.5;
+    }
+    .section-title h2,
+    .hitos-title,
+    h2.section-title {
+        font-size: 1.75rem;
+        line-height: 1.5;
+    }
+    /* Inclusión de h3 (Títulos de cards) */
+    h3,
+    .metric-item h3,
+    .hito-card h3,
+    .project-content h3 {
+        font-size: 1.5rem;
+        line-height: 1.5;
+    }
+    /* Inclusión de p (Textos de lectura) */
+    p,
+    .hero-text,
+    .resume-intro,
+    .project-description {
+        font-size: 1.05rem;
+        line-height: 1.5;
+    }
+}
+
+
+/* BREAKPOINT: MÓVIL (768px) */
+
+@media (max-width: 768px) {
+    /* Eliminación del borde superior del contenedor para mobile */
+    .container {
+        padding: 0 24px;
+        border-top: none;
+    }
     .desktop-nav {
         display: none !important;
     }
     .menu-toggle {
         display: flex;
     }
-}
-
-
-/* --- SMARTPHONES (Hasta 768px) --- */
-
-@media (max-width: 768px) {
     .section,
     .hitos-container,
     .cta {
-        padding: 60px 0px;
+        padding: 60px 0;
     }
-    .container {
-        padding: 0 20px;
+    .hero {
+        padding: 80px 0 40px;
     }
-    .hero h1 {
+    /* Ajuste de Hitos */
+    .hito-number {
         font-size: 2.2rem;
     }
-    .section-title h2,
-    .hitos-title {
-        font-size: 1.75rem;
-        /* Bajamos un poco para diferenciar del H1 */
-        margin-bottom: 24px;
-    }
-}
-
-.hero {
-    padding: 100px 0 60px;
-}
-
-.hito-card {
-    padding: 32px 24px;
-}
-
-.breadcrumb-nav {
-    position: relative;
-    z-index: 1;
-    padding: 16px 0;
-}
-
-
-/* --- SMARTPHONES PEQUEÑOS (Hasta 480px) --- */
-
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 1.85rem;
-    }
-    .hitos-title,
-    .section-title h2 {
-        font-size: 1.5rem;
+    /* Botones y acciones */
+    .hero-actions {
+        flex-direction: column;
+        gap: 12px;
     }
     .btn {
         width: 100%;
@@ -780,7 +787,36 @@ body.dark-mode .cta {
 }
 
 
-/* --- DESKTOP LARGE (Desde 1100px) --- */
+/* BREAKPOINT: MÓVIL SMALL (560px) */
+
+@media (max-width: 560px) {
+    .container {
+        padding: 0 20px;
+    }
+    .hero h1 {
+        font-size: 2rem;
+        line-height: 1.5;
+    }
+    .section-title h2,
+    .hitos-title {
+        font-size: 1.5rem;
+        line-height: 1.5;
+    }
+    /* Reducción sutil de h3 para pantallas pequeñas */
+    h3,
+    .metric-item h3,
+    .hito-card h3,
+    .project-content h3 {
+        font-size: 1.25rem;
+        line-height: 1.5;
+    }
+    .project-content {
+        padding: 24px 20px;
+    }
+}
+
+
+/* DESKTOP LARGE (Consistencia de grilla) */
 
 @media (min-width: 1100px) {
     .projects {
