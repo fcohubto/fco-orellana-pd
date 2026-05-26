@@ -828,3 +828,47 @@ body.dark-mode .cta {
         gap: 32px;
     }
 }
+
+
+/* ── CASE STUDY: BLOQUES NUEVOS ── */
+
+.case-role {
+    font-size: 0.9rem;
+    color: var(--text-soft);
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    margin-top: 16px;
+    line-height: 1.6;
+}
+
+.case-decision {
+    border-left: 3px solid var(--accent, #6366f1);
+    background: var(--surface-alt, rgba(99, 102, 241, 0.06));
+    padding: 16px 20px;
+    margin: 32px 0;
+    border-radius: 0 6px 6px 0;
+}
+
+.case-decision p {
+    margin: 0;
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-soft);
+}
+
+.project-role {
+    font-size: 0.8rem;
+    color: var(--text-soft);
+    margin: 4px 0 8px;
+    letter-spacing: 0.01em;
+}
+
+@media (max-width: 768px) {
+    .case-role {
+        font-size: 0.85rem;
+    }
+    .case-decision {
+        padding: 12px 16px;
+    }
+}
