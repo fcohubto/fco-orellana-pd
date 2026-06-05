@@ -6,22 +6,23 @@
 /* 1. DESIGN TOKENS & VARIABLES */
 
 :root {
-    --line-separator: rgba(0, 0, 0, 0.08);
-    /* Fallbacks de seguridad */
-    --accent: #ea580c;
-    --text: #212121;
-    --text-soft: #424242;
-    --text-main: #1a1a1a;
-    --text-on-color: #ffffff;
-    --surface: #ffffff;
-    --surface-2: #F8FAFC;
-    --bg-surface: #FFFFFF;
-    --card-radius: 18px;
-    --line: rgba(0, 0, 0, 0.1);
-}
+    /* Acento Transbank */
+    --c-accent:       #ea580c;
+    --c-accent-hover: #c2410c;
 
-body.dark-mode {
-    --line-separator: rgba(255, 255, 255, 0.1);
+    /* Bridge → tokens de base.css (dark system) */
+    --accent:         var(--c-accent);
+    --bg:             var(--c-night);
+    --bg-surface:     var(--c-night);
+    --surface:        var(--c-surface);
+    --surface-2:      var(--c-frost);
+    --text:           var(--c-ink);
+    --text-soft:      var(--c-ink-soft);
+    --text-main:      var(--c-ink);
+    --text-on-color:  var(--c-night);
+    --line:           var(--c-border);
+    --line-separator: var(--c-border-mid);
+    --card-radius:    var(--radius);
 }
 
 
@@ -49,33 +50,17 @@ body.dark-mode {
 .project-progress-nav {
     position: -webkit-sticky;
     position: sticky;
-    top: 140px;
-    z-index: 999;
-    background-color: var(--bg-surface, #ffffff);
+    top: var(--nav-h);
+    z-index: 99;
+    background-color: var(--bg-surface);
     width: 100%;
-    /* AJUSTES CRÍTICOS AQUÍ: */
     height: auto;
-    /* Permite que el contenido defina el alto */
-    min-height: 80px;
-    /* Asegura un alto mínimo para que no se corte */
+    min-height: 64px;
     display: block;
-    /* Asegura comportamiento de bloque */
-    padding: 20px 0;
-    /* Espaciado interno generoso */
+    padding: 16px 0;
     margin: 0;
-    /* Evita desplazamientos raros */
-    border-bottom: 1px solid var(--line-separator, rgba(0, 0, 0, 0.1));
+    border-bottom: 1px solid var(--line-separator);
     overflow: visible;
-    /* Evita que se corte el texto o dots */
-}
-
-
-/* Soporte para Dark Mode */
-
-body.dark-mode .project-progress-nav {
-    background-color: #121212;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .project-progress-nav .container {
@@ -115,13 +100,9 @@ body.dark-mode .project-progress-nav {
 .step-dot {
     height: 4px;
     width: 100%;
-    background: #eee;
+    background: var(--c-border-mid);
     border-radius: 2px;
     transition: all 0.3s ease;
-}
-
-body.dark-mode .step-dot {
-    background-color: rgba(255, 255, 255, 0.1);
 }
 
 
@@ -137,10 +118,6 @@ body.dark-mode .step-dot {
     transition: color 0.3s ease;
 }
 
-body.dark-mode .step-name {
-    color: rgba(255, 255, 255, 0.5);
-}
-
 
 /* ==========================================================================
    ESTADOS ACTIVOS (Solución a la especificidad)
@@ -149,10 +126,8 @@ body.dark-mode .step-name {
 
 /* 1. Línea Activa */
 
-.progress-step.active .step-dot,
-body.dark-mode .progress-step.active .step-dot {
-    background-color: #ff5a19 !important;
-    /* Tu Naranja Transbank */
+.progress-step.active .step-dot {
+    background-color: var(--c-accent) !important;
     height: 6px;
     opacity: 1;
 }
@@ -161,12 +136,7 @@ body.dark-mode .progress-step.active .step-dot {
 /* 2. Texto Activo */
 
 .progress-step.active .step-name {
-    color: var(--text-main, #000) !important;
-    font-weight: 800 !important;
-}
-
-body.dark-mode .progress-step.active .step-name {
-    color: #ffffff !important;
+    color: var(--c-ink) !important;
     font-weight: 800 !important;
 }
 
@@ -639,11 +609,11 @@ body.dark-mode .process-header .section-description {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    background: rgba(255, 255, 255, 0.6);
+    background: var(--c-surface);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 24px;
-    border: 1px solid var(--line, rgba(0, 0, 0, 0.05));
+    border: 1px solid var(--line);
     scroll-snap-align: center;
     overflow: hidden;
 }
@@ -712,7 +682,7 @@ body.dark-mode .process-header .section-description {
 .dot {
     width: 12px;
     height: 12px;
-    background-color: #D1D5DB;
+    background-color: var(--c-border-mid);
     border-radius: 50%;
     transition: all 0.3s ease;
 }
@@ -762,13 +732,9 @@ body.dark-mode .process-header .section-description {
     align-items: center;
     width: 100%;
     border-radius: 16px;
-    /* Bordes redondeados consistentes con tu UI */
     overflow: hidden;
-    /* Para que las imágenes no se salgan de las esquinas */
-    background-color: #fcfcfc;
-    /* Fondo neutro muy sutil para destacar el mockup */
+    background-color: var(--c-surface);
     padding: 40px;
-    /* Aire interno para que el diseño "respire" */
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -1109,13 +1075,13 @@ body.dark-mode .process-header .section-description {
     max-width: 380px;
     width: 60%;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(20, 20, 23, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--line);
     border-radius: 32px;
     padding: 24px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     overflow: hidden;
 }
@@ -1172,8 +1138,8 @@ h4.feature-title {
     border-radius: 20px;
     padding: 40px 30px;
     text-align: center;
-    border: 1px solid #F1F5F9;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--line);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1341,95 +1307,10 @@ h4.feature-title {
 }
 
 
-/* ============================================================ 
-   BLOQUE DARK MODE (AGREGAR PARA REPARAR) 
-   ============================================================ */
-
-body.dark-mode {
-    /* Definición de los nuevos valores para las variables existentes */
-    --bg: #0b1220;
-    --surface: #0f172a;
-    --surface-2: #111827;
-    --text: #e5e7eb;
-    --text-soft: #94a3b8;
-    --text-main: #f8fafc;
-    --line: rgba(255, 255, 255, 0.12);
-    --line-separator: rgba(255, 255, 255, 0.12);
-    --accent: #f97316;
-}
+/* dark-mode override block removed — base.css handles the dark system */
 
 
-/* Aplicación de fondo general si no estaba heredando */
-
-body.dark-mode .project-detail {
-    background-color: var(--bg);
-    color: var(--text);
-}
-
-
-/* Forzar el color de títulos que usan variables específicas o colores fijos */
-
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h4,
-body.dark-mode .metric-card h4,
-body.dark-mode .feature-title,
-body.dark-mode .guerrilla-box h3 {
-    color: var(--text-soft);
-}
-
-
-/* Ajuste de bordes para cards y secciones */
-
-body.dark-mode .metric-card,
-body.dark-mode .hypo-item,
-body.dark-mode .stat-card,
-body.dark-mode .qa-box,
-body.dark-mode .flow-slide {
-    border-color: var(--line);
-    background-color: var(--surface);
-}
-
-
-/* Fix para el texto dentro de las cards de hipótesis y métricas */
-
-body.dark-mode .hypo-item p,
-body.dark-mode .metric-description,
-body.dark-mode .col-text,
-body.dark-mode .reflection-text {
-    color: var(--text-soft);
-}
-
-
-/* FIX PARA MENÚ HAMBURGUESA */
-
-.header-container,
-.navbar {
-    position: sticky;
-    /* O fixed si quieres que flote sobre todo siempre */
-    top: 0;
-    width: 100%;
-    z-index: 9999 !important;
-    /* Prioridad alta para que nada lo cubra al hacer scroll */
-    background: rgba(255, 255, 255, 0.88);
-    /* El blur solo funciona con transparencia */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
-}
-
-body.dark-mode .navbar {
-    background: rgba(11, 18, 32, 0.82);
-}
-
-.menu-toggle,
-#hamburger-menu {
-    cursor: pointer !important;
-    pointer-events: auto !important;
-    position: relative;
-    z-index: 10001 !important;
-}
+/* navbar + menu-toggle handled by base.css */
 
 .back-to-top-container {
     margin-top: 40px;
@@ -1482,8 +1363,7 @@ body.dark-mode .navbar {
         padding: 0 40px;
     }
     .project-progress-nav {
-        top: 80px !important;
-        /* Ajuste según altura de tu navbar */
+        top: var(--nav-h);
         background: var(--bg-surface);
     }
     .col-visual img,
@@ -1534,7 +1414,7 @@ body.dark-mode .navbar {
         display: none !important;
     }
     .project-progress-nav {
-        top: 60px !important;
+        top: var(--nav-h);
         padding: 12px 0 !important;
     }
     .progress-track {
@@ -1589,7 +1469,7 @@ body.dark-mode .navbar {
     }
     /* Stepper ultra-compacto */
     .project-progress-nav {
-        top: 60px !important;
+        top: var(--nav-h);
         height: 48px !important;
         display: flex !important;
         align-items: center !important;

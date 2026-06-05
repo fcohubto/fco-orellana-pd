@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FleteApp | fcoux.pd</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,800;1,9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/fletes.css">
+</head>
+<body>
+
+    <header class="navbar" id="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="logo"><strong>fcoux</strong>.pd</a>
+            <nav class="nav-links desktop-nav">
+                <a href="../index.html#about">Resume</a>
+                <a href="../index.html#projects">Casos de Estudio</a>
+                <a href="../index.html#contact">Contacto</a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <nav class="mobile-menu" id="mobileMenu">
+            <a href="../index.html#about">Resume</a>
+            <a href="../index.html#projects">Casos de Estudio</a>
+            <a href="../index.html#contact">Contacto</a>
+        </nav>
+    </header>
+
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../index.html#projects">Casos de Estudio</a></li>
+                <li aria-current="page">FleteApp</li>
+            </ol>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="project-detail-hero">
+            <div class="container">
+                <div class="project-tags">
+                    <span class="tag tag-primary">Producto Propio</span>
+                    <span class="tag tag-secondary">PWA · MVP</span>
+                </div>
+
+                <div class="project-header">
+                    <h1>De la memoria al presupuesto en 12 minutos</h1>
+                    <p class="project-subtitle">FleteApp digitaliza la cotización de fletes para transportistas independientes que operan desde el celular, sin tiempo y muchas veces sin conexión. De cálculo manual a presupuesto compartible en dos minutos.</p>
+                </div>
+
+                <p class="case-role">Diseñé, desarrollé y lancé FleteApp solo — desde las primeras conversaciones con transportistas hasta el deploy como PWA instalable. Cada decisión fue mía, con los problemas reales del terreno como única restricción.</p>
+
+                <div class="project-meta-grid">
+                    <div class="project-meta-item">
+                        <div class="icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <span>Duración</span>
+                        <p>6 semanas · MVP2</p>
+                    </div>
+                    <div class="project-meta-item">
+                        <div class="icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <span>Rol</span>
+                        <p>Product Designer + Desarrollador</p>
+                    </div>
+                    <div class="project-meta-item">
+                        <div class="icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        </div>
+                        <span>Stack</span>
+                        <p>HTML · CSS · Vanilla JS · PWA</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- MÉTRICAS -->
+        <section class="section-wrapper border-top">
+            <div class="section-content">
+                <div class="container">
+                    <div class="process-header">
+                        <span class="eyebrow">Métricas del proyecto</span>
+                        <h3 class="feature-title">Lo que cambió</h3>
+                    </div>
+                    <div class="metrics-grid mt-60">
+                        <div class="metric-card">
+                            <span class="metric-value">3h→12m</span>
+                            <h3 class="metric-label">Tiempo de cotización</h3>
+                            <p class="metric-description">De llamadas, cálculos mentales y papel a presupuesto listo para enviar.</p>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-value">6</span>
+                            <h3 class="metric-label">Categorías del catálogo</h3>
+                            <p class="metric-description">Dormitorio, Living, Cocina, Lavadero, Terraza y Cajas. El transportista piensa en habitaciones, no en artículos sueltos.</p>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-value">0</span>
+                            <h3 class="metric-label">Dependencia de red</h3>
+                            <p class="metric-description">PWA con Service Worker. Funciona offline. El perfil y el historial persisten sin internet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- MÉTODO -->
+        <section class="section-wrapper process-intro">
+            <div class="container">
+                <div class="process-header">
+                    <span class="eyebrow">Metodología</span>
+                    <h3>Diseñar para quien no tiene tiempo de aprender la herramienta</h3>
+                    <p class="section-description">
+                        El transportista independiente trabaja a destajo. La herramienta tenía que funcionar sin instrucción, desde el celular, en cualquier condición. Eso definió cada decisión.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- PROGRESS NAV -->
+        <nav class="project-progress-nav" aria-label="Progreso del caso de estudio">
+            <div class="container">
+                <div class="progress-track">
+                    <a href="#cap1" class="progress-step active js-scroll-link">
+                        <span class="step-dot"></span>
+                        <span class="step-name">01. DISCOVERY</span>
+                    </a>
+                    <a href="#cap2" class="progress-step active js-scroll-link">
+                        <span class="step-dot"></span>
+                        <span class="step-name">02. ESTRATEGIA</span>
+                    </a>
+                    <a href="#cap3" class="progress-step active js-scroll-link">
+                        <span class="step-dot"></span>
+                        <span class="step-name">03. DISEÑO</span>
+                    </a>
+                    <a href="#cap4" class="progress-step active js-scroll-link">
+                        <span class="step-dot"></span>
+                        <span class="step-name">04. VALIDACIÓN</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- CAP 1: DISCOVERY -->
+        <section id="cap1" class="section-wrapper">
+            <div class="container">
+                <div class="process-header">
+                    <span class="eyebrow">Etapa 01: Discovery</span>
+                    <h2 class="feature-title">El transportista pierde plata dos veces:<br>cotizando y ejecutando</h2>
+                </div>
+
+                <div class="two-columns-grid mt-60">
+                    <div class="col-text">
+                        <p>Hablé con tres transportistas independientes que hacen mudanzas en Santiago. Ninguno tenía una herramienta de cotización. Uno usaba notas de voz. Otro, una planilla Excel que "ya no abre bien". El tercero calculaba de cabeza y confirmaba el precio al día siguiente, después de pensarlo.</p>
+
+                        <div class="pillars-grid">
+                            <div class="highlight-list">
+                                <strong>Lo que documenté</strong>
+                                <p>Conversaciones informales, no entrevistas estructuradas. El objetivo era entender el flujo real: desde que un cliente pregunta el precio hasta que el camión sale cargado.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-visual">
+                        <div class="card-header" style="margin-bottom: 16px;">
+                            <div class="project-meta-item">
+                                <span>Ficha de campo</span>
+                            </div>
+                        </div>
+                        <div class="hypo-item" style="width: 100%; background: var(--c-night);">
+                            <p><strong>Perfiles:</strong> 3 transportistas independientes, 28–47 años, todos operan en la RM.</p>
+                            <p><strong>Método:</strong> conversaciones en persona + análisis de su flujo actual de cotización.</p>
+                            <p><strong>Contexto:</strong> el celular es el único dispositivo de trabajo. Ninguno usa laptop.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-container">
+                    <div class="quote-icon">"</div>
+                    <p class="question-text">
+                        La primera vez que llegué a mostrarle el presupuesto al cliente, ya me había dado cuenta de que cobré menos de lo que gasté en el viaje.
+                    </p>
+                    <p class="user-info">Rodrigo, 38 años — transportista independiente, RM</p>
+                </div>
+
+                <div class="guerrilla-box">
+                    <div class="process-header">
+                        <h3 class="feature-title">Pain points principales</h3>
+                    </div>
+                    <div class="hypothesis-grid">
+                        <article class="hypo-item">
+                            <span class="card-icon">📦</span>
+                            <h4>Sin referencia de volúmenes</h4>
+                            <p>Cada cotización es un estimado de cabeza. Sin saber cuánto m³ ocupa un dormitorio, el precio final depende de la experiencia del día — y los errores se acumulan.</p>
+                        </article>
+                        <article class="hypo-item">
+                            <span class="card-icon">⛽</span>
+                            <h4>Costos invisibles en el cálculo</h4>
+                            <p>Combustible, peajes, desgaste del camión, ayudante: ninguno entra en el cálculo mental. El precio cubre el traslado, no el negocio.</p>
+                        </article>
+                        <article class="hypo-item">
+                            <span class="card-icon">📱</span>
+                            <h4>Sin herramienta para el terreno</h4>
+                            <p>Las soluciones de cotización existentes están pensadas para desktop. El transportista trabaja desde el celular, parado frente al cliente, sin tiempo para abrir una planilla.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="data-box mt-60">
+                    <strong>Hipótesis central</strong>
+                    Si el transportista puede ver el volumen de la mudanza y el costo estimado en tiempo real, mientras selecciona los artículos desde el celular, puede cerrar la cotización en terreno — sin llamadas de seguimiento, sin recalcular al día siguiente.
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CAP 2: ESTRATEGIA -->
+        <section id="cap2" class="section-wrapper border-top">
+            <div class="container">
+                <div class="process-header">
+                    <span class="stage-tag">Etapa 02: Estrategia</span>
+                    <h2 class="feature-title">Tres principios antes de escribir<br>una línea de código</h2>
+                </div>
+
+                <div class="two-columns-grid mt-60">
+                    <div class="col-text">
+                        <p>Antes de abrir el editor, definí tres restricciones no negociables: la herramienta tiene que funcionar sin conexión, tiene que generar la cotización en menos de dos minutos, y el presupuesto tiene que poder enviarse desde la misma app.</p>
+                        <p>Todo lo que no cumpliera esos tres criterios quedó fuera del MVP.</p>
+
+                        <div class="pillars-grid">
+                            <div class="highlight-list">
+                                <strong>Por qué PWA en lugar de app nativa</strong>
+                                <p>Publicar en App Store o Play Store toma semanas y cuesta plata. Una PWA se instala desde el browser en 3 segundos. En un MVP, esa fricción cero de distribución vale más que cualquier feature de plataforma.</p>
+                            </div>
+                            <div class="highlight-list">
+                                <strong>Por qué Vanilla JS sin framework</strong>
+                                <p>Los transportistas no tienen iPhone 15. El hardware de gama media es lento. Sin framework, sin hydration, sin bundle: la app carga en menos de 1 segundo en 3G.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-text">
+                        <div class="guerrilla-box" style="padding: 0; margin: 0;">
+                            <div class="hypothesis-grid" style="grid-template-columns: 1fr;">
+                                <article class="hypo-item">
+                                    <span class="card-icon">🏠</span>
+                                    <h4>Catálogo por habitación, no por artículo</h4>
+                                    <p>Esta fue la decisión de diseño más importante. El transportista piensa en "un dormitorio", no en "1 cama + 2 veladores + 1 cómoda". Agrupar por habitación redujo el tiempo de entrada de datos a menos de la mitad — y eliminó la necesidad de que el usuario memorizara nombres de artículos.</p>
+                                </article>
+                                <article class="hypo-item">
+                                    <span class="card-icon">💾</span>
+                                    <h4>localStorage sin backend</h4>
+                                    <p>Cero costos de infraestructura en el MVP. El perfil del transportista, la tarifa base y el historial de las últimas 10 cotizaciones persisten en el dispositivo. Sin cuenta, sin contraseña, sin servidor.</p>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-decision">
+                    <em>Decisión clave: podía construir un formulario simple de calculadora. Elegí construir un catálogo visual porque el transportista no quería ingresar números — quería seleccionar artículos. La diferencia entre ingresar datos y reconocer opciones reduce la fricción cognitiva en terreno.</em>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CAP 3: DISEÑO -->
+        <section id="cap3" class="section-wrapper border-top">
+            <div class="container">
+                <div class="process-header">
+                    <span class="stage-tag">Etapa 03: Diseño</span>
+                    <h2 class="feature-title">Una pantalla que da confianza<br>para cotizar con margen</h2>
+                </div>
+
+                <div class="two-columns-grid mt-60">
+                    <div class="col-text">
+                        <p>El flujo principal tiene cuatro pasos: seleccionar artículos por habitación → ver volumen y ocupación del camión en tiempo real → ingresar origen y destino → compartir el presupuesto.</p>
+                        <p>El elemento central de la interfaz es la barra de ocupación del camión. No era obligatoria para el MVP — fue el elemento más pedido en testing y el que más cambió la conducta del transportista.</p>
+
+                        <div class="highlight-list mt-40">
+                            <strong>Por qué la barra de ocupación es el elemento clave</strong>
+                            <p>El transportista necesita saber si cabe todo en un viaje. Ese número define si cotiza uno o dos viajes. Sin esa información, el precio siempre es incompleto.</p>
+                        </div>
+
+                        <div class="highlight-list mt-40">
+                            <strong>Restricción consciente: solo mobile</strong>
+                            <p>No existe un layout desktop. Esa decisión simplificó todas las demás — cada componente fue diseñado para pulgar, no para cursor.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-visual">
+                        <div class="phone-mockup-wrap" style="padding: 0;">
+                            <div class="phone-mockup">
+                                <div class="phone-notch"></div>
+                                <div class="phone-screen">
+                                    <div class="ph-label">FleteApp</div>
+                                    <div class="ph-title">Nueva cotización</div>
+                                    <div class="ph-sep"></div>
+                                    <div class="ph-bar-wrap">
+                                        <div class="ph-bar-label">
+                                            <span>Ocupación del camión</span>
+                                            <span style="color: var(--c-cyan); font-weight: 700;">64%</span>
+                                        </div>
+                                        <div class="ph-bar"><div class="ph-bar-fill"></div></div>
+                                    </div>
+                                    <div class="ph-sep"></div>
+                                    <div class="ph-categories">
+                                        <div class="ph-cat is-selected">🛏 Dormitorio</div>
+                                        <div class="ph-cat is-selected">🛋 Living</div>
+                                        <div class="ph-cat">🍳 Cocina</div>
+                                        <div class="ph-cat">🧺 Lavadero</div>
+                                        <div class="ph-cat">🌿 Terraza</div>
+                                        <div class="ph-cat">📦 Cajas</div>
+                                    </div>
+                                    <div class="ph-sep"></div>
+                                    <div class="ph-row">
+                                        <span class="ph-row-label">Volumen total</span>
+                                        <span class="ph-row-value">18.4 m³</span>
+                                    </div>
+                                    <div class="ph-row">
+                                        <span class="ph-row-label">Distancia</span>
+                                        <span class="ph-row-value">23 km</span>
+                                    </div>
+                                    <div class="ph-row">
+                                        <span class="ph-row-label" style="color: var(--c-cyan); font-weight: 700; font-size: 0.75rem;">Costo estimado</span>
+                                        <span class="ph-row-value" style="color: var(--c-cyan);">$87.400</span>
+                                    </div>
+                                    <div class="ph-btn">Compartir presupuesto</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-content">
+                    <div class="process-header">
+                        <h3 class="feature-title">Las cuatro features del MVP2</h3>
+                    </div>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                            </div>
+                            <h3>Cotizador en tiempo real</h3>
+                            <p>Volumen total, porcentaje de ocupación del camión y costo estimado se actualizan al instante con cada selección. Sin formularios ni pasos intermedios.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                            </div>
+                            <h3>Catálogo por habitación</h3>
+                            <p>Artículos organizados por Dormitorio, Living, Cocina, Lavadero, Terraza y Cajas. Volúmenes en m³ predefinidos por ítem con datos reales de tablas de mudanza.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                            </div>
+                            <h3>Presupuesto compartible</h3>
+                            <p>Genera el resumen completo — artículos, volumen, distancia y costo total — y lo comparte por WhatsApp, correo o clipboard con un toque. Web Share API nativa.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+                            </div>
+                            <h3>Funciona sin conexión</h3>
+                            <p>PWA instalable con Service Worker. Perfil del transportista, tarifa por km e historial de las últimas 10 cotizaciones guardados en el dispositivo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CAP 4: VALIDACIÓN -->
+        <section id="cap4" class="section-wrapper border-top">
+            <div class="section-content">
+                <div class="container">
+                    <div class="process-header">
+                        <span class="eyebrow">Etapa 04: Validación</span>
+                        <h2 class="feature-title">MVP funcional — probado con<br>transportistas activos</h2>
+                        <p class="section-description">
+                            FleteApp pasó por dos ciclos de testing informal con transportistas reales. El feedback no se recopiló en formularios: se observó en el uso directo.
+                        </p>
+                    </div>
+
+                    <div class="two-columns-grid mt-60">
+                        <div class="col-text">
+                            <div class="phase-list">
+                                <div class="phase phase--done">
+                                    <span class="phase-dot"></span>
+                                    <div class="phase-body">
+                                        <strong>MVP1 — Completado</strong>
+                                        <p>Cotizador básico con cálculo de volumen y costo por distancia y tarifa por km. Sin catálogo completo.</p>
+                                    </div>
+                                </div>
+                                <div class="phase phase--current">
+                                    <span class="phase-dot"></span>
+                                    <div class="phase-body">
+                                        <strong>MVP2 — Actual</strong>
+                                        <p>Catálogo completo por categoría, perfil del transportista, historial de cotizaciones, compartir presupuesto y soporte offline. Probado con 3 transportistas activos en la RM.</p>
+                                    </div>
+                                </div>
+                                <div class="phase phase--next">
+                                    <span class="phase-dot"></span>
+                                    <div class="phase-body">
+                                        <strong>MVP3 — Próximo</strong>
+                                        <p>Backend, autenticación, multi-transportista y panel de gestión con historial en la nube.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-text">
+                            <div class="stack-tags" style="margin-bottom: 24px;">
+                                <span class="stack-tag">HTML5</span>
+                                <span class="stack-tag">CSS3</span>
+                                <span class="stack-tag">JavaScript</span>
+                                <span class="stack-tag">PWA</span>
+                                <span class="stack-tag">Service Worker</span>
+                                <span class="stack-tag">localStorage</span>
+                                <span class="stack-tag">Web Share API</span>
+                            </div>
+                            <div class="highlight-list">
+                                <strong>Por qué Vanilla, no React</strong>
+                                <p>Sin bundle, sin hydration, sin dependencias de npm que explotan con el tiempo. Una PWA hecha con HTML/CSS/JS puro funciona igual en 3 años que hoy. La app que usa un transportista no puede quebrarse por un `npm audit`.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="impact-dashboard-grid mt-60">
+                        <div class="main-impact-column">
+                            <div class="metric-card">
+                                <span class="status-badge success">Validado en terreno</span>
+                                <strong>Cotización cerrada en la visita, no al día siguiente</strong>
+                                <p class="impact-highlight">Antes: el transportista llamaba con el precio después de "calcularlo". Ahora: muestra el presupuesto al final de la visita.</p>
+                            </div>
+                            <div class="metric-card">
+                                <span class="status-badge validated">Feedback directo</span>
+                                <strong>La barra de ocupación fue lo más pedido</strong>
+                                <p class="impact-highlight">Ningún brief original la mencionaba. Apareció en el primer testing: "necesito saber si cabe en un viaje o son dos".</p>
+                            </div>
+                        </div>
+                        <div class="secondary-impact-column">
+                            <div class="metric-card">
+                                <span class="status-badge operational">Lección técnica</span>
+                                <strong>El offline no era un nice-to-have</strong>
+                                <p>La primera versión requería conexión. En la segunda visita de testing, el transportista estaba en un sótano sin señal. Eso convirtió el offline en obligatorio.</p>
+                            </div>
+                            <div class="metric-card roadmap-card">
+                                <span class="status-badge vision">Próximo paso</span>
+                                <strong>Backend cuando haya masa crítica de usuarios</strong>
+                                <p>No antes. Agregar un servidor sin necesidad real es agregar costos y complejidad sin valor para el transportista.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CONCLUSIÓN -->
+        <section class="section-wrapper border-top">
+            <div class="section-content">
+                <div class="container narrow">
+                    <div class="final-reflection">
+                        <span class="stage-tag">Reflexión</span>
+                        <h2>Diseñar para quien no lee el manual</h2>
+                        <p class="reflection-text">
+                            FleteApp no tiene onboarding, tutorial ni tooltip de bienvenida. Si la herramienta necesita instrucción para usarse, la herramienta está mal diseñada. El transportista abre la app, selecciona artículos y ve el número. Eso es todo lo que necesita.
+                        </p>
+                        <div class="back-to-top-container">
+                            <a href="../html/fletes.html" class="back-to-top-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+                                Volver al inicio
+                            </a>
+                        </div>
+                        <div class="cta-internal">
+                            <a href="../index.html#projects" class="btn-secondary">Explorar más proyectos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Francisco Orellana — fcoux.pd · Santiago, Chile.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -2,47 +2,27 @@
 PROYECTO: ECOSISTEMA DE PAGOS POS (SISTEMA DE DISEÑO) 
 ============================================================ */
 
- :root {
-    --line-separator: rgba(0, 0, 0, 0.08);
-    --accent: #ea580c;
-    --text: #212121;
-    --text-soft: #424242;
-    --text-main: #1a1a1a;
-    --text-on-color: #ffffff;
-    --surface: #ffffff;
-    --surface-2: #F8FAFC;
-    --card-radius: 18px;
-    --line: rgba(0, 0, 0, 0.1);
+:root {
+    /* Acento Transbank */
+    --c-accent:       #ea580c;
+    --c-accent-hover: #c2410c;
+
+    /* Bridge → tokens de base.css (dark system) */
+    --accent:         var(--c-accent);
+    --bg:             var(--c-night);
+    --bg-surface:     var(--c-night);
+    --surface:        var(--c-surface);
+    --surface-2:      var(--c-frost);
+    --text:           var(--c-ink);
+    --text-soft:      var(--c-ink-soft);
+    --text-main:      var(--c-ink);
+    --text-on-color:  var(--c-night);
+    --line:           var(--c-border);
+    --line-separator: var(--c-border-mid);
+    --card-radius:    var(--radius);
 }
 
-body.dark-mode {
-    --line-separator: rgba(255, 255, 255, 0.1);
-}
-
-.header-container,
-.navbar {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000 !important;
-    /* Ajustado para que el lightbox (9999) gane */
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
-}
-
-body.dark-mode .navbar {
-    background: rgba(11, 18, 32, 0.82);
-}
-
-.menu-toggle,
-#hamburger-menu {
-    cursor: pointer !important;
-    pointer-events: auto !important;
-    position: relative;
-    z-index: 10001 !important;
-}
+/* navbar + menu-toggle handled by base.css */
 
 .feature-title {
     font-size: 2rem;
@@ -161,24 +141,19 @@ h4.feature-title {
     right: 32px;
     transform: translateY(-50%);
     z-index: 100;
-    /* Estado inicial: Oculto y un poco desplazado a la derecha */
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(9, 9, 11, 0.88);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     padding: 20px 12px;
     border-radius: 40px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--c-border-mid);
     display: flex;
     flex-direction: column;
     gap: 20px;
-    pointer-events: none;
-    /* Agrega esto */
-    visibility: hidden;
-    /* Agrega esto */
 }
 
 article[id],
@@ -694,8 +669,8 @@ body.dark-mode .process-header .section-description {
     border-radius: 20px;
     padding: 40px 30px;
     text-align: center;
-    border: 1px solid #F1F5F9;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--line);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -969,45 +944,7 @@ body.dark-mode .process-header .section-description {
 }
 
 
-/* ============================================================ 
-   BLOQUE DARK MODE (Sincronizado)
-   ============================================================ */
-
-body.dark-mode {
-    --bg: #0b1220;
-    --surface: #0f172a;
-    --surface-2: #111827;
-    --text: #e5e7eb;
-    --text-soft: #94a3b8;
-    --text-main: #f8fafc;
-    --line: rgba(255, 255, 255, 0.12);
-    --line-separator: rgba(255, 255, 255, 0.12);
-    --accent: #f97316;
-}
-
-body.dark-mode .project-detail {
-    background-color: var(--bg);
-    color: var(--text);
-}
-
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h4,
-body.dark-mode .metric-card h4,
-body.dark-mode .feature-title,
-body.dark-mode .guerrilla-box h3 {
-    color: var(--text-main);
-    /* Ajustado para mejor contraste en dark */
-}
-
-body.dark-mode .metric-card,
-body.dark-mode .hypo-item,
-body.dark-mode .stat-card,
-body.dark-mode .qa-box {
-    border-color: var(--line);
-    background-color: var(--surface);
-}
+/* dark-mode override block removed — base.css handles the dark system */
 
 
 /* 7. COMPONENTES AVANZADOS */
@@ -1318,37 +1255,7 @@ body.dark-mode .carousel-dots {
     right: 20px;
 }
 
-body.dark-mode .project-stepper {
-    background: rgba(30, 41, 59, 0.8);
-    /* Azul muy oscuro translúcido */
-    border-color: rgba(255, 255, 255, 0.1);
-    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
-}
-
-
-/* Texto de los capítulos en Dark Mode */
-
-body.dark-mode .stepper-item {
-    color: rgba(255, 255, 255, 0.4);
-    /* Gris claro para los inactivos */
-}
-
-body.dark-mode .stepper-item.active {
-    color: var(--accent);
-    /* Naranja brillante para el activo */
-    opacity: 1;
-}
-
-
-/* Los puntos (dots) del stepper en Dark Mode */
-
-body.dark-mode .stepper-item::after {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-body.dark-mode .stepper-item.active::after {
-    background: var(--accent);
-}
+/* stepper dark overrides removed — handled by bridge tokens */
 
 
 /*QUINTO AJUSTE*/
@@ -1382,18 +1289,16 @@ body.dark-mode .stepper-item.active::after {
     .project-stepper {
         position: fixed;
         top: 100px;
-        /* Ajustar según tu header */
         left: 0;
         right: 0;
         width: 100%;
         height: 48px;
         flex-direction: row;
-        /* Horizontal */
         justify-content: center;
         align-items: center;
         gap: 40px;
-        background: #ffffff;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        background: rgba(9, 9, 11, 0.92);
+        border-bottom: 1px solid var(--c-border-mid);
         z-index: 4000;
         padding: 0;
     }

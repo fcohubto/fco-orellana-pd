@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimate Engine | fcoux.pd</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,800;1,9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/estimate.css">
+</head>
+<body>
+
+    <header class="navbar" id="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="logo"><strong>fcoux</strong>.pd</a>
+            <nav class="nav-links desktop-nav">
+                <a href="../index.html#about">Resume</a>
+                <a href="../index.html#projects">Casos de Estudio</a>
+                <a href="../index.html#contact">Contacto</a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <nav class="mobile-menu" id="mobileMenu">
+            <a href="../index.html#about">Resume</a>
+            <a href="../index.html#projects">Casos de Estudio</a>
+            <a href="../index.html#contact">Contacto</a>
+        </nav>
+    </header>
+
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../index.html#projects">Casos de Estudio</a></li>
+                <li aria-current="page">Estimate Engine</li>
+            </ol>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="project-detail-hero">
+            <div class="container">
+                <div class="project-tags">
+                    <span class="tag tag-primary">Herramienta interna</span>
+                    <span class="tag tag-secondary">Wizard · 4 pasos</span>
+                </div>
+
+                <div class="project-header">
+                    <h1>De la conversación al presupuesto en 4 pasos</h1>
+                    <p class="project-subtitle">Estimate Engine es la herramienta interna que construí para cotizar proyectos en Olivacraft con criterio consistente. Reemplazó tres horas de trabajo ad hoc por un wizard de 45 minutos que entrega un rango de presupuesto listo para presentar.</p>
+                </div>
+
+                <p class="case-role">Diseñé y construí la herramienta que yo mismo uso en cada propuesta. Ese nivel de dogfooding obligó a que cada decisión de diseño se justificara con uso real, no con intención.</p>
+
+                <div class="project-meta-grid">
+                    <div class="project-meta-item">
+                        <div class="icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <span>Duración</span>
+                        <p>3 semanas · v1.0</p>
+                    </div>
+                    <div class="project-meta-item">
+                        <div class="icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <span>Rol</span>
+                        <p>Product Designer + Desarrollador</p>
+                    </div>
+                    <div class="project-meta-item">
+                        <div class="icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        </div>
+                        <span>Stack</span>
+                        <p>HTML · CSS · Vanilla JS</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- MÉTRICAS -->
+        <section class="section-wrapper border-top">
+            <div class="section-content">
+                <div class="container">
+                    <div class="process-header">
+                        <span class="eyebrow">Métricas del proyecto</span>
+                        <h3 class="feature-title">Lo que cambió</h3>
+                    </div>
+                    <div class="metrics-grid mt-60">
+                        <div class="metric-card">
+                            <span class="metric-value">3h→45m</span>
+                            <h3 class="metric-label">Tiempo por propuesta</h3>
+                            <p class="metric-description">De cotización ad hoc — llamadas, planillas, revisiones — a wizard estructurado con output listo.</p>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-value">4</span>
+                            <h3 class="metric-label">Pasos del wizard</h3>
+                            <p class="metric-description">Contexto → Alcance → Complejidad → Presupuesto. Cada paso valida antes de avanzar.</p>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-value">100%</span>
+                            <h3 class="metric-label">Propuestas con el mismo formato</h3>
+                            <p class="metric-description">El cliente siempre recibe el mismo nivel de detalle, independiente de la urgencia del proyecto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- MÉTODO INTRO -->
+        <section class="section-wrapper process-intro">
+            <div class="container">
+                <div class="process-header">
+                    <span class="eyebrow">Metodología</span>
+                    <h3>Diseñar para el usuario más exigente: uno mismo</h3>
+                    <p class="section-description">
+                        La herramienta interna no tiene tolerancia para la fricción — si algo molesta, lo arreglo de inmediato. Esa presión constante obligó a un estándar de usabilidad que un producto externo raramente alcanza en la primera versión.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- PROGRESS NAV -->
+        <nav class="project-progress-nav" aria-label="Progreso del caso de estudio">
+            <div class="container">
+                <div class="progress-track">
+                    <a href="#cap1" class="progress-step active js-scroll-link">
+                        <span class="step-dot"></span>
+                        <span class="step-name">01. DISCOVERY</span>
+                    </a>
+                    <a href="#cap2" class="progress-step active js-scroll-link">
+                        <span class="step-dot"></span>
+                        <span class="step-name">02. ESTRATEGIA</span>
+                    </a>
+                    <a href="#cap3" class="progress-step active js-scroll-link">
+                        <span class="step-dot"></span>
+                        <span class="step-name">03. DISEÑO</span>
+                    </a>
+                    <a href="#cap4" class="progress-step active js-scroll-link">
+                        <span class="step-dot"></span>
+                        <span class="step-name">04. VALIDACIÓN</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- CAP 1: DISCOVERY -->
+        <section id="cap1" class="section-wrapper">
+            <div class="container">
+                <div class="process-header">
+                    <span class="eyebrow">Etapa 01: Discovery</span>
+                    <h2 class="feature-title">Una cotización distinta cada vez<br>es una señal de diseño, no de flexibilidad</h2>
+                </div>
+
+                <div class="two-columns-grid mt-60">
+                    <div class="col-text">
+                        <p>Cada propuesta en Olivacraft empezaba desde cero. No había un modelo de pricing claro, ningún criterio para determinar si un proyecto era de alta o baja complejidad, y el tiempo invertido en cotizar variaba entre una hora y una tarde completa según la urgencia del momento.</p>
+                        <p>El resultado era predecible: algunos proyectos se cotizaban por debajo de su costo real, otros se perdían porque la propuesta llegaba tarde, y el cliente recibía documentos con distintos niveles de detalle dependiendo del humor de la semana.</p>
+
+                        <div class="pillars-grid">
+                            <div class="highlight-list">
+                                <strong>El problema no era el precio — era el proceso</strong>
+                                <p>Podía ajustar mis tarifas y seguir teniendo el mismo problema. La inconsistencia venía de no tener un sistema para pensar el alcance antes de ponerle número.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-text">
+                        <div class="guerrilla-box" style="padding: 0; margin: 0;">
+                            <div class="hypothesis-grid" style="grid-template-columns: 1fr;">
+                                <article class="hypo-item">
+                                    <span class="card-icon">🔍</span>
+                                    <h4>Auto-investigación</h4>
+                                    <p>Analicé mis últimas 8 propuestas enviadas. Resultado: tiempo promedio de 2h45m por cotización, 3 formatos distintos de entrega, y un rango de precio para el mismo tipo de proyecto de hasta 40% de variación.</p>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guerrilla-box">
+                    <div class="process-header">
+                        <h3 class="feature-title">Los tres problemas reales</h3>
+                    </div>
+                    <div class="hypothesis-grid">
+                        <article class="hypo-item">
+                            <span class="card-icon">🎲</span>
+                            <h4>Alcance sin criterio</h4>
+                            <p>No había una forma estándar de pensar qué incluía un proyecto. "Rediseño de sitio web" podía ser 20 horas o 200 horas dependiendo de preguntas que nunca se hacían antes de cotizar.</p>
+                        </article>
+                        <article class="hypo-item">
+                            <span class="card-icon">⏰</span>
+                            <h4>Tiempo de respuesta inconsistente</h4>
+                            <p>Sin proceso, el tiempo de entrega de la propuesta dependía de la disponibilidad del momento. Algunos clientes esperaban 2 días, otros recibían la cotización en 2 horas — sin diferencia de calidad real.</p>
+                        </article>
+                        <article class="hypo-item">
+                            <span class="card-icon">📊</span>
+                            <h4>Sin datos históricos</h4>
+                            <p>Cada propuesta era un evento aislado. No podía saber si estaba mejorando mi pricing, si ciertos tipos de proyectos eran sistemáticamente subestimados, o cuánto tiempo tardaba en promedio por categoría.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="data-box mt-60">
+                    <strong>Hipótesis central</strong>
+                    Si tengo un proceso guiado para pensar el alcance y la complejidad antes de poner el precio, puedo entregar propuestas más rápido, más consistentes y con mejor fundamentación — sin trabajar más horas.
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CAP 2: ESTRATEGIA -->
+        <section id="cap2" class="section-wrapper border-top">
+            <div class="container">
+                <div class="process-header">
+                    <span class="stage-tag">Etapa 02: Estrategia</span>
+                    <h2 class="feature-title">Un wizard, no un formulario —<br>la diferencia importa</h2>
+                </div>
+
+                <div class="two-columns-grid mt-60">
+                    <div class="col-text">
+                        <p>La primera versión que pensé era una planilla Excel con fórmulas. La descarté porque no resolvía el problema central: la planilla requiere que yo ya sepa qué preguntar. El wizard me obliga a pensar en orden.</p>
+                        <p>La diferencia entre un formulario y un wizard no es visual — es cognitiva. El formulario muestra todas las preguntas al mismo tiempo y genera parálisis. El wizard muestra una sola pregunta por paso y exige una respuesta antes de avanzar.</p>
+
+                        <div class="pillars-grid">
+                            <div class="highlight-list">
+                                <strong>Por qué 4 pasos, no más</strong>
+                                <p>Intenté con 6 y 7 pasos. Por encima de 4, la herramienta empieza a sentirse como un trámite. El objetivo es que cotizar sea rápido — si el proceso es más pesado que el problema, fallé.</p>
+                            </div>
+                            <div class="highlight-list">
+                                <strong>Por qué rangos en lugar de precios exactos</strong>
+                                <p>Un precio exacto en una propuesta crea tensión en la negociación. Un rango (mín–máx) comunica el mismo nivel de análisis pero da espacio para ajustar según el cliente sin quedar mal.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-text">
+                        <div class="guerrilla-box" style="padding: 0; margin: 0;">
+                            <div class="hypothesis-grid" style="grid-template-columns: 1fr;">
+                                <article class="hypo-item">
+                                    <span class="card-icon">🧭</span>
+                                    <h4>Estructura de los 4 pasos</h4>
+                                    <p><strong>Paso 1 — Contexto:</strong> tipo de cliente, sector, urgencia, experiencia previa con proyectos de diseño.</p>
+                                    <p style="margin-top: 8px;"><strong>Paso 2 — Alcance:</strong> qué entregables están incluidos (research, UX, diseño, desarrollo, QA, handoff).</p>
+                                    <p style="margin-top: 8px;"><strong>Paso 3 — Complejidad:</strong> número de pantallas o flujos, integraciones, revisiones, nivel de fidelidad requerido.</p>
+                                    <p style="margin-top: 8px;"><strong>Paso 4 — Presupuesto:</strong> tarifa base × multiplicadores de complejidad = rango estimado.</p>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-decision">
+                    <em>Decisión clave: podía integrar la herramienta con un backend y guardar el historial de propuestas. Elegí no hacerlo en la primera versión — si la herramienta no era útil sin historial, tampoco lo iba a ser con él. Validar el flujo primero, agregar persistencia después.</em>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CAP 3: DISEÑO -->
+        <section id="cap3" class="section-wrapper border-top">
+            <div class="container">
+                <div class="process-header">
+                    <span class="stage-tag">Etapa 03: Diseño</span>
+                    <h2 class="feature-title">El wizard en detalle</h2>
+                </div>
+
+                <div class="wizard-flow">
+                    <div class="wizard-steps">
+                        <div class="wizard-step is-done">
+                            <div class="wizard-step-num">01</div>
+                            <div class="wizard-step-body">
+                                <h4>Contexto</h4>
+                                <p>Tipo de cliente · sector · urgencia · experiencia previa</p>
+                            </div>
+                        </div>
+                        <div class="wizard-step is-done">
+                            <div class="wizard-step-num">02</div>
+                            <div class="wizard-step-body">
+                                <h4>Alcance</h4>
+                                <p>Research · UX · UI · Desarrollo · QA · Handoff</p>
+                            </div>
+                        </div>
+                        <div class="wizard-step is-active">
+                            <div class="wizard-step-num">03</div>
+                            <div class="wizard-step-body">
+                                <h4>Complejidad</h4>
+                                <p>Pantallas · integraciones · revisiones · fidelidad</p>
+                            </div>
+                        </div>
+                        <div class="wizard-step">
+                            <div class="wizard-step-num">04</div>
+                            <div class="wizard-step-body">
+                                <h4>Presupuesto</h4>
+                                <p>Tarifa base × multiplicadores = rango estimado</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wizard-output">
+                        <span class="wizard-output-header">Output del wizard — ejemplo de paso 04</span>
+                        <div><span class="wo-line-label">Proyecto: </span><span class="wo-line-value">Rediseño sitio web + Desarrollo</span></div>
+                        <div><span class="wo-line-label">Alcance:  </span><span class="wo-line-value">UX + UI + 8 pantallas + integración CMS</span></div>
+                        <div><span class="wo-line-label">Revisiones incluidas: </span><span class="wo-line-value">2 rondas</span></div>
+                        <div style="margin-top: 12px;"><span class="wo-line-label">Rango estimado: </span><span class="wo-line-accent">$1.200.000 — $1.650.000 CLP neto</span></div>
+                        <div style="margin-top: 4px;"><span class="wo-line-label">Plazo estimado: </span><span class="wo-line-value">4–5 semanas</span></div>
+                    </div>
+                </div>
+
+                <div class="two-columns-grid mt-60">
+                    <div class="col-text">
+                        <h3>Las decisiones de interfaz que más importaron</h3>
+                        <div class="pillars-grid">
+                            <div class="highlight-list">
+                                <strong>Validación por paso, no al final</strong>
+                                <p>Si el usuario no completa el paso 2, no puede ver el paso 3. Eso fuerza pensar el alcance antes de la complejidad — que es exactamente el orden lógico que el proceso ad hoc saltaba.</p>
+                            </div>
+                            <div class="highlight-list">
+                                <strong>El output es texto copiable, no PDF</strong>
+                                <p>La propuesta final es texto plano formateado. Se copia en un clic y se pega en la plantilla de propuesta. Sin exportar, sin descargar, sin conversión de formato.</p>
+                            </div>
+                            <div class="highlight-list">
+                                <strong>Multiplicadores visibles, no ocultos</strong>
+                                <p>El cálculo del rango se muestra con los factores desglosados. Si el precio parece alto, puedo ver exactamente qué lo está subiendo — y decidir si ajustar el alcance o justificarlo en la propuesta.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-text">
+                        <div class="guerrilla-box" style="padding: 0; margin: 0;">
+                            <div class="hypothesis-grid" style="grid-template-columns: 1fr;">
+                                <article class="hypo-item">
+                                    <span class="card-icon">🔢</span>
+                                    <h4>Cómo funciona el multiplicador de complejidad</h4>
+                                    <p>Tarifa base (hora) × estimación de horas × factor de complejidad (1x–2.5x) = rango mínimo.</p>
+                                    <p style="margin-top: 8px;">El rango máximo es el mínimo × 1.35 — un buffer estándar para imprevistos de scope.</p>
+                                    <p style="margin-top: 8px;">Los valores de los multiplicadores se ajustan manualmente en el código. No hay configuración UI — no la necesito.</p>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CAP 4: VALIDACIÓN -->
+        <section id="cap4" class="section-wrapper border-top">
+            <div class="section-content">
+                <div class="container">
+                    <div class="process-header">
+                        <span class="eyebrow">Etapa 04: Validación</span>
+                        <h2 class="feature-title">En producción desde el primer proyecto</h2>
+                        <p class="section-description">
+                            La herramienta no tiene usuarios beta. Yo soy el único usuario y la uso en cada propuesta real desde que quedó funcional. No hay métricas de NPS — hay propuestas enviadas y proyectos cerrados.
+                        </p>
+                    </div>
+
+                    <div class="impact-dashboard-grid mt-60">
+                        <div class="main-impact-column">
+                            <div class="metric-card">
+                                <span class="status-badge success">Resultado principal</span>
+                                <strong>Las propuestas se entregan el mismo día, no al día siguiente</strong>
+                                <p class="impact-highlight">Antes: cotizar era una tarea pendiente que se postergaba hasta tener "tiempo suficiente". Ahora: 45 minutos con la herramienta y la propuesta está lista.</p>
+                            </div>
+                            <div class="metric-card">
+                                <span class="status-badge validated">Efecto secundario útil</span>
+                                <strong>El wizard descubrió proyectos mal especificados</strong>
+                                <p class="impact-highlight">Dos veces, al completar el paso 2 (alcance), me di cuenta de que el cliente quería mucho más de lo que había pedido en el brief inicial. Eso abrió la conversación antes de cotizar.</p>
+                            </div>
+                        </div>
+                        <div class="secondary-impact-column">
+                            <div class="metric-card">
+                                <span class="status-badge operational">Lección técnica</span>
+                                <strong>Vanilla JS fue la decisión correcta</strong>
+                                <p>Sin dependencias, sin build step, sin npm. La herramienta abre al instante y no se rompe. En dos años de uso no he tenido que tocar el código por una actualización forzada de alguna librería.</p>
+                            </div>
+                            <div class="metric-card roadmap-card">
+                                <span class="status-badge vision">Próximo paso</span>
+                                <strong>Historial y analytics de pricing</strong>
+                                <p>Guardar el historial de cotizaciones para poder analizar qué tipos de proyecto tienen mayor varianza entre estimado y real — y ajustar los multiplicadores con datos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CONCLUSIÓN -->
+        <section class="section-wrapper border-top">
+            <div class="section-content">
+                <div class="container narrow">
+                    <div class="final-reflection">
+                        <span class="stage-tag">Reflexión</span>
+                        <h2>La mejor forma de entender un problema<br>es tenerlo tú mismo</h2>
+                        <p class="reflection-text">
+                            Estimate Engine no es una herramienta para vender — es una herramienta para pensar con claridad bajo presión. El diseñador que cotiza mal su trabajo no tiene un problema de precio: tiene un problema de proceso. Esta herramienta resolvió el proceso.
+                        </p>
+                        <div class="back-to-top-container">
+                            <a href="../html/estimate.html" class="back-to-top-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+                                Volver al inicio
+                            </a>
+                        </div>
+                        <div class="cta-internal">
+                            <a href="../index.html#projects" class="btn-secondary">Explorar más proyectos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Francisco Orellana — fcoux.pd · Santiago, Chile.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
