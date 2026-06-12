@@ -1076,6 +1076,20 @@ h4.feature-title {
     scroll-snap-align: start;
 }
 
+/* Slides: reducción ~20% de espaciado interno para mejorar lectura */
+.study-slide .mt-60 { margin-top: 40px; }
+.study-slide .stat-card { padding: 20px; }
+.study-slide .hallazgo-box { padding: 14px; margin-bottom: 14px; }
+.study-slide .section-description { font-size: var(--text-sm); line-height: 1.55; }
+.study-slide .quote-card .quote { font-size: 0.9375rem; line-height: 1.5; }
+
+/* Elimina sombra de caja en quote-cards dentro de slides (Design Sprint y Casos de uso) */
+.study-slide .stat-card.quote-card {
+    box-shadow: none;
+    border: 1px solid var(--c-border-mid);
+    background: transparent;
+}
+
 
 /* --- ESTILOS DE LOS DOTS (CARRUSEL) --- */
 
