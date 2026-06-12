@@ -120,24 +120,6 @@ h4.feature-title {
 }
 
 
-/* CASE STUDY LAYOUT */
-
-.case-study-layout {
-    display: flex;
-    align-items: flex-start;
-    gap: 60px;
-    position: relative;
-    width: 100%;
-}
-
-.case-study-content {
-    flex: 1;
-    min-width: 0;
-}
-
-/* stepper dark overrides removed — styles in base.css */
-
-
 /* PROCESS INTRO & ZOOM */
 
 .process-intro {
@@ -1122,9 +1104,6 @@ h4.feature-title {
     .container {
         padding: 0 40px;
     }
-    .case-study-layout {
-        display: block;
-    }
     .col-visual img,
     .feature-visual-media,
     .visual-container img {
@@ -1144,9 +1123,6 @@ h4.feature-title {
         font-size: 2rem;
         line-height: 1.2;
         margin-bottom: 1.5rem;
-    }
-    .case-study-content {
-        padding-top: 60px;
     }
     /* Ajuste de Stat Cards para que ocupen el ancho total sin romperse */
     .stat-card {
