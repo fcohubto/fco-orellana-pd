@@ -34,7 +34,7 @@
   font-weight: var(--fw-medium);
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
-  color: var(--c-ink-muted);
+  color: var(--c-cyan);
   margin-bottom: var(--sp-8);
 }
 
@@ -64,7 +64,7 @@
   font-weight: var(--fw-light);
   line-height: var(--lh-relaxed);
   color: var(--c-ink-soft);
-  max-width: 460px;
+  max-width: 850px;
   margin-bottom: var(--sp-10);
 }
 
@@ -118,7 +118,7 @@
 }
 
 .stat-label {
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: var(--fw-regular);
   color: var(--c-ink-muted);
   line-height: var(--lh-normal);
@@ -206,7 +206,7 @@
 }
 
 .case-arrow {
-  font-size: 1.25rem;
+  font-size: 2.5rem;
   color: var(--c-ink-faint);
   flex-shrink: 0;
   padding-top: var(--sp-3);
@@ -230,7 +230,7 @@
   content: '';
   display: block;
   height: 2px;
-  background: var(--c-cyan);
+  background: var(--c-border);
   opacity: 0.45;
 }
 

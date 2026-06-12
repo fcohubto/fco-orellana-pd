@@ -1,154 +1,83 @@
-/* ============================================================ 
-   PROYECTO: PAGO EN RESTAURANTES (SISTEMA DE DISEÑO) 
-   ============================================================ */
+/* ============================================================
+   Pago en Restaurantes — Caso de Estudio
+   Sistema: olivacraft2.0 · acento cyan
+   Componentes compartidos: base.css + caso.css
+   ================================================ */
 
 
-/* 1. DESIGN TOKENS & VARIABLES */
-
-:root {
-    /* Acento del sistema */
-    --c-accent:       var(--c-cyan);
-    --c-accent-hover: var(--c-cyan-dark);
-
-    /* Bridge → tokens de base.css (dark system) */
-    --accent:         var(--c-accent);
-    --bg:             var(--c-night);
-    --bg-surface:     var(--c-night);
-    --surface:        var(--c-surface);
-    --surface-2:      var(--c-frost);
-    --text:           var(--c-ink);
-    --text-soft:      var(--c-ink-soft);
-    --text-main:      var(--c-ink);
-    --text-on-color:  var(--c-night);
-    --line:           var(--c-border);
-    --line-separator: var(--c-border-mid);
-    --card-radius:    var(--radius);
+.bg-surface-2 {
+    background-color: var(--surface-2);
 }
 
-
-/* 2. LAYOUT & ESTRUCTURA BASE */
-
-.project-detail {
-    background: var(--bg, #fff);
-}
-
-.section-wrapper {
-    width: 100%;
-    display: block;
-    padding: 140px 0;
-}
-
-.section-wrapper.border-top {
-    border-top: 1px solid var(--line-separator);
-}
-
-
-/* ==========================================================================
-   Navegación de Progreso (Sticky Nav)
-   ========================================================================== */
-
-.project-progress-nav {
-    position: -webkit-sticky;
-    position: sticky;
-    top: var(--nav-h);
-    z-index: 99;
-    background-color: var(--bg-surface);
-    width: 100%;
-    height: auto;
-    min-height: 64px;
-    display: block;
-    padding: 16px 0;
-    margin: 0;
-    border-bottom: 1px solid var(--line-separator);
-    overflow: visible;
-}
-
-.project-progress-nav .container {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 20px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.progress-track {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 12px;
-    width: 100%;
-}
-
-
-/* Estructura de cada paso */
-
-.progress-step {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    text-decoration: none;
-    flex: 1;
-    text-align: left;
-    transition: all 0.3s ease;
-}
-
-
-/* La línea (Dot) */
-
-.step-dot {
-    height: 4px;
-    width: 100%;
-    background: var(--c-border-mid);
-    border-radius: 2px;
-    transition: all 0.3s ease;
-}
-
-
-/* El texto (Name) */
-
-.step-name {
-    font-size: var(--text-sm);
-    font-weight: 700;
+.user-info {
+    font-size: 1rem;
+    font-weight: 600;
     color: var(--text-soft);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    white-space: nowrap;
-    transition: color 0.3s ease;
+    margin-top: var(--sp-6);
+    display: block;
+    letter-spacing: 0.04em;
 }
 
 
-/* ==========================================================================
-   ESTADOS ACTIVOS (Solución a la especificidad)
-   ========================================================================== */
+/* --- PROBLEM STATEMENT (override de h2 y subtítulos) --- */
 
+.problem-statement h2 {
+    font-size: var(--text-h2);
+    line-height: var(--lh-normal);
+    letter-spacing: var(--ls-normal);
+    color: var(--text);
+    margin-bottom: var(--sp-6);
+}
 
-/* 1. Línea Activa */
+.problem-statement .col-text h3 {
+    display: inline-block;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: var(--sp-4);
+    letter-spacing: 0.15em;
+}
 
-.progress-step.active .step-dot {
-    background-color: var(--c-accent) !important;
-    height: 6px;
-    opacity: 1;
+.problem-statement .col-text p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--text-soft);
+}
+
+.problem-statement .data-box {
+    border-left: 4px solid var(--accent);
 }
 
 
-/* 2. Texto Activo */
+/* --- SECTION TITLE (con subtexto asociado) --- */
 
-.progress-step.active .step-name {
-    color: var(--c-ink) !important;
-    font-weight: 800 !important;
+.section-title h2 {
+    font-size: var(--text-h2);
+    font-weight: 700;
+    color: var(--text);
+}
+
+.section-title h3 {
+    font-size: var(--text-h3);
+    font-weight: 700;
+    color: var(--text);
+    text-align: left;
+}
+
+.section-title p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--text-soft);
 }
 
 
-/* Capa Lightbox */
+/* --- LIGHTBOX --- */
 
 .lightbox {
     pointer-events: auto;
     display: none;
     position: fixed;
     z-index: 99999;
-    /* Por encima del navbar y stepper */
     left: 0;
     top: 0;
     width: 100%;
@@ -159,10 +88,7 @@
     backdrop-filter: blur(10px);
 }
 
-.lightbox.active {
-    display: flex !important;
-    /* Forzamos el display para evitar conflictos */
-}
+.lightbox.active { display: flex; }
 
 .lightbox img {
     pointer-events: none;
@@ -175,9 +101,6 @@
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
 }
-
-
-/* Contenedor original */
 
 .image-zoom-trigger {
     cursor: zoom-in;
@@ -199,341 +122,136 @@
     transition: opacity 0.3s;
 }
 
-.image-zoom-trigger:hover .zoom-hint {
-    opacity: 1;
+.image-zoom-trigger:hover .zoom-hint { opacity: 1; }
+
+
+/* --- COL-VISUAL (hover en desktop) --- */
+
+.col-visual {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-
-/* Hover effect */
-
-.progress-step:hover .step-name {
-    color: var(--accent);
+.col-visual:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
 }
 
-.progress-step:hover .step-dot {
-    background: var(--text-soft);
-}
-
-.section-content {
-    padding: 0;
-}
-
-.section-content h2 {
-    font-size: 2.25rem;
-    font-weight: 700;
-    color: var(--text);
-    line-height: 1.5;
-    padding-bottom: 24px;
-}
-
-.container.narrow {
-    max-width: 800px;
-}
-
-.bg-surface-2 {
-    background-color: var(--surface-2);
-}
-
-
-.icon-box {
-    width: 32px;
-    height: 32px;
-    margin-bottom: 16px;
+.image-placeholder {
+    background: var(--surface-2);
+    border-radius: var(--card-radius);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--accent);
-    /* Usando el naranja de Transbank */
-}
-
-.icon-box svg {
+    min-height: 350px;
     width: 100%;
-    height: 100%;
-    stroke-width: 1.5px;
-    /* Un grosor refinado para estética Senior */
+    object-fit: cover;
 }
 
 
-/* --- SECTION: PROCESS INTRO --- */
+/* --- BADGE (etiqueta de sección) --- */
 
-.process-intro {
-    padding: 100px 0 60px 0;
-    /* Espaciado generoso para dar aire antes del contenido denso */
-    background-color: var(--bg-surface);
-}
-
-.process-header {
-    max-width: 1122px;
-    /* Ancho controlado para mejorar la legibilidad del párrafo */
-    margin: 0 auto;
-    text-align: left;
-}
-
-
-/* Estilo para el subtítulo pequeño (Eyebrow) */
-
-.process-header .eyebrow {
-    text-transform: uppercase;
+.badge {
     display: inline-block;
     font-size: 1rem;
     font-weight: 400;
+    padding: 6px 14px;
+    background-color: rgba(62, 198, 212, 0.08);
     color: var(--accent);
-    margin-bottom: 16px;
-    letter-spacing: 0.15em;
+    border-radius: 30px;
+    margin-bottom: var(--sp-4);
 }
 
 
-/* Título Principal de la sección */
+/* --- QA BOX (versión rellena) --- */
 
-.process-header h2 {
-    max-width: 700px;
-    font-size: 2.25rem;
-    line-height: 1.2;
-    margin-bottom: 24px;
-    color: var(--text);
+.qa-box {
+    background-color: var(--surface-2);
+    padding: 32px;
+    border-radius: 12px;
 }
 
-.process-header h3 {
-    max-width: 700px;
-    font-size: var(--text-h3);
-    line-height: 1.2;
-    margin-bottom: 24px;
-    color: var(--text);
-}
-
-
-/* Descripción de la metodología */
-
-.process-header .section-description {
+.qa-box h4 {
     font-size: 1.125rem;
-    line-height: 1.5;
-    color: var(--text-soft);
-    margin-bottom: 0;
-    max-width: 800px;
-}
-
-
-/* --- RESPONSIVE --- */
-
-
-/* 3. HERO & METADATA SECTON */
-
-.project-detail-hero {
-    padding: 100px 0px 0px;
-}
-
-.project-header h1 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 700;
-    line-height: 1.25;
-    margin-bottom: 24px;
-    margin-top: 24px;
-    letter-spacing: -0.02em;
-    max-width: 860px;
-    color: var(--text);
-}
-
-.project-subtitle {
-     font-size: var(--text-md);
-  font-weight: var(--fw-light);
-  line-height: var(--lh-relaxed);
-  color: var(--c-ink-soft);
-  max-width: 850px;
-  margin-bottom: var(--sp-10);
-}
-
-.case-role {
-    font-size: 1rem;
-    color: var(--text-soft);
-    max-width: 750px;
-    line-height: 1.6;
-    font-style: italic;
-    border-left: 3px solid var(--accent);
-    padding-left: 20px;
-    margin-top: 16px;
-}
-
-.project-meta-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 40px;
-    padding: 60px 0;
-    border-top: 1px solid var(--line-separator);
-    margin-top: 60px;
-    width: 100%;
-}
-
-.project-meta-item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.project-meta-item span {
-    display: block;
-    font-size: var(--text-sm);
-    font-weight: 600;
-    text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 8px;
-    letter-spacing: 0.12em;
+    margin-bottom: var(--sp-4);
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.card-body-metric,
-.project-meta-item p {
-    font-size: 1rem;
-    font-weight: 400;
+.qa-box h4::before {
+    content: "";
+    width: 12px;
+    height: 2px;
+    background: var(--accent);
+    flex-shrink: 0;
+}
+
+.qa-box p {
+    font-size: 1.125rem;
+    color: var(--text-soft);
+    line-height: 1.6;
     margin: 0;
-    color: var(--text-soft);
-}
-
-.problem-statement h2 {
-    font-size: 2.25rem;
-    line-height: 1.5;
-    letter-spacing: -0.02em;
-    color: var(--text);
-}
-
-.problem-statement .col-text h3 {
-    display: inline-block;
-    font-size: 1.25rem;
-    font-weight: 400;
-    color: var(--text);
-    margin-bottom: 16px;
-    letter-spacing: 0.15em;
-}
-
-.problem-statement .col-text p {
-    font-size: 1.125rem;
-    line-height: 1.5;
-    color: var(--text-soft);
 }
 
 
-/* Para que la caja de hipótesis destaque */
+/* --- HYPO ITEM (override: tarjeta rellena en este caso) --- */
 
-.problem-statement .data-box {
-    border-left: 4px solid var(--accent);
+.hypo-item {
+    padding: 32px;
     background: var(--surface);
-    padding: 32px;
-    font-style: italic;
-}
-
-.data-box strong {
-    display: block;
-    font-weight: 700;
-    color: var(--text-soft);
-    margin-bottom: 12px;
-}
-
-
-/* 4. COMPONENTES DE MÉTRICAS Y DATA */
-
-.metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-}
-
-.metric-card {
-    background: transparent;
-    border: 1px solid var(--c-border-mid);
-    border-top: 2px solid var(--c-cyan);
+    border: 1px solid var(--line);
+    border-left: none;
     border-radius: var(--card-radius);
-    padding: 32px;
+    box-shadow: none;
+}
+
+.hypo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
+    border-color: var(--accent);
+}
+
+
+/* --- CARD ICON + STATUS DOT --- */
+
+.card-icon {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-    transition: border-color var(--ease-base);
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-bottom: var(--sp-2);
+    font-size: 32px;
 }
 
-.metric-card:hover {
-    border-color: var(--c-border-mid);
-    border-top-color: var(--c-cyan-dark);
+.card-icon svg {
+    width: 32px;
+    height: 32px;
+    stroke: var(--accent);
+    stroke-width: 2px;
+    fill: none;
 }
 
-.metric-card h4 {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--text-soft);
+.status-dot {
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 
-.metric-card p {
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--text-soft);
-}
-
-.metric-card strong {
-    display: block;
+.guerrilla-box h4 {
     font-size: 1.125rem;
     font-weight: 700;
     color: var(--text);
-    margin-bottom: 8px;
-    text-transform: none;
-    letter-spacing: normal;
-}
-
-.metric-value {
-    display: block;
-    font-family: var(--font);
-    font-size: 3.2rem;
-    font-weight: 700;
-    color: var(--c-cyan);
-    line-height: 1;
-    margin-bottom: 16px;
-    text-align: left;
-}
-
-.metric-label {
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 8px;
-    text-align: left;
-    color: var(--c-ink-soft);
-}
-
-.metric-description {
-    font-size: 0.9375rem;
-    color: var(--c-ink-muted);
-    line-height: 1.6;
-    text-align: left;
-}
-
-
-/* 5. ARQUITECTURA E INSIGHTS (DATA BOXES) */
-
-.nav-btn:hover {
-    transform: scale(1.1);
-    color: var(--accent);
-}
-
-.nav-btn:disabled,
-.nav-btn[style*="pointer-events: none"] {
-    opacity: 0.2;
-    cursor: not-allowed;
-}
-
-.section-title h2 {
-    font-size: 2.25rem;
-    font-weight: 700;
-    color: var(--text);
-}
-
-.section-title h3 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--text);
-    text-align: left;
-}
-
-.section-title p {
-    font-size: 1.125rem;
+    margin: 0;
     line-height: 1.5;
-    color: var(--text-soft);
 }
+
+
+/* --- ARCHITECTURE CAROUSEL --- */
 
 .architecture-carousel {
     position: relative;
@@ -551,15 +269,13 @@
     scrollbar-width: none;
 }
 
-.carousel-track::-webkit-scrollbar {
-    display: none;
-}
+.carousel-track::-webkit-scrollbar { display: none; }
 
 .step-badge {
     width: 40px;
     height: 40px;
     background: var(--accent);
-    color: white;
+    color: var(--text-on-color);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -576,8 +292,6 @@
     grid-template-columns: 1fr 1fr;
     align-items: center;
     background: var(--c-surface);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     border-radius: 24px;
     border: 1px solid var(--line);
     scroll-snap-align: center;
@@ -591,13 +305,11 @@
     justify-content: center;
 }
 
-.info-group {
-    margin-bottom: 24px;
-}
+.info-group { margin-bottom: 24px; }
 
 .info-label {
     color: var(--accent);
-    font-size: 0.75rem;
+    font-size: var(--text-sm);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -608,7 +320,7 @@
 .info-value {
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--text-soft, #1E293B);
+    color: var(--text-soft);
 }
 
 .slide-content h4 {
@@ -620,23 +332,19 @@
 
 .slide-content p {
     font-size: 1.125rem;
-    color: var(--text-soft, #424242);
-    line-height: 1.5;
+    color: var(--text-soft);
+    line-height: 1.6;
 }
 
 .slide-visual {
     height: 100%;
-    background: var(--surface-2, #f1f5f9);
+    background: var(--surface-2);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.slide-visual img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+.slide-visual img { width: 100%; height: 100%; object-fit: cover; }
 
 .carousel-dots {
     display: flex;
@@ -675,8 +383,8 @@
 }
 
 .nav-btn:hover {
-    color: var(--accent);
     transform: scale(1.1);
+    color: var(--accent);
 }
 
 .nav-btn:disabled,
@@ -686,354 +394,7 @@
 }
 
 
-/* 6. NARRATIVA VISUAL (GRIDS Y CONTENIDO) */
-
-
-/* --- COL-VISUAL: Contenedor de Mockups y Media --- */
-
-.col-visual {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    border-radius: 16px;
-    overflow: hidden;
-    background-color: var(--c-surface);
-    padding: 40px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-
-/* Efecto al pasar el mouse (opcional para interactividad) */
-
-.col-visual:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
-}
-
-.image-placeholder {
-    background: var(--surface-2);
-    border-radius: var(--card-radius);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 350px;
-    width: 100%;
-    object-fit: cover;
-}
-
-.two-columns-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-    /* Restaurado: centrado vertical de visual/texto */
-}
-
-.pillars-grid {
-    display: grid;
-    gap: 32px;
-    margin-top: 64px;
-}
-
-.col-text h3 {
-    font-size: var(--text-h3);
-    color: var(--text);
-}
-
-.col-text h4 {
-    font-size: 1.5rem;
-    color: var(--text);
-}
-
-.col-text p {
-    font-size: 1.125rem;
-    color: var(--text-soft);
-}
-
-.col-text {
-    font-size: 1.125rem;
-    color: var(--text-soft);
-    justify-content: start;
-}
-
-.highlight-list {
-    padding-left: 20px;
-    border-left: 3px solid var(--accent);
-    transition: border-color 0.3s ease;
-}
-
-.highlight-list strong {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text);
-}
-
-.highlight-list p {
-    font-size: 1.125rem;
-    font-weight: 400;
-    color: var(--text-soft);
-}
-
-.badge {
-    display: inline-block;
-    font-size: 1rem;
-    font-weight: 400;
-    padding: 6px 14px;
-    background-color: rgba(178, 67, 6, 0.1);
-    color: var(--accent);
-    border-radius: 30px;
-    margin-bottom: 16px;
-}
-
-.stage-tag {
-    display: inline-block;
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--accent);
-    margin-bottom: 16px;
-    letter-spacing: 0.15em;
-}
-
-.qa-box {
-    background-color: var(--surface-2);
-    padding: 32px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-}
-
-.qa-box h4 {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--accent);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.qa-box h4::before {
-    content: "";
-    width: 12px;
-    height: 2px;
-    background: var(--accent);
-}
-
-.qa-box p {
-    font-size: 1.125rem;
-    color: var(--text-soft);
-    line-height: 1.5;
-    margin: 0;
-    font-weight: 400;
-}
-
-.data-box {
-    padding: 32px;
-    background: var(--surface-2);
-    border: none;
-    border-radius: 16px;
-    margin-top: 24px;
-    /* Corregido: margen para bloques independientes */
-    color: var(--text-soft);
-    font-size: 1.125rem;
-    letter-spacing: normal;
-}
-
-
-/* 7. RESEARCH & DISCOVERY COMPONENTS */
-
-.question-container {
-    margin: 40px auto;
-    padding: 100px 48px;
-    background: var(--surface-2);
-    border-radius: var(--card-radius, 18px);
-    text-align: center;
-    max-width: 1200px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.quote-icon {
-    font-family: serif;
-    font-size: 5rem;
-    line-height: 1.5;
-    color: var(--accent);
-    margin-bottom: 8px;
-    font-weight: 700;
-    opacity: 0.8;
-}
-
-.question-text {
-    font-size: 1.75rem;
-    font-weight: 400;
-    font-style: italic;
-    color: var(--text-soft);
-    line-height: 1.5;
-    margin: 0 auto;
-    max-width: 1000px;
-    text-wrap: balance;
-}
-
-.user-info {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-soft);
-    margin-top: 24px;
-    display: block;
-    letter-spacing: 0.04em;
-}
-
-.guerrilla-box {
-    padding: 60px 0px;
-    border: none;
-    margin-top: 60px;
-}
-
-.guerrilla-box h3 {
-    font-size: var(--text-h3);
-    font-weight: 700;
-    color: var(--text);
-    margin: 0 0 40px 0;
-    line-height: 1.5;
-}
-
-.hypothesis-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* Forzamos 3 columnas arriba */
-    gap: 24px;
-    width: 100%;
-}
-
-.hypo-item {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 32px;
-    background: var(--surface, #ffffff);
-    border-radius: var(--card-radius, 18px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
-    border: 1px solid var(--line, #e5e7eb);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-#cap1 .col-text .hypo-item {
-    background: transparent;
-    border: none;
-    border-left: 2px solid var(--c-border-mid);
-    border-radius: 0;
-    box-shadow: none;
-    padding: 24px 0 24px 24px;
-}
-
-.guerrilla-box .hypo-item {
-    background: transparent;
-    box-shadow: none;
-    border-color: var(--c-border-mid);
-}
-
-.guerrilla-box .hypo-item:hover {
-    box-shadow: none;
-}
-
-.hypo-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    border-color: var(--accent);
-}
-
-
-/* Asegura que el contenedor del icono tenga el mismo estilo que tus stat-cards */
-
-.card-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    /* Ajusta según tu diseño de stat-card */
-    height: 40px;
-    margin-bottom: 0.5rem;
-    font-size: 32px;
-}
-
-
-/* Estilo específico para los iconos de Lucide dentro de esos spans */
-
-.card-icon svg {
-    width: 32px;
-    height: 32px;
-    stroke: var(--accent);
-    stroke-width: 2px;
-    fill: none;
-}
-
-.card-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.status-dot {
-    width: 10px;
-    height: 10px;
-    background-color: var(--accent);
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
-.guerrilla-box h4 {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--text);
-    margin: 0;
-    line-height: 1.5;
-}
-
-.hypo-item p {
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--text-soft);
-    line-height: 1.5;
-    margin: 0;
-}
-
-.hypo-item h4 {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--text);
-    margin: 0;
-    line-height: 1.5;
-}
-
-
-/* 8. FEEDBACK & REFLECTION */
-
-.feedback-grid-detailed {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-}
-
-
-/* Helpers de espaciado */
-
-.mt-100 {
-    margin-top: 100px;
-}
-
-.mt-60 {
-    margin-top: 60px;
-}
-
-.mt-40 {
-    margin-top: 40px;
-}
-
-
-/* --- FEATURE SHOWCASE SYSTEM --- */
+/* --- FEATURE BLOCK SYSTEM --- */
 
 .feature-block {
     padding: 100px 0;
@@ -1053,7 +414,6 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    /* Evita que el contenedor empuje hacia abajo */
     max-height: 100%;
 }
 
@@ -1078,38 +438,16 @@
 
 .feature-visual-media {
     width: 100%;
-    /* Limitamos el ancho máximo para que no se vea gigante en tablets */
     max-width: 450px;
     height: auto;
     border-radius: 20px;
     display: block;
     margin: 0 auto;
-    /* Suavizamos la transición de tamaño */
     transition: max-width 0.3s ease;
 }
 
-.feature-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 24px;
-    color: var(--text);
-    letter-spacing: -0.02em;
-}
 
-h4.feature-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text);
-    margin: 0;
-    line-height: 1.5;
-    padding-bottom: 24px;
-}
-
-.feature-description {
-    font-size: 1.125rem;
-    line-height: 1.5;
-    color: var(--text-soft);
-}
+/* --- STAT CARDS — NEUMORFISMO (restaurante) --- */
 
 .impact-stats {
     display: grid;
@@ -1164,8 +502,6 @@ h4.feature-title {
     font-weight: 700;
     color: var(--text-soft);
     margin-bottom: 12px;
-    text-transform: none;
-    letter-spacing: normal;
 }
 
 .stat-card p {
@@ -1175,66 +511,19 @@ h4.feature-title {
     margin: 0;
 }
 
-
-/* --- IMPACT DASHBOARD SYSTEM (NUEVA PROPUESTA) --- */
-
 .impact-dashboard-wrapper {
     padding: 100px 0;
     position: relative;
 }
 
-.impact-dashboard-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    align-items: start;
-}
 
-.main-impact-column,
-.secondary-impact-column {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-.metric-card.roadmap-card {
-    border: 1px dashed var(--line-separator);
-    box-shadow: none;
-}
-
-.impact-highlight {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--text-soft) !important;
-}
-
-.status-badge {
-    background-color: var(--accent);
-    color: var(--text-on-color);
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: var(--radius-xs);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-}
-
-
-/* SUCCESS (Verde - Esmeralda más profundo) */
+/* --- STATUS BADGE VARIANTS --- */
 
 .status-badge.success {
     background: rgba(5, 150, 105, 0.12);
-    /* Un toque más de opacidad */
     color: #059669;
-    /* Verde con mayor peso visual */
     border: 1px solid rgba(5, 150, 105, 0.2);
-    /* Borde sutil para definir la forma */
 }
-
-
-/* VALIDATED (Azul - Cobalto) */
 
 .status-badge.validated {
     background: rgba(37, 99, 235, 0.12);
@@ -1242,17 +531,11 @@ h4.feature-title {
     border: 1px solid rgba(37, 99, 235, 0.2);
 }
 
-
-/* OPERATIONAL */
-
 .status-badge.operational {
     background: rgba(62, 198, 212, 0.10);
     color: var(--c-accent);
     border: 1px solid rgba(62, 198, 212, 0.22);
 }
-
-
-/* VISION (Violeta - Más intenso) */
 
 .status-badge.vision {
     background: rgba(124, 58, 237, 0.12);
@@ -1261,123 +544,28 @@ h4.feature-title {
 }
 
 
-/* --- REFLEXIÓN FINAL & CTA --- */
-
-.final-reflection {
-    text-align: center;
-    padding: 100px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.reflection-text {
-    font-size: 1.25rem;
-    line-height: 1.5;
-    color: var(--text-soft);
-    margin: 32px auto;
-    max-width: 720px;
-    font-weight: 400;
-}
-
-.cta-internal {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-}
-
-
-/* Estilo para el botón secundario basado en tu diseño */
-
-.btn-secondary {
-    display: inline-block;
-    padding: 16px 32px;
-    background: transparent;
-    color: var(--text-soft);
-    border: 2px solid var(--line-separator);
-    border-radius: 50px;
-    /* Estilo píldora */
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.btn-secondary:hover {
-    background: var(--surface);
-    color: var(--text);
-    border-color: var(--text-soft);
-    transform: translateY(-3px);
-}
-
-
-/* dark-mode override block removed — base.css handles the dark system */
-
-
-/* navbar + menu-toggle handled by base.css */
-
-.back-to-top-container {
-    margin-top: 40px;
-    margin-bottom: 20px;
-}
-
-.back-to-top-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--text-soft);
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    opacity: 0.7;
-}
-
-.back-to-top-link svg {
-    transition: transform 0.3s ease;
-}
-
-.back-to-top-link:hover {
-    opacity: 1;
-    color: var(--accent);
-}
-
-.back-to-top-link:hover svg {
-    transform: translateY(-4px);
-    /* Pequeña animación de rebote hacia arriba */
-}
-
-
-/* ============================================================ 
-   9. RESPONSIVE DESIGN (OPTIMIZADO)
-   ============================================================ */
+/* --- RESPONSIVE específico --- */
 
 @media (max-width: 1024px) {
-    .metrics-grid,
-    .two-columns-grid,
-    .feedback-grid-detailed,
-    .impact-dashboard-grid,
-    .feature-main-grid,
-    .hypothesis-grid {
-        grid-template-columns: 1fr !important;
+    .feature-main-grid {
+        grid-template-columns: 1fr;
         gap: 32px;
     }
-    .project-progress-nav {
-        top: var(--nav-h);
-        background: var(--bg-surface);
-    }
+
     .col-visual img,
     .feature-visual-media {
-        width: auto !important;
+        width: auto;
         max-width: 380px;
-        max-height: 55vh !important;
-        /* Bajado un poco para dar aire */
-        object-fit: contain !important;
+        max-height: 55vh;
+        object-fit: contain;
         margin: 0 auto;
     }
+
     .flow-slide {
         grid-template-columns: 1fr;
         height: auto;
     }
+
     .slide-visual {
         height: 250px;
         order: -1;
@@ -1385,18 +573,6 @@ h4.feature-title {
 }
 
 @media (max-width: 992px) {
-    .project-header h1 {
-        font-size: 2.5rem;
-    }
-    h2,
-    .feature-title,
-    .process-header h2 {
-        font-size: 1.75rem;
-    }
-    .project-meta-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-    }
     .visual-container.glass-effect {
         width: 100%;
         max-width: 100%;
@@ -1404,87 +580,35 @@ h4.feature-title {
 }
 
 @media (max-width: 768px) {
-    .section-wrapper,
-    .section-content {
-        padding: 50px 0;
-    }
-    /* Stepper Mobile */
-    .step-name {
-        display: none !important;
-    }
-    .project-progress-nav {
-        top: var(--nav-h);
-        padding: 12px 0 !important;
-    }
-    .progress-track {
-        gap: 6px !important;
-        padding: 0 20px;
-    }
-    /* Mejora de Cards en móvil */
-    .metric-card,
     .stat-card {
-        padding: 32px 20px !important;
+        padding: 32px 20px;
         text-align: center;
         align-items: center;
     }
-    .question-text {
-        font-size: 1.5rem !important;
-    }
-    /* GESTIÓN DE ZOOM MÓVIL */
+
     .image-zoom-trigger {
         cursor: pointer;
         margin: 16px 0;
     }
-    .zoom-hint {
-        display: none;
-    }
-    /* Innecesario en táctil */
+
+    .zoom-hint { display: none; }
+
     .lightbox img {
-        max-width: 95% !important;
-        max-height: 75vh !important;
+        max-width: 95%;
+        max-height: 75vh;
         box-shadow: none;
-        /* Evita artefactos visuales en móvil */
     }
-    .impact-stats {
-        /* En móvil forzamos 1 columna para asegurar lectura */
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-    .feature-visual-media {
-        max-width: 320px;
-        /* Tamaño ideal para móvil */
-    }
+
+    .impact-stats { grid-template-columns: 1fr; gap: 16px; }
+    .feature-visual-media { max-width: 320px; }
 }
 
 @media (max-width: 560px) {
-    .project-header h1 {
-        font-size: 1.85rem;
-    }
-    .project-meta-grid {
-        grid-template-columns: 1fr;
-    }
-    /* Stepper ultra-compacto */
-    .project-progress-nav {
-        top: var(--nav-h);
-        height: 48px !important;
-        display: flex !important;
-        align-items: center !important;
-    }
-    .step-dot {
-        height: 4px !important;
-        border-radius: 2px;
-    }
-    /* Eliminar hovers que pegan el dedo en móvil */
-    .col-visual:hover,
-    .hypo-item:hover {
-        transform: none !important;
-    }
+    .step-dot { height: 4px; border-radius: 2px; }
 }
 
 
-/* ============================================================
-   LIGHT MODE — NEUMORFISMO
-   ============================================================ */
+/* --- LIGHT MODE — NEUMORFISMO --- */
 
 html[data-theme="light"] .stat-card {
     box-shadow:
@@ -1496,13 +620,4 @@ html[data-theme="light"] .stat-card:hover {
     box-shadow:
         7px 7px 16px rgba(18, 13, 6, 0.14),
         -7px -7px 16px rgba(255, 255, 255, 0.90);
-}
-
-html[data-theme="light"] .data-box {
-    background: var(--c-frost, #F6F4F0);
-    border-left: none;
-    border-radius: var(--radius-sm, 8px);
-    box-shadow:
-        inset 3px 3px 8px rgba(18, 13, 6, 0.09),
-        inset -3px -3px 8px rgba(255, 255, 255, 0.75);
 }

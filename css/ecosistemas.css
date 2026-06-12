@@ -1,143 +1,11 @@
-/* ============================================================ 
-PROYECTO: ECOSISTEMA DE PAGOS POS (SISTEMA DE DISEÑO) 
-============================================================ */
-
-:root {
-    /* Acento del sistema */
-    --c-accent:       var(--c-cyan);
-    --c-accent-hover: var(--c-cyan-dark);
-
-    /* Bridge → tokens de base.css (dark system) */
-    --accent:         var(--c-accent);
-    --bg:             var(--c-night);
-    --bg-surface:     var(--c-night);
-    --surface:        var(--c-surface);
-    --surface-2:      var(--c-frost);
-    --text:           var(--c-ink);
-    --text-soft:      var(--c-ink-soft);
-    --text-main:      var(--c-ink);
-    --text-on-color:  var(--c-night);
-    --line:           var(--c-border);
-    --line-separator: var(--c-border-mid);
-    --card-radius:    var(--radius);
-}
-
-/* PROGRESS NAV */
-
-.project-progress-nav {
-    padding: 16px 0;
-    margin: 0;
-    border-bottom: 1px solid var(--line-separator);
-    overflow: visible;
-    position: sticky;
-    top: var(--nav-h, 64px);
-    z-index: 90;
-    background: var(--bg);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.project-progress-nav .container {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 20px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.progress-track {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 12px;
-    width: 100%;
-}
-
-.progress-step {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    text-decoration: none;
-    flex: 1;
-    text-align: left;
-    transition: all 0.3s ease;
-}
-
-.step-dot {
-    height: 4px;
-    width: 100%;
-    background: var(--c-border-mid);
-    border-radius: 2px;
-    transition: all 0.3s ease;
-}
-
-.step-name {
-    font-size: var(--text-sm);
-    font-weight: 700;
-    color: var(--text-soft);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    white-space: nowrap;
-    transition: color 0.3s ease;
-}
-
-.progress-step.active .step-dot {
-    background-color: var(--c-accent) !important;
-    height: 6px;
-}
-
-.progress-step.active .step-name {
-    color: var(--c-ink) !important;
-    font-weight: 800 !important;
-}
-
-.progress-step:hover .step-name { color: var(--c-accent); }
-.progress-step:hover .step-dot  { background: var(--text-soft); }
+/* ============================================================
+   Ecosistema de Pagos POS — Caso de Estudio
+   Sistema: olivacraft2.0 · acento cyan
+   Componentes compartidos: base.css + caso.css
+   ================================================ */
 
 
-/* navbar + menu-toggle handled by base.css */
-
-.feature-title {
-    font-size: 2.25rem;
-    font-weight: 700;
-    margin-bottom: 24px;
-    color: var(--text);
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-}
-
-h4.feature-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text);
-    margin: 0;
-    line-height: 1.5;
-    padding-bottom: 24px;
-}
-
-.feature-description {
-    font-size: 1.125rem;
-    line-height: 1.5;
-    color: var(--text-soft);
-}
-
-
-/* 1. LAYOUT & ESTRUCTURA DE CAPAS */
-
-.project-detail {
-    background: var(--bg, #fff);
-}
-
-.section-wrapper {
-    width: 100%;
-    display: block;
-    padding: 140px 0;
-}
-
-.section-wrapper.border-top {
-    border-top: 1px solid var(--line-separator);
-}
+/* --- LAYOUT OVERRIDES --- */
 
 .section-wrapper.band {
     background: var(--c-frost);
@@ -145,31 +13,11 @@ h4.feature-title {
     border-bottom: none;
 }
 
-.section-content {
-    padding: 0;
-}
-
 .section-wrapper.band .section-content {
     padding-bottom: 80px;
 }
 
-.section-content h2 {
-    font-size: 2.25rem;
-    font-weight: 700;
-    color: var(--text);
-}
-
-.container.narrow {
-    max-width: 800px;
-}
-
-/* PROCESS INTRO & ZOOM */
-
-.process-intro {
-    padding: 100px 0 80px 0;
-}
-
-/* Full-bleed image — rompe el container */
+/* Full-bleed image */
 .img-breakout {
     width: 100vw;
     margin-left: calc(50% - 50vw);
@@ -186,216 +34,42 @@ h4.feature-title {
     object-position: center top;
 }
 
-/* Elimina box visual de contenedores de imagen */
+
+/* --- VISUAL CONTAINER: sin caja --- */
+
 .visual-container,
 .visual-container.glass-effect {
-    background: transparent !important;
-    padding: 0 !important;
-    border: none !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
+    background: transparent;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
 }
 
-.process-header {
-    max-width: 1122px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.process-header .eyebrow {
-    text-transform: uppercase;
-    display: inline-block;
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--accent);
-    margin-bottom: 16px;
-    letter-spacing: 0.15em;
-}
-
-.image-zoom-wrapper {
-    cursor: zoom-in;
-    overflow: hidden;
-    border-radius: 8px;
-    /* Eliminado transform-style para evitar parpadeo */
-}
-
-
-/* LIGHTBOX (Estandarizado con Restaurantes) */
-
-.lightbox {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    /* El más alto */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(9, 9, 11, 0.92);
+.col-visual {
     justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(10px);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.lightbox.active {
-    display: flex !important;
-    opacity: 1;
-}
-
-.lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    border-radius: 4px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-    transform: scale(0.95);
-    transition: transform 0.3s ease;
-}
-
-.lightbox.active img {
-    transform: scale(1);
-}
-
-
-/* PRIMER AJUSTE */
-
-/* --- COMPONENTES VISUALES --- */
-
-.image-zoom-trigger {
-    cursor: zoom-in;
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    /* Eliminamos posibles conflictos de renderizado */
-    display: block;
-    width: 100%;
-}
-
-.zoom-hint {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: var(--accent);
-    color: var(--text-on-color);
-    padding: 4px 12px;
-    border-radius: 16px;
-    font-size: 1.125rem;
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: 10;
-    /* Aseguramos que el hint esté sobre la imagen */
-}
-
-.image-zoom-trigger:hover .zoom-hint {
-    opacity: 1;
-}
-
-
-/* Descripción de la metodología */
-
-.process-header .section-description {
-    font-size: 1.125rem;
-    line-height: 1.5;
-    color: var(--text-soft);
-    margin-bottom: 0;
-    max-width: 800px;
-}
-
-
-/* 2. HERO & METADATA */
-
-.project-detail-hero {
-    padding: 100px 0px 0px;
-}
-
-.project-header h1 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 700;
-    line-height: 1.25;
-    margin-bottom: 24px;
-    margin-top: 24px;
-    letter-spacing: -0.02em;
-    max-width: 860px;
-    color: var(--text);
-}
-
-.project-subtitle {
-     font-size: var(--text-md);
-  font-weight: var(--fw-light);
-  line-height: var(--lh-relaxed);
-  color: var(--c-ink-soft);
-  max-width: 850px;
-  margin-bottom: var(--sp-10);
-}
-
-.case-role {
-    font-size: 1rem;
-    color: var(--text-soft);
-    max-width: 750px;
-    line-height: 1.6;
-    font-style: italic;
-    border-left: 3px solid var(--accent);
-    padding-left: 20px;
-    margin-top: 16px;
-}
-
-.project-meta-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 40px;
-    padding: 60px 0;
-    border-top: 1px solid var(--line-separator);
-    /* Corregido para usar la variable de línea */
-    margin-top: 60px;
-    width: 100%;
-}
-
-.icon-box {
-    width: 32px;
-    height: 32px;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--accent);
-}
-
-.icon-box svg {
-    width: 100%;
-    height: 100%;
-    stroke-width: 1.5px;
-}
-
-.project-meta-item {
-    display: flex;
-    flex-direction: column;
     align-items: flex-start;
+    overflow: visible;
+    background: transparent;
+    padding: 0;
+    border: none;
+    border-radius: 0;
 }
 
-.project-meta-item span {
-    display: block;
-    font-size: var(--text-sm);
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 8px;
-    letter-spacing: 0.12em;
+.col-visual:hover {
+    transform: none;
+    box-shadow: none;
 }
 
-.project-meta-item p {
-    font-size: 1rem;
-    font-weight: 400;
-    margin: 0;
-    color: var(--text-soft);
-}
+
+/* --- PROBLEM STATEMENT --- */
 
 .problem-statement h2 {
-    font-size: 2.25rem;
-    line-height: 1.5;
-    letter-spacing: -0.02em;
+    font-size: var(--text-h2);
+    line-height: var(--lh-normal);
+    letter-spacing: var(--ls-normal);
     color: var(--text);
+    margin-bottom: var(--sp-6);
 }
 
 .problem-statement .col-text h3 {
@@ -403,13 +77,13 @@ h4.feature-title {
     font-size: 1.25rem;
     font-weight: 400;
     color: var(--text);
-    margin-bottom: 16px;
+    margin-bottom: var(--sp-4);
     letter-spacing: 0.15em;
 }
 
 .problem-statement .col-text p {
     font-size: 1.125rem;
-    line-height: 1.5;
+    line-height: 1.6;
     color: var(--text-soft);
 }
 
@@ -421,17 +95,9 @@ h4.feature-title {
 }
 
 
-/* 3. GRIDS & COMPONENTES DE DISEÑO */
-
-.metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-}
+/* --- GRIDS ADICIONALES --- */
 
 .two-columns-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: center;
 }
@@ -450,10 +116,6 @@ h4.feature-title {
     align-items: start;
 }
 
-.text-accent {
-    color: var(--accent);
-}
-
 .ia-flow-grid,
 .pillars-grid {
     display: grid;
@@ -462,14 +124,20 @@ h4.feature-title {
     margin-top: 32px;
 }
 
+.text-accent { color: var(--accent); }
+
+.image-placeholder { min-height: 350px; width: 100%; }
+.image-placeholder.mini { min-height: 250px; }
+.image-placeholder img { max-width: 90%; height: auto; object-fit: contain; border-radius: 8px; }
+
+
+/* --- METRIC CARD — NEUMORFISMO --- */
+
 .metric-card {
     background: var(--c-frost);
     border: none;
     border-radius: var(--radius-sm);
     padding: 24px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
     box-shadow:
         5px 5px 14px rgba(0, 0, 0, 0.55),
         -3px -3px 8px rgba(255, 255, 255, 0.04);
@@ -505,117 +173,12 @@ h4.feature-title {
 .metric-card p {
     font-size: 1rem;
     font-weight: 400;
-    color: var(--c-ink-muted);
-    margin-top: 8px;
-}
-
-.metric-value {
-    display: block;
-    font-family: var(--font);
-    font-size: 3.2rem;
-    font-weight: 700;
-    color: var(--c-cyan);
-    line-height: 1;
-    margin-bottom: 16px;
-    text-align: left;
-}
-
-.metric-label {
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 8px;
-    text-align: left;
     color: var(--c-ink-soft);
-}
-
-.metric-description {
-    font-size: 0.9375rem;
-    color: var(--c-ink-muted);
-    line-height: 1.6;
-    text-align: left;
+    margin-top: var(--sp-2);
 }
 
 
-/*SEGUNDO AJUSTE*/
-
-
-/* 4. ELEMENTOS NARRATIVOS */
-
-.stage-tag {
-    display: inline-block;
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--accent);
-    margin-bottom: 16px;
-    letter-spacing: 0.15em;
-}
-
-.col-text h3 {
-    font-size: 1.25rem;
-    color: var(--text);
-}
-
-.col-text p {
-    font-size: 1rem;
-    color: var(--text-soft);
-}
-
-.col-text {
-    font-size: 1.125rem;
-    color: var(--text-soft);
-    justify-content: start;
-}
-
-.highlight-list {
-    padding-left: 20px;
-    border-left: 3px solid var(--accent);
-    transition: border-color 0.3s ease;
-}
-
-.highlight-list strong {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--text-soft);
-}
-
-.highlight-list p {
-    font-size: 1.125rem;
-    font-weight: 400;
-    color: var(--text-soft);
-}
-
-.image-placeholder {
-    background: var(--surface-2);
-    border-radius: var(--card-radius);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 350px;
-    width: 100%;
-}
-
-
-/* --- COL-VISUAL: Contenedor de Mockups y Media --- */
-
-.col-visual {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-    overflow: visible;
-    background: transparent;
-    padding: 0;
-    border: none;
-    position: relative;
-}
-
-.col-visual:hover {
-    transform: none;
-    box-shadow: none;
-}
+/* --- STAT CARD — NEUMORFISMO FROST --- */
 
 .stat-card {
     background: var(--c-frost);
@@ -665,8 +228,6 @@ h4.feature-title {
     font-weight: 700;
     color: var(--c-ink);
     margin-bottom: 10px;
-    text-transform: none;
-    letter-spacing: normal;
 }
 
 .stat-card p {
@@ -676,35 +237,81 @@ h4.feature-title {
     margin: 0;
 }
 
+/* Iconos ocultos en este caso (stat-card usa tipografía grande) */
 .card-icon { display: none; }
 
-.image-placeholder img {
-    max-width: 90%;
-    height: auto;
-    object-fit: contain;
+
+/* --- ZOOM DE IMAGEN --- */
+
+.image-zoom-wrapper {
+    cursor: zoom-in;
+    overflow: hidden;
     border-radius: 8px;
 }
 
-.image-placeholder.mini {
-    min-height: 250px;
+.image-zoom-trigger {
+    cursor: zoom-in;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    display: block;
+    width: 100%;
 }
 
-
-/* Cajas de Información */
-
-.guerrilla-box {
-    padding: 60px 0px;
-    border: none;
-    margin-top: 60px;
+.zoom-hint {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: var(--accent);
+    color: var(--text-on-color);
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 1.125rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 10;
 }
 
-.guerrilla-box h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text);
-    margin: 0 0 40px 0;
-    line-height: 1.2;
+.image-zoom-trigger:hover .zoom-hint { opacity: 1; }
+
+
+/* --- LIGHTBOX (con animación) --- */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(9, 9, 11, 0.92);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
+
+.lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.lightbox.active img { transform: scale(1); }
+
+
+/* --- QA BOX — izquierda con borde --- */
 
 .qa-box {
     background-color: transparent;
@@ -718,7 +325,7 @@ h4.feature-title {
     font-size: 1.125rem;
     font-weight: 700;
     color: var(--accent);
-    margin-bottom: 16px;
+    margin-bottom: var(--sp-4);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -729,6 +336,7 @@ h4.feature-title {
     width: 12px;
     height: 2px;
     background: var(--accent);
+    flex-shrink: 0;
 }
 
 .qa-box p {
@@ -736,91 +344,44 @@ h4.feature-title {
     color: var(--text-soft);
     line-height: 1.6;
     margin: 0;
-    font-weight: 400;
 }
 
+
+/* --- DATA BOX — transparente en este caso --- */
+
 .data-box {
-    padding: 24px 32px;
     background: transparent;
     border: none;
     border-left: 3px solid var(--c-accent);
     border-radius: 0;
-    margin-top: 40px;
+    padding: 24px 32px;
+    font-style: italic;
     color: var(--c-ink-soft);
     font-size: 1.0625rem;
-    letter-spacing: normal;
-    font-style: italic;
-}
-
-.data-box strong {
-   display: block;
-    font-weight: 700;
-    color: var(--text-soft);
-    margin-bottom: 12px;
-}
-
-.hypothesis-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-    width: 100%;
-}
-
-.hypo-item {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 24px 0 24px 24px;
-    background: transparent;
-    border: none;
-    border-left: 2px solid var(--c-border-mid);
-    border-radius: 0;
-    box-shadow: none;
-    transition: border-color 0.2s ease;
-}
-
-.hypo-item:hover {
-    transform: none;
-    box-shadow: none;
-    border-left-color: var(--c-accent);
 }
 
 
-/*TERCER AJUSTE*/
-
-
-/* 5. ESTRATEGIA Y FEEDBACK */
+/* --- QUESTION CONTAINER — transparente --- */
 
 .question-container {
     margin: 0 auto;
     padding: 80px 0;
     background: transparent;
     border-radius: 0;
-    text-align: center;
     max-width: 860px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .question-text {
     font-size: 2rem;
-    font-weight: 400;
-    font-style: italic;
-    color: var(--text-soft);
     line-height: 1.4;
-    margin: 0 auto;
-    max-width: 1000px;
-    text-wrap: balance;
 }
 
 .question-text::before {
-    content: "“";
+    content: "\201C";
     display: block;
     font-size: 5rem;
     color: var(--accent);
-    font-family: serif;
+    font-family: Georgia, serif;
     line-height: 1;
     margin-bottom: 10px;
 }
@@ -830,308 +391,16 @@ h4.feature-title {
     color: var(--accent);
 }
 
-.feedback-grid-detailed {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-}
 
+/* --- GUERRILLA BOX H3 OVERRIDE --- */
 
-/* 6. REFLEXIÓN Y UTILIDADES */
-
-.final-reflection {
-    text-align: center;
-    padding: 100px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.reflection-text {
+.guerrilla-box h3 {
     font-size: 1.25rem;
-    line-height: 1.5;
-    color: var(--text-soft);
-    margin: 32px auto;
-    max-width: 720px;
-    font-weight: 400;
-}
-
-.cta-internal {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
+    line-height: 1.2;
 }
 
 
-/* Espaciadores (Helpers) */
-
-.mt-80 {
-    margin-top: 80px;
-}
-
-.mt-60 {
-    margin-top: 60px;
-}
-
-.mt-40 {
-    margin-top: 40px;
-}
-
-.mt-24 {
-    margin-top: 24px;
-}
-
-.mt-16 {
-    margin-top: 16px;
-}
-
-.btn-secondary {
-    display: inline-block;
-    padding: 16px 32px;
-    background: transparent;
-    color: var(--text-soft);
-    border: 2px solid var(--line-separator);
-    border-radius: 50px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.btn-secondary:hover {
-    background: var(--text-soft);
-    color: var(--surface);
-    border-color: var(--text-soft);
-    transform: translateY(-3px);
-}
-
-
-/* dark-mode override block removed — base.css handles the dark system */
-
-
-/* 7. COMPONENTES AVANZADOS */
-
-.impact-dashboard-grid {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 32px;
-    align-items: start;
-}
-
-.main-impact-column,
-.secondary-impact-column {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-}
-
-.status-badge {
-    background-color: var(--accent);
-    color: var(--surface);
-    display: inline-block;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 8px;
-}
-
-
-
-/* SUCCESS (Verde - Esmeralda más profundo) */
-
-.status-badge.success {
-    background: rgba(5, 150, 105, 0.12);
-    /* Un toque más de opacidad */
-    color: #059669;
-    /* Verde con mayor peso visual */
-    border: 1px solid rgba(5, 150, 105, 0.2);
-    /* Borde sutil para definir la forma */
-}
-
-
-/* VALIDATED (Azul - Cobalto) */
-
-.status-badge.validated {
-    background: rgba(37, 99, 235, 0.12);
-    color: #2563eb;
-    border: 1px solid rgba(37, 99, 235, 0.2);
-}
-
-
-/* OPERATIONAL */
-
-.status-badge.operational {
-    background: rgba(62, 198, 212, 0.10);
-    color: var(--c-accent);
-    border: 1px solid rgba(62, 198, 212, 0.22);
-}
-
-
-/* Tabla Técnica */
-
-.technical-table-wrapper {
-    width: 100%;
-    max-width: 900px;
-    margin: 40px auto;
-    display: flex;
-    flex-direction: column;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    padding: 0;
-    border-top: 2px solid var(--c-accent);
-}
-
-.table-row {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr 2fr;
-    border-bottom: 1px solid var(--accent);
-    padding: 32px 0;
-}
-
-.table-col {
-    padding: 0 40px;
-    position: relative;
-    font-size: 1rem;
-}
-
-.table-col:not(:first-child) {
-    border-left: 1px solid var(--accent);
-}
-
-
-/* Botones de navegación del carrusel */
-
-.carousel-main-container {
-    position: relative;
-}
-
-.carousel-btn {
-    position: absolute;
-    top: 45%;
-    transform: translateY(-50%);
-    z-index: 10;
-    background: var(--c-surface);
-    border: 1px solid var(--c-border-mid);
-    color: var(--c-ink-soft);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-    flex-shrink: 0;
-}
-
-.carousel-btn:hover {
-    background: var(--c-accent);
-    border-color: var(--c-accent);
-    color: var(--c-night);
-}
-
-.carousel-btn:disabled {
-    opacity: 0.25;
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-.prev-btn {
-    left: -20px;
-}
-
-.next-btn {
-    right: -20px;
-}
-
-@media (max-width: 768px) {
-    .carousel-btn {
-        display: none;
-    }
-}
-
-
-/* Carrusel con Scroll Snap */
-
-.study-carousel-container {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 0;
-    scroll-snap-type: x mandatory;
-    overflow-x: auto;
-    width: 100%;
-    -webkit-overflow-scrolling: touch;
-}
-
-.study-carousel-container::-webkit-scrollbar {
-    display: none;
-}
-
-.study-slide {
-    flex: 0 0 100%;
-    min-width: 100%;
-    scroll-snap-align: start;
-}
-
-/* Slides: reducción ~20% de espaciado interno para mejorar lectura */
-.study-slide .mt-60 { margin-top: 40px; }
-.study-slide .stat-card { padding: 20px; }
-.study-slide .hallazgo-box { padding: 14px; margin-bottom: 14px; }
-.study-slide .highlight-list p { font-size: var(--text-base); }
-.study-slide .quote-card .quote { font-size: 0.9375rem; line-height: 1.5; }
-
-/* Elimina sombra de caja en quote-cards dentro de slides (Design Sprint y Casos de uso) */
-.study-slide .stat-card.quote-card {
-    box-shadow: none !important;
-    border: 1px solid var(--c-border-mid);
-    background: transparent;
-}
-.study-slide .stat-card.quote-card::before {
-    display: none;
-}
-
-
-/* --- ESTILOS DE LOS DOTS (CARRUSEL) --- */
-
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 40px;
-    transition: all 0.3s ease;
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.dot.active,
-.dot:hover {
-    background-color: var(--c-accent);
-    transform: scale(1.2);
-    cursor: pointer;
-}
-
-
-/* --- COMPONENTES DE TEXTO Y HALLAZGOS --- */
-
-.orange {
-    color: var(--c-accent);
-}
-
-.orange-border {
-    border-left: 2px solid var(--c-accent);
-    padding-left: 24px;
-}
+/* --- HALLAZGO BOX --- */
 
 .hallazgo-box {
     background: rgba(62, 198, 212, 0.06);
@@ -1145,7 +414,7 @@ h4.feature-title {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-soft);
-    margin-bottom: 8px;
+    margin-bottom: var(--sp-2);
 }
 
 .hallazgo-box p {
@@ -1154,6 +423,9 @@ h4.feature-title {
     color: var(--text-soft);
     margin: 0;
 }
+
+
+/* --- QUOTE CARD --- */
 
 .quote-card .quote {
     font-style: italic;
@@ -1164,7 +436,17 @@ h4.feature-title {
 }
 
 
-/* --- COMPARISON SLIDER (BEFORE/AFTER) --- */
+/* --- UTILIDADES ESPECÍFICAS --- */
+
+.orange { color: var(--c-accent); }
+
+.orange-border {
+    border-left: 2px solid var(--c-accent);
+    padding-left: 24px;
+}
+
+
+/* --- COMPARISON SLIDER --- */
 
 .comparison-slider-container {
     width: 100%;
@@ -1176,23 +458,19 @@ h4.feature-title {
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     background: var(--surface-2);
-    /* Evita fondo vacío durante carga */
 }
 
 .comparison-slider {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
-    /* Ajustado para mayor estabilidad visual */
 }
 
 .comparison-slider img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    /* Cambiado a contain para ver el diagrama completo */
     display: block;
-    /* Añadimos un padding interno a la imagen para que no toque la línea naranja */
     padding: 30px;
     box-sizing: border-box;
 }
@@ -1205,9 +483,6 @@ h4.feature-title {
     height: 100%;
     overflow: hidden;
     border-right: 2px solid var(--accent);
-    background: rgba(0, 0, 0, 0.03);
-    /* Un gris casi imperceptible para dar contexto */
-    /* Línea de división integrada */
 }
 
 .slider-handle {
@@ -1244,116 +519,232 @@ h4.feature-title {
     padding: 6px 12px;
     background: rgba(0, 0, 0, 0.6);
     color: white;
-    font-size: 0.75rem;
+    font-size: var(--text-sm);
     text-transform: uppercase;
     border-radius: 4px;
     letter-spacing: 0.05em;
     pointer-events: none;
-    /* No interfiere con el click del slider */
 }
 
-.badge-before {
-    left: 20px;
+.badge-before { left: 20px; }
+.badge-after  { right: 20px; }
+
+
+/* --- TABLA TÉCNICA --- */
+
+.technical-table-wrapper {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    border-top: 2px solid var(--c-accent);
 }
 
-.badge-after {
-    right: 20px;
+.table-row {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 2fr;
+    border-bottom: 1px solid var(--accent);
+    padding: 32px 0;
 }
 
-/*QUINTO AJUSTE*/
+.table-col {
+    padding: 0 40px;
+    position: relative;
+    font-size: 1rem;
+}
+
+.table-col:not(:first-child) { border-left: 1px solid var(--accent); }
 
 
-/* ============================================================ 
-   9. RESPONSIVE DESIGN: ECOSISTEMAS (VERSIÓN DOCK FINAL)
-   ============================================================ */
+/* --- IMPACT DASHBOARD OVERRIDES (1.3/1 ratio + 48px gap) --- */
+
+.impact-dashboard-grid {
+    grid-template-columns: 1.3fr 1fr;
+}
+
+.main-impact-column,
+.secondary-impact-column {
+    gap: 48px;
+}
 
 
-/* --- TABLET Y LAPTOP (1024px) --- */
+/* --- STATUS BADGE: píldora en este caso --- */
+
+.status-badge {
+    background-color: var(--accent);
+    color: var(--surface);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--sp-2);
+}
+
+.status-badge.success {
+    background: rgba(5, 150, 105, 0.12);
+    color: #059669;
+    border: 1px solid rgba(5, 150, 105, 0.2);
+}
+
+.status-badge.validated {
+    background: rgba(37, 99, 235, 0.12);
+    color: #2563eb;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.status-badge.operational {
+    background: rgba(62, 198, 212, 0.10);
+    color: var(--c-accent);
+    border: 1px solid rgba(62, 198, 212, 0.22);
+}
+
+
+/* --- CAROUSEL PRINCIPAL (con botones) --- */
+
+.carousel-main-container { position: relative; }
+
+.carousel-btn {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: var(--c-surface);
+    border: 1px solid var(--c-border-mid);
+    color: var(--c-ink-soft);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--ease-base), color var(--ease-base), border-color var(--ease-base);
+    flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+    background: var(--c-accent);
+    border-color: var(--c-accent);
+    color: var(--c-night);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.prev-btn { left: -20px; }
+.next-btn  { right: -20px; }
+
+
+/* --- STUDY CAROUSEL (scroll snap) --- */
+
+.study-carousel-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.study-carousel-container::-webkit-scrollbar { display: none; }
+
+.study-slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+    scroll-snap-align: start;
+}
+
+/* Ajustes de densidad dentro de slides */
+.study-slide .mt-60          { margin-top: 40px; }
+.study-slide .stat-card      { padding: 20px; }
+.study-slide .hallazgo-box   { padding: 14px; margin-bottom: 14px; }
+.study-slide .highlight-list p { font-size: var(--text-base); }
+.study-slide .quote-card .quote { font-size: 0.9375rem; line-height: 1.5; }
+
+/* Quote-cards en slides: sin sombra neumórfica */
+.study-slide .stat-card.quote-card {
+    box-shadow: none;
+    border: 1px solid var(--c-border-mid);
+    background: transparent;
+}
+
+.study-slide .stat-card.quote-card::before { display: none; }
+
+
+/* --- DOTS (versión ecosistemas) --- */
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 40px;
+    transition: all 0.3s ease;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.dot.active,
+.dot:hover {
+    background-color: var(--c-accent);
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+
+/* --- RESPONSIVE específico --- */
 
 @media (max-width: 1024px) {
-    .metrics-grid,
-    .two-columns-grid,
     .three-columns-grid,
-    .impact-stats,
-    .feature-main-grid,
-    .hypothesis-grid,
-    .impact-dashboard-grid {
-        grid-template-columns: 1fr !important;
+    .four-columns-grid {
+        grid-template-columns: 1fr;
         gap: 32px;
     }
+
     .col-visual img,
-    .feature-visual-media,
     .visual-container img {
-        width: auto !important;
+        width: auto;
         max-width: 100%;
-        max-height: 50vh !important;
-        object-fit: contain !important;
+        max-height: 50vh;
+        object-fit: contain;
         margin: 0 auto;
         display: block;
     }
-    /* Control Tipográfico inicial */
-    .project-header h1 {
-        font-size: 2.8rem;
-        line-height: 1.1;
-    }
-    h2 {
-        font-size: 2rem;
-        line-height: 1.2;
-        margin-bottom: 1.5rem;
-    }
-    /* Ajuste de Stat Cards para que ocupen el ancho total sin romperse */
+
     .stat-card {
-        width: 100% !important;
-        max-width: 100% !important;
+        width: 100%;
+        max-width: 100%;
         box-sizing: border-box;
     }
 }
 
-
-/* --- TABLET VERTICAL (992px) --- */
-
 @media (max-width: 992px) {
-    .project-header h1 {
-        font-size: 2.5rem;
-    }
-    h2,
-    .feature-title,
-    .process-header h2 {
-        font-size: 1.85rem;
-        line-height: 1.25;
-        font-weight: 700;
-        letter-spacing: -0.01em;
-    }
-    h3 {
-        font-size: 1.5rem;
-        line-height: 1.3;
-        font-weight: 600;
-    }
-    p,
-    .section-description {
-        font-size: 1.1rem;
-        line-height: 1.7;
-        margin-bottom: 1.25rem;
-    }
-    .project-meta-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-    }
-    /* Refuerzo de Stat Cards */
     .stat-card {
-        padding: 40px 30px !important;
+        padding: 40px 30px;
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
-    .project-meta-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-    }
-    .table-header {
-        display: none;
-    }
+
+    .table-header { display: none; }
+
     .table-row {
         grid-template-columns: 1fr;
         padding: 20px 0;
@@ -1361,88 +752,38 @@ h4.feature-title {
     }
 }
 
-
-/* --- MÓVIL (768px) --- */
-
 @media (max-width: 768px) {
-    /* Control de Fuentes Móvil */
-    .project-header h1 {
-        font-size: 2.2rem;
-        line-height: 1.15;
-    }
-    h2,
-    .feature-title {
-        font-size: 1.65rem;
-        line-height: 1.3;
-        margin-bottom: 1.2rem;
-    }
-    .question-text {
-        font-size: 1.4rem !important;
-        line-height: 1.4;
-    }
-    /* Cards e Impacto con control tipográfico */
+    .carousel-btn { display: none; }
+
     .stat-card {
-        padding: 32px 20px !important;
+        padding: 32px 20px;
         gap: 16px;
     }
+
     .stat-card h4 {
         font-size: 1.5rem;
         font-weight: 700;
         line-height: 1.2;
     }
+
     .metric-value {
         font-size: 2.2rem;
         font-weight: 800;
         line-height: 1;
     }
-    .section-wrapper {
-        padding: 40px 0;
-    }
-    .comparison-slider-container {
-        height: 280px;
-    }
+
+    .section-wrapper { padding: 40px 0; }
+
+    .comparison-slider-container { height: 280px; }
 }
-
-
-/* --- MÓVIL SMALL (560px) --- */
 
 @media (max-width: 560px) {
-    .project-header h1 {
-        font-size: 1.85rem;
-    }
-    h2,
-    .feature-title {
-        font-size: 1.5rem;
-        line-height: 1.3;
-    }
-    h3 {
-        font-size: 1.3rem;
-    }
-    p,
-    .small-text {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
-    .project-meta-grid {
-        grid-template-columns: 1fr;
-    }
-    .stat-card {
-        padding: 24px 15px !important;
-    }
-    .col-visual:hover,
-    .stat-card:hover {
-        transform: none !important;
-    }
+    .stat-card { padding: 24px 15px; }
 }
 
 
-/* ============================================================
-   LIGHT MODE — NEUMORFISMO
-   Substrato: #F8F6F2 → #F6F4F0 → #E9E4DC
-   Fórmula: sombra oscura (18,13,6) + luz blanca
-   ============================================================ */
+/* --- LIGHT MODE — NEUMORFISMO --- */
 
-/* Light mode — sobreescribe fórmula de sombras para substrato cálido */
 html[data-theme="light"] .stat-card,
 html[data-theme="light"] .metric-card {
     box-shadow:
@@ -1455,14 +796,4 @@ html[data-theme="light"] .metric-card:hover {
     box-shadow:
         7px 7px 16px rgba(18, 13, 6, 0.14),
         -7px -7px 16px rgba(255, 255, 255, 0.90);
-}
-
-/* Inset en section-description a modo de cita destacada */
-html[data-theme="light"] .data-box {
-    background: var(--c-frost, #F6F4F0);
-    border-left: none;
-    border-radius: var(--radius-sm, 8px);
-    box-shadow:
-        inset 3px 3px 8px rgba(18, 13, 6, 0.09),
-        inset -3px -3px 8px rgba(255, 255, 255, 0.75);
 }
