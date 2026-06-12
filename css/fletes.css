@@ -158,11 +158,12 @@
 }
 
 .project-subtitle {
-    font-size: 1.25rem;
-    color: var(--text-soft);
-    max-width: 850px;
-    line-height: 1.5;
-    margin-bottom: 24px;
+      font-size: var(--text-md);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-relaxed);
+  color: var(--c-ink-soft);
+  max-width: 850px;
+  margin-bottom: var(--sp-10);
 }
 
 .case-role {
@@ -557,10 +558,6 @@
     color: var(--text-soft);
     line-height: 1.6;
     margin: 0;
-}
-
-.hypo-item .card-body-metrics p {
-    margin-bottom: 0;
 }
 
 

@@ -335,11 +335,13 @@ html[data-theme="light"] .navbar {
 .tag-primary {
   color: var(--c-cyan);
   border: 1px solid rgba(62, 198, 212, 0.28);
+   font-size: var(--text-xs);
 }
 
 .tag-secondary {
   color: var(--c-ink-muted);
   border: 1px solid var(--c-border-mid);
+  font-size: var(--text-xs);
 }
 
 
@@ -369,7 +371,7 @@ html[data-theme="light"] .navbar {
   );
   background-size: 200% 100%;
   background-position: right center;
-  color: #09090B;
+  color: var(--c-night);
   border-color: var(--c-cyan);
   transition:
     background-position 350ms cubic-bezier(0.23, 1, 0.32, 1),
@@ -467,7 +469,29 @@ html[data-theme="light"] .icon-moon { display: none; }
 }
 
 
-/* 11. RESPONSIVE COMPARTIDO */
+/* 11. EYEBROW & CARD-BODY */
+
+.eyebrow {
+  display: inline-block;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--c-cyan);
+  letter-spacing: var(--ls-label);
+  margin-bottom: var(--sp-4);
+}
+
+.card-body-metrics p {
+  font-size: var(--text-base);
+  color: var(--c-ink-soft);
+  line-height: var(--lh-relaxed);
+  margin-bottom: var(--sp-2);
+}
+
+.card-body-metrics p:last-child { margin-bottom: 0; }
+
+
+/* 12. RESPONSIVE COMPARTIDO */
 
 @media (max-width: 768px) {
   .desktop-nav { display: none; }
