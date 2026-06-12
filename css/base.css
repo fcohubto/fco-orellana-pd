@@ -384,14 +384,14 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  color: var(--c-ink-muted);
+  width: 36px;
+  height: 36px;
+  color: var(--c-ink-soft);
   transition: color var(--ease);
   flex-shrink: 0;
 }
 
-.theme-toggle:hover { color: var(--c-ink); }
+.theme-toggle:hover { color: var(--c-cyan); }
 
 .icon-sun  { display: none; }
 .icon-moon { display: block; }
