@@ -684,14 +684,30 @@
 
 .feature-card {
     padding: 32px;
-    background: var(--surface);
-    border: 1px solid var(--line);
+    background: transparent;
+    border: 1px solid var(--c-border-mid);
+    border-top: 2px solid var(--c-cyan);
     border-radius: var(--card-radius);
-    transition: border-color 0.2s ease;
+    transition: border-color var(--ease-base);
 }
 
 .feature-card:hover {
-    border-color: var(--accent);
+    border-top-color: var(--c-cyan-dark);
+    border-color: var(--c-border-mid);
+}
+
+.app-screenshot {
+    margin: 0 auto;
+    max-width: 240px;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.app-screenshot img {
+    width: 100%;
+    display: block;
+    height: auto;
 }
 
 .feature-icon {
