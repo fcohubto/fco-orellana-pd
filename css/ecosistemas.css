@@ -22,6 +22,75 @@ PROYECTO: ECOSISTEMA DE PAGOS POS (SISTEMA DE DISEÑO)
     --card-radius:    var(--radius);
 }
 
+/* PROGRESS NAV */
+
+.project-progress-nav {
+    padding: 16px 0;
+    margin: 0;
+    border-bottom: 1px solid var(--line-separator);
+    overflow: visible;
+}
+
+.project-progress-nav .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.progress-track {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-decoration: none;
+    flex: 1;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.step-dot {
+    height: 4px;
+    width: 100%;
+    background: var(--c-border-mid);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.step-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.progress-step.active .step-dot {
+    background-color: var(--c-accent) !important;
+    height: 6px;
+}
+
+.progress-step.active .step-name {
+    color: var(--c-ink) !important;
+    font-weight: 800 !important;
+}
+
+.progress-step:hover .step-name { color: var(--c-accent); }
+.progress-step:hover .step-dot  { background: var(--text-soft); }
+
+
 /* navbar + menu-toggle handled by base.css */
 
 .feature-title {

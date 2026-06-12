@@ -26,9 +26,6 @@
   --c-border:     rgba(255, 255, 255, 0.07);
   --c-border-mid: rgba(255, 255, 255, 0.13);
 
-  /* Stepper */
-  --stepper-bg:   rgba(20, 20, 23, 0.94);
-
   /* Fuentes */
   --font:         'Plus Jakarta Sans', system-ui, sans-serif;
   --font-display: 'Fraunces', Georgia, serif;
@@ -120,9 +117,6 @@ html[data-theme="light"] {
 
   --c-border:     rgba(18, 13, 6, 0.08);
   --c-border-mid: rgba(18, 13, 6, 0.15);
-
-  /* Stepper */
-  --stepper-bg:   rgba(233, 228, 220, 0.94);
 
   --shadow-card:  0 8px 32px rgba(18, 13, 6, 0.08);
   --shadow-focus: 0 0 0 3px rgba(62, 198, 212, 0.22);
@@ -405,117 +399,7 @@ html[data-theme="light"] .icon-sun  { display: block; }
 html[data-theme="light"] .icon-moon { display: none; }
 
 
-/* 10. PROJECT STEPPER */
-
-article[id],
-section[id^="cap"] {
-  scroll-margin-top: 120px;
-}
-
-.project-stepper {
-  position: fixed;
-  top: 50%;
-  right: 32px;
-  transform: translateY(-50%);
-  z-index: 100;
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  background: var(--stepper-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 20px 12px;
-  border-radius: 40px;
-  border: 1px solid var(--c-border-mid);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.22);
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.project-stepper.is-visible {
-  opacity: 1;
-  pointer-events: auto;
-  visibility: visible;
-  right: 40px;
-}
-
-.stepper-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 12px;
-  text-decoration: none;
-  color: var(--c-ink-soft);
-  opacity: 0.5;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.stepper-item::after {
-  content: "";
-  width: 8px;
-  height: 8px;
-  background: var(--c-ink-soft);
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.stepper-item:hover {
-  color: var(--c-cyan) !important;
-  opacity: 1;
-}
-
-.stepper-item:hover .step-label {
-  color: var(--c-cyan);
-  font-weight: 600;
-}
-
-.stepper-item:hover::after {
-  background: var(--c-cyan) !important;
-}
-
-.step-label {
-  font-size: 0.875rem;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  display: none;
-}
-
-.step-number {
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-}
-
-.project-stepper:hover .step-label {
-  display: block;
-}
-
-.stepper-item.active {
-  opacity: 1;
-  color: var(--c-cyan);
-  transform: translateX(5px);
-}
-
-.stepper-item.active .step-label {
-  font-weight: 700;
-}
-
-.stepper-item.active::after,
-.stepper-item:hover::after {
-  background-color: var(--c-cyan) !important;
-  opacity: 1;
-}
-
-
-/* 11. RESPONSIVE COMPARTIDO */
-
-@media (max-width: 900px) {
-  .project-stepper { display: none; }
-}
+/* 10. RESPONSIVE COMPARTIDO */
 
 @media (max-width: 768px) {
   .desktop-nav { display: none; }

@@ -137,40 +137,11 @@ window.addEventListener("resize", () => {
     if (window.innerWidth > 900) closeMobileMenu();
 });
 
-/* --- LOGICA STEPPER (todos los casos) --- */
-const stepperObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            document.querySelectorAll('.stepper-item').forEach(item => item.classList.remove('active'));
-            const id = entry.target.getAttribute('id');
-            const targetItem = document.querySelector(`.stepper-item[href="#${id}"]`);
-            if (targetItem) targetItem.classList.add('active');
-        }
-    });
-}, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
-
-document.querySelectorAll('article[id], section[id^="cap"]').forEach((el) => stepperObserver.observe(el));
-
-const stepperElement = document.querySelector('.project-stepper');
-if (stepperElement) {
-    const trigger = document.querySelector('.case-study-layout') ||
-                    document.querySelector('section[id="cap1"], article[id="cap1"]');
-    if (trigger) {
-        const visibilityObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                entry.isIntersecting
-                    ? stepperElement.classList.add('is-visible')
-                    : stepperElement.classList.remove('is-visible');
-            });
-        }, { rootMargin: "0% 0px -20% 0px", threshold: 0.01 });
-        visibilityObserver.observe(trigger);
-    }
-}
 
 /* --- LOGICA CASO DE ESTUDIO ACTUAL (PROGRESS NAV) --- */
 document.addEventListener('DOMContentLoaded', () => {
     const progressLinks = document.querySelectorAll('.js-scroll-link');
-    const caseSections = document.querySelectorAll('section[id^="cap"]');
+    const caseSections = document.querySelectorAll('section[id^="cap"], article[id^="cap"]');
 
     const setActiveStep = (id) => {
         progressLinks.forEach(link => {
