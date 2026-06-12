@@ -431,7 +431,7 @@ h4.feature-title {
 
 .problem-statement .data-box {
     border-left: 4px solid var(--accent);
-    background: var(--surface);
+    background: transparent;
     padding: 32px;
     font-style: italic;
 }
@@ -511,7 +511,7 @@ h4.feature-title {
 
 .metric-value {
     display: block;
-    font-family: var(--font-display);
+    font-family: var(--font);
     font-size: clamp(3.5rem, 6vw, 5.5rem);
     font-weight: 700;
     color: var(--c-cyan);
@@ -634,7 +634,7 @@ h4.feature-title {
 }
 
 .stat-card h4 {
-    font-family: var(--font-display);
+    font-family: var(--font);
     font-size: clamp(2.5rem, 4vw, 3.5rem);
     font-weight: 700;
     color: var(--c-cyan);
@@ -917,6 +917,31 @@ h4.feature-title {
 }
 
 
+.impact-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--c-accent);
+    margin-bottom: 16px;
+}
+
+.impact-dashboard-grid .metric-card h4 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--c-ink);
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+}
+
+.impact-dashboard-grid .metric-card p {
+    font-size: 0.9375rem;
+    color: var(--c-ink-soft);
+    line-height: 1.6;
+    margin: 0;
+}
+
 /* SUCCESS (Verde - Esmeralda más profundo) */
 
 .status-badge.success {
@@ -955,11 +980,11 @@ h4.feature-title {
     margin: 40px auto;
     display: flex;
     flex-direction: column;
-    background: var(--c-surface);
-    border: 1px solid var(--line-separator);
-    border-radius: 12px;
-    padding: 32px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    border-top: 2px solid var(--c-accent);
 }
 
 .table-row {

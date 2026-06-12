@@ -107,7 +107,7 @@
 /* LIGHT MODE — blanco cálido editorial */
 html[data-theme="light"] {
   --c-night:      #F8F6F2;
-  --c-frost:      #F1EDE6;
+  --c-frost:      #F6F4F0;
   --c-surface:    #E9E4DC;
 
   --c-ink:        rgba(18, 13, 6, 0.90);
