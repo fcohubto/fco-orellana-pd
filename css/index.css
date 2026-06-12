@@ -327,7 +327,7 @@
 
 .metric-label {
   display: block;
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   color: var(--c-ink-muted);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
