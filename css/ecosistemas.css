@@ -126,15 +126,21 @@ h4.feature-title {
 .section-wrapper {
     width: 100%;
     display: block;
-    padding: 100px 0px 100px 0px;
+    padding: 140px 0;
 }
 
 .section-wrapper.border-top {
     border-top: 1px solid var(--line-separator);
 }
 
+.section-wrapper.band {
+    background: var(--c-frost);
+    border-top: none;
+    border-bottom: none;
+}
+
 .section-content {
-    padding: 60px 0;
+    padding: 0;
 }
 
 .section-content h2 {
@@ -192,7 +198,34 @@ h4.feature-title {
 /* PROCESS INTRO & ZOOM */
 
 .process-intro {
-    padding: 100px 0 60px 0;
+    padding: 100px 0 80px 0;
+}
+
+/* Full-bleed image — rompe el container */
+.img-breakout {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    overflow: hidden;
+    margin-top: 80px;
+}
+
+.img-breakout img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 72vh;
+    object-fit: cover;
+    object-position: center top;
+}
+
+/* Elimina box visual de contenedores de imagen */
+.visual-container,
+.visual-container.glass-effect {
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
 }
 
 .process-header {
@@ -415,9 +448,8 @@ h4.feature-title {
 .two-columns-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 80px;
     align-items: center;
-    background-color: var(--surface);
 }
 
 .three-columns-grid {
@@ -447,65 +479,62 @@ h4.feature-title {
 }
 
 .metric-card {
-    background: var(--surface);
-    padding: 40px 32px;
-    border-radius: var(--card-radius);
-    border: 1px solid var(--line);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    background: transparent;
+    border: none;
+    border-top: 2px solid var(--c-accent);
+    border-radius: 0;
+    box-shadow: none;
+    padding: 32px 0 0 0;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: none;
+    box-shadow: none;
 }
 
 .metric-card h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text-soft);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--c-ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
 }
 
 .metric-card p {
     font-size: 1rem;
     font-weight: 400;
-    color: var(--text-soft);
-}
-
-.metric-card strong {
-    display: block;
-    font-size: 3.2rem;
-    font-weight: 700;
-    color: var(--accent);
-    margin-bottom: 12px;
-    text-align: center;
-}
-
-.metric-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-    border-color: var(--accent);
+    color: var(--c-ink-muted);
+    margin-top: 8px;
 }
 
 .metric-value {
     display: block;
-    font-size: 3rem;
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
     font-weight: 700;
-    color: var(--accent);
-    margin-bottom: 12px;
-    text-align: center;
+    color: var(--c-cyan);
+    line-height: 1;
+    margin-bottom: 16px;
+    text-align: left;
 }
 
 .metric-label {
-    font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     margin-bottom: 8px;
-    text-align: center;
-    color: var(--text-soft);
+    text-align: left;
+    color: var(--c-ink-soft);
 }
 
 .metric-description {
-    font-size: 1rem;
-    color: var(--text-soft);
-    line-height: 1.5;
-    text-align: center;
+    font-size: 0.9375rem;
+    color: var(--c-ink-muted);
+    line-height: 1.6;
+    text-align: left;
 }
 
 
@@ -574,80 +603,65 @@ h4.feature-title {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
-    border-radius: 16px;
     overflow: visible;
-    /* CAMBIO CLAVE: Cambiado de 'hidden' a 'visible' para evitar que el lightbox parpadee al expandirse */
-    background: var(--c-surface);
-    padding: 40px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    border: 1px solid var(--line-separator);
+    background: transparent;
+    padding: 0;
+    border: none;
     position: relative;
 }
 
 .col-visual:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+    transform: none;
+    box-shadow: none;
 }
 
 .stat-card {
-    background: var(--surface);
-    border-radius: 20px;
-    padding: 40px 30px;
-    text-align: center;
-    border: 1px solid var(--line);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: transparent;
+    border: none;
+    border-top: 2px solid var(--c-accent);
+    border-radius: 0;
+    box-shadow: none;
+    padding: 32px 0 0 0;
+    text-align: left;
+    transition: none;
 }
 
 .stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transform: none;
+    box-shadow: none;
 }
 
 .stat-card h4 {
-    font-size: 3rem;
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
     font-weight: 700;
-    color: var(--accent);
-    margin: 0 0 15px 0;
+    color: var(--c-cyan);
+    margin: 0 0 12px 0;
     letter-spacing: -0.02em;
+    line-height: 1;
+    text-align: left;
 }
 
 .stat-card strong {
     display: block;
-    font-size: 1.25rem;
+    font-size: 1.0625rem;
     font-weight: 700;
-    color: var(--text-soft);
-    margin-bottom: 12px;
+    color: var(--c-ink);
+    margin-bottom: 10px;
     text-transform: none;
     letter-spacing: normal;
 }
 
 .stat-card p {
-    font-size: 1rem;
-    color: var(--text-soft);
-    line-height: 1.5;
+    font-size: 0.9375rem;
+    color: var(--c-ink-soft);
+    line-height: 1.6;
     margin: 0;
 }
 
-.card-icon {
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    /* Ajusta según tu diseño de stat-card */
-    height: 40px;
-    margin-bottom: 0.5rem;
-    font-size: 32px;
-}
-
-.card-icon svg {
-    width: 48px;
-    height: 48px;
-    stroke: var(--accent);
-    stroke-width: 2px;
-    fill: none;
-}
+.card-icon { display: none; }
 
 .image-placeholder img {
     max-width: 90%;
@@ -678,10 +692,11 @@ h4.feature-title {
 }
 
 .qa-box {
-    background-color: var(--surface-2);
-    padding: 32px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    background-color: transparent;
+    padding: 24px 0 24px 24px;
+    border-radius: 0;
+    border-left: 2px solid var(--c-border-mid);
+    box-shadow: none;
 }
 
 .qa-box h4 {
@@ -710,21 +725,24 @@ h4.feature-title {
 }
 
 .data-box {
-    padding: 32px;
-    background: var(--surface-2);
+    padding: 24px 32px;
+    background: transparent;
     border: none;
-    border-radius: 16px;
-    margin-top: 24px;
-    color: var(--text-soft);
-    font-size: 1.125rem;
+    border-left: 3px solid var(--c-accent);
+    border-radius: 0;
+    margin-top: 40px;
+    color: var(--c-ink-soft);
+    font-size: 1.0625rem;
     letter-spacing: normal;
+    font-style: italic;
 }
 
 .data-box strong {
     display: block;
     font-weight: 700;
-    color: var(--text-soft);
-    margin-bottom: 12px;
+    font-style: normal;
+    color: var(--c-ink);
+    margin-bottom: 8px;
 }
 
 .hypothesis-grid {
@@ -738,17 +756,19 @@ h4.feature-title {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    padding: 32px;
-    background: var(--surface, #ffffff);
-    border-radius: var(--card-radius, 18px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
-    border: 1px solid var(--line, #e5e7eb);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 24px 0 24px 24px;
+    background: transparent;
+    border: none;
+    border-left: 2px solid var(--c-border-mid);
+    border-radius: 0;
+    box-shadow: none;
+    transition: border-color 0.2s ease;
 }
 
 .hypo-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: none;
+    box-shadow: none;
+    border-left-color: var(--c-accent);
 }
 
 
@@ -758,12 +778,12 @@ h4.feature-title {
 /* 5. ESTRATEGIA Y FEEDBACK */
 
 .question-container {
-    margin: 40px auto;
-    padding: 100px 48px;
-    background: var(--surface-2);
-    border-radius: var(--card-radius, 18px);
+    margin: 0 auto;
+    padding: 80px 0;
+    background: transparent;
+    border-radius: 0;
     text-align: center;
-    max-width: 1200px;
+    max-width: 860px;
     position: relative;
     display: flex;
     flex-direction: column;
