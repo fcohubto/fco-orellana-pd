@@ -100,7 +100,7 @@
                     </div>
                     <div class="metrics-grid mt-60">
                         <div class="metric-card">
-                            <span class="metric-value">3h→45m</span>
+                            <span class="metric-value">1h→5m</span>
                             <h3 class="metric-label">Tiempo por propuesta</h3>
                             <p class="metric-description">De cotización ad hoc — llamadas, planillas, revisiones — a wizard estructurado con output listo.</p>
                         </div>
@@ -398,27 +398,42 @@
                         </p>
                     </div>
 
-                    <div class="impact-dashboard-grid mt-60">
+                    <div class="stat-row mt-60">
+                        <div class="stat-item">
+                            <span class="stat-value">3h → 45m</span>
+                            <span class="stat-label">Por cotización</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">100%</span>
+                            <span class="stat-label">Mismo formato de entrega</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">0</span>
+                            <span class="stat-label">Dependencias externas</span>
+                        </div>
+                    </div>
+
+                    <div class="impact-dashboard-grid">
                         <div class="main-impact-column">
                             <div class="metric-card">
-                                <span class="status-badge success">Resultado principal</span>
+                                <span class="eyebrow">Resultado principal</span>
                                 <strong>Las propuestas se entregan el mismo día, no al día siguiente</strong>
                                 <p class="impact-highlight">Antes: cotizar era una tarea pendiente que se postergaba hasta tener "tiempo suficiente". Ahora: 45 minutos con la herramienta y la propuesta está lista.</p>
                             </div>
                             <div class="metric-card">
-                                <span class="status-badge validated">Efecto secundario útil</span>
+                                <span class="eyebrow">Efecto secundario útil</span>
                                 <strong>El wizard descubrió proyectos mal especificados</strong>
                                 <p class="impact-highlight">Dos veces, al completar el paso 2 (alcance), me di cuenta de que el cliente quería mucho más de lo que había pedido en el brief inicial. Eso abrió la conversación antes de cotizar.</p>
                             </div>
                         </div>
                         <div class="secondary-impact-column">
                             <div class="metric-card">
-                                <span class="status-badge operational">Lección técnica</span>
+                                <span class="eyebrow">Lección técnica</span>
                                 <strong>Vanilla JS fue la decisión correcta</strong>
                                 <p>Sin dependencias, sin build step, sin npm. La herramienta abre al instante y no se rompe. En dos años de uso no he tenido que tocar el código por una actualización forzada de alguna librería.</p>
                             </div>
                             <div class="metric-card roadmap-card">
-                                <span class="status-badge vision">Próximo paso</span>
+                                <span class="eyebrow">Próximo paso</span>
                                 <strong>Historial y analytics de pricing</strong>
                                 <p>Guardar el historial de cotizaciones para poder analizar qué tipos de proyecto tienen mayor varianza entre estimado y real — y ajustar los multiplicadores con datos.</p>
                             </div>

@@ -225,34 +225,20 @@
 }
 
 .metric-card {
-    background: var(--c-frost);
-    border: none;
+    background: transparent;
+    border: 1px solid var(--c-border-mid);
+    border-top: 2px solid var(--c-cyan);
     border-radius: var(--card-radius);
-    padding: 24px;
+    padding: 32px;
     display: flex;
     flex-direction: column;
-    position: relative;
-    box-shadow:
-        5px 5px 14px rgba(0, 0, 0, 0.55),
-        -3px -3px 8px rgba(255, 255, 255, 0.04);
-    transition: box-shadow 0.3s ease;
-}
-
-.metric-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--c-accent);
-    border-radius: var(--card-radius) var(--card-radius) 0 0;
+    gap: 12px;
+    transition: border-color var(--ease-base);
 }
 
 .metric-card:hover {
-    box-shadow:
-        7px 7px 18px rgba(0, 0, 0, 0.65),
-        -4px -4px 10px rgba(255, 255, 255, 0.06);
+    border-color: var(--c-border-mid);
+    border-top-color: var(--c-cyan-dark);
 }
 
 .metric-value {
@@ -503,14 +489,16 @@
 }
 
 .hypo-item {
-    display: flex;
+display: flex;
     flex-direction: column;
     gap: 16px;
-    padding: 32px;
-    background: var(--surface);
-    border-radius: var(--card-radius);
-    border: 1px solid var(--line);
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    padding: 24px 0 24px 24px;
+    background: transparent;
+    border: none;
+    border-left: 2px solid var(--c-border-mid);
+    border-radius: 0;
+    box-shadow: none;
+    transition: border-color 0.2s ease;
 }
 
 #cap1 .col-text .hypo-item {
@@ -605,7 +593,7 @@
 
 .impact-dashboard-grid {
     display: grid;
-    grid-template-columns: 1.3fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 32px;
     align-items: start;
 }
@@ -617,7 +605,7 @@
     gap: 32px;
 }
 
-.metric-card.roadmap-card { border: 1px dashed var(--line-separator); box-shadow: none; }
+.metric-card.roadmap-card { border: 1px dashed var(--line-separator); }
 
 .impact-highlight {
     font-size: 1.125rem;
@@ -656,19 +644,7 @@
    ============================================================ */
 
 html[data-theme="light"] .metric-card {
-    box-shadow:
-        5px 5px 12px rgba(18, 13, 6, 0.11),
-        -5px -5px 12px rgba(255, 255, 255, 0.82);
-}
-
-html[data-theme="light"] .metric-card:hover {
-    box-shadow:
-        7px 7px 16px rgba(18, 13, 6, 0.14),
-        -7px -7px 16px rgba(255, 255, 255, 0.90);
-}
-
-html[data-theme="light"] .metric-card.roadmap-card {
-    box-shadow: none;
+    border-color: rgba(18, 13, 6, 0.18);
 }
 
 html[data-theme="light"] .data-box {

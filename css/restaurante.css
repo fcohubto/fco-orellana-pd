@@ -436,34 +436,20 @@
 }
 
 .metric-card {
-    background: var(--c-frost);
-    border: none;
+    background: transparent;
+    border: 1px solid var(--c-border-mid);
+    border-top: 2px solid var(--c-cyan);
     border-radius: var(--card-radius);
-    padding: 24px;
+    padding: 32px;
     display: flex;
     flex-direction: column;
-    position: relative;
-    box-shadow:
-        5px 5px 14px rgba(0, 0, 0, 0.55),
-        -3px -3px 8px rgba(255, 255, 255, 0.04);
-    transition: box-shadow 0.3s ease;
-}
-
-.metric-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--c-accent);
-    border-radius: var(--card-radius) var(--card-radius) 0 0;
+    gap: 12px;
+    transition: border-color var(--ease-base);
 }
 
 .metric-card:hover {
-    box-shadow:
-        7px 7px 18px rgba(0, 0, 0, 0.65),
-        -4px -4px 10px rgba(255, 255, 255, 0.06);
+    border-color: var(--c-border-mid);
+    border-top-color: var(--c-cyan-dark);
 }
 
 .metric-card h4 {
@@ -480,10 +466,10 @@
 
 .metric-card strong {
     display: block;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: 700;
-    color: var(--text-soft);
-    margin-bottom: 12px;
+    color: var(--text);
+    margin-bottom: 8px;
     text-transform: none;
     letter-spacing: normal;
 }
@@ -1007,7 +993,7 @@
 }
 
 .hypo-item p {
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 400;
     color: var(--text-soft);
     line-height: 1.5;
@@ -1199,7 +1185,7 @@ h4.feature-title {
 
 .impact-dashboard-grid {
     display: grid;
-    grid-template-columns: 1.3fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 32px;
     align-items: start;
 }
@@ -1500,14 +1486,12 @@ h4.feature-title {
    LIGHT MODE — NEUMORFISMO
    ============================================================ */
 
-html[data-theme="light"] .metric-card,
 html[data-theme="light"] .stat-card {
     box-shadow:
         5px 5px 12px rgba(18, 13, 6, 0.11),
         -5px -5px 12px rgba(255, 255, 255, 0.82);
 }
 
-html[data-theme="light"] .metric-card:hover,
 html[data-theme="light"] .stat-card:hover {
     box-shadow:
         7px 7px 16px rgba(18, 13, 6, 0.14),
