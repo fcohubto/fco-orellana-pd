@@ -334,8 +334,7 @@ html[data-theme="light"] .navbar {
   font-family: var(--font);
   font-weight: var(--fw-medium);
   font-size: var(--text-sm);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
+  letter-spacing: var(--ls-normal);
   cursor: pointer;
   border: 1px solid transparent;
   border-radius: var(--radius-xs);

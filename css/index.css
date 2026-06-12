@@ -110,7 +110,7 @@
 
 .stat-number {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
   font-weight: var(--fw-bold);
   line-height: var(--lh-none);
   letter-spacing: var(--ls-tight);
@@ -147,7 +147,7 @@
 }
 
 .project-card:hover {
-  background: rgba(62, 198, 212, 0.03);
+  background: none;
 }
 
 .project-card-link {
@@ -218,6 +218,130 @@
 }
 
 
+/* FEATURED CARD */
+
+.project-card--featured {
+  background: var(--c-frost);
+  position: relative;
+}
+
+.project-card--featured::before {
+  content: '';
+  display: block;
+  height: 2px;
+  background: var(--c-cyan);
+  opacity: 0.45;
+}
+
+.project-card--featured .project-card-link {
+  padding: var(--sp-14) 0;
+}
+
+.project-card--featured .project-meta h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-tight);
+}
+
+.project-card--featured .project-description {
+  font-size: var(--text-base);
+}
+
+/* PROJECTS ROW — 2 columnas */
+
+.projects-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 var(--sp-12);
+  border-top: 1px solid var(--c-border);
+  position: relative;
+}
+
+/* Divisor vertical centrado — sin padding en las cards */
+.projects-row::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: var(--c-border);
+}
+
+.projects-row .project-card {
+  border-top: none;
+}
+
+.projects-row .project-card-link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  padding: var(--sp-10) 0;
+  grid-template-columns: unset;
+  align-items: unset;
+}
+
+.projects-row .case-arrow {
+  align-self: flex-end;
+  margin-top: auto;
+  padding-top: 0;
+}
+
+/* COMPACT ROW */
+
+.projects-row--compact .project-card-link {
+  padding: var(--sp-8) 0;
+  gap: var(--sp-4);
+}
+
+.projects-row--compact .project-meta h3 {
+  font-size: 1.1rem;
+}
+
+.projects-row--compact .project-description {
+  font-size: var(--text-sm);
+}
+
+/* Borde inferior del último row */
+.projects-row:last-child {
+  border-bottom: 1px solid var(--c-border);
+}
+
+/* MÉTRICAS */
+
+.card-metric {
+  margin-top: var(--sp-4);
+}
+
+.metric-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: var(--fw-bold);
+  color: var(--c-ink);
+  letter-spacing: var(--ls-tight);
+  line-height: 1;
+}
+
+.metric-label {
+  display: block;
+  font-size: var(--text-2xs);
+  color: var(--c-ink-muted);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.project-card--featured .metric-value {
+  font-size: clamp(2rem, 3vw, 2.75rem);
+}
+
+.projects-row--compact .metric-value {
+  font-size: 1.25rem;
+}
+
+
 /* 6. CONTACTO */
 
 .section-contact {
@@ -261,6 +385,44 @@
   }
 
   .project-body { display: none; }
+
+  .projects-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .projects-row::after {
+    display: none;
+  }
+
+  .projects-row .project-card:first-child {
+    border-bottom: 1px solid var(--c-border);
+  }
+
+  .projects-row .project-card:last-child {
+    border-bottom: none;
+  }
+
+  .projects-row .project-card-link {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--sp-8) 0;
+    gap: var(--sp-5);
+  }
+
+  .projects-row .case-arrow {
+    align-self: center;
+    margin-top: 0;
+  }
+
+  .project-card--featured .project-card-link {
+    padding: var(--sp-8) 0;
+  }
+
+  .project-card--featured .project-meta h3 {
+    font-size: clamp(1.4rem, 5vw, 1.75rem);
+  }
 }
 
 @media (max-width: 768px) {

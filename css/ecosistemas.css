@@ -3,9 +3,9 @@ PROYECTO: ECOSISTEMA DE PAGOS POS (SISTEMA DE DISEÑO)
 ============================================================ */
 
 :root {
-    /* Acento Transbank */
-    --c-accent:       #ea580c;
-    --c-accent-hover: #c2410c;
+    /* Acento del sistema */
+    --c-accent:       var(--c-cyan);
+    --c-accent-hover: var(--c-cyan-dark);
 
     /* Bridge → tokens de base.css (dark system) */
     --accent:         var(--c-accent);
@@ -282,17 +282,12 @@ section[id] {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.95);
-    /* Por defecto claro como tu variable */
+    background-color: rgba(9, 9, 11, 0.92);
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(10px);
     opacity: 0;
     transition: opacity 0.3s ease;
-}
-
-body.dark-mode .lightbox {
-    background-color: rgba(15, 23, 42, 0.95);
 }
 
 .lightbox.active {
@@ -357,21 +352,6 @@ body.dark-mode .lightbox {
     color: var(--text-soft);
     margin-bottom: 0;
     max-width: 800px;
-}
-
-
-/* --- DARK MODE SUPPORT --- */
-
-body.dark-mode .process-intro {
-    background-color: #121212;
-}
-
-body.dark-mode .process-header h3 {
-    color: #ffffff;
-}
-
-body.dark-mode .process-header .section-description {
-    color: rgba(255, 255, 255, 0.7);
 }
 
 
@@ -651,12 +631,11 @@ body.dark-mode .process-header .section-description {
     border-radius: 16px;
     overflow: visible;
     /* CAMBIO CLAVE: Cambiado de 'hidden' a 'visible' para evitar que el lightbox parpadee al expandirse */
-    background: rgba(248, 157, 135, 0.05);
+    background: var(--c-surface);
     padding: 40px;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     border: 1px solid var(--line-separator);
     position: relative;
-    /* Asegura un contexto estable para las imágenes internas */
 }
 
 .col-visual:hover {
@@ -991,13 +970,12 @@ body.dark-mode .process-header .section-description {
 }
 
 
-/* OPERATIONAL (Tu Naranja Accent - Más "tostado") */
+/* OPERATIONAL */
 
 .status-badge.operational {
-    background: rgba(234, 88, 12, 0.12);
-    color: #ea580c;
-    /* Forzamos un tono ligeramente más oscuro que el accent puro para lectura */
-    border: 1px solid rgba(234, 88, 12, 0.2);
+    background: rgba(62, 198, 212, 0.10);
+    color: var(--c-accent);
+    border: 1px solid rgba(62, 198, 212, 0.22);
 }
 
 
@@ -1009,8 +987,7 @@ body.dark-mode .process-header .section-description {
     margin: 40px auto;
     display: flex;
     flex-direction: column;
-    background: rgba(248, 157, 135, 0.05);
-    /* Corregido Sr por variable real */
+    background: var(--c-surface);
     border: 1px solid var(--line-separator);
     border-radius: 12px;
     padding: 32px;
@@ -1080,56 +1057,25 @@ body.dark-mode .process-header .section-description {
 
 .dot.active,
 .dot:hover {
-    background-color: #FF5C35;
-    /* Tu naranja de acento */
+    background-color: var(--c-accent);
     transform: scale(1.2);
     cursor: pointer;
-    /* Corregido de grabbing a pointer para navegación */
-}
-
-
-/* --- DARK MODE: CAROUSEL DOTS --- */
-
-body.dark-mode .dot {
-    background-color: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .dot.active {
-    background-color: #FF5C35;
-    box-shadow: 0 0 12px rgba(255, 92, 53, 0.6);
-    border-color: #FF5C35;
-}
-
-body.dark-mode .dot:hover:not(.active) {
-    background-color: rgba(255, 255, 255, 0.4);
-}
-
-body.dark-mode .carousel-dots {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 8px 16px;
-    border-radius: 20px;
-    backdrop-filter: blur(4px);
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 
 /* --- COMPONENTES DE TEXTO Y HALLAZGOS --- */
 
 .orange {
-    color: #FF5C35;
+    color: var(--c-accent);
 }
 
 .orange-border {
-    border-left: 2px solid #FF5C35;
+    border-left: 2px solid var(--c-accent);
     padding-left: 24px;
 }
 
 .hallazgo-box {
-    background: rgba(255, 92, 53, 0.05);
-    /* Sincronizado con el naranja principal */
+    background: rgba(62, 198, 212, 0.06);
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 20px;

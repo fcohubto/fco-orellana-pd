@@ -6,9 +6,9 @@
 /* 1. DESIGN TOKENS & VARIABLES */
 
 :root {
-    /* Acento Transbank */
-    --c-accent:       #ea580c;
-    --c-accent-hover: #c2410c;
+    /* Acento del sistema */
+    --c-accent:       var(--c-cyan);
+    --c-accent-hover: var(--c-cyan-dark);
 
     /* Bridge → tokens de base.css (dark system) */
     --accent:         var(--c-accent);
@@ -276,12 +276,6 @@
 }
 
 
-/* Ajuste para Dark Mode sutil */
-
-body.dark-mode .breadcrumb-list li:not(:last-child)::after {
-    color: rgba(255, 255, 255, 0.2);
-}
-
 .icon-box {
     width: 32px;
     height: 32px;
@@ -357,21 +351,6 @@ body.dark-mode .breadcrumb-list li:not(:last-child)::after {
     color: var(--text-soft);
     margin-bottom: 0;
     max-width: 800px;
-}
-
-
-/* --- DARK MODE SUPPORT --- */
-
-body.dark-mode .process-intro {
-    background-color: #121212;
-}
-
-body.dark-mode .process-header h3 {
-    color: #ffffff;
-}
-
-body.dark-mode .process-header .section-description {
-    color: rgba(255, 255, 255, 0.7);
 }
 
 
@@ -1239,13 +1218,12 @@ h4.feature-title {
 }
 
 
-/* OPERATIONAL (Tu Naranja Accent - Más "tostado") */
+/* OPERATIONAL */
 
 .status-badge.operational {
-    background: rgba(234, 88, 12, 0.12);
-    color: #ea580c;
-    /* Forzamos un tono ligeramente más oscuro que el accent puro para lectura */
-    border: 1px solid rgba(234, 88, 12, 0.2);
+    background: rgba(62, 198, 212, 0.10);
+    color: var(--c-accent);
+    border: 1px solid rgba(62, 198, 212, 0.22);
 }
 
 
@@ -1301,7 +1279,7 @@ h4.feature-title {
 
 .btn-secondary:hover {
     background: var(--surface);
-    color: var(--surface);
+    color: var(--text);
     border-color: var(--text-soft);
     transform: translateY(-3px);
 }
