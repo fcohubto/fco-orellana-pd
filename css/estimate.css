@@ -31,7 +31,7 @@
 .section-wrapper {
     width: 100%;
     display: block;
-    padding: 100px 0;
+    padding: 140px 0;
 }
 
 .section-wrapper.border-top {
@@ -39,7 +39,7 @@
 }
 
 .section-content {
-    padding: 60px 0;
+    padding: 0;
 }
 
 .section-content h2 {
@@ -55,40 +55,7 @@
 }
 
 
-/* 3. BREADCRUMB */
-
-.breadcrumb-nav {
-    padding: 0;
-    background: var(--bg);
-}
-
-.breadcrumb-list {
-    display: flex;
-    list-style: none;
-    gap: 12px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--text-soft);
-}
-
-.breadcrumb-list li:not(:last-child)::after {
-    content: "/";
-    margin-left: 12px;
-    color: var(--line);
-    font-weight: 400;
-}
-
-.breadcrumb-list a { transition: color 0.2s ease; }
-.breadcrumb-list a:hover { color: var(--accent); }
-
-.breadcrumb-list li[aria-current="page"] {
-    color: var(--text);
-    font-weight: 600;
-    pointer-events: none;
-}
-
-
-/* 4. PROGRESS NAV */
+/* 3. PROGRESS NAV */
 
 .project-progress-nav {
     position: -webkit-sticky;
@@ -104,6 +71,9 @@
 }
 
 .project-progress-nav .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 20px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -169,7 +139,7 @@
 .project-header h1 {
     font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.5;
     margin-bottom: 24px;
     letter-spacing: -0.02em;
     max-width: 860px;
@@ -180,7 +150,7 @@
     font-size: 1.25rem;
     color: var(--text-soft);
     max-width: 850px;
-    line-height: 1.6;
+    line-height: 1.5;
     margin-bottom: 24px;
 }
 

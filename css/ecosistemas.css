@@ -158,51 +158,9 @@ h4.feature-title {
     color: var(--text);
 }
 
-.container {
-    width: 100%;
-    max-width: 1120px;
-    margin: 0 auto;
-}
-
 .container.narrow {
     max-width: 800px;
 }
-
-.breadcrumb-nav {
-    padding: 20px 0;
-    background: var(--bg);
-}
-
-.breadcrumb-list {
-    display: flex;
-    list-style: none;
-    gap: 12px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--text-soft);
-}
-
-.breadcrumb-list li:not(:last-child)::after {
-    content: "/";
-    margin-left: 12px;
-    color: var(--line);
-    font-weight: 400;
-}
-
-.breadcrumb-list a {
-    transition: color 0.2s ease;
-}
-
-.breadcrumb-list a:hover {
-    color: var(--accent);
-}
-
-.breadcrumb-list li[aria-current="page"] {
-    color: var(--text);
-    font-weight: 600;
-    pointer-events: none;
-}
-
 
 /* PROCESS INTRO & ZOOM */
 
@@ -300,7 +258,7 @@ h4.feature-title {
 }
 
 
-/*PRIMER AJUSTE+/
+/* PRIMER AJUSTE */
 
 /* --- COMPONENTES VISUALES --- */
 
@@ -358,7 +316,7 @@ h4.feature-title {
     margin-bottom: 24px;
     letter-spacing: -0.02em;
     max-width: 860px;
-    color: var(--text-soft);
+    color: var(--text);
 }
 
 .project-subtitle {
@@ -366,6 +324,17 @@ h4.feature-title {
     color: var(--text-soft);
     max-width: 850px;
     line-height: 1.5;
+}
+
+.case-role {
+    font-size: 1rem;
+    color: var(--text-soft);
+    max-width: 750px;
+    line-height: 1.6;
+    font-style: italic;
+    border-left: 3px solid var(--accent);
+    padding-left: 20px;
+    margin-top: 16px;
 }
 
 .project-meta-grid {
@@ -1314,9 +1283,6 @@ h4.feature-title {
         grid-template-columns: 1fr !important;
         gap: 32px;
     }
-    .container {
-        padding: 0 40px;
-    }
     .col-visual img,
     .feature-visual-media,
     .visual-container img {
@@ -1443,10 +1409,6 @@ h4.feature-title {
 /* --- MÓVIL SMALL (560px) --- */
 
 @media (max-width: 560px) {
-    .container {
-        padding: 0 20px;
-    }
-    /* Tipografía Compacta Final */
     .project-header h1 {
         font-size: 1.85rem;
     }

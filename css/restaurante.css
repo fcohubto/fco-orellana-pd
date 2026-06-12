@@ -35,7 +35,7 @@
 .section-wrapper {
     width: 100%;
     display: block;
-    padding: 100px 0px 100px;
+    padding: 140px 0;
 }
 
 .section-wrapper.border-top {
@@ -215,7 +215,7 @@
 }
 
 .section-content {
-    padding: 60px 0;
+    padding: 0;
 }
 
 .section-content h2 {
@@ -226,53 +226,12 @@
     padding-bottom: 24px;
 }
 
-.container {
-    width: 100%;
-    max-width: 1120px;
-    margin: 0 auto;
-}
-
 .container.narrow {
     max-width: 800px;
 }
 
 .bg-surface-2 {
     background-color: var(--surface-2);
-}
-
-.breadcrumb-nav {
-    padding: 0px;
-    background: var(--bg);
-}
-
-.breadcrumb-list {
-    display: flex;
-    list-style: none;
-    gap: 12px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--text-soft);
-}
-
-.breadcrumb-list li:not(:last-child)::after {
-    content: "/";
-    margin-left: 12px;
-    color: var(--line);
-    font-weight: 400;
-}
-
-.breadcrumb-list a {
-    transition: color 0.2s ease;
-}
-
-.breadcrumb-list a:hover {
-    color: var(--accent);
-}
-
-.breadcrumb-list li[aria-current="page"] {
-    color: var(--text);
-    font-weight: 600;
-    pointer-events: none;
 }
 
 
@@ -370,7 +329,7 @@
     margin-bottom: 24px;
     letter-spacing: -0.02em;
     max-width: 860px;
-    color: var(--text-soft);
+    color: var(--text);
 }
 
 .project-subtitle {
@@ -380,12 +339,23 @@
     line-height: 1.5;
 }
 
+.case-role {
+    font-size: 1rem;
+    color: var(--text-soft);
+    max-width: 750px;
+    line-height: 1.6;
+    font-style: italic;
+    border-left: 3px solid var(--accent);
+    padding-left: 20px;
+    margin-top: 16px;
+}
+
 .project-meta-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 40px;
     padding: 60px 0;
-    border-top: 1px;
+    border-top: 1px solid var(--line-separator);
     margin-top: 60px;
     width: 100%;
 }
@@ -492,13 +462,13 @@
 }
 
 .metric-card h4 {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--text-soft);
 }
 
 .metric-card p {
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 400;
     color: var(--text-soft);
 }
@@ -1374,10 +1344,6 @@ h4.feature-title {
         grid-template-columns: 1fr !important;
         gap: 32px;
     }
-    .container {
-        max-width: 100%;
-        padding: 0 40px;
-    }
     .project-progress-nav {
         top: var(--nav-h);
         background: var(--bg-surface);
@@ -1474,9 +1440,6 @@ h4.feature-title {
 }
 
 @media (max-width: 560px) {
-    .container {
-        padding: 0 20px;
-    }
     .project-header h1 {
         font-size: 1.85rem;
     }

@@ -28,7 +28,7 @@
 
   /* Fuentes */
   --font:         'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-display: 'Fraunces', Georgia, serif;
+  --font-display: 'Figtree', system-ui, sans-serif;
 
   /* Escala tipográfica */
   --text-2xs:  0.68rem;
@@ -428,7 +428,45 @@ html[data-theme="light"] .icon-sun  { display: block; }
 html[data-theme="light"] .icon-moon { display: none; }
 
 
-/* 10. RESPONSIVE COMPARTIDO */
+/* 10. BREADCRUMB */
+
+.breadcrumb-nav {
+  padding: 20px 0;
+  background: var(--bg);
+}
+
+.breadcrumb-list {
+  display: flex;
+  list-style: none;
+  gap: 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--c-ink-soft);
+}
+
+.breadcrumb-list li:not(:last-child)::after {
+  content: "/";
+  margin-left: 12px;
+  color: var(--c-border);
+  font-weight: 400;
+}
+
+.breadcrumb-list a {
+  transition: color var(--ease);
+}
+
+.breadcrumb-list a:hover {
+  color: var(--c-cyan);
+}
+
+.breadcrumb-list li[aria-current="page"] {
+  color: var(--c-ink);
+  font-weight: 600;
+  pointer-events: none;
+}
+
+
+/* 11. RESPONSIVE COMPARTIDO */
 
 @media (max-width: 768px) {
   .desktop-nav { display: none; }
