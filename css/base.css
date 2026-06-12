@@ -104,6 +104,24 @@
   --nav-h:  64px;
 }
 
+/* LIGHT MODE — blanco cálido editorial */
+html[data-theme="light"] {
+  --c-night:      #F8F6F2;
+  --c-frost:      #F1EDE6;
+  --c-surface:    #E9E4DC;
+
+  --c-ink:        rgba(18, 13, 6, 0.90);
+  --c-ink-soft:   rgba(18, 13, 6, 0.62);
+  --c-ink-muted:  rgba(18, 13, 6, 0.40);
+  --c-ink-faint:  rgba(18, 13, 6, 0.20);
+
+  --c-border:     rgba(18, 13, 6, 0.08);
+  --c-border-mid: rgba(18, 13, 6, 0.15);
+
+  --shadow-card:  0 8px 32px rgba(18, 13, 6, 0.08);
+  --shadow-focus: 0 0 0 3px rgba(62, 198, 212, 0.22);
+}
+
 
 /* 2. RESET */
 
@@ -174,6 +192,11 @@ strong {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--c-border);
+  transition: background var(--ease-base);
+}
+
+html[data-theme="light"] .navbar {
+  background: rgba(248, 246, 242, 0.90);
 }
 
 .nav-content {
@@ -321,7 +344,7 @@ strong {
 
 .btn-primary {
   background: var(--c-cyan);
-  color: var(--c-night);
+  color: #09090B;
   border-color: var(--c-cyan);
 }
 
@@ -355,7 +378,29 @@ footer {
 }
 
 
-/* 9. RESPONSIVE COMPARTIDO */
+/* 9. THEME TOGGLE */
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--c-ink-muted);
+  transition: color var(--ease);
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover { color: var(--c-ink); }
+
+.icon-sun  { display: none; }
+.icon-moon { display: block; }
+
+html[data-theme="light"] .icon-sun  { display: block; }
+html[data-theme="light"] .icon-moon { display: none; }
+
+
+/* 10. RESPONSIVE COMPARTIDO */
 
 @media (max-width: 768px) {
   .desktop-nav { display: none; }

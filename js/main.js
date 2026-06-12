@@ -52,21 +52,19 @@ if (sections.length) {
 
 /* THEME TOGGLE */
 function applyTheme(theme) {
-    const isDark = theme === "dark";
-    document.body.classList.toggle("dark-mode", isDark);
+    document.documentElement.setAttribute("data-theme", theme);
     if (themeToggle) {
-        themeToggle.setAttribute("aria-pressed", String(isDark));
-        themeToggle.setAttribute("aria-label", isDark ? "Activar modo claro" : "Activar modo oscuro");
+        themeToggle.setAttribute("aria-label", theme === "dark" ? "Activar modo claro" : "Activar modo oscuro");
     }
     localStorage.setItem("theme", theme);
 }
 
-const savedTheme = localStorage.getItem("theme") || "light";
+const savedTheme = localStorage.getItem("theme") || "dark";
 applyTheme(savedTheme);
 
 if (themeToggle) {
     themeToggle.addEventListener("click", () => {
-        const isDark = document.body.classList.contains("dark-mode");
+        const isDark = document.documentElement.getAttribute("data-theme") === "dark";
         applyTheme(isDark ? "light" : "dark");
     });
 }
