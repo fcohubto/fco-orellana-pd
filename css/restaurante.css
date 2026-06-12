@@ -943,6 +943,16 @@
     padding: 24px 0 24px 24px;
 }
 
+.guerrilla-box .hypo-item {
+    background: transparent;
+    box-shadow: none;
+    border-color: var(--c-border-mid);
+}
+
+.guerrilla-box .hypo-item:hover {
+    box-shadow: none;
+}
+
 .hypo-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -967,8 +977,8 @@
 /* Estilo específico para los iconos de Lucide dentro de esos spans */
 
 .card-icon svg {
-    width: 48px;
-    height: 48px;
+    width: 32px;
+    height: 32px;
     stroke: var(--accent);
     stroke-width: 2px;
     fill: none;
@@ -989,7 +999,7 @@
 }
 
 .guerrilla-box h4 {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: 700;
     color: var(--text);
     margin: 0;
@@ -1005,7 +1015,7 @@
 }
 
 .hypo-item h4 {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: 700;
     color: var(--text);
     margin: 0;

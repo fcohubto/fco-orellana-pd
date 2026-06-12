@@ -522,6 +522,12 @@
     padding: 24px 0 24px 24px;
 }
 
+.guerrilla-box .hypo-item {
+    background: transparent;
+    box-shadow: none;
+    border-color: var(--c-border-mid);
+}
+
 .hypo-item:hover {
     transform: translateY(-4px);
     border-color: var(--accent);
