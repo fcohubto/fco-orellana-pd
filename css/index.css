@@ -422,7 +422,7 @@
   }
 
   .project-card--featured .project-meta h3 {
-    font-size: clamp(1.4rem, 5vw, 1.75rem);
+    font-size: 2rem;
   }
 
   .project-meta h3 {
@@ -457,6 +457,10 @@
     gap: var(--sp-6);
   }
 
+  .project-card--featured .project-meta h3 {
+    font-size: 1.75rem;
+  }
+
   .project-meta h3 {
     font-size: 1.25rem;
   }
@@ -473,6 +477,10 @@
 @media (max-width: 480px) {
   .hero h1 {
     font-size: clamp(2rem, 11vw, 2.5rem);
+  }
+
+  .project-card--featured .project-meta h3 {
+    font-size: 1.5rem;
   }
 
   .project-meta h3 {
