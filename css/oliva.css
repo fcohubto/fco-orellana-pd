@@ -223,7 +223,7 @@
 }
 
 .metric-card {
-    background: var(--surface);
+    background: var(--c-frost);
     border: none;
     border-radius: var(--card-radius);
     padding: 24px;
