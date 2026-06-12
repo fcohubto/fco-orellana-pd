@@ -373,10 +373,6 @@ h4.feature-title {
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    border-radius: 16px;
-    overflow: hidden;
-    background-color: var(--c-surface);
-    padding: 40px;
 }
 
 
