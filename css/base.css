@@ -38,6 +38,7 @@
   --text-md:   1.1rem;
   --text-lg:   1.15rem;
   --text-xl:   1.2rem;
+  --text-h3:   1.5rem;
   --text-h2:   clamp(1.5rem, 3vw, 2.25rem);
   --text-h1:   clamp(2.75rem, 7vw, 5rem);
 
@@ -439,7 +440,7 @@ html[data-theme="light"] .icon-moon { display: none; }
   display: flex;
   list-style: none;
   gap: 12px;
-  font-size: 0.85rem;
+  font-size: var(--text-sm);
   font-weight: 500;
   color: var(--c-ink-soft);
 }

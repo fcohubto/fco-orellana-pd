@@ -109,7 +109,7 @@
 /* El texto (Name) */
 
 .step-name {
-    font-size: 0.85rem;
+    font-size: var(--text-sm);
     font-weight: 700;
     color: var(--text-soft);
     text-transform: uppercase;
@@ -290,15 +290,15 @@
     font-size: 2.25rem;
     line-height: 1.2;
     margin-bottom: 24px;
-    color: var(--text-soft);
+    color: var(--text);
 }
 
 .process-header h3 {
     max-width: 700px;
-    font-size: 1.75rem;
+    font-size: var(--text-h3);
     line-height: 1.2;
     margin-bottom: 24px;
-    color: var(--text-soft);
+    color: var(--text);
 }
 
 
@@ -325,8 +325,9 @@
 .project-header h1 {
     font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 700;
-    line-height: 1.5;
+    line-height: 1.25;
     margin-bottom: 24px;
+    margin-top: 24px;
     letter-spacing: -0.02em;
     max-width: 860px;
     color: var(--text);
@@ -368,11 +369,12 @@
 
 .project-meta-item span {
     display: block;
-    font-size: 0.75rem;
+    font-size: var(--text-sm);
     font-weight: 600;
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 8px;
+    letter-spacing: 0.12em;
 }
 
 .card-body-metric,
@@ -380,20 +382,21 @@
     font-size: 1rem;
     font-weight: 400;
     margin: 0;
+    color: var(--text-soft);
 }
 
 .problem-statement h2 {
     font-size: 2.25rem;
     line-height: 1.5;
     letter-spacing: -0.02em;
-    color: var(--text-soft);
+    color: var(--text);
 }
 
 .problem-statement .col-text h3 {
     display: inline-block;
     font-size: 1.25rem;
     font-weight: 400;
-    color: var(--text-soft);
+    color: var(--text);
     margin-bottom: 16px;
     letter-spacing: 0.15em;
 }
@@ -623,7 +626,7 @@
 .slide-content h4 {
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--text-soft);
+    color: var(--text);
     margin: 12px 0;
 }
 
@@ -747,13 +750,13 @@
 }
 
 .col-text h3 {
-    font-size: 1.75rem;
-    color: var(--text-soft);
+    font-size: var(--text-h3);
+    color: var(--text);
 }
 
 .col-text h4 {
     font-size: 1.5rem;
-    color: var(--text-soft);
+    color: var(--text);
 }
 
 .col-text p {
@@ -774,9 +777,9 @@
 }
 
 .highlight-list strong {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--text-soft);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
 }
 
 .highlight-list p {
@@ -876,7 +879,7 @@
 }
 
 .question-text {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 400;
     font-style: italic;
     color: var(--text-soft);
@@ -887,11 +890,12 @@
 }
 
 .user-info {
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 1rem;
+    font-weight: 600;
     color: var(--text-soft);
-    margin-top: 32px;
+    margin-top: 24px;
     display: block;
+    letter-spacing: 0.04em;
 }
 
 .guerrilla-box {
@@ -901,9 +905,9 @@
 }
 
 .guerrilla-box h3 {
-    font-size: 1.75rem;
+    font-size: var(--text-h3);
     font-weight: 700;
-    color: var(--text-soft);
+    color: var(--text);
     margin: 0 0 40px 0;
     line-height: 1.5;
 }
@@ -976,7 +980,7 @@
 .guerrilla-box h4 {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--text-soft);
+    color: var(--text);
     margin: 0;
     line-height: 1.5;
 }
@@ -992,7 +996,7 @@
 .hypo-item h4 {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--text-soft);
+    color: var(--text);
     margin: 0;
     line-height: 1.5;
 }
@@ -1081,14 +1085,14 @@
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 24px;
-    color: var(--text-soft);
+    color: var(--text);
     letter-spacing: -0.02em;
 }
 
 h4.feature-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text-soft);
+    color: var(--text);
     margin: 0;
     line-height: 1.5;
     padding-bottom: 24px;
@@ -1201,11 +1205,12 @@ h4.feature-title {
     background-color: var(--accent);
     color: var(--text-on-color);
     display: inline-block;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 400;
-    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    border-radius: var(--radius-xs);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     margin-bottom: 16px;
 }
 
