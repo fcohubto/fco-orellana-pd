@@ -137,7 +137,7 @@ window.addEventListener("resize", () => {
     if (window.innerWidth > 900) closeMobileMenu();
 });
 
-/* --- LOGICA STEPPER (OTRO PROYECTO) --- */
+/* --- LOGICA STEPPER (todos los casos) --- */
 const stepperObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -149,17 +149,22 @@ const stepperObserver = new IntersectionObserver((entries) => {
     });
 }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
 
-document.querySelectorAll('article[id]').forEach((section) => stepperObserver.observe(section));
+document.querySelectorAll('article[id], section[id^="cap"]').forEach((el) => stepperObserver.observe(el));
 
 const stepperElement = document.querySelector('.project-stepper');
-const caseStudyLayout = document.querySelector('.case-study-layout');
-if (caseStudyLayout && stepperElement) {
-    const visibilityObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            entry.isIntersecting ? stepperElement.classList.add('is-visible') : stepperElement.classList.remove('is-visible');
-        });
-    }, { rootMargin: "0% 0px -20% 0px", threshold: 0.01 });
-    visibilityObserver.observe(caseStudyLayout);
+if (stepperElement) {
+    const trigger = document.querySelector('.case-study-layout') ||
+                    document.querySelector('section[id="cap1"], article[id="cap1"]');
+    if (trigger) {
+        const visibilityObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                entry.isIntersecting
+                    ? stepperElement.classList.add('is-visible')
+                    : stepperElement.classList.remove('is-visible');
+            });
+        }, { rootMargin: "0% 0px -20% 0px", threshold: 0.01 });
+        visibilityObserver.observe(trigger);
+    }
 }
 
 /* --- LOGICA CASO DE ESTUDIO ACTUAL (PROGRESS NAV) --- */

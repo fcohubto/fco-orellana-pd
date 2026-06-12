@@ -120,7 +120,7 @@ h4.feature-title {
 }
 
 
-/* STEPPER FLOTANTE */
+/* CASE STUDY LAYOUT */
 
 .case-study-layout {
     display: flex;
@@ -135,110 +135,7 @@ h4.feature-title {
     min-width: 0;
 }
 
-.project-stepper {
-    position: fixed;
-    top: 50%;
-    right: 32px;
-    transform: translateY(-50%);
-    z-index: 100;
-    opacity: 0;
-    pointer-events: none;
-    visibility: hidden;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    background: rgba(9, 9, 11, 0.88);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 20px 12px;
-    border-radius: 40px;
-    border: 1px solid var(--c-border-mid);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-article[id],
-section[id] {
-    scroll-margin-top: 120px;
-}
-
-.project-stepper.is-visible {
-    opacity: 1;
-    pointer-events: auto;
-    visibility: visible;
-    right: 40px;
-    /* Se desliza suavemente hacia adentro */
-}
-
-.stepper-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 12px;
-    text-decoration: none;
-    color: var(--text-soft);
-    opacity: 0.3;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.stepper-item::after {
-    content: "";
-    width: 8px;
-    height: 8px;
-    background: var(--text-soft);
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
-.stepper-item:hover {
-    color: var(--accent) !important;
-    opacity: 1;
-}
-
-.stepper-item:hover .step-label {
-    color: var(--accent);
-    font-weight: 600;
-    /* El grosor solicitado */
-}
-
-.stepper-item:hover::after {
-    background: var(--accent) !important;
-}
-
-.step-label {
-    font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    display: none;
-}
-
-.stepper-item.active {
-    opacity: 1;
-    color: var(--accent);
-    transform: translateX(5px);
-}
-
-.stepper-item.active .step-label {
-    font-weight: 700;
-    letter-spacing: 0.1em;
-}
-
-.project-stepper:hover .step-label {
-    display: block;
-}
-
-.stepper-item.active::after {
-    background-color: var(--accent) !important;
-    opacity: 1;
-}
-
-
-/* Cambia el círculo a naranja también cuando pasas el mouse (Hover) */
-
-.stepper-item:hover::after {
-    background-color: var(--accent) !important;
-    opacity: 1;
-}
+/* stepper dark overrides removed — styles in base.css */
 
 
 /* PROCESS INTRO & ZOOM */
@@ -1201,9 +1098,6 @@ section[id] {
     right: 20px;
 }
 
-/* stepper dark overrides removed — handled by bridge tokens */
-
-
 /*QUINTO AJUSTE*/
 
 
@@ -1230,57 +1124,6 @@ section[id] {
     }
     .case-study-layout {
         display: block;
-    }
-    /* STEPPER: Conversión a Dock Superior Fijo */
-    .project-stepper {
-        position: fixed;
-        top: 100px;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: 48px;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 40px;
-        background: rgba(9, 9, 11, 0.92);
-        border-bottom: 1px solid var(--c-border-mid);
-        z-index: 4000;
-        padding: 0;
-    }
-    /* 3. LIMPIEZA DEL CONTENIDO (Basado en tu HTML) */
-    /* Ocultamos los puntos definitivamente */
-    .stepper-item::after {
-        display: none !important;
-    }
-    /* OCULTAMOS EL TEXTO LARGO (Inmersión, Estrategia, etc.) */
-    .step-label {
-        display: none !important;
-    }
-    /* MOSTRAMOS SOLO EL NÚMERO (Cap. 01, Cap. 02...) */
-    .step-number {
-        display: block !important;
-        font-size: 0.85rem;
-        font-weight: 500;
-        letter-spacing: 0.02em;
-        white-space: nowrap;
-    }
-    .stepper-item {
-        opacity: 0.4;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-    }
-    .stepper-item.active {
-        opacity: 1;
-        color: var(--accent) !important;
-    }
-    .stepper-item.active .step-number {
-        font-weight: 700;
-    }
-    /* 4. Compensación de scroll */
-    .case-study-content {
-        padding-top: 60px;
     }
     .col-visual img,
     .feature-visual-media,
@@ -1343,14 +1186,6 @@ section[id] {
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
     }
-    .project-stepper {
-        top: 100px;
-        /* Sigue al header si este encoge */
-        gap: 60px;
-    }
-    .step-label {
-        font-size: 0.8rem;
-    }
     /* Refuerzo de Stat Cards */
     .stat-card {
         padding: 40px 30px !important;
@@ -1391,14 +1226,6 @@ section[id] {
     .question-text {
         font-size: 1.4rem !important;
         line-height: 1.4;
-    }
-    /* Ajuste Stepper para Header Móvil */
-    .project-stepper {
-        top: 100px;
-        gap: 15px;
-    }
-    .step-number {
-        font-size: 0.8rem;
     }
     /* Cards e Impacto con control tipográfico */
     .stat-card {
@@ -1446,16 +1273,6 @@ section[id] {
     .small-text {
         font-size: 1rem;
         line-height: 1.6;
-    }
-    /* Stepper Minimalista */
-    .project-stepper {
-     top: 100px;
-        justify-content: space-evenly;
-        gap: 5px;
-        height: 44px;
-    }
-    .step-number {
-        font-size: 0.75rem;
     }
     .project-meta-grid {
         grid-template-columns: 1fr;
