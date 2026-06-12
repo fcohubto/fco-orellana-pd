@@ -334,10 +334,12 @@
 }
 
 .project-subtitle {
-    font-size: 1.25rem;
-    color: var(--text-soft);
-    max-width: 850px;
-    line-height: 1.5;
+     font-size: var(--text-md);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-relaxed);
+  color: var(--c-ink-soft);
+  max-width: 850px;
+  margin-bottom: var(--sp-10);
 }
 
 .case-role {
@@ -930,6 +932,15 @@
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
     border: 1px solid var(--line, #e5e7eb);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#cap1 .col-text .hypo-item {
+    background: transparent;
+    border: none;
+    border-left: 2px solid var(--c-border-mid);
+    border-radius: 0;
+    box-shadow: none;
+    padding: 24px 0 24px 24px;
 }
 
 .hypo-item:hover {

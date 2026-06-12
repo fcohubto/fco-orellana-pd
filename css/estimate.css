@@ -107,7 +107,7 @@
 }
 
 .step-name {
-    font-size: var(--text-sm);
+    font-size: 0.85rem;
     font-weight: 700;
     color: var(--text-soft);
     text-transform: uppercase;
@@ -148,11 +148,12 @@
 }
 
 .project-subtitle {
-    font-size: 1.25rem;
-    color: var(--text-soft);
-    max-width: 850px;
-    line-height: 1.5;
-    margin-bottom: 24px;
+      font-size: var(--text-md);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-relaxed);
+  color: var(--c-ink-soft);
+  max-width: 850px;
+  margin-bottom: var(--sp-10);
 }
 
 .case-role {
@@ -386,7 +387,7 @@
 }
 
 .col-text h3 {
-    font-size: var(--text-h3);
+    font-size: 1.5rem;
     color: var(--text);
     font-weight: 600;
     margin-bottom: 12px;
@@ -501,6 +502,15 @@
     border-radius: var(--card-radius);
     border: 1px solid var(--line);
     transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+#cap1 .col-text .hypo-item {
+    background: transparent;
+    border: none;
+    border-left: 2px solid var(--c-border-mid);
+    border-radius: 0;
+    box-shadow: none;
+    padding: 24px 0 24px 24px;
 }
 
 .hypo-item:hover {
@@ -718,7 +728,7 @@
     display: inline-block;
     padding: 4px 10px;
     border-radius: var(--radius-xs);
-    font-size: var(--text-sm);
+    font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
