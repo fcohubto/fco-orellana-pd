@@ -109,23 +109,6 @@
     align-items: start;
 }
 
-.four-columns-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
-    align-items: start;
-}
-
-.ia-flow-grid,
-.pillars-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 24px;
-    margin-top: 32px;
-}
-
-.text-accent { color: var(--accent); }
-
 .image-placeholder { min-height: 350px; width: 100%; }
 .image-placeholder.mini { min-height: 250px; }
 .image-placeholder img { max-width: 90%; height: auto; object-fit: contain; border-radius: 8px; }
@@ -242,12 +225,6 @@
 
 
 /* --- ZOOM DE IMAGEN --- */
-
-.image-zoom-wrapper {
-    cursor: zoom-in;
-    overflow: hidden;
-    border-radius: 8px;
-}
 
 .image-zoom-trigger {
     cursor: zoom-in;
@@ -389,14 +366,6 @@
 .question-text strong {
     font-weight: 700;
     color: var(--accent);
-}
-
-
-/* --- GUERRILLA BOX H3 OVERRIDE --- */
-
-.guerrilla-box h3 {
-    font-size: 1.25rem;
-    line-height: 1.2;
 }
 
 

@@ -49,28 +49,6 @@
 }
 
 
-/* --- SECTION TITLE (con subtexto asociado) --- */
-
-.section-title h2 {
-    font-size: var(--text-h2);
-    font-weight: 700;
-    color: var(--text);
-}
-
-.section-title h3 {
-    font-size: var(--text-h3);
-    font-weight: 700;
-    color: var(--text);
-    text-align: left;
-}
-
-.section-title p {
-    font-size: 1.125rem;
-    line-height: 1.6;
-    color: var(--text-soft);
-}
-
-
 /* --- LIGHTBOX --- */
 
 .lightbox {
@@ -150,18 +128,6 @@
 
 /* --- BADGE (etiqueta de sección) --- */
 
-.badge {
-    display: inline-block;
-    font-size: 1rem;
-    font-weight: 400;
-    padding: 6px 14px;
-    background-color: rgba(62, 198, 212, 0.08);
-    color: var(--accent);
-    border-radius: 30px;
-    margin-bottom: var(--sp-4);
-}
-
-
 /* --- QA BOX (versión rellena) --- */
 
 .qa-box {
@@ -232,14 +198,6 @@
     stroke: var(--accent);
     stroke-width: 2px;
     fill: none;
-}
-
-.status-dot {
-    width: 10px;
-    height: 10px;
-    background-color: var(--accent);
-    border-radius: 50%;
-    flex-shrink: 0;
 }
 
 .guerrilla-box h4 {
@@ -366,34 +324,6 @@
     transform: scale(1.2);
 }
 
-.carousel-nav {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.nav-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-    color: var(--text-soft);
-    transition: all 0.3s ease;
-}
-
-.nav-btn:hover {
-    transform: scale(1.1);
-    color: var(--accent);
-}
-
-.nav-btn:disabled,
-.nav-btn[style*="pointer-events: none"] {
-    opacity: 0.2;
-    cursor: not-allowed;
-}
-
-
 /* --- FEATURE BLOCK SYSTEM --- */
 
 .feature-block {
@@ -510,12 +440,6 @@
     line-height: 1.5;
     margin: 0;
 }
-
-.impact-dashboard-wrapper {
-    padding: 100px 0;
-    position: relative;
-}
-
 
 /* --- STATUS BADGE VARIANTS --- */
 
