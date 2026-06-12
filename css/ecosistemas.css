@@ -99,11 +99,12 @@ PROYECTO: ECOSISTEMA DE PAGOS POS (SISTEMA DE DISEÑO)
 /* navbar + menu-toggle handled by base.css */
 
 .feature-title {
-    font-size: 2rem;
+    font-size: 2.25rem;
     font-weight: 700;
     margin-bottom: 24px;
     color: var(--text);
     letter-spacing: -0.02em;
+    line-height: 1.2;
 }
 
 h4.feature-title {
@@ -321,10 +322,12 @@ h4.feature-title {
 }
 
 .project-subtitle {
-    font-size: 1.25rem;
-    color: var(--text-soft);
-    max-width: 850px;
-    line-height: 1.5;
+     font-size: var(--text-md);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-relaxed);
+  color: var(--c-ink-soft);
+  max-width: 850px;
+  margin-bottom: var(--sp-10);
 }
 
 .case-role {
@@ -935,30 +938,6 @@ h4.feature-title {
 }
 
 
-.impact-label {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--c-accent);
-    margin-bottom: 16px;
-}
-
-.impact-dashboard-grid .metric-card h4 {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--c-ink);
-    margin: 0 0 8px 0;
-    line-height: 1.4;
-}
-
-.impact-dashboard-grid .metric-card p {
-    font-size: 0.9375rem;
-    color: var(--c-ink-soft);
-    line-height: 1.6;
-    margin: 0;
-}
 
 /* SUCCESS (Verde - Esmeralda más profundo) */
 

@@ -530,6 +530,34 @@ html[data-theme="light"] .icon-moon { display: none; }
 }
 
 
+/* 11c. IMPACT-LABEL (eyebrow estandarizado para cards de resultado) */
+
+.impact-label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label);
+  color: var(--c-cyan);
+  margin-bottom: var(--sp-4);
+}
+
+.impact-dashboard-grid .metric-card h4 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--c-ink);
+  margin: 0 0 var(--sp-2) 0;
+  line-height: var(--lh-snug);
+}
+
+.impact-dashboard-grid .metric-card p {
+  font-size: var(--text-base);
+  color: var(--c-ink-soft);
+  line-height: var(--lh-relaxed);
+  margin: 0;
+}
+
+
 /* 12. RESPONSIVE COMPARTIDO */
 
 @media (max-width: 768px) {
