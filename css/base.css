@@ -339,7 +339,7 @@ html[data-theme="light"] .navbar {
 }
 
 .tag-secondary {
-  color: var(--c-ink-muted);
+  color: var(--c-ink-soft);
   border: 1px solid var(--c-border-mid);
   font-size: var(--text-xs);
 }

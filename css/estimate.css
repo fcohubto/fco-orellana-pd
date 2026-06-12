@@ -146,7 +146,7 @@
     display: block;
 }
 
-.wo-line-label  { color: var(--c-ink-muted); }
+.wo-line-label  { color: var(--c-ink-soft); }
 .wo-line-value  { color: var(--c-ink); font-weight: 600; }
 .wo-line-accent { color: var(--c-cyan); font-weight: 700; font-size: 1rem; font-family: var(--font-display); }
 
