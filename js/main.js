@@ -225,27 +225,36 @@ document.addEventListener('click', (e) => {
 const allCarousels = document.querySelectorAll('.study-carousel-container, .carousel-track');
 
 allCarousels.forEach((track) => {
-    // Buscamos los dots que están específicamente en el mismo contenedor padre que este carrusel
     const container = track.closest('.carousel-main-container') || track.parentElement;
     const dots = container.querySelectorAll('.dot');
+    const prevBtn = container.querySelector('.prev-btn');
+    const nextBtn = container.querySelector('.next-btn');
 
-    if (track && dots.length > 0) {
-        track.addEventListener('scroll', () => {
-            const width = track.clientWidth;
-            const scrollLeft = track.scrollLeft;
+    const updateState = () => {
+        const width = track.clientWidth;
+        if (!width) return;
+        const currentIndex = Math.floor((track.scrollLeft + 10) / width);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+        const atStart = track.scrollLeft <= 10;
+        const atEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 10;
+        if (prevBtn) prevBtn.disabled = atStart;
+        if (nextBtn) nextBtn.disabled = atEnd;
+    };
 
-            // Calculamos el índice con el umbral de 10px para precisión
-            const currentIndex = Math.floor((scrollLeft + 10) / width);
+    track.addEventListener('scroll', updateState, { passive: true });
 
-            dots.forEach((dot, index) => {
-                if (index === currentIndex) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-        }, { passive: true });
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' });
+        });
     }
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
+        });
+    }
+
+    updateState();
 });
 /* --- BEFORE/AFTER SLIDER LOGIC --- */
 const sliderContainer = document.querySelector('.comparison-slider-container');

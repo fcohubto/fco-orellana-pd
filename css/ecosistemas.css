@@ -29,6 +29,11 @@ PROYECTO: ECOSISTEMA DE PAGOS POS (SISTEMA DE DISEÑO)
     margin: 0;
     border-bottom: 1px solid var(--line-separator);
     overflow: visible;
+    position: sticky;
+    top: var(--nav-h, 64px);
+    z-index: 90;
+    background: var(--bg);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .project-progress-nav .container {
@@ -141,6 +146,10 @@ h4.feature-title {
 
 .section-content {
     padding: 0;
+}
+
+.section-wrapper.band .section-content {
+    padding-bottom: 80px;
 }
 
 .section-content h2 {
@@ -903,6 +912,13 @@ h4.feature-title {
     align-items: start;
 }
 
+.main-impact-column,
+.secondary-impact-column {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
 .status-badge {
     background-color: var(--accent);
     color: var(--surface);
@@ -1002,6 +1018,58 @@ h4.feature-title {
 
 .table-col:not(:first-child) {
     border-left: 1px solid var(--accent);
+}
+
+
+/* Botones de navegación del carrusel */
+
+.carousel-main-container {
+    position: relative;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: var(--c-surface);
+    border: 1px solid var(--c-border-mid);
+    color: var(--c-ink-soft);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+    background: var(--c-accent);
+    border-color: var(--c-accent);
+    color: var(--c-night);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.prev-btn {
+    left: -20px;
+}
+
+.next-btn {
+    right: -20px;
+}
+
+@media (max-width: 768px) {
+    .carousel-btn {
+        display: none;
+    }
 }
 
 
