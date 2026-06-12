@@ -305,6 +305,37 @@
     margin-top: 32px;
 }
 
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--c-border-mid);
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color var(--ease-base), color var(--ease-base);
+    z-index: 10;
+}
+
+.carousel-arrow:hover {
+    border-color: var(--c-accent);
+    color: var(--c-accent);
+}
+
+.carousel-arrow:disabled {
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+.prev-btn.carousel-arrow { left: 12px; }
+.next-btn.carousel-arrow { right: 12px; }
+
 .dot {
     width: 12px;
     height: 12px;
@@ -396,7 +427,7 @@
     border: none;
     border-radius: var(--card-radius);
     padding: 24px;
-    text-align: center;
+    text-align: left;
     position: relative;
     box-shadow:
         5px 5px 14px rgba(0, 0, 0, 0.55),
@@ -539,6 +570,7 @@
 /* --- LIGHT MODE — NEUMORFISMO --- */
 
 html[data-theme="light"] .stat-card {
+    background: var(--c-night);
     box-shadow:
         5px 5px 12px rgba(18, 13, 6, 0.11),
         -5px -5px 12px rgba(255, 255, 255, 0.82);
