@@ -128,10 +128,11 @@
 
 /* --- BADGE (etiqueta de sección) --- */
 
-/* --- QA BOX (versión rellena) --- */
+/* --- QA BOX --- */
 
 .qa-box {
-    background-color: var(--surface-2);
+    background: transparent;
+    border: 1px solid var(--c-border-mid);
     padding: 32px;
     border-radius: 12px;
 }
@@ -162,14 +163,14 @@
 }
 
 
-/* --- HYPO ITEM (override: tarjeta rellena en este caso) --- */
+/* --- HYPO ITEM (override: outline en este caso) --- */
 
 /* Especificidad 0,2,0 para ganar sobre caso.css .guerrilla-box .hypo-item */
 .section-wrapper .hypo-item,
 .guerrilla-box .hypo-item {
     padding: 32px;
-    background: var(--surface);
-    border: 1px solid var(--line);
+    background: transparent;
+    border: 1px solid var(--c-border-mid);
     border-radius: var(--card-radius);
     box-shadow: none;
 }
@@ -251,9 +252,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    background: var(--c-surface);
+    background: transparent;
     border-radius: 24px;
-    border: 1px solid var(--line);
+    border: 1px solid var(--c-border-mid);
     scroll-snap-align: center;
     overflow: hidden;
 }
@@ -296,15 +297,6 @@
     line-height: 1.6;
 }
 
-.slide-visual {
-    height: 100%;
-    background: var(--surface-2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.slide-visual img { width: 100%; height: 100%; object-fit: cover; }
 
 .carousel-dots {
     display: flex;
