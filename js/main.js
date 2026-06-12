@@ -256,6 +256,30 @@ allCarousels.forEach((track) => {
 
     updateState();
 });
+/* --- SCROLL REVEAL --- */
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.10, rootMargin: '0px 0px -30px 0px' });
+
+document.querySelectorAll('[data-animate]').forEach(el => revealObserver.observe(el));
+
+// Auto-anima elementos estructurales de casos de estudio
+document.querySelectorAll(
+    '.process-header, .stat-card, .metric-card, .highlight-list, ' +
+    '.image-zoom-trigger, .data-box, .technical-table-wrapper, ' +
+    '.impact-dashboard-grid, .carousel-main-container'
+).forEach(el => {
+    if (!el.closest('.project-progress-nav') && !el.dataset.animate) {
+        el.dataset.animate = '';
+        revealObserver.observe(el);
+    }
+});
+
 /* --- BEFORE/AFTER SLIDER LOGIC --- */
 const sliderContainer = document.querySelector('.comparison-slider-container');
 const sliderHandle = document.querySelector('.slider-handle');

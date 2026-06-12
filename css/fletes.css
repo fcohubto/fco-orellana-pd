@@ -270,11 +270,33 @@
 
 .metric-card {
     background: var(--surface);
-    padding: 40px 32px;
+    border: none;
     border-radius: var(--card-radius);
-    border: 1px solid var(--line);
+    padding: 24px;
     display: flex;
     flex-direction: column;
+    position: relative;
+    box-shadow:
+        5px 5px 14px rgba(0, 0, 0, 0.55),
+        -3px -3px 8px rgba(255, 255, 255, 0.04);
+    transition: box-shadow 0.3s ease;
+}
+
+.metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--c-accent);
+    border-radius: var(--card-radius) var(--card-radius) 0 0;
+}
+
+.metric-card:hover {
+    box-shadow:
+        7px 7px 18px rgba(0, 0, 0, 0.65),
+        -4px -4px 10px rgba(255, 255, 255, 0.06);
 }
 
 .metric-value {
@@ -885,13 +907,44 @@
 }
 
 .metric-card.roadmap-card {
-    border-style: dashed;
+    border: 1px dashed var(--line-separator);
+    box-shadow: none;
 }
 
 .impact-highlight {
     font-size: 1.125rem;
     font-weight: 600;
     color: var(--text-soft) !important;
+}
+
+
+/* ============================================================
+   LIGHT MODE — NEUMORFISMO
+   ============================================================ */
+
+html[data-theme="light"] .metric-card {
+    box-shadow:
+        5px 5px 12px rgba(18, 13, 6, 0.11),
+        -5px -5px 12px rgba(255, 255, 255, 0.82);
+}
+
+html[data-theme="light"] .metric-card:hover {
+    box-shadow:
+        7px 7px 16px rgba(18, 13, 6, 0.14),
+        -7px -7px 16px rgba(255, 255, 255, 0.90);
+}
+
+html[data-theme="light"] .metric-card.roadmap-card {
+    box-shadow: none;
+}
+
+html[data-theme="light"] .data-box {
+    background: var(--c-frost, #F6F4F0);
+    border-left: none;
+    border-radius: var(--radius-sm, 8px);
+    box-shadow:
+        inset 3px 3px 8px rgba(18, 13, 6, 0.09),
+        inset -3px -3px 8px rgba(255, 255, 255, 0.75);
 }
 
 .status-badge {

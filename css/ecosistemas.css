@@ -73,7 +73,7 @@ PROYECTO: ECOSISTEMA DE PAGOS POS (SISTEMA DE DISEÑO)
 }
 
 .step-name {
-    font-size: 0.85rem;
+    font-size: var(--text-sm);
     font-weight: 700;
     color: var(--text-soft);
     text-transform: uppercase;
@@ -488,19 +488,35 @@ h4.feature-title {
 }
 
 .metric-card {
-    background: transparent;
+    background: var(--c-frost);
     border: none;
-    border-top: 2px solid var(--c-accent);
-    border-radius: 0;
-    box-shadow: none;
-    padding: 32px 0 0 0;
+    border-radius: var(--radius-sm);
+    padding: 24px;
     display: flex;
     flex-direction: column;
+    position: relative;
+    box-shadow:
+        5px 5px 14px rgba(0, 0, 0, 0.55),
+        -3px -3px 8px rgba(255, 255, 255, 0.04);
+    transition: box-shadow 0.3s ease;
+}
+
+.metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--c-accent);
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
 }
 
 .metric-card:hover {
     transform: none;
-    box-shadow: none;
+    box-shadow:
+        7px 7px 18px rgba(0, 0, 0, 0.65),
+        -4px -4px 10px rgba(255, 255, 255, 0.06);
 }
 
 .metric-card h3 {
@@ -627,19 +643,34 @@ h4.feature-title {
 }
 
 .stat-card {
-    background: transparent;
+    background: var(--c-frost);
     border: none;
-    border-top: 2px solid var(--c-accent);
-    border-radius: 0;
-    box-shadow: none;
-    padding: 32px 0 0 0;
+    border-radius: var(--radius-sm);
+    padding: 24px;
     text-align: left;
-    transition: none;
+    position: relative;
+    box-shadow:
+        5px 5px 14px rgba(0, 0, 0, 0.55),
+        -3px -3px 8px rgba(255, 255, 255, 0.04);
+    transition: box-shadow 0.3s ease;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--c-accent);
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
 }
 
 .stat-card:hover {
     transform: none;
-    box-shadow: none;
+    box-shadow:
+        7px 7px 18px rgba(0, 0, 0, 0.65),
+        -4px -4px 10px rgba(255, 255, 255, 0.06);
 }
 
 .stat-card h4 {
@@ -1442,4 +1473,36 @@ h4.feature-title {
     .stat-card:hover {
         transform: none !important;
     }
+}
+
+
+/* ============================================================
+   LIGHT MODE — NEUMORFISMO
+   Substrato: #F8F6F2 → #F6F4F0 → #E9E4DC
+   Fórmula: sombra oscura (18,13,6) + luz blanca
+   ============================================================ */
+
+/* Light mode — sobreescribe fórmula de sombras para substrato cálido */
+html[data-theme="light"] .stat-card,
+html[data-theme="light"] .metric-card {
+    box-shadow:
+        5px 5px 12px rgba(18, 13, 6, 0.11),
+        -5px -5px 12px rgba(255, 255, 255, 0.82);
+}
+
+html[data-theme="light"] .stat-card:hover,
+html[data-theme="light"] .metric-card:hover {
+    box-shadow:
+        7px 7px 16px rgba(18, 13, 6, 0.14),
+        -7px -7px 16px rgba(255, 255, 255, 0.90);
+}
+
+/* Inset en section-description a modo de cita destacada */
+html[data-theme="light"] .data-box {
+    background: var(--c-frost, #F6F4F0);
+    border-left: none;
+    border-radius: var(--radius-sm, 8px);
+    box-shadow:
+        inset 3px 3px 8px rgba(18, 13, 6, 0.09),
+        inset -3px -3px 8px rgba(255, 255, 255, 0.75);
 }
