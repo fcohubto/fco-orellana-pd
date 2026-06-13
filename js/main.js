@@ -151,6 +151,35 @@ window.addEventListener("resize", () => {
     update();
 })();
 
+/* --- CHAPTER STEPPER ACTIVE STATE --- */
+(function () {
+    const capSections = Array.from(document.querySelectorAll('[id^="cap"]'));
+    const chapterSteps = document.querySelectorAll('.chapter-step[data-cap]');
+    if (!capSections.length || !chapterSteps.length) return;
+
+    function updateActiveChapter() {
+        const threshold = window.scrollY + 120;
+        let activeId = capSections[0].id;
+        for (const s of capSections) {
+            if (s.offsetTop <= threshold) activeId = s.id;
+        }
+        chapterSteps.forEach(step => {
+            step.classList.toggle('is-active', step.dataset.cap === activeId);
+        });
+    }
+
+    chapterSteps.forEach(step => {
+        step.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.getElementById(step.dataset.cap);
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    window.addEventListener('scroll', updateActiveChapter, { passive: true });
+    updateActiveChapter();
+})();
+
 // --- Sensor de salida del Stepper ---
 const stepperNav = document.querySelector('.project-progress-nav');
 const footer = document.querySelector('footer'); // Elemento que activa el ocultamiento
