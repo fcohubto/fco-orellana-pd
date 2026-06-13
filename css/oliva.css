@@ -235,5 +235,5 @@
     width: 40px;
     height: 40px;
     margin-bottom: var(--sp-1);
-    font-size: 28px;
+    font-size: var(--text-icon);
 }

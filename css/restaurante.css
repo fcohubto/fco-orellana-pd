@@ -479,9 +479,9 @@
 /* --- STATUS BADGE VARIANTS --- */
 
 .status-badge.success {
-    background: rgba(5, 150, 105, 0.12);
-    color: #059669;
-    border: 1px solid rgba(5, 150, 105, 0.2);
+    background: var(--c-success-bg);
+    color: var(--c-success);
+    border: 1px solid var(--c-success-border);
 }
 
 .status-badge.validated {
@@ -588,7 +588,7 @@
 /* --- STAT CARD — MÉTRICA COHERENTE --- */
 
 .stat-card .metric-value {
-    font-size: 1.75rem;
+    font-size: var(--text-icon);
     margin-bottom: var(--sp-2);
 }
 
@@ -747,4 +747,9 @@ html[data-theme="light"] .stat-card:hover {
     box-shadow:
         7px 7px 16px rgba(18, 13, 6, 0.14),
         -7px -7px 16px rgba(255, 255, 255, 0.90);
+}
+
+/* pos-terminal es intencionalmente oscuro — simula hardware real, no debe aclarar */
+html[data-theme="light"] .pos-screen {
+    background: #0d0d0d;
 }

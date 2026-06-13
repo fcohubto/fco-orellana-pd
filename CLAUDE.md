@@ -129,6 +129,11 @@ css/
 
 Los tokens de alias (`--accent`, `--bg`, `--surface`, etc.) en `oliva.css` y similares son puentes que mapean los tokens base a nombres semánticos locales — usarlos solo dentro de ese archivo.
 
+**Dos sistemas de tarjeta de métricas** — coexisten intencionalmente:
+- `.metric-card` en `caso.css`: outline transparente + borde superior cyan. Default en fletes, estimate, oliva, restaurante (hero).
+- `.metric-card` en `ecosistemas.css`: **override neumórfico** para ese caso. Si editas ecosistemas, las metric-cards usan esta versión, no la de caso.css.
+- `.stat-card` en `ecosistemas.css` y `restaurante.css`: variante neumórfica con `::before` decorativo. No mezclar con `.metric-card`.
+
 ---
 
 ## Componentes compartidos (`base.css`)

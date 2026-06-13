@@ -458,7 +458,7 @@
   }
 
   .project-card--featured .project-meta h3 {
-    font-size: 1.75rem;
+    font-size: var(--text-icon);
   }
 
   .project-meta h3 {

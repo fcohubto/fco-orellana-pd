@@ -556,9 +556,9 @@
 }
 
 .status-badge.success {
-    background: rgba(5, 150, 105, 0.12);
-    color: #059669;
-    border: 1px solid rgba(5, 150, 105, 0.2);
+    background: var(--c-success-bg);
+    color: var(--c-success);
+    border: 1px solid var(--c-success-border);
 }
 
 .status-badge.validated {

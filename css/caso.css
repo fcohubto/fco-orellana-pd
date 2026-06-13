@@ -150,9 +150,9 @@
 .project-meta-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 40px;
-    padding: 60px 0;
-    margin-top: 60px;
+    gap: var(--sp-10);
+    padding: var(--sp-16) 0;
+    margin-top: var(--sp-16);
     border-top: 1px solid var(--line-separator);
 }
 
@@ -294,7 +294,7 @@ h4.feature-title {
 .metrics-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
+    gap: var(--sp-8);
 }
 
 .two-columns-grid {
@@ -307,7 +307,7 @@ h4.feature-title {
 .feedback-grid-detailed {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: var(--sp-6);
 }
 
 .pillars-grid {
@@ -417,10 +417,10 @@ h4.feature-title {
     border: 1px solid var(--c-border-mid);
     border-top: 2px solid var(--c-cyan);
     border-radius: var(--card-radius);
-    padding: 32px;
+    padding: var(--sp-8);
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--sp-3);
     transition: border-color var(--ease-base);
 }
 
@@ -469,8 +469,8 @@ h4.feature-title {
 /* 11. RESEARCH — GUERRILLA BOX E INSIGHT CARDS */
 
 .guerrilla-box {
-    padding: 60px 0;
-    margin-top: 60px;
+    padding: var(--sp-16) 0;
+    margin-top: var(--sp-16);
 }
 
 .guerrilla-box h3 {
@@ -484,7 +484,7 @@ h4.feature-title {
 .hypothesis-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
+    gap: var(--sp-6);
     width: 100%;
 }
 
@@ -506,6 +506,22 @@ h4.feature-title {
     transform: none;
     box-shadow: none;
     border-left-color: var(--c-accent);
+}
+
+/* Card variant: casos que usan tarjeta rellena en lugar de left-border */
+.hypo-item--card {
+    padding: var(--sp-8);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: none;
+    border-radius: var(--card-radius);
+    box-shadow: none;
+}
+
+.hypo-item--card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: none;
 }
 
 /* Discovery cap1: idéntico al base — regla explícita para mayor claridad */
@@ -575,7 +591,7 @@ h4.feature-title {
 }
 
 .question-text {
-    font-size: 1.75rem;
+    font-size: var(--text-icon);
     font-weight: 400;
     font-style: italic;
     color: var(--text-soft);
@@ -714,7 +730,7 @@ h4.feature-title {
     .impact-dashboard-grid,
     .hypothesis-grid {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: var(--sp-8);
     }
 
     .project-header h1 {
@@ -725,7 +741,7 @@ h4.feature-title {
 
 @media (max-width: 992px) {
     .project-header h1      { font-size: 2.5rem; }
-    .project-meta-grid      { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .project-meta-grid      { grid-template-columns: repeat(2, 1fr); gap: var(--sp-6); }
 
     h2,
     .feature-title,
@@ -737,7 +753,7 @@ h4.feature-title {
     h3,
     .process-header h3 { font-size: 1.5rem; }
 
-    .metric-card { padding: 32px 20px; text-align: center; align-items: center; }
+    .metric-card { padding: var(--sp-8) var(--sp-5); text-align: center; align-items: center; }
 }
 
 @media (max-width: 768px) {
@@ -745,7 +761,7 @@ h4.feature-title {
     .section-content { padding-top: var(--sp-12); padding-bottom: var(--sp-12); }
 
     .question-text      { font-size: 1.25rem; }
-    .question-container { padding: 48px 24px; }
+    .question-container { padding: var(--sp-12) var(--sp-6); }
     .project-header h1  { font-size: 2.2rem; }
 
     h2,
