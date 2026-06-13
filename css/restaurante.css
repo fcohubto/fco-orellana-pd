@@ -503,6 +503,48 @@
 }
 
 
+/* --- CAROUSEL: ESTRATEGIA FONDO BLANCO --- */
+
+.architecture-carousel .flow-slide {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.architecture-carousel .slide-content h4 { color: #09090B; }
+.architecture-carousel .slide-content p   { color: rgba(9, 9, 11, 0.58); }
+
+.architecture-carousel .visual-container {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    max-width: 180px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.architecture-carousel .visual-container .img-fluid {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+
+/* --- FEATURE GIF — TAMAÑO CONTENIDO --- */
+
+.feature-visual .visual-container.glass-effect {
+    max-width: 240px;
+}
+
+
+/* --- STAT CARD — MÉTRICA COHERENTE --- */
+
+.stat-card .metric-value {
+    font-size: 1.75rem;
+    margin-bottom: var(--sp-2);
+}
+
+
 /* --- RESPONSIVE específico --- */
 
 @media (max-width: 1024px) {
