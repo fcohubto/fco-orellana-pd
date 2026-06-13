@@ -774,6 +774,7 @@ h4.feature-title {
     .progress-track        { gap: 6px; padding: 0 20px; }
 
     .question-text      { font-size: 1.25rem; }
+    .question-container { padding: 48px 24px; }
     .project-header h1  { font-size: 2.2rem; }
 
     h2,
@@ -798,7 +799,23 @@ h4.feature-title {
 }
 
 
-/* 17. LIGHT MODE */
+/* 17. CHAPTER GATE ANIMATION */
+
+.chapter-reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition:
+        opacity 650ms cubic-bezier(0.23, 1, 0.32, 1),
+        transform 650ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.chapter-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+
+/* 18. LIGHT MODE */
 
 html[data-theme="light"] .data-box {
     background: var(--c-frost);
@@ -825,7 +842,10 @@ html[data-theme="light"] .metric-card {
     .metric-card,
     .btn-secondary,
     .back-to-top-link,
-    .back-to-top-link svg {
+    .back-to-top-link svg,
+    .chapter-reveal {
         transition: none;
     }
+
+    .chapter-reveal { opacity: 1; transform: none; }
 }

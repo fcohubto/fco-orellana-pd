@@ -280,6 +280,21 @@ document.querySelectorAll(
     }
 });
 
+/* --- CHAPTER GATE ANIMATION --- */
+(function () {
+    const caps = document.querySelectorAll('section[id^="cap"]');
+    if (!caps.length) return;
+    caps.forEach(el => el.classList.add('chapter-reveal'));
+    const gate = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            gate.unobserve(entry.target);
+        });
+    }, { rootMargin: '0px 0px -60px 0px', threshold: 0 });
+    caps.forEach(el => gate.observe(el));
+})();
+
 /* --- BEFORE/AFTER SLIDER LOGIC --- */
 const sliderContainer = document.querySelector('.comparison-slider-container');
 const sliderHandle = document.querySelector('.slider-handle');
