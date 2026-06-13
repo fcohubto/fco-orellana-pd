@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUU Workspace — Arquitectura para escalar | fcoux.pd</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/caso.css">
+    <link rel="stylesheet" href="../css/haulmer.css">
+    <script>(function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
+</head>
+
+<body>
+    <header class="navbar" id="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="logo"><strong>fcoux</strong>.pd</a>
+            <nav class="nav-links desktop-nav">
+                <a href="../index.html#about">Resume</a>
+                <a href="../index.html#projects">Casos de Estudio</a>
+                <a href="../index.html#contact">Contacto</a>
+            </nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="Activar modo claro">
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </button>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <nav class="mobile-menu" id="mobileMenu">
+            <a href="../index.html#about">Resume</a>
+            <a href="../index.html#projects">Casos de Estudio</a>
+            <a href="../index.html#contact">Contacto</a>
+        </nav>
+    </header>
+
+    <nav class="breadcrumb-nav case-nav" aria-label="Navegación entre casos">
+        <div class="container">
+            <div class="case-nav-track">
+                <a href="../html/fletes.html" class="case-nav-prev">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+                    <span class="case-nav-label">FleteApp</span>
+                </a>
+                <span class="case-nav-identity">Caso 4 de 5</span>
+                <a href="../html/oliva.html" class="case-nav-next">
+                    <span class="case-nav-label">OLIVA OS</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="project-detail">
+        <section class="project-detail-hero">
+            <div class="container">
+                <div class="project-tags">
+                    <span class="tag tag-primary">Haulmer</span>
+                    <span class="tag tag-secondary">Fintech · SaaS</span>
+                </div>
+
+                <div class="project-header">
+                    <h1>TUU Workspace — Arquitectura para escalar</h1>
+                    <p class="project-subtitle">Lideré la fase de discovery del workspace TUU: entrevistas con 5 equipos, auditoría del Design System y diseño de la nueva arquitectura de información. El proyecto fue entregado con toda la infraestructura para continuar.</p>
+                </div>
+
+                <p class="case-role">Lideré el Product Journey 3.0 y entregué la infraestructura para continuar el proyecto: entrevistas documentadas en Notion, hallazgos priorizados, etapas y flujos del workspace mapeados, y los frameworks Agile para coordinar diseño y producto. El trabajo fue completado hasta el punto de handoff — el equipo continuó desde esa base.</p>
+
+                <div class="project-meta-grid">
+                    <div class="project-meta-item">
+                        <div class="icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                            </svg>
+                        </div>
+                        <span>EMPRESA</span>
+                        <p>Haulmer · Producto TUU</p>
+                    </div>
+                    <div class="project-meta-item">
+                        <div class="icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <span>DURACIÓN</span>
+                        <p>5 meses (04/2025–08/2025)</p>
+                    </div>
+                    <div class="project-meta-item">
+                        <div class="icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                        </div>
+                        <span>MÉTODO</span>
+                        <p>Product Discovery · Agile Dual Track</p>
+                    </div>
+                </div>
+        </section>
+
+        <section class="section-wrapper border-top">
+            <div class="section-content">
+                <div class="container">
+                    <div class="process-header">
+                        <span class="eyebrow">Métricas del proyecto</span>
+                        <h3 class="feature-title">Objetivos</h3>
+                    </div>
+
+                    <div class="metrics-grid mt-60">
+                        <div class="metric-card">
+                            <span class="metric-value">8</span>
+                            <h3 class="metric-label">Etapas del Product Journey</h3>
+                            <p class="metric-description">Framework propio de discovery ejecutado en 5 equipos para mapear los flujos críticos del workspace.</p>
+                        </div>
+
+                        <div class="metric-card">
+                            <span class="metric-value">1</span>
+                            <h3 class="metric-label">Design System auditado</h3>
+                            <p class="metric-description">Auditoría completa del DS existente: inventario de componentes, inconsistencias y brecha respecto al producto real.</p>
+                        </div>
+
+                        <div class="metric-card">
+                            <span class="metric-value">Agile</span>
+                            <h3 class="metric-label">Coordinación D+P</h3>
+                            <p class="metric-description">Diseño e implementación inicial del framework Agile Dual Track: documentación, kickoff con el equipo y backlog alineado — entregado como base operativa para continuar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-wrapper border-top">
+            <div class="container">
+                <div class="problem-statement">
+                    <div class="process-header">
+                        <span class="eyebrow">EL DESAFÍO</span>
+                        <h2 class="feature-title">Un workspace que creció sin arquitectura</h2>
+                    </div>
+                    <div class="two-columns-grid mt-60">
+                        <div class="col-text">
+                            <h3>EL PROBLEMA</h3>
+                            <p>TUU acumuló funcionalidades durante años de crecimiento acelerado. El resultado fue un workspace con navegación inconsistente, flujos solapados y un Design System que documentaba lo que debería existir, no lo que realmente estaba en producción.</p>
+                        </div>
+                        <div class="col-text">
+                            <h3>EL OBJETIVO</h3>
+                            <p>Construir la arquitectura de información del workspace desde los flujos reales — no desde supuestos. Para eso, primero era necesario entender cómo cada equipo usaba el producto y dónde colisionaban sus necesidades.</p>
+                        </div>
+                    </div>
+
+                    <div class="data-box mt-60">
+                        <strong>Hipótesis de partida:</strong> Si mapeamos los flujos críticos desde las personas que operan el producto y no desde la estructura técnica, podremos construir una arquitectura que reduzca la fricción entre equipos y acelere el backlog de diseño.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-wrapper process-intro">
+            <div class="container">
+                <div class="process-header">
+                    <span class="eyebrow">Metodología de Trabajo</span>
+                    <h3>Discovery primero, arquitectura después</h3>
+                    <p class="section-description">
+                        El proyecto se organizó en cuatro etapas: primero entender cómo operaba el workspace desde los equipos reales; luego auditar el estado del Design System; después diseñar la nueva arquitectura de información; finalmente establecer los marcos de trabajo que permitirían sostener la cadencia de diseño con el equipo de producto.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <nav class="project-progress-nav" aria-label="Etapas del caso">
+            <div class="progress-bar-fill" id="case-progress-fill"></div>
+            <div class="container">
+                <div class="chapter-stepper">
+                    <a href="#cap1" class="chapter-step" data-cap="cap1">01. Discovery</a>
+                    <a href="#cap2" class="chapter-step" data-cap="cap2">02. Diagnóstico</a>
+                    <a href="#cap3" class="chapter-step" data-cap="cap3">03. Arquitectura</a>
+                    <a href="#cap4" class="chapter-step" data-cap="cap4">04. Operación</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- CAPÍTULO 01: DISCOVERY -->
+
+        <article id="cap1">
+            <section class="section-wrapper band">
+                <div class="container">
+                    <div class="two-columns-grid">
+                        <div class="process-header">
+                            <span class="eyebrow">CAPÍTULO 01: PRODUCT JOURNEY 3.0</span>
+                            <h2 class="feature-title">Entender antes de proponer: <br>el workspace desde adentro</h2>
+                            <p class="section-description">
+                                El primer paso no fue diseñar — fue escuchar. Conduje entrevistas transversales con 5 equipos que usaban el workspace de manera diferente. El objetivo: mapear los flujos reales, no los que estaban en el backlog.
+                            </p>
+                        </div>
+                        <div class="col-text">
+                            <article class="hypo-item">
+                                <span class="eyebrow">Alcance del Discovery</span>
+                                <div class="card-body-metrics">
+                                    <p><strong>Equipos entrevistados:</strong> Producto, Soporte, Ventas, Operaciones, Onboarding.</p>
+                                    <p><strong>Flujos mapeados:</strong> Gestión de cuenta, configuración de dispositivos, reportes y conciliación.</p>
+                                    <p><strong>Método:</strong> Entrevistas semiestructuradas + observación de sesiones reales de uso.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="stat-row mt-60">
+                        <div class="stat-item"><span class="stat-value">5</span><span class="stat-label">Equipos entrevistados</span></div>
+                        <div class="stat-item"><span class="stat-value">8</span><span class="stat-label">Etapas del journey</span></div>
+                        <div class="stat-item"><span class="stat-value">3</span><span class="stat-label">Flujos críticos mapeados</span></div>
+                        <div class="stat-item"><span class="stat-value">+20</span><span class="stat-label">Insights documentados</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-wrapper border-top">
+                <div class="container">
+                    <div class="process-header">
+                        <span class="eyebrow">ETAPA 1–8</span>
+                        <h3 class="feature-title">Las 8 etapas del Product Journey 3.0</h3>
+                        <p class="section-description">
+                            El Product Journey 3.0 es el framework de discovery que estructuré para este proyecto. Cada etapa tiene un objetivo específico y un entregable claro — evitando que el research se convierta en un repositorio sin acción.
+                        </p>
+                    </div>
+
+                    <div class="journey-stages mt-60">
+                        <div class="journey-stage">
+                            <span class="journey-stage-num">Etapa 1</span>
+                            <span class="journey-stage-label">Identificación de stakeholders y equipos clave</span>
+                        </div>
+                        <div class="journey-stage">
+                            <span class="journey-stage-num">Etapa 2</span>
+                            <span class="journey-stage-label">Definición de flujos críticos a investigar</span>
+                        </div>
+                        <div class="journey-stage">
+                            <span class="journey-stage-num">Etapa 3</span>
+                            <span class="journey-stage-label">Entrevistas transversales (5 equipos)</span>
+                        </div>
+                        <div class="journey-stage">
+                            <span class="journey-stage-num">Etapa 4</span>
+                            <span class="journey-stage-label">Observación contextual de sesiones reales</span>
+                        </div>
+                        <div class="journey-stage">
+                            <span class="journey-stage-num">Etapa 5</span>
+                            <span class="journey-stage-label">Síntesis de hallazgos por equipo</span>
+                        </div>
+                        <div class="journey-stage">
+                            <span class="journey-stage-num">Etapa 6</span>
+                            <span class="journey-stage-label">Identificación de colisiones entre equipos</span>
+                        </div>
+                        <div class="journey-stage">
+                            <span class="journey-stage-num">Etapa 7</span>
+                            <span class="journey-stage-label">Priorización de oportunidades de diseño</span>
+                        </div>
+                        <div class="journey-stage">
+                            <span class="journey-stage-num">Etapa 8</span>
+                            <span class="journey-stage-label">Validación de hallazgos con producto</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-wrapper border-top">
+                <div class="container">
+                    <div class="process-header">
+                        <span class="eyebrow">HALLAZGOS CLAVE</span>
+                        <h3 class="feature-title">Lo que las entrevistas revelaron</h3>
+                        <p class="section-description">
+                            Los cinco equipos usaban el mismo workspace pero con modelos mentales distintos. No era un problema de diseño visual — era un problema de arquitectura de información.
+                        </p>
+                    </div>
+
+                    <div class="two-columns-grid mt-60">
+                        <div class="highlight-list">
+                            <strong>Solapamiento de flujos</strong>
+                            <p>Soporte y Onboarding accedían al mismo módulo de configuración de dispositivos con objetivos opuestos — uno para corregir, el otro para activar. La misma pantalla servía a dos tareas que requerían información distinta.</p>
+                        </div>
+                        <div class="highlight-list">
+                            <strong>Navegación predictiva rota</strong>
+                            <p>El equipo de Ventas buscaba el historial de cuentas desde tres rutas distintas dependiendo del contexto. No había una ruta canónica: cada usuario había construido su propio workaround.</p>
+                        </div>
+                        <div class="highlight-list">
+                            <strong>Conciliación sin visibilidad</strong>
+                            <p>Operaciones generaba reportes desde un módulo que no mostraba el estado en tiempo real de los dispositivos. La decisión de diseño original asumía que ese dato no era necesario. Las entrevistas demostraron lo contrario.</p>
+                        </div>
+                        <div class="highlight-list">
+                            <strong>El Design System como documentación aspiracional</strong>
+                            <p>Varios componentes del DS no coincidían con lo que estaba en producción. Los equipos de desarrollo habían resuelto casos no cubiertos por el sistema — creando variaciones locales que se acumularon con el tiempo.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <!-- CAPÍTULO 02: DIAGNÓSTICO -->
+
+        <article id="cap2" class="chapter-wrapper">
+            <section class="section-wrapper band">
+                <div class="container">
+                    <div class="process-header">
+                        <span class="eyebrow">CAPÍTULO 02: AUDITORÍA DEL DESIGN SYSTEM</span>
+                        <h2 class="feature-title">El mapa no era el territorio: <br>auditoría del DS existente</h2>
+                        <p class="section-description">
+                            Antes de proponer cualquier cambio en la arquitectura de información, era necesario entender qué herramientas de diseño existían y cuál era su estado real. La auditoría del Design System fue el puente entre el discovery y la propuesta.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-wrapper border-top">
+                <div class="container">
+                    <div class="two-columns-grid">
+                        <div class="col-text">
+                            <div class="process-header">
+                                <span class="eyebrow">METODOLOGÍA DE AUDITORÍA</span>
+                                <h3 class="feature-title">Inventario, comparación y brecha</h3>
+                                <p class="section-description">
+                                    La auditoría siguió tres pasos: inventariar todos los componentes documentados en el DS, mapearlos contra el producto en producción y registrar cada divergencia con su nivel de impacto en el flujo de trabajo de diseño.
+                                </p>
+                            </div>
+                            <div class="highlight-list mt-60">
+                                <strong>Criterio de clasificación</strong>
+                                <p>Cada componente se clasificó en tres estados: <em>alineado</em> (DS = producción), <em>divergente</em> (DS existe pero difiere) o <em>ausente</em> (existe en producción pero no en el DS). Ese mapa definió la prioridad de actualización.</p>
+                            </div>
+                        </div>
+                        <div class="col-text">
+                            <article class="hypo-item">
+                                <span class="eyebrow">Alcance de la Auditoría</span>
+                                <div class="card-body-metrics">
+                                    <p><strong>Design System:</strong> 1 sistema auditado (Figma + documentación interna).</p>
+                                    <p><strong>Componentes revisados:</strong> Navegación, formularios, estados de carga, módulos de reporte.</p>
+                                    <p><strong>Entregable:</strong> Mapa de brecha DS-producción con priorización de actualización.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-wrapper border-top">
+                <div class="container">
+                    <div class="process-header">
+                        <span class="eyebrow">HALLAZGOS DE LA AUDITORÍA</span>
+                        <h3 class="feature-title">Qué encontramos y qué implicaba</h3>
+                    </div>
+
+                    <div class="audit-finding mt-60">
+                        <strong>Navegación principal — componente divergente</strong>
+                        <p>El DS documentaba una barra de navegación lateral con 6 ítems. Producción tenía 9. Los tres ítems adicionales fueron agregados sin actualizar el DS. El impacto: nuevos diseños partían de una base incompleta y generaban inconsistencias que llegaban a desarrollo.</p>
+                    </div>
+                    <div class="audit-finding">
+                        <strong>Estados de formulario — parcialmente ausentes</strong>
+                        <p>Los estados de error y validación de los formularios de configuración de dispositivos no estaban documentados. Cada desarrollador implementaba su propia variante visual. Resultado: cinco formas distintas de mostrar un error en el mismo producto.</p>
+                    </div>
+                    <div class="audit-finding">
+                        <strong>Módulo de reportes — componente ausente</strong>
+                        <p>El módulo de conciliación — uno de los más usados por Operaciones — no tenía representación en el DS. Había crecido como solución ad hoc y nunca se había sistematizado. Era el caso más crítico en términos de deuda de diseño.</p>
+                    </div>
+                    <div class="audit-finding">
+                        <strong>Tokens de color — alineados</strong>
+                        <p>La paleta de color y la tipografía estaban correctamente documentadas y aplicadas. Esta fue la única área sin brecha significativa — un punto de apoyo sólido para construir encima.</p>
+                    </div>
+
+                    <div class="data-box mt-60">
+                        <strong>Conclusión de la auditoría:</strong> El DS existente era funcional en fundamentos (color, tipografía) pero incompleto en componentes de negocio. La estrategia no fue reemplazarlo — fue extenderlo desde los flujos reales identificados en el discovery.
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <!-- CAPÍTULO 03: ARQUITECTURA -->
+
+        <article id="cap3" class="chapter-wrapper">
+            <section class="section-wrapper band">
+                <div class="container">
+                    <div class="process-header">
+                        <span class="eyebrow">CAPÍTULO 03: NUEVA ARQUITECTURA DE INFORMACIÓN</span>
+                        <h2 class="feature-title">De los flujos reales <br>a la arquitectura del workspace</h2>
+                        <p class="section-description">
+                            Con el mapa de hallazgos del discovery y la brecha del DS identificada, el siguiente paso fue diseñar la nueva arquitectura de información del workspace. El principio rector: cada decisión estructural debía responder a un flujo real documentado, no a una intuición de diseño.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-wrapper border-top">
+                <div class="container">
+                    <div class="two-columns-grid">
+                        <div class="col-text">
+                            <div class="process-header">
+                                <span class="eyebrow">DECISIÓN DE DISEÑO</span>
+                                <h3 class="feature-title">Por rol, no por módulo</h3>
+                                <p class="section-description">
+                                    La arquitectura anterior organizaba el workspace por módulos de sistema (Dispositivos, Reportes, Configuración). La nueva propuesta organiza la navegación principal por objetivo de usuario — lo que cada rol necesita resolver cuando abre el workspace.
+                                </p>
+                            </div>
+                            <div class="highlight-list mt-60">
+                                <strong>Fundamento del cambio</strong>
+                                <p>Las entrevistas mostraron que ningún equipo pensaba en "módulos". Soporte pensaba en "resolver un caso". Ventas pensaba en "revisar una cuenta". La taxonomía por módulo era una herencia de la arquitectura técnica, no de los modelos mentales reales.</p>
+                            </div>
+                        </div>
+                        <div class="col-text">
+                            <div class="highlight-list mt-60">
+                                <strong>Estructura propuesta</strong>
+                                <p>La navegación principal se reorganizó en tres bloques: <em>Gestión</em> (cuentas y dispositivos), <em>Análisis</em> (reportes y conciliación) y <em>Configuración</em> (parametrización de servicios). Cada bloque agrupa los flujos que los equipos ejecutan de forma consecutiva — no los que el sistema considera relacionados.</p>
+                            </div>
+                            <div class="highlight-list mt-60">
+                                <strong>Validación con equipos</strong>
+                                <p>La propuesta se validó en dos rondas: primero con Producto para verificar viabilidad técnica, luego con los equipos de Soporte y Ventas para confirmar que la nueva taxonomía coincidía con su modelo mental. Se ajustaron tres etiquetas de navegación en base al feedback.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-wrapper border-top">
+                <div class="container">
+                    <div class="process-header">
+                        <span class="eyebrow">COMPONENTES NUEVOS</span>
+                        <h3 class="feature-title">Extensión del DS desde los flujos reales</h3>
+                        <p class="section-description">
+                            En paralelo con la arquitectura de información, diseñé los componentes ausentes identificados en la auditoría. No como piezas aisladas — como extensiones coherentes del DS existente.
+                        </p>
+                    </div>
+
+                    <div class="two-columns-grid mt-60">
+                        <div class="highlight-list">
+                            <strong>Estados de formulario</strong>
+                            <p>Definí el sistema completo de estados para formularios de configuración: vacío, en foco, completado, error y deshabilitado. Todos documentados en el DS con especificaciones de uso y ejemplos reales de los flujos de onboarding.</p>
+                        </div>
+                        <div class="highlight-list">
+                            <strong>Módulo de conciliación</strong>
+                            <p>Diseñé el componente de reporte de conciliación como primera clase del DS. La decisión de diseño clave: mostrar el estado del dispositivo junto al reporte, resolviendo el punto de dolor de Operaciones identificado en el discovery.</p>
+                        </div>
+                        <div class="highlight-list">
+                            <strong>Navegación extendida</strong>
+                            <p>Actualicé el componente de navegación lateral para reflejar los 9 ítems reales en producción, con variantes de estado activo, colapso y notificación. El DS quedó alineado con lo que el equipo de desarrollo tenía implementado.</p>
+                        </div>
+                        <div class="highlight-list">
+                            <strong>Criterio de inclusión</strong>
+                            <p>Solo se diseñaron y documentaron componentes respaldados por un flujo real del discovery. Esto evitó que el DS creciera con abstracciones que nadie iba a usar — uno de los problemas del sistema anterior.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <!-- CAPÍTULO 04: OPERACIÓN -->
+
+        <article id="cap4" class="chapter-wrapper">
+            <section class="section-wrapper band">
+                <div class="container">
+                    <div class="process-header">
+                        <span class="eyebrow">CAPÍTULO 04: FRAMEWORKS DE TRABAJO</span>
+                        <h2 class="feature-title">Sostener la cadencia: <br>Agile Dual Track en la práctica</h2>
+                        <p class="section-description">
+                            Una arquitectura bien diseñada no sirve de nada si el equipo no tiene un marco de trabajo para mantenerla. La última fase del proyecto fue implementar Agile Dual Track — separar los ciclos de discovery y delivery para que diseño y producto pudieran operar en paralelo sin bloquearse.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-wrapper border-top">
+                <div class="container">
+                    <div class="process-header">
+                        <span class="eyebrow">AGILE DUAL TRACK</span>
+                        <h3 class="feature-title">Dos pistas, un mismo objetivo</h3>
+                        <p class="section-description">
+                            El problema operativo que existía antes del proyecto: diseño y desarrollo trabajaban en el mismo sprint, con el mismo backlog. Cuando llegaba una decisión de producto no resuelta, el equipo de desarrollo esperaba. Dual Track separa esas responsabilidades.
+                        </p>
+                    </div>
+
+                    <div class="agile-cycle mt-60">
+                        <div class="agile-phase">
+                            <div class="agile-phase-id">01</div>
+                            <div class="agile-phase-body">
+                                <strong>Discovery Track — Diseño</strong>
+                                <p>Ciclo de investigación y prototipado con una semana de adelanto respecto al delivery. Objetivo: que ninguna historia de usuario llegue al sprint de desarrollo sin haber sido validada en diseño.</p>
+                            </div>
+                        </div>
+                        <div class="agile-phase">
+                            <div class="agile-phase-id">02</div>
+                            <div class="agile-phase-body">
+                                <strong>Delivery Track — Desarrollo</strong>
+                                <p>Sprint de desarrollo que consume el backlog validado por diseño. Las historias de usuario entran con especificaciones completas, incluyendo estados edge y criterios de aceptación visuales.</p>
+                            </div>
+                        </div>
+                        <div class="agile-phase">
+                            <div class="agile-phase-id">03</div>
+                            <div class="agile-phase-body">
+                                <strong>Sync semanal Design–Producto</strong>
+                                <p>Reunión de 30 minutos para alinear el estado de ambas pistas, escalar bloqueos y priorizar el backlog de la semana siguiente. Pequeña en tiempo, crítica en coordinación.</p>
+                            </div>
+                        </div>
+                        <div class="agile-phase">
+                            <div class="agile-phase-id">04</div>
+                            <div class="agile-phase-body">
+                                <strong>Retrospectiva de diseño mensual</strong>
+                                <p>Revisión de los componentes del DS usados en el último mes: qué funcionó, qué se adaptó ad hoc y qué necesita actualización. Mantiene el sistema vivo sin depender de una refactorización periódica masiva.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-wrapper border-top">
+                <div class="container">
+                    <div class="process-header">
+                        <span class="eyebrow">RESULTADO OPERATIVO</span>
+                        <h3 class="feature-title">Qué cambió con el nuevo marco de trabajo</h3>
+                    </div>
+
+                    <div class="two-columns-grid mt-60">
+                        <div class="highlight-list">
+                            <strong>Backlog de diseño alimentado con adelanto</strong>
+                            <p>La separación de tracks elimina la mezcla entre tiempo de discovery y tiempo de delivery. El backlog de diseño alimenta el sprint de desarrollo con historias especificadas — sin decisiones pendientes al momento de iniciar el desarrollo.</p>
+                        </div>
+                        <div class="highlight-list">
+                            <strong>DS con criterios de mantenimiento definidos</strong>
+                            <p>La cadencia mensual de revisión quedó documentada como parte del entregable: un proceso para mantener el DS actualizado sin necesidad de refactorizaciones periódicas. Los criterios de actualización quedaron listos para el equipo.</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-row mt-60">
+                        <div class="stat-item"><span class="stat-value">5</span><span class="stat-label">Equipos que validaron la nueva IA</span></div>
+                        <div class="stat-item"><span class="stat-value">2</span><span class="stat-label">Rondas de validación con equipos</span></div>
+                        <div class="stat-item"><span class="stat-value">4</span><span class="stat-label">Componentes del Dual Track documentados</span></div>
+                        <div class="stat-item"><span class="stat-value">0</span><span class="stat-label">Componentes sin respaldo de flujo real</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard de impacto final -->
+            <div class="container">
+                <div class="process-header mt-60">
+                    <h4 class="feature-title">Impacto consolidado del proyecto</h4>
+                    <p class="section-description">La nueva arquitectura de información y los frameworks operativos dejaron tres activos concretos para el equipo.</p>
+                </div>
+                <div class="impact-dashboard-grid mt-40">
+                    <div class="main-impact-column">
+                        <div class="metric-card">
+                            <span class="impact-label">Arquitectura</span>
+                            <h4>Workspace reorganizado por rol</h4>
+                            <p>Taxonomía de navegación construida desde los modelos mentales reales de 5 equipos — validada en dos rondas antes de pasar a desarrollo.</p>
+                        </div>
+                        <div class="metric-card">
+                            <span class="impact-label">Design System</span>
+                            <h4>DS alineado con producción</h4>
+                            <p>Brecha cerrada entre documentación y realidad: componentes ausentes diseñados, divergentes actualizados, tokens base conservados.</p>
+                        </div>
+                    </div>
+                    <div class="secondary-impact-column">
+                        <div class="metric-card">
+                            <span class="impact-label">Operación</span>
+                            <h4>Dual Track establecido</h4>
+                            <p>Framework documentado con sus 4 componentes, sesiones de kickoff realizadas con el equipo y backlog inicial alineado — entregado como base operativa para continuar.</p>
+                        </div>
+                        <div class="metric-card">
+                            <span class="impact-label">Discovery</span>
+                            <h4>+20 insights documentados</h4>
+                            <p>Product Journey 3.0 como activo reutilizable: el framework queda disponible para próximos ciclos de discovery del equipo de producto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <section class="section-wrapper border-top">
+            <div class="section-content">
+                <div class="container narrow">
+                    <div class="final-reflection">
+                        <span class="stage-tag">CONCLUSIÓN</span>
+                        <h2>Lo que aprendí de este proyecto</h2>
+                        <p class="reflection-text">
+                            Trabajar en un producto con años de acumulación técnica obliga a separar dos preguntas: qué es un problema de diseño y qué es un problema de proceso. TUU Workspace tenía las dos cosas mezcladas. Mi contribución fue construir la base: entrevistas documentadas, hallazgos priorizados en Notion, mapa de flujos del workspace y los frameworks de coordinación. El proyecto siguió desde ahí — que es exactamente el objetivo de una fase de discovery bien hecha.
+                        </p>
+                        <div class="back-to-top-container">
+                            <a href="../html/haulmer.html" class="back-to-top-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg> Volver al inicio
+                            </a>
+                        </div>
+                        <div class="cta-internal">
+                            <a href="../index.html#projects" class="btn-secondary">Explorar más proyectos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding: 60px 0; border-top: 1px solid var(--line-separator); text-align: center;">
+        <div class="container">
+            <p style="color: var(--text-soft); font-size: 0.9rem; margin: 0;">
+                © 2026 Francisco Orellana — fcoux.pd. <br> Santiago, Chile.
+            </p>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
