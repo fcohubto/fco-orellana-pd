@@ -469,6 +469,59 @@ html[data-theme="light"] .icon-moon { display: none; }
 }
 
 
+/* 10b. CASE NAV — navegación macro entre casos de estudio */
+
+.case-nav .case-nav-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.case-nav-prev,
+.case-nav-next {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--c-ink-soft);
+  text-decoration: none;
+  transition: color var(--ease);
+  flex: 1;
+  min-width: 0;
+}
+
+.case-nav-prev { justify-content: flex-start; }
+.case-nav-next { justify-content: flex-end; }
+
+.case-nav-prev:hover,
+.case-nav-next:hover { color: var(--c-cyan); }
+
+.case-nav-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.case-nav-ghost { flex: 1; }
+
+.case-nav-identity {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--c-ink);
+  white-space: nowrap;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .case-nav-label { display: none; }
+}
+
+
 /* 11. EYEBROW & CARD-BODY */
 
 .eyebrow {

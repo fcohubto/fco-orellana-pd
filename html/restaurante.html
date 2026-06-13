@@ -38,13 +38,16 @@
         </nav>
     </header>
 
-    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <nav class="breadcrumb-nav case-nav" aria-label="Navegación entre casos">
         <div class="container">
-            <ol class="breadcrumb-list">
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="../index.html#projects">Casos de Estudio</a></li>
-                <li aria-current="page">Pago en Restaurantes</li>
-            </ol>
+            <div class="case-nav-track">
+                <div class="case-nav-ghost"></div>
+                <span class="case-nav-identity">Caso 1 de 5</span>
+                <a href="../html/ecosistemas.html" class="case-nav-next">
+                    <span class="case-nav-label">Ecosistema POS</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -161,28 +164,9 @@
             </div>
         </section>
 
-        <nav class="project-progress-nav" aria-label="Progreso del caso de estudio">
-            <div class="container">
-                <div class="progress-track">
-                    <a href="#cap1" class="progress-step active js-scroll-link">
-                        <span class="step-dot"></span>
-                        <span class="step-name">01. DISCOVERY</span>
-                    </a>
-                    <a href="#cap2" class="progress-step active js-scroll-link">
-                        <span class="step-dot"></span>
-                        <span class="step-name">02. ESTRATEGIA</span>
-                    </a>
-                    <a href="#cap3" class="progress-step active js-scroll-link">
-                        <span class="step-dot"></span>
-                        <span class="step-name">03. DISEÑO</span>
-                    </a>
-                    <a href="#cap4" class="progress-step active js-scroll-link">
-                        <span class="step-dot"></span>
-                        <span class="step-name">04. VALIDACIÓN</span>
-                    </a>
-                </div>
-            </div>
-        </nav>
+        <div class="project-progress-nav" aria-hidden="true">
+            <div class="progress-bar-fill" id="case-progress-fill"></div>
+        </div>
 
         <section id="cap1" class="section-wrapper">
             <div class="container">

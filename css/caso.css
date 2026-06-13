@@ -58,80 +58,25 @@
 }
 
 
-/* 3. PROGRESS NAV */
+/* 3. PROGRESS BAR */
 
 .project-progress-nav {
     position: -webkit-sticky;
     position: sticky;
     top: var(--nav-h);
     z-index: 99;
-    background: var(--bg-surface);
     width: 100%;
-    min-height: 64px;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--line-separator);
+    height: 3px;
+    background: var(--c-border-mid);
     transition: opacity 0.3s ease;
 }
 
-.project-progress-nav .container {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 20px;
+.progress-bar-fill {
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    width: 0%;
+    background: var(--c-cyan);
+    transition: width 80ms linear;
 }
-
-.progress-track {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 12px;
-    width: 100%;
-}
-
-.progress-step {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    text-decoration: none;
-    flex: 1;
-    text-align: left;
-    transition: all 0.3s ease;
-}
-
-.step-dot {
-    height: 4px;
-    width: 100%;
-    background: var(--c-border-mid);
-    border-radius: 2px;
-    transition: all 0.3s ease;
-}
-
-.step-name {
-    font-size: var(--text-sm);
-    font-weight: 700;
-    color: var(--text-soft);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    white-space: nowrap;
-    transition: color 0.3s ease;
-}
-
-/* Especificidad 0,3,0 — gana sobre base sin !important */
-.progress-step.active .step-dot {
-    background-color: var(--c-accent);
-    height: 6px;
-}
-
-.progress-step.active .step-name {
-    color: var(--c-ink);
-    font-weight: 800;
-}
-
-.progress-step:hover .step-name { color: var(--accent); }
-.progress-step:hover .step-dot  { background: var(--text-soft); }
 
 
 /* 4. HERO */
@@ -768,11 +713,6 @@ h4.feature-title {
     .section-wrapper,
     .section-content { padding-top: var(--sp-12); padding-bottom: var(--sp-12); }
 
-    .step-name { display: none; }
-
-    .project-progress-nav { padding: 12px 0; }
-    .progress-track        { gap: 6px; padding: 0 20px; }
-
     .question-text      { font-size: 1.25rem; }
     .question-container { padding: 48px 24px; }
     .project-header h1  { font-size: 2.2rem; }
@@ -785,11 +725,7 @@ h4.feature-title {
     .project-header h1 { font-size: 1.85rem; }
     .project-meta-grid { grid-template-columns: 1fr; }
 
-    .project-progress-nav {
-        height: 48px;
-        display: flex;
-        align-items: center;
-    }
+
 }
 
 /* Deshabilita hovers en dispositivos táctiles */
@@ -835,9 +771,7 @@ html[data-theme="light"] .metric-card {
 
 @media (prefers-reduced-motion: reduce) {
     .project-progress-nav,
-    .progress-step,
-    .step-dot,
-    .step-name,
+    .progress-bar-fill,
     .hypo-item,
     .metric-card,
     .btn-secondary,

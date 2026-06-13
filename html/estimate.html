@@ -37,13 +37,19 @@
         </nav>
     </header>
 
-    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <nav class="breadcrumb-nav case-nav" aria-label="Navegación entre casos">
         <div class="container">
-            <ol class="breadcrumb-list">
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="../index.html#projects">Casos de Estudio</a></li>
-                <li aria-current="page">Estimate Engine</li>
-            </ol>
+            <div class="case-nav-track">
+                <a href="../html/fletes.html" class="case-nav-prev">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+                    <span class="case-nav-label">FleteApp</span>
+                </a>
+                <span class="case-nav-identity">Caso 4 de 5</span>
+                <a href="../html/oliva.html" class="case-nav-next">
+                    <span class="case-nav-label">OLIVA OS</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -164,28 +170,9 @@
 
 
         <!-- PROGRESS NAV -->
-        <nav class="project-progress-nav" aria-label="Progreso del caso de estudio">
-            <div class="container">
-                <div class="progress-track">
-                    <a href="#cap1" class="progress-step active js-scroll-link">
-                        <span class="step-dot"></span>
-                        <span class="step-name">01. DISCOVERY</span>
-                    </a>
-                    <a href="#cap2" class="progress-step active js-scroll-link">
-                        <span class="step-dot"></span>
-                        <span class="step-name">02. ESTRATEGIA</span>
-                    </a>
-                    <a href="#cap3" class="progress-step active js-scroll-link">
-                        <span class="step-dot"></span>
-                        <span class="step-name">03. DISEÑO</span>
-                    </a>
-                    <a href="#cap4" class="progress-step active js-scroll-link">
-                        <span class="step-dot"></span>
-                        <span class="step-name">04. VALIDACIÓN</span>
-                    </a>
-                </div>
-            </div>
-        </nav>
+        <div class="project-progress-nav" aria-hidden="true">
+            <div class="progress-bar-fill" id="case-progress-fill"></div>
+        </div>
 
 
         <!-- CAP 1: DISCOVERY -->

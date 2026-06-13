@@ -138,46 +138,19 @@ window.addEventListener("resize", () => {
 });
 
 
-/* --- LOGICA CASO DE ESTUDIO ACTUAL (PROGRESS NAV) --- */
-document.addEventListener('DOMContentLoaded', () => {
-    const progressLinks = document.querySelectorAll('.js-scroll-link');
-    const caseSections = document.querySelectorAll('section[id^="cap"], article[id^="cap"]');
-
-    const setActiveStep = (id) => {
-        progressLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${id}`) link.classList.add('active');
-        });
+/* --- READING PROGRESS BAR --- */
+(function () {
+    const fill = document.getElementById('case-progress-fill');
+    if (!fill) return;
+    const update = () => {
+        const total = document.documentElement.scrollHeight - window.innerHeight;
+        if (total <= 0) return;
+        fill.style.width = Math.min(100, (window.scrollY / total) * 100) + '%';
     };
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+})();
 
-    progressLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href.startsWith('#')) {
-                e.preventDefault();
-                const targetId = href.substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    const offset = 140;
-                    window.scrollTo({
-                        top: targetElement.offsetTop - offset,
-                        behavior: 'smooth'
-                    });
-                    setActiveStep(targetId);
-                }
-            }
-        });
-    });
-
-    if (caseSections.length) {
-        const progressObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) setActiveStep(entry.target.id);
-            });
-        }, { rootMargin: '-150px 0px -70% 0px', threshold: 0 });
-        caseSections.forEach(section => progressObserver.observe(section));
-    }
-});
 // --- Sensor de salida del Stepper ---
 const stepperNav = document.querySelector('.project-progress-nav');
 const footer = document.querySelector('footer'); // Elemento que activa el ocultamiento
