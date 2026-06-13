@@ -242,6 +242,26 @@
                     <strong>Hipótesis central</strong>
                     Si tengo un proceso guiado para pensar el alcance y la complejidad antes de poner el precio, puedo entregar propuestas más rápido, más consistentes y con mejor fundamentación — sin trabajar más horas.
                 </div>
+
+                <div class="stat-row mt-60">
+                    <div class="stat-item">
+                        <span class="stat-value">8</span>
+                        <span class="stat-label">Propuestas analizadas</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">2h 45m</span>
+                        <span class="stat-label">Promedio por cotización</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">40%</span>
+                        <span class="stat-label">Variación mismo proyecto</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">3</span>
+                        <span class="stat-label">Formatos de entrega distintos</span>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -290,6 +310,38 @@
                 <div class="case-decision">
                     <em>Decisión clave: podía integrar la herramienta con un backend y guardar el historial de propuestas. Elegí no hacerlo en la primera versión — si la herramienta no era útil sin historial, tampoco lo iba a ser con él. Validar el flujo primero, agregar persistencia después.</em>
                 </div>
+
+                <div class="pricing-system mt-60">
+                    <div class="pricing-block">
+                        <p class="pricing-block-label">Tipo de cliente</p>
+                        <div class="pricing-list">
+                            <div class="pricing-item"><span>Fundador</span><span class="pricing-mult">×0.9</span></div>
+                            <div class="pricing-item"><span>Pyme</span><span class="pricing-mult">×1.0</span></div>
+                            <div class="pricing-item"><span>Startup</span><span class="pricing-mult">×1.1</span></div>
+                            <div class="pricing-item"><span>Agencia</span><span class="pricing-mult">×1.2</span></div>
+                            <div class="pricing-item"><span>Corporativo</span><span class="pricing-mult">×1.4</span></div>
+                            <div class="pricing-item pricing-item--high"><span>Urgente</span><span class="pricing-mult">×1.5</span></div>
+                        </div>
+                    </div>
+                    <div class="pricing-op">×</div>
+                    <div class="pricing-block">
+                        <p class="pricing-block-label">Complejidad</p>
+                        <div class="pricing-list">
+                            <div class="pricing-item"><span>Baja</span><span class="pricing-mult">×1.0</span></div>
+                            <div class="pricing-item"><span>Media</span><span class="pricing-mult">×1.3</span></div>
+                            <div class="pricing-item"><span>Alta</span><span class="pricing-mult">×1.6</span></div>
+                            <div class="pricing-item pricing-item--high"><span>Crítica</span><span class="pricing-mult">×2.0</span></div>
+                        </div>
+                    </div>
+                    <div class="pricing-op">=</div>
+                    <div class="pricing-block pricing-block--result">
+                        <p class="pricing-block-label">Precio final</p>
+                        <p class="pricing-formula-text">precio base × cliente × complejidad</p>
+                        <p class="pricing-formula-note">Rango: mín → mín × 1.35</p>
+                        <p class="pricing-tariff">Tarifa base · $55.000/h</p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -377,6 +429,66 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="process-header mt-60">
+                    <span class="eyebrow">Respaldo de datos</span>
+                    <h4 class="feature-title">HH mercado vs HH OLIVA — el rol de la IA en el pricing</h4>
+                    <p class="section-description mt-24">Cada precio base del engine se calibró comparando el tiempo de mercado estándar con el tiempo real usando el framework OLIVA. La eficiencia IA reduce las horas ~3× — y eso permite precios competitivos con el mismo margen.</p>
+                </div>
+                <div class="hh-table mt-40">
+                    <div class="hh-row hh-head">
+                        <span class="hh-service">Servicio</span>
+                        <span class="hh-market">HH Mercado</span>
+                        <span class="hh-oliva">HH OLIVA</span>
+                        <span class="hh-ratio">Ratio IA</span>
+                    </div>
+                    <div class="hh-row hh-cat"><span class="hh-service">Diseño Web</span></div>
+                    <div class="hh-row">
+                        <span class="hh-service">Landing page</span>
+                        <span class="hh-market">24h</span>
+                        <span class="hh-oliva">8h</span>
+                        <span class="hh-ratio hh-ratio--val">3×</span>
+                    </div>
+                    <div class="hh-row">
+                        <span class="hh-service">Ecommerce</span>
+                        <span class="hh-market">60h</span>
+                        <span class="hh-oliva">20h</span>
+                        <span class="hh-ratio hh-ratio--val">3×</span>
+                    </div>
+                    <div class="hh-row">
+                        <span class="hh-service">UI / Diseño visual</span>
+                        <span class="hh-market">20h</span>
+                        <span class="hh-oliva">6h</span>
+                        <span class="hh-ratio hh-ratio--val">3.3×</span>
+                    </div>
+                    <div class="hh-row hh-cat"><span class="hh-service">UX / Research</span></div>
+                    <div class="hh-row">
+                        <span class="hh-service">UX Audit</span>
+                        <span class="hh-market">20h</span>
+                        <span class="hh-oliva">6h</span>
+                        <span class="hh-ratio hh-ratio--val">3.3×</span>
+                    </div>
+                    <div class="hh-row">
+                        <span class="hh-service">Product Discovery</span>
+                        <span class="hh-market">30h</span>
+                        <span class="hh-oliva">10h</span>
+                        <span class="hh-ratio hh-ratio--val">3×</span>
+                    </div>
+                    <div class="hh-row hh-cat"><span class="hh-service">IA y Automatización</span></div>
+                    <div class="hh-row">
+                        <span class="hh-service">IA Workflow</span>
+                        <span class="hh-market">30h</span>
+                        <span class="hh-oliva">8h</span>
+                        <span class="hh-ratio hh-ratio--val">3.75×</span>
+                    </div>
+                    <div class="hh-row">
+                        <span class="hh-service">Automatización de procesos</span>
+                        <span class="hh-market">24h</span>
+                        <span class="hh-oliva">7h</span>
+                        <span class="hh-ratio hh-ratio--val">3.4×</span>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -405,6 +517,32 @@
                         <div class="stat-item">
                             <span class="stat-value">0</span>
                             <span class="stat-label">Dependencias externas</span>
+                        </div>
+                    </div>
+
+                    <div class="ai-validation mt-60">
+                        <div class="aiv-step">
+                            <span class="aiv-num">01</span>
+                            <div class="aiv-body">
+                                <strong>Input al modelo</strong>
+                                <p>estimate-config.json completo + contexto de mercado actual: tarifas de referencia en CLP, tipo de proyectos recientes, benchmarks de la industria local.</p>
+                            </div>
+                        </div>
+                        <div class="aiv-connector">↓</div>
+                        <div class="aiv-step">
+                            <span class="aiv-num">02</span>
+                            <div class="aiv-body">
+                                <strong>Validación estructurada con Claude</strong>
+                                <p>Prompt de análisis: detectar servicios subestimados, verificar coherencia entre categorías, identificar gaps con tarifas de mercado, señalar multiplicadores con riesgo de rechazo. Respuesta con justificación por ítem.</p>
+                            </div>
+                        </div>
+                        <div class="aiv-connector">↓</div>
+                        <div class="aiv-step">
+                            <span class="aiv-num">03</span>
+                            <div class="aiv-body">
+                                <strong>Output accionable</strong>
+                                <p>Reporte con servicios a ajustar, delta sugerido por categoría y criterio de calibración. Los cambios se aplican manualmente en el JSON — no hay automatización ciega. El criterio final lo tengo yo.</p>
+                            </div>
                         </div>
                     </div>
 

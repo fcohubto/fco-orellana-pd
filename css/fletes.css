@@ -324,6 +324,64 @@
 }
 
 
+/* ===== Catalog Grid (Cap 2) ===== */
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-3);
+}
+
+.catalog-cat {
+    border: 1px solid var(--line-separator);
+    padding: var(--sp-5) var(--sp-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+}
+
+.catalog-cat-header {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    margin-bottom: var(--sp-1);
+}
+
+.catalog-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.catalog-name {
+    font-size: var(--text-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--text);
+}
+
+.catalog-count {
+    font-size: var(--text-sm);
+    color: var(--accent);
+    font-weight: var(--fw-medium);
+}
+
+.catalog-range {
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-label);
+    color: var(--text-soft);
+    opacity: 0.45;
+}
+
+@media (max-width: 900px) {
+    .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+    .catalog-grid { grid-template-columns: 1fr; }
+}
+
+
 /* --- RESPONSIVE específico --- */
 
 @media (max-width: 1024px) {
