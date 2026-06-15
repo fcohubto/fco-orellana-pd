@@ -68,7 +68,7 @@
                     <p class="project-subtitle">FleteApp digitaliza la cotización de fletes para transportistas independientes que operan desde el celular, sin tiempo y muchas veces sin conexión. De cálculo manual a presupuesto compartible en cinco minutos.</p>
                 </div>
 
-                <p class="case-role">Diseñé, desarrollé y lancé FleteApp solo — desde las primeras conversaciones con transportistas hasta el deploy como PWA instalable. Cada decisión fue mía, con los problemas reales del terreno como única restricción.</p>
+                <p class="case-role">Diseñé, desarrollé y lancé FleteApp — desde las primeras conversaciones con transportistas hasta el deploy como PWA instalable. Cada decisión fue validada, con los problemas reales del terreno como única restricción.</p>
 
                 <div class="project-meta-grid">
                     <div class="project-meta-item">
@@ -312,7 +312,7 @@
                     </div>
                 </div>
 
-                <div class="case-decision">
+                <div class="data-box mt-60 visible">
                     <em>Decisión clave: podía construir un formulario simple de calculadora. Elegí construir un catálogo visual porque el transportista no quería ingresar números — quería seleccionar artículos. La diferencia entre ingresar datos y reconocer opciones reduce la fricción cognitiva en terreno.</em>
                 </div>
 
@@ -394,7 +394,7 @@
 
                 <div class="two-columns-grid mt-60">
                     <div class="col-text">
-                        <p>El flujo principal tiene cuatro pasos: seleccionar artículos por habitación → ver volumen y ocupación del camión en tiempo real → ingresar origen y destino → compartir el presupuesto.</p>
+                        <p>El flujo principal tiene cuatro pasos: ingresar origen y destino → seleccionar artículos por habitación → ver volumen y ocupación del camión en tiempo real → compartir el presupuesto.</p>
                         <p>El elemento central de la interfaz es la barra de ocupación del camión. No era obligatoria para el MVP — fue el elemento más pedido en testing y el que más cambió la conducta del transportista.</p>
 
                         <div class="highlight-list mt-40">
@@ -410,53 +410,84 @@
 
                     <div class="col-visual">
                         <div class="phone-mockup-wrap">
-                            <div class="phone-mockup">
-                                <div class="phone-notch"></div>
-                                <div class="phone-screen">
-                                    <div>
-                                        <p class="ph-label">FleteApp · cotizador</p>
-                                        <p class="ph-title">Mudanza completa<br>Santiago → Providencia</p>
-                                    </div>
-                                    <div class="ph-bar-wrap">
-                                        <div class="ph-bar-label">
-                                            <span>Ocupación camión</span>
-                                            <span>64%</span>
-                                        </div>
-                                        <div class="ph-bar">
-                                            <div class="ph-bar-fill"></div>
-                                        </div>
-                                    </div>
-                                    <div class="ph-sep"></div>
-                                    <div class="ph-row">
-                                        <span class="ph-row-label">Volumen total</span>
-                                        <span class="ph-row-value">7.5 m³</span>
-                                    </div>
-                                    <div class="ph-row">
-                                        <span class="ph-row-label">Viajes estimados</span>
-                                        <span class="ph-row-value">1</span>
-                                    </div>
-                                    <div class="ph-row">
-                                        <span class="ph-row-label">Distancia</span>
-                                        <span class="ph-row-value">12 km</span>
-                                    </div>
-                                    <div class="ph-row">
-                                        <span class="ph-row-label">Costo estimado</span>
-                                        <span class="ph-row-value">$45.000</span>
-                                    </div>
-                                    <div class="ph-sep"></div>
-                                    <p class="ph-label">Habitaciones seleccionadas</p>
-                                    <div class="ph-categories">
-                                        <div class="ph-cat is-selected">🛏️ Dormitorio</div>
-                                        <div class="ph-cat is-selected">🛋️ Living</div>
-                                        <div class="ph-cat is-selected">🧊 Cocina</div>
-                                        <div class="ph-cat">🫧 Lavadero</div>
-                                        <div class="ph-cat">🌿 Terraza</div>
-                                        <div class="ph-cat">📦 Cajas</div>
-                                    </div>
-                                    <div class="ph-btn">Compartir presupuesto</div>
-                                </div>
-                            </div>
-                        </div>
+    <div class="phone-mockup">
+        <div class="phone-notch"></div>
+
+        <div class="phone-screen">
+
+            <div>
+                <p class="ph-label">FleteApp</p>
+                <p class="ph-title">
+                    Cotización en proceso
+                </p>
+            </div>
+
+            <div class="ph-bar-wrap">
+                <div class="ph-bar-label">
+                    <span>Capacidad utilizada</span>
+                    <span>64%</span>
+                </div>
+
+                <div class="ph-bar">
+                    <div class="ph-bar-fill"></div>
+                </div>
+            </div>
+
+            <div class="ph-sep"></div>
+
+            <div class="ph-row">
+                <span class="ph-row-label">Origen</span>
+                <span class="ph-row-value">Santiago Centro</span>
+            </div>
+
+            <div class="ph-row">
+                <span class="ph-row-label">Destino</span>
+                <span class="ph-row-value">Providencia</span>
+            </div>
+
+            <div class="ph-row">
+                <span class="ph-row-label">Distancia</span>
+                <span class="ph-row-value">12 km</span>
+            </div>
+
+            <div class="ph-sep"></div>
+ <p class="ph-label">Espacios seleccionados</p>
+
+            <div class="ph-categories">
+                <div class="ph-cat is-selected">Dormitorio</div>
+                <div class="ph-cat is-selected">Living</div>
+                <div class="ph-cat is-selected">Cocina</div>
+                <div class="ph-cat">Lavadero</div>
+                <div class="ph-cat">Terraza</div>
+                <div class="ph-cat">Bodega</div>
+            </div>
+            <div class="ph-sep"></div>
+            <div class="ph-row">
+                <span class="ph-row-label">Volumen</span>
+                <span class="ph-row-value">7.5 m³</span>
+            </div>
+
+            <div class="ph-row">
+                <span class="ph-row-label">Viajes</span>
+                <span class="ph-row-value">1</span>
+            </div>
+
+            <div class="ph-row">
+                <span class="ph-row-label">Costo</span>
+                <span class="ph-row-value">$45.000</span>
+            </div>
+
+            <div class="ph-sep"></div>
+
+           
+
+            <div class="ph-btn">
+                Compartir
+            </div>
+
+        </div>
+    </div>
+</div>
                     </div>
                 </div>
 
@@ -512,6 +543,28 @@
                     </div>
 
                     <div class="two-columns-grid mt-60">
+                        
+                        <div class="col-text">
+                           
+                            <div class="highlight-list">
+                                <strong>Por qué Vanilla, no React</strong>
+                                <p>Sin bundle, sin hydration, sin dependencias de npm que explotan con el tiempo. Una PWA hecha con HTML/CSS/JS puro funciona igual en 3 años que hoy. La app que usa un transportista no puede quebrarse por un `npm audit`.</p>
+                            </div> <br>
+                        
+                            <div class="highlight-list">
+                                <strong>IA como par de desarrollo</strong>
+                                <p>FleteApp se construyó con Claude Code como copiloto: la lógica del catálogo de volúmenes, el Service Worker y la Web Share API se desarrollaron en sesiones asistidas. La IA aceleró la ejecución — el criterio de diseño y las decisiones de producto fueron siempre propias.</p>
+                            </div>
+                             <div class="stack-tags" style="margin-bottom: 24px;">
+                                <span class="stack-tag">HTML5</span>
+                                <span class="stack-tag">CSS3</span>
+                                <span class="stack-tag">JavaScript</span>
+                                <span class="stack-tag">PWA</span>
+                                <span class="stack-tag">Service Worker</span>
+                                <span class="stack-tag">localStorage</span>
+                                <span class="stack-tag">Web Share API</span>
+                            </div>
+                        </div>
                         <div class="col-text">
                             <div class="phase-list">
                                 <div class="phase phase--done">
@@ -538,25 +591,6 @@
                             </div>
                         </div>
 
-                        <div class="col-text">
-                            <div class="stack-tags" style="margin-bottom: 24px;">
-                                <span class="stack-tag">HTML5</span>
-                                <span class="stack-tag">CSS3</span>
-                                <span class="stack-tag">JavaScript</span>
-                                <span class="stack-tag">PWA</span>
-                                <span class="stack-tag">Service Worker</span>
-                                <span class="stack-tag">localStorage</span>
-                                <span class="stack-tag">Web Share API</span>
-                            </div>
-                            <div class="highlight-list">
-                                <strong>Por qué Vanilla, no React</strong>
-                                <p>Sin bundle, sin hydration, sin dependencias de npm que explotan con el tiempo. Una PWA hecha con HTML/CSS/JS puro funciona igual en 3 años que hoy. La app que usa un transportista no puede quebrarse por un `npm audit`.</p>
-                            </div>
-                            <div class="highlight-list">
-                                <strong>IA como par de desarrollo</strong>
-                                <p>FleteApp se construyó con Claude Code como copiloto: la lógica del catálogo de volúmenes, el Service Worker y la Web Share API se desarrollaron en sesiones asistidas. La IA aceleró la ejecución — el criterio de diseño y las decisiones de producto fueron siempre propias.</p>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="stat-row mt-60">
