@@ -61,7 +61,6 @@
 /* 3. PROGRESS NAV */
 
 .project-progress-nav {
-    position: -webkit-sticky;
     position: sticky;
     top: var(--nav-h);
     z-index: 99;
@@ -81,6 +80,7 @@
 .chapter-stepper {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 40px;
     padding-top: var(--sp-6);
     padding-bottom: var(--sp-6);
@@ -101,14 +101,72 @@
     white-space: nowrap;
 }
 
-.chapter-step:first-child { justify-content: flex-start; }
-.chapter-step:last-child  { justify-content: flex-end; }
+.chapter-step:first-child {
+    justify-content: flex-start;
+}
+
+.chapter-step:last-child {
+    justify-content: flex-end;
+}
 
 .chapter-step.is-active {
     color: var(--text);
     font-weight: 500;
 }
 
+
+/* ============================================================
+   MOBILE STEPPER
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+    .project-progress-nav {
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .project-progress-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .chapter-stepper {
+        width: max-content;
+        min-width: 100%;
+        justify-content: flex-start;
+        gap: 32px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .chapter-step {
+        flex: 0 0 auto;
+        justify-content: center;
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+    }
+
+    .chapter-step:first-child,
+    .chapter-step:last-child {
+        justify-content: center;
+    }
+}
+
+
+/* ============================================================
+   TABLET TUNING
+   ============================================================ */
+
+@media (min-width: 701px) and (max-width: 900px) {
+
+    .chapter-step {
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+    }
+
+}
 
 /* 4. HERO */
 
@@ -560,7 +618,7 @@ h4.feature-title {
 }
 
 .card-header {
-    display: flex;
+  
     align-items: center;
     gap: 12px;
 }
