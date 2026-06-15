@@ -20,7 +20,7 @@
     flex-direction: column;
     gap: var(--sp-2);
     padding: var(--sp-6);
-    background: var(--c-surface);
+    background: var(--c-frost);
     border: 1px solid var(--c-border-mid);
     border-top: 2px solid var(--c-cyan);
     border-radius: var(--radius);
@@ -81,7 +81,7 @@
     gap: var(--sp-6);
     align-items: start;
     padding: var(--sp-6);
-    background: var(--c-surface);
+    background: var(--c-frost);
     border: 1px solid var(--c-border);
     border-radius: var(--radius);
 }
